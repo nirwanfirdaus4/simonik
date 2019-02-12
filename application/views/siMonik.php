@@ -30,7 +30,7 @@
                     <div class="list-group">
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/1.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/1.jpg" alt="">
                             </div>
 
                             <div class="media-body">
@@ -41,7 +41,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/5.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/5.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Candice Barnes</div>
@@ -51,7 +51,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/3.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/3.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Jeannette Lawson</div>
@@ -61,7 +61,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/4.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/4.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Darla Mckinney</div>
@@ -71,7 +71,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/2.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/2.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Rudolph Perez</div>
@@ -89,7 +89,7 @@
                     <div class="list-group">
                         <a href="#" class="list-group-item media">
                             <div class="pull-right">
-                                <img class="avatar-img" src="demo/img/profile-pics/1.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/1.jpg" alt="">
                             </div>
 
                             <div class="media-body">
@@ -110,7 +110,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-right">
-                                <img class="avatar-img" src="demo/img/profile-pics/4.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/4.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Darla Mckinney</div>
@@ -120,7 +120,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-right">
-                                <img class="avatar-img" src="demo/img/profile-pics/2.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/2.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Rudolph Perez</div>
@@ -432,7 +432,7 @@
                     <div class="list-group">
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/1.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/1.jpg" alt="">
                             </div>
 
                             <div class="media-body">
@@ -443,7 +443,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/5.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/5.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Candice Barnes</div>
@@ -453,7 +453,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/3.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/3.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Jeannette Lawson</div>
@@ -463,7 +463,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/4.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/4.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Darla Mckinney</div>
@@ -473,7 +473,7 @@
 
                         <a href="#" class="list-group-item media">
                             <div class="pull-left">
-                                <img class="avatar-img" src="demo/img/profile-pics/2.jpg" alt="">
+                                <img class="avatar-img" src="assets/demo/img/profile-pics/2.jpg" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="list-group__heading">Rudolph Perez</div>
@@ -572,24 +572,24 @@
 
                     <div class="card__body widget-recent-signups__list">
                         <a href="#"><div class="avatar-char">B</div></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/5.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/5.jpg" alt=""></a>
                         <a href="#"><div class="avatar-char">L</div></a>
                         <a href="#"><div class="avatar-char">A</div></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/4.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/4.jpg" alt=""></a>
                         <a href="#"><div class="avatar-char">Z</div></a>
                         <a href="#"><div class="avatar-char">I</div></a>
                         <a href="#"><div class="avatar-char">S</div></a>
                         <a href="#"><div class="avatar-char">C</div></a>
                         <a href="#"><div class="avatar-char">W</div></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/3.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/3.jpg" alt=""></a>
                         <a href="#"><div class="avatar-char">A</div></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/9.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/9.jpg" alt=""></a>
                         <a href="#"><div class="avatar-char">N</div></a>
                         <a href="#"><div class="avatar-char">X</div></a>
                         <a href="#"><div class="avatar-char">V</div></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/7.jpg" alt=""></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/6.jpg" alt=""></a>
-                        <a href="#"><img class="avatar-img" src="demo/img/profile-pics/8.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/7.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/6.jpg" alt=""></a>
+                        <a href="#"><img class="avatar-img" src="assets/demo/img/profile-pics/8.jpg" alt=""></a>
                         <a href="#"><div class="avatar-char">F</div></a>
                         <a href="#"><div class="avatar-char">E</div></a>
                         <a href="#"><div class="avatar-char">A</div></a>

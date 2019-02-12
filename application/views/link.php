@@ -23,6 +23,6 @@
 
     <!-- Page loader -->
     <script src="assets/js/page-loader.min.js"></script>
-    <script src='../../../google_analytics_auto.js'></script>
+    <script src='assets/google_analytics_auto.js'></script>
 </head>
 
