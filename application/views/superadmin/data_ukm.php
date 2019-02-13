@@ -1,4 +1,4 @@
-<?php $this->load->view('header') ?>
+<?php $this->load->view('bagian/header') ?>
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         <div class="page-header">
@@ -378,4 +378,4 @@
             </div>
           </div>
         </section>
-<?php $this->load->view('footer') ?>
+<?php $this->load->view('bagian/footer') ?>

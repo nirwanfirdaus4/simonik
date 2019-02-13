@@ -20,6 +20,6 @@ class Data_ukm extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('data_ukm');
+		$this->load->view('superadmin/data_ukm');
 	}
 }
