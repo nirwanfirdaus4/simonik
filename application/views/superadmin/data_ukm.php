@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data UKM</strong></div>
-      <button type="button" class="btn btn-primary">Tambah Data</button>
+      <button type="button" class="btn btn_dewe">Tambah Data</button>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
