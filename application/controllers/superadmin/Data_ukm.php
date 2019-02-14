@@ -2,7 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_ukm extends CI_Controller {
-
+public function __construct()//MEMPERSIAPKAN
+		{
+			parent::__construct();
+			$this->load->helper('url','form');
+			$this->load->model('mdl_data_ukm');
+			$this->load->library('form_validation');
+		}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -21,5 +27,10 @@ class Data_ukm extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('superadmin/data_ukm');
+	}
+
+	public function tampilData(){
+		$paket['data']=$this->mdl_data_ukm->ambildata();	
+		$this->load->view('superadmin/data_ukm',$paket);
 	}
 }
