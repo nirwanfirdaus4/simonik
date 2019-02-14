@@ -1,8 +1,9 @@
 .btn_dewe{
-	background-color: blue;
-	
+	background-color: #1e8bc3;	
+	color: #ecf0f1;
+	margin: 0 0 4% 0;
 }
 .btn_dewe:hover{
-	background-color: black;
-
+	background-color: #2980b9;
+	color: #ecf0f1;
 }
