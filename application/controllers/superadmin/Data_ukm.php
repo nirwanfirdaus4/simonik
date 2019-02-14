@@ -30,7 +30,7 @@ public function __construct()//MEMPERSIAPKAN
 	}
 
 	public function tampilData(){
-		$paket['data']=$this->mdl_data_ukm->ambildata();	
+		$paket['array']=$this->mdl_data_ukm->ambildata();	
 		$this->load->view('superadmin/data_ukm',$paket);
 	}
 }
