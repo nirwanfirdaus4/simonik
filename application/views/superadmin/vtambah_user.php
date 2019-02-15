@@ -17,6 +17,7 @@
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Tambah Data User</strong></div>
+
       <div class="block-body">
         <form action="<?php echo base_url('superadmin/Data_user/tambahData') ?> " method="post">
           <div class="form-group">
@@ -31,7 +32,7 @@
             <label class="form-control-label">UKM</label>
 <!--             <input type="text" placeholder="" class="form-control" name="id_ukm" autocomplete="off"> -->
               <select name="id_ukm" id="id_ukm" class="form-control">
-              <option>--Pilih UKM--</option>
+              <option value="zero">--Pilih UKM--</option>
               <?php 
               $pengurus = $this->db->query("SELECT * FROM tb_ukm");
               foreach($pengurus->result() as $row_kat)  { ?>
@@ -46,12 +47,12 @@
           <div class="form-group">
             <label class="form-control-label">Email</label>
             <input type="text" placeholder="Email user" class="form-control" name="email_user" autocomplete="off">
-          </div>
+          </div> 
           <div class="form-group">
             <label class="form-control-label">Tipe User</label>
             <!-- <input type="text" placeholder="" class="form-control" name="id_type_user" autocomplete="off"> -->
               <select name="id_type_user" id="id_type_user" class="form-control">
-                <option>--Pilih Tipe User--</option>
+                <option value="zero">--Pilih Tipe User--</option>
                 <?php 
                 $pengurus = $this->db->query("SELECT * FROM tb_type_user");
                 foreach($pengurus->result() as $row_kat)  { ?>
@@ -63,7 +64,7 @@
             <label class="form-control-label">Periode</label>
 <!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
               <select name="id_periode" id="id_periode" class="form-control">
-                <option>--Pilih Periode--</option>
+                <option value="zero">--Pilih Periode--</option>
                 <?php 
                 $pengurus = $this->db->query("SELECT * FROM tb_periode");
                 foreach($pengurus->result() as $row_kat)  { ?>

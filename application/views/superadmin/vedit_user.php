@@ -31,7 +31,7 @@
           <div class="form-group">
             <label class="form-control-label">UKM</label>
             <select name="id_ukm" id="id_ukm" class="form-control" required="required">
-              <option>--Pilih UKM--</option>
+              <option value="zero">--Pilih UKM--</option>
               <?php 
               $pengurus = $this->db->query("SELECT * FROM tb_ukm");
               foreach($pengurus->result() as $row_kat)  { ?>
@@ -50,7 +50,7 @@
           <div class="form-group">
             <label class="form-control-label">Tiper user</label>
             <select name="id_type_user" id="id_type_user" class="form-control">
-                <option>--Pilih Tipe User--</option>
+                <option value="zero">--Pilih Tipe User--</option>
                 <?php 
                 $pengurus = $this->db->query("SELECT * FROM tb_type_user");
                 foreach($pengurus->result() as $row_kat)  { ?>
@@ -61,7 +61,7 @@
           <div class="form-group">
             <label class="form-control-label">Periode</label>
             <select name="id_periode" id="id_periode" class="form-control">
-                <option>--Pilih Periode--</option>
+                <option value="zero">--Pilih Periode--</option>
                 <?php 
                 $pengurus = $this->db->query("SELECT * FROM tb_periode");
                 foreach($pengurus->result() as $row_kat)  { ?>

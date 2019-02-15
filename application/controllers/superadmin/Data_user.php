@@ -18,8 +18,20 @@ class Data_user extends CI_Controller {
 
 	public function tambahData(){
 		$this->form_validation->set_rules('nama_user','Nama user','trim|required');
-		if ($this->form_validation->run()==FALSE) {
-			$this->load->view('superadmin/vtambah_user');
+		$this->form_validation->set_rules('nim','Nim','trim|required');
+		$this->form_validation->set_rules('id_ukm','ID UKM','trim|required');
+		$this->form_validation->set_rules('no_telp_user','Telp user','trim|required');
+		$this->form_validation->set_rules('email_user','Email user','trim|required');
+		$this->form_validation->set_rules('id_type_user','Tipe user','trim|required');
+		$this->form_validation->set_rules('id_periode','ID Periode','trim|required');
+
+		$value['id_ukm']=$this->input->post('id_ukm');
+		$value['id_periode']=$this->input->post('id_periode');
+		$value['id_type_user']=$this->input->post('id_type_user');
+
+		if ($this->form_validation->run()==FALSE || $value['id_type_user']=='zero' || $value['id_ukm']=='zero' ||$value['id_periode']=='zero') {
+			$data['msg_error']="Silahkan isi semua kolom";
+			$this->load->view('superadmin/vtambah_user',$data);
 		}
 		else{
 			$send['id_user']='';
@@ -34,6 +46,7 @@ class Data_user extends CI_Controller {
 
 			$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
 			$kembalian['array']=$this->mdl_data_user->ambildata();
+						
 			$this->load->view('superadmin/data_user',$kembalian);
 			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
 			redirect('superadmin/Data_user/');
@@ -47,16 +60,19 @@ class Data_user extends CI_Controller {
 	}
 
 	public function edit($id_update){
-		$this->form_validation->set_rules('id_user','ID User','trim|required');
-		$this->form_validation->set_rules('nama_user','Nama User','trim|required');
-		$this->form_validation->set_rules('nim','NIM','trim|required');
-		$this->form_validation->set_rules('id_ukm','UKM','trim|required');
-		$this->form_validation->set_rules('no_telp_user','Telp User','trim|required');
-		$this->form_validation->set_rules('email_user','Email User','trim|required');
-		$this->form_validation->set_rules('id_type_user','Tipe User','trim|required');
-		$this->form_validation->set_rules('id_periode','Periode','trim|required');
+		$this->form_validation->set_rules('nama_user','Nama user','trim|required');
+		$this->form_validation->set_rules('nim','Nim','trim|required');
+		$this->form_validation->set_rules('id_ukm','ID UKM','trim|required');
+		$this->form_validation->set_rules('no_telp_user','Telp user','trim|required');
+		$this->form_validation->set_rules('email_user','Email user','trim|required');
+		$this->form_validation->set_rules('id_type_user','Tipe user','trim|required');
+		$this->form_validation->set_rules('id_periode','ID Periode','trim|required');
 		
-		if($this->form_validation->run()==FALSE){
+		$value['id_ukm']=$this->input->post('id_ukm');
+		$value['id_periode']=$this->input->post('id_periode');
+		$value['id_type_user']=$this->input->post('id_type_user');
+
+		if($this->form_validation->run()==FALSE || $value['id_ukm']=='zero' || $value['id_type_user']=='zero' || $value['id_periode']=='zero'){
 			$indexrow['data']=$this->mdl_data_user->ambildata2($id_update);
 			$this->load->view('superadmin/vedit_user', $indexrow);
 		}
