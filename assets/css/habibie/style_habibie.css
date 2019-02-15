@@ -1,0 +1,9 @@
+.btn_dewe{
+	background-color: #4398DB;
+	color: #ffff;
+	margin-bottom: 15px;
+}
+.btn_dewe:hover{
+	background-color: #2980B9;
+	color: #ffff;
+}
