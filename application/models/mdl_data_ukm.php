@@ -15,17 +15,17 @@ class mdl_data_ukm extends CI_Model {
 				return $query->result_array();
 		}
 
-	// public function ambildata2($id_update)
-	// 	{
-	// 			$query=$this->db->query("SELECT * FROM v_siswa where id_siswa = $id_update");
-	// 			return $query->result_array();
-	// 	}
+	public function ambildata2($id_update)
+		{
+				$query=$this->db->query("SELECT * FROM tb_ukm where id_ukm = $id_update");
+				return $query->result_array();
+		}
 
-	// public function tambahdata($paket)
-	// 	{
-	// 		$this->db->insert('siswa', $paket);
-	// 		return $this->db->affected_rows();
-	// 	}
+	public function tambahdata($paket)
+		{
+			$this->db->insert('tb_ukm', $paket);
+			return $this->db->affected_rows();
+		}
 
 	// public function tambahdata2($paket)
 	// 	{
@@ -33,18 +33,13 @@ class mdl_data_ukm extends CI_Model {
 	// 		return $this->db->insert_id();
 	// 	}	
 
+	public function delete_data($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 
-	// public function deletedata($table, $where){
-	// 	$this->db->delete($table, $where);
-	// 	return true;
-
-	// }
-
-	public function modelupdate($table, $data, $where){
-		  if($this->db->update($table, $data, $where)) {
-            return true;
-        } else {
-            return false;
-        }        
+	public function modelupdate($send){
+		$sql="UPDATE tb_ukm SET nama_ukm = ? WHERE id_ukm = ?";
+		$query=$this->db->query($sql, array( $send['nama_ukm'], $send['id_ukm']));
 	}
 }

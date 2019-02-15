@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data UKM</strong></div>
-      <button type="button" class="btn btn_dewe">Tambah Data</button>
+      <a href="<?php echo base_url('superadmin/Data_ukm/tambahData/') ?> "><button type="button" class="btn btn_dewe">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
@@ -36,15 +36,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $key['nama_ukm'] ?></td>
-                <td><a href="#" title="Hapus Data"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-             <a href="#" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a></td></td>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-      </div>  
-    </div>
-  </div>
-</div>
+                <td><a href="<?php echo base_url('superadmin/Data_ukm/do_delete/' . $key['id_ukm']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                  <a href="<?php echo base_url('superadmin/Data_ukm/edit/' . $key['id_ukm']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a></td></td>
+               </tr>
+             <?php } ?>
+           </tbody>
+         </table>
+       </div>  
+     </div>
+   </div>
+ </div>
 
-<?php $this->load->view('bagian/footer') ?>
+ <?php $this->load->view('bagian/footer') ?>
