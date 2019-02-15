@@ -66,6 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?php echo base_url('index.php/') ?>"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="<?php echo base_url('index.php/superadmin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data UKM </a></li>
                 <li><a href="<?php echo base_url('index.php/superadmin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Periode </a></li>
+                <li><a href="<?php echo base_url('index.php/superadmin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data User </a></li>
                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">

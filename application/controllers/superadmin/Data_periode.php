@@ -35,6 +35,7 @@ class Data_periode extends CI_Controller {
 
 	public function do_delete($id){
 		$where = array('id_periode' => $id);
+		$this->mdl_data_periode->delete_data($where,'tb_user');
 		$this->mdl_data_periode->delete_data($where,'tb_periode');
 		redirect('superadmin/Data_periode/');
 	}

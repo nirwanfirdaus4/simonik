@@ -35,6 +35,7 @@ class Data_ukm extends CI_Controller {
 
 	public function do_delete($id){
 		$where = array('id_ukm' => $id);
+		$this->mdl_data_ukm->delete_data($where,'tb_user');
 		$this->mdl_data_ukm->delete_data($where,'tb_ukm');
 		redirect('superadmin/Data_ukm/');
 	}

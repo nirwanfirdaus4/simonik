@@ -31,17 +31,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tr> 
           </thead>
           <tbody>
-            <?php $no=1; ?>
+            <?php $no=1; $modal=0; ?>
             <?php foreach ($array as $key) { ?>
+
+              <!-- MODAL -->
+               <div class="modal fade" id="myModal<?php echo $modal ?>" role="dialog">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Semua data yang berkaitan dengan Periode ini akan dihapus<br>Yakin ingin menghapus data?</p>
+                        <a href="<?php echo base_url('superadmin/Data_periode/do_delete/' . $key['id_periode']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger">Hapus <i class="fa fa-trash"></i></button></a>
+                      </div>
+                      <div class="modal-footer">
+
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $key['th_periode'] ?></td>
                 <td>
                   <a href="<?php echo base_url('superadmin/Data_periode/edit/' . $key['id_periode']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
-                  <a href="<?php echo base_url('superadmin/Data_periode/do_delete/' . $key['id_periode']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                  <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                   </td>
                </tr>
-             <?php } ?>
+             <?php $modal++; } ?>
            </tbody>
          </table>
        </div>  

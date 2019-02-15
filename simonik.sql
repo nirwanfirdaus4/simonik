@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2019 at 01:54 AM
+-- Generation Time: Feb 15, 2019 at 07:33 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -114,8 +114,9 @@ CREATE TABLE `tb_periode` (
 --
 
 INSERT INTO `tb_periode` (`id_periode`, `th_periode`) VALUES
-(1, '2019/2020'),
-(2, '2020/2021');
+(9, '2017/2018'),
+(10, '2018/2019'),
+(11, '2019/2020');
 
 -- --------------------------------------------------------
 
@@ -164,8 +165,11 @@ CREATE TABLE `tb_ukm` (
 --
 
 INSERT INTO `tb_ukm` (`id_ukm`, `nama_ukm`) VALUES
-(1, 'DPM'),
-(2, 'BEM');
+(3, 'BEM'),
+(30, 'DPM'),
+(31, 'RISPOL'),
+(32, 'USMA'),
+(33, 'KOMPEN');
 
 -- --------------------------------------------------------
 
@@ -176,9 +180,10 @@ INSERT INTO `tb_ukm` (`id_ukm`, `nama_ukm`) VALUES
 CREATE TABLE `tb_user` (
   `id_user` int(5) NOT NULL,
   `nama_user` varchar(70) NOT NULL,
+  `nim` varchar(15) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `no_tlp_user` varchar(15) NOT NULL,
+  `no_telp_user` varchar(15) NOT NULL,
   `email_user` varchar(100) NOT NULL,
   `id_type_user` int(5) NOT NULL,
   `id_periode` int(5) NOT NULL,
@@ -189,8 +194,10 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `no_tlp_user`, `email_user`, `id_type_user`, `id_periode`, `id_ukm`) VALUES
-(1, 'Erlangga Wisnu', 'super', 'super', '0887232331', 'erlangga4@gmail.com', 1, 1, 2);
+INSERT INTO `tb_user` (`id_user`, `nama_user`, `nim`, `username`, `password`, `no_telp_user`, `email_user`, `id_type_user`, `id_periode`, `id_ukm`) VALUES
+(12, 'Erlangga Panji Wibawa', '1731273382', '', '', '088976543234', 'erlangga7@gmail.com', 1, 11, 3),
+(13, 'Abdulloh Habibie', '1631710011', '', '', '088376743239', 'habibie4@gmail.com', 2, 10, 31),
+(14, 'Gatot Kaca Pecah', '1631710923', '', '', '088176543232', 'gatotkaca@gmail.com', 2, 10, 32);
 
 --
 -- Indexes for dumped tables
@@ -294,7 +301,7 @@ ALTER TABLE `tb_panitia_proker`
 -- AUTO_INCREMENT for table `tb_periode`
 --
 ALTER TABLE `tb_periode`
-  MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_sie`
@@ -312,13 +319,13 @@ ALTER TABLE `tb_type_user`
 -- AUTO_INCREMENT for table `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
-  MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -23,8 +23,9 @@
             <label class="form-control-label">Tahun Periode</label>
             <input type="text" placeholder="Masukkan Tahun Periode" class="form-control" name="th_periode" autocomplete="off">
           </div>
-          <div class="form-group">       
-            <input type="submit" value="Simpan" class="btn btn-primary">
+          <div class="form-group space_help_button">       
+            <input type="submit" value="Simpan" class="btn btn_dewe_color">
+            <a href="<?php echo base_url('superadmin/Data_periode') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>

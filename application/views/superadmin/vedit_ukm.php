@@ -24,8 +24,9 @@
             <label class="form-control-label">Nama UKM</label>
             <input type="text" placeholder="Masukkan Nama UKM" class="form-control" name="nama_ukm" autocomplete="off" value="<?php echo $data[0]['nama_ukm'] ?>">
           </div>
-          <div class="form-group">       
-            <input type="submit" value="Ubah Data" class="btn btn-primary">
+          <div class="form-group space_help_button">       
+            <input type="submit" value="Simpan" class="btn btn_dewe_color">
+            <a href="<?php echo base_url('superadmin/Data_ukm') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
