@@ -16,7 +16,7 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Periode</strong></div>
+      <div class="title"><strong>Ubah Data Periode</strong></div>
       <div class="block-body">
         <form action="<?php echo base_url('superadmin/Data_periode/edit/'.$data[0]['id_periode']) ?> " method="post">
           <input type="hidden" name="id_periode" value="<?php echo $data[0]['id_periode']; ?>">

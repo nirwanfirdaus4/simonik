@@ -16,7 +16,7 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data UKM</strong></div>
+      <div class="title"><strong>Ubah Data UKM</strong></div>
       <div class="block-body">
         <form action="<?php echo base_url('superadmin/Data_ukm/edit/'.$data[0]['id_ukm']) ?> " method="post">
           <input type="hidden" name="id_ukm" value="<?php echo $data[0]['id_ukm']; ?>">

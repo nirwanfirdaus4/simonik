@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama User</th>
+              <th>Nama</th>
               <th>NIM</th>
               <th>UKM</th>
               <th>Kontak</th>
