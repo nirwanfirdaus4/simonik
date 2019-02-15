@@ -36,8 +36,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $key['nama_ukm'] ?></td>
-                <td><a href="<?php echo base_url('superadmin/Data_ukm/do_delete/' . $key['id_ukm']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-                  <a href="<?php echo base_url('superadmin/Data_ukm/edit/' . $key['id_ukm']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a></td></td>
+                <td>
+                  <a href="<?php echo base_url('superadmin/Data_ukm/edit/' . $key['id_ukm']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                  <a href="<?php echo base_url('superadmin/Data_ukm/do_delete/' . $key['id_ukm']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                  </td>
                </tr>
              <?php } ?>
            </tbody>
