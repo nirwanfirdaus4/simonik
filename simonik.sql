@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2019 at 07:33 PM
+-- Generation Time: Feb 16, 2019 at 03:14 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -45,6 +45,7 @@ CREATE TABLE `tb_daftar_proker` (
 CREATE TABLE `tb_evaluasi` (
   `id_evaluasi` int(5) NOT NULL,
   `id_ukm` int(5) NOT NULL,
+  `id_periode` int(5) NOT NULL,
   `id_proker` int(5) NOT NULL,
   `id_sie` int(5) NOT NULL,
   `hasil_evaluasi` longtext NOT NULL
@@ -94,6 +95,7 @@ CREATE TABLE `tb_panitia_proker` (
   `id_panitia` int(5) NOT NULL,
   `id_proker` int(5) NOT NULL,
   `id_ukm` int(5) NOT NULL,
+  `id_periode` int(5) NOT NULL,
   `id_user` int(5) NOT NULL,
   `id_sie` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -195,8 +197,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `nim`, `username`, `password`, `no_telp_user`, `email_user`, `id_type_user`, `id_periode`, `id_ukm`) VALUES
-(12, 'Erlangga Panji Wibawa', '1731273382', '', '', '088976543234', 'erlangga7@gmail.com', 1, 11, 3),
-(13, 'Abdulloh Habibie', '1631710011', '', '', '088376743239', 'habibie4@gmail.com', 2, 10, 31),
+(12, 'Erlangga Panji Wibawa', '1731273382', 'super', 'super', '088976543234', 'erlangga7@gmail.com', 1, 11, 3),
+(13, 'Abdulloh Habibie', '1631710011', 'admin', 'admin', '088376743239', 'habibie4@gmail.com', 2, 10, 31),
 (14, 'Gatot Kaca Pecah', '1631710923', '', '', '088176543232', 'gatotkaca@gmail.com', 2, 10, 32);
 
 --
