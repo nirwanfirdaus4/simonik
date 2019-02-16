@@ -58,7 +58,7 @@
                 <select name="id_type_user" id="id_type_user" class="form-control">
                   <option value="zero">--Pilih Tipe User--</option>
                   <?php 
-                  $pengurus = $this->db->query("SELECT * FROM tb_type_user");
+                  $pengurus = $this->db->query("SELECT * FROM tb_type_user where id_type_user!=1");
                   foreach($pengurus->result() as $row_kat)  { ?>
                     <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
                   <?php } ?>
