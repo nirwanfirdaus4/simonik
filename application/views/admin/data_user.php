@@ -97,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <?php
                     $hasil=$row_utype2->id_type_user;
                     } }
-                    if ($hasil==1) { 
+                    if ($hasil==2) { 
                   ?>
                   <a href="<?php echo base_url('admin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <?php                  

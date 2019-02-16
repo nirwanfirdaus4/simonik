@@ -47,17 +47,27 @@
             <label class="form-control-label">Email</label>
             <input type="text" placeholder="" class="form-control" name="email_user" autocomplete="off" value="<?php echo $data[0]['email_user'] ?>">
           </div>
-          <div class="form-group">
-            <label class="form-control-label">Tiper user</label>
-            <select name="id_type_user" id="id_type_user" class="form-control">
-                <option value="zero">--Pilih Tipe User--</option>
-                <?php 
-                $pengurus = $this->db->query("SELECT * FROM tb_type_user");
-                foreach($pengurus->result() as $row_kat)  { ?>
-                  <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
-                <?php } ?>
-              </select>
-          </div>
+
+          <?php 
+            $utype=$data[0]['id_type_user'];
+            if ($utype==1) {  ?>
+              <input type="hidden" class="form-control" name="id_type_user" value="<?php echo $data[0]['id_type_user'] ?>">
+            <?php } else{ ?>
+              <div class="form-group">
+              <label class="form-control-label">Tiper user</label>
+                <select name="id_type_user" id="id_type_user" class="form-control">
+                  <option value="zero">--Pilih Tipe User--</option>
+                  <?php 
+                  $pengurus = $this->db->query("SELECT * FROM tb_type_user");
+                  foreach($pengurus->result() as $row_kat)  { ?>
+                    <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            <?php }
+
+          ?>
+
           <div class="form-group">
             <label class="form-control-label">Periode</label>
             <select name="id_periode" id="id_periode" class="form-control">
