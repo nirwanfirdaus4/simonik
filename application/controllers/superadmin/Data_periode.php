@@ -9,6 +9,9 @@ class Data_periode extends CI_Controller {
 		$this->load->model('mdl_data_periode');
 		$this->load->library('form_validation');
 		$this->load->database();
+		if($this->session->userdata('masuk') == FALSE){
+			redirect('Admin_login','refresh');
+		}
 	}
 
 	public function index(){
