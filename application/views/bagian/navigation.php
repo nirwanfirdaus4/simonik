@@ -5,7 +5,8 @@
               <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                  <h1 class="h5">Erlangga</h1>
+                  <?php $nama=$this->session->userdata('ses_nama');?>
+                  <h1 class="h5"><?php echo $nama; ?></h1>
                   <p>Web Designer</p>
                 </div>
               </div>
@@ -38,14 +39,15 @@
               <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                  <h1 class="h5">Abdulloh Habibie</h1>
+                  <?php $nama=$this->session->userdata('ses_nama');?>                              
+                  <h1 class="h5"><?php echo $nama; ?></h1>
                   <p>Web Designer</p>
                 </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('index.php/admin/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
-                <li><a href="<?php echo base_url('index.php/admin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
+                <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
                 <li><a href="<?php echo base_url('index.php/admin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
                 <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>

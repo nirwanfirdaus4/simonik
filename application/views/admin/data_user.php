@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data User</strong></div>
-      <a href="<?php echo base_url('superadmin/Data_user/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
+      <a href="<?php echo base_url('admin/Data_user/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="modal-body">
                       <p>Ingin hapus data?</p>
-                      <a href="<?php echo base_url('superadmin/Data_user/do_delete/' . $key['id_user']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger">Hapus <i class="fa fa-trash"></i></button></a>
+                      <a href="<?php echo base_url('admin/Data_user/do_delete/' . $key['id_user']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger">Hapus <i class="fa fa-trash"></i></button></a>
                     </div>
                     <div class="modal-footer">
 
@@ -99,11 +99,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     } }
                     if ($hasil==1) { 
                   ?>
-                  <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                  <a href="<?php echo base_url('admin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <?php                  
                     }else{
                   ?>
-                  <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                  <a href="<?php echo base_url('admin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                 <?php $modal++; }?>
 
