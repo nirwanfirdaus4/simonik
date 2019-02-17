@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2019 at 02:17 PM
+-- Generation Time: Feb 17, 2019 at 02:23 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -25,6 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_bidang`
+--
+
+CREATE TABLE `tb_bidang` (
+  `id_bidang` int(5) NOT NULL,
+  `id_ukm` int(5) NOT NULL,
+  `id_periode` int(5) NOT NULL,
+  `nama_bidang` varchar(50) NOT NULL,
+  `ketua_bidang` int(5) NOT NULL,
+  `sekretaris_bidang` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_daftar_proker`
 --
 
@@ -33,7 +48,8 @@ CREATE TABLE `tb_daftar_proker` (
   `nama_proker` varchar(50) NOT NULL,
   `ketua_proker` int(5) NOT NULL,
   `tanggal_proker` date NOT NULL,
-  `id_ukm` int(5) NOT NULL
+  `id_ukm` int(5) NOT NULL,
+  `id_bidang` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -219,6 +235,12 @@ INSERT INTO `tb_user` (`id_user`, `nama_user`, `nim`, `username`, `password`, `n
 --
 
 --
+-- Indexes for table `tb_bidang`
+--
+ALTER TABLE `tb_bidang`
+  ADD PRIMARY KEY (`id_bidang`);
+
+--
 -- Indexes for table `tb_daftar_proker`
 --
 ALTER TABLE `tb_daftar_proker`
@@ -281,6 +303,12 @@ ALTER TABLE `tb_user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_bidang`
+--
+ALTER TABLE `tb_bidang`
+  MODIFY `id_bidang` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_daftar_proker`
