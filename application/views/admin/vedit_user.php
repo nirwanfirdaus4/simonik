@@ -58,17 +58,9 @@
             <?php }
 
           ?>
-          <div class="form-group">
-            <label class="form-control-label">Periode</label>
-            <select name="id_periode" id="id_periode" class="form-control">
-                <option value="zero">--Pilih Periode--</option>
-                <?php 
-                $pengurus = $this->db->query("SELECT * FROM tb_periode");
-                foreach($pengurus->result() as $row_kat)  { ?>
-                  <option value="<?php echo $row_kat->id_periode?>"><?php echo $row_kat->th_periode; ?></option>
-                <?php } ?>
-              </select>
-          </div>
+          <?php $periode_id=$this->session->userdata('ses_periode');?>          
+          <input type="hidden" placeholder="" value="<?php echo $periode_id ?>" class="form-control" name="id_periode" autocomplete="off">
+
           <div class="form-group space_help_button">       
             <input type="submit" value="Ubah Data" class="btn btn-success space_help">
             <a href="<?php echo base_url('admin/Data_user') ?>"><button type="button" class="btn btn-primary">Batal</button></a>

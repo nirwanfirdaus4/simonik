@@ -50,9 +50,11 @@
                 <?php } ?>
               </select>
           </div>
-          <div class="form-group">
+            <?php $periode_id=$this->session->userdata('ses_periode');?>          
+          <input type="hidden" placeholder="" value="<?php echo $periode_id ?>" class="form-control" name="id_periode" autocomplete="off">
+<!--           <div class="form-group">
             <label class="form-control-label">Periode</label>
-<!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
+
               <select name="id_periode" id="id_periode" class="form-control">
                 <option value="zero">--Pilih Periode--</option>
                 <?php 
@@ -62,7 +64,7 @@
                 <?php } ?>
               </select>
 
-          </div>
+          </div> -->
 
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
