@@ -37,7 +37,7 @@
               $ukm=$this->session->userdata('ses_ukm');
               $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm");
               foreach($ketua->result() as $row_kat)  { ?>
-                <option value="<?php echo $row_kat->id_user?>"><?php echo $row_kat->nama_user; ?></option>
+                <option value="<?php echo $row_kat->id_user?>" <?php echo ($row_kat->id_user == $data[0]['ketua_bidang'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
             </select>
           </div>
@@ -49,7 +49,7 @@
               $ukm=$this->session->userdata('ses_ukm');
               $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm");
               foreach($ketua->result() as $row_kat)  { ?>
-                <option value="<?php echo $row_kat->id_user?>"><?php echo $row_kat->nama_user; ?></option>
+                <option value="<?php echo $row_kat->id_user?>"<?php echo ($row_kat->id_user == $data[0]['sekretaris_bidang'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
             </select>
           </div>
