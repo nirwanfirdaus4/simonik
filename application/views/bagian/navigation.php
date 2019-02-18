@@ -79,10 +79,9 @@
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
-                <li><a href="<?php echo base_url('index.php/admin/Welcome') ?>"> <i class="icon-home"></i>Bph </a></li>
-                <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
-                <li><a href="<?php echo base_url('index.php/admin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
-                <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+                <li><a href="<?php echo base_url('index.php/bph/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="<?php echo base_url('index.php/bph/Data_proker/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
+                <li><a href="<?php echo base_url('index.php/bph/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
