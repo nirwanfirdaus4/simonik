@@ -44,7 +44,7 @@
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('admin/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
-                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Bidang </a></li>
+                <li><a href="<?php echo base_url('admin/Data_bidang/') ?>"> <i class="icon-grid"></i>Data Bidang </a></li>
                 <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
                 <li><a href="<?php echo base_url('admin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
                 <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
