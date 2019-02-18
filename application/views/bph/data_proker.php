@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div style="background-color: #ecf0f1;">
             <div class="box_space2">
               <p class="box_content_place">
-                 <p class="">&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Desa Purworejo</p>
+                <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Desa Purworejo</p>
                 <p><span class="fa fa-calendar" style="font-size:19px"> 20 Juni 2018</p>
               </p>
             </div><hr class="hr">   

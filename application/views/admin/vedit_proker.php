@@ -39,7 +39,7 @@
           </div>
           <div class="form-group">
             <label class="form-control-label">Tanggal Proker</label>
-            <input type="date" name="tgl_proker" placeholder="Tanggal Acara" autocomplete="off" class="form-control">
+            <input type="date" name="tgl_proker" placeholder="Tanggal Acara" value="<?php echo $data[0]['tanggal_proker'] ?>" autocomplete="off" class="form-control">
           </div>
            <?php $ukm=$this->session->userdata('ses_ukm');?>
           <input type="hidden" value="<?php echo $ukm; ?>" class="form-control" name="id_ukm" autocomplete="off">          
@@ -58,7 +58,7 @@
 
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('admin/Data_bidang') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('admin/Data_proker') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
