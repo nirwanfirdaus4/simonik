@@ -14,10 +14,20 @@ class mdl_data_user extends CI_Model {
 				$query=$this->db->query("SELECT * FROM tb_user");
 				return $query->result_array();
 		}
+	public function ambildata_detail($ukm)
+		{
+				$query=$this->db->query("SELECT * FROM tb_user where id_ukm=$ukm");
+				return $query->result_array();
+		}
 
 	public function ambildata2($id_update)
 		{
 				$query=$this->db->query("SELECT * FROM tb_user where id_user = $id_update");
+				return $query->result_array();
+		}
+	public function ambilDataUkm()
+		{
+				$query=$this->db->query("SELECT * FROM tb_ukm");
 				return $query->result_array();
 		}
 

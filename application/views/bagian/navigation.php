@@ -15,22 +15,19 @@
                 <li><a href="<?php echo base_url('Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="<?php echo base_url('superadmin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data UKM </a></li>
                 <li><a href="<?php echo base_url('superadmin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Periode </a></li>
-                <li><a href="<?php echo base_url('superadmin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data User </a></li>
-<!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
+                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data User </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
+                    <?php
+                    $query=$this->db->query("SELECT * FROM tb_ukm");;
+                    foreach($query->result() as $row_ukm)  { 
+                        $ukm_id=$row_ukm->id_ukm;
+                      ?>                    
+                        <li><a href="<?php echo base_url('superadmin/Data_user/detail/' . $ukm_id) ?>"><?php echo $row_ukm->nama_ukm; ?></a></li>
+                    <?php
+                    } ?> 
                   </ul>
                 </li>
-                <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
-              </ul><span class="heading">Extras</span>
-              <ul class="list-unstyled">
-                <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
-              </ul> -->
+
             </nav>
 
             <?php  }elseif ($this->session->userdata('ses_id_type_user') == 2) { ?>
