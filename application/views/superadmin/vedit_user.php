@@ -35,7 +35,7 @@
               <?php 
               $pengurus = $this->db->query("SELECT * FROM tb_ukm");
               foreach($pengurus->result() as $row_kat)  { ?>
-                <option value="<?php echo $row_kat->id_ukm?>"><?php echo $row_kat->nama_ukm; ?></option>
+                <option value="<?php echo $row_kat->id_ukm?>"<?php echo ($row_kat->id_ukm == $data[0]['id_ukm'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_ukm; ?></option>
               <?php } ?>
               </select>
           </div>
@@ -60,7 +60,7 @@
                   <?php 
                   $pengurus = $this->db->query("SELECT * FROM tb_type_user where id_type_user!=1");
                   foreach($pengurus->result() as $row_kat)  { ?>
-                    <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
+                    <option value="<?php echo $row_kat->id_type_user?>"<?php echo ($row_kat->id_type_user == $data[0]['id_type_user'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_type_user; ?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -75,7 +75,7 @@
                 <?php 
                 $pengurus = $this->db->query("SELECT * FROM tb_periode");
                 foreach($pengurus->result() as $row_kat)  { ?>
-                  <option value="<?php echo $row_kat->id_periode?>"><?php echo $row_kat->th_periode; ?></option>
+                  <option value="<?php echo $row_kat->id_periode?>"<?php echo ($row_kat->id_periode == $data[0]['id_periode'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->th_periode; ?></option>
                 <?php } ?>
               </select>
           </div>
