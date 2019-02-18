@@ -45,12 +45,7 @@ class Data_user extends CI_Controller {
 			$send['email_user']=$this->input->post('email_user');
 			$send['id_type_user']=$this->input->post('id_type_user');
 			$send['id_periode']=$this->input->post('id_periode');
-			if ($send['id_type_user'] != 7) {
-				$send['username']=$this->input->post('nim');
-				$send['password']=$this->input->post('nim');			
-			}else{
 
-			}
 
 			$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
 			$kembalian['array']=$this->mdl_data_user->ambildata();
@@ -93,13 +88,8 @@ class Data_user extends CI_Controller {
 			$send['email_user']=$this->input->post('email_user');
 			$send['id_type_user']=$this->input->post('id_type_user');
 			$send['id_periode']=$this->input->post('id_periode');
-			if ($send['id_type_user'] != 7) {
-				$send['username']=$this->input->post('nim');	
-			}else{
 
-			}				
-
-			$kembalian['jumlah']=$this->mdl_data_user->modelupdate($send); 
+			$kembalian['jumlah']=$this->mdl_data_user->modelupdate($send);
 			$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
 			redirect('superadmin/Data_user');
 		}

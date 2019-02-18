@@ -12,10 +12,10 @@
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
-                <li><a href="<?php echo base_url('index.php/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
-                <li><a href="<?php echo base_url('index.php/superadmin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data UKM </a></li>
-                <li><a href="<?php echo base_url('index.php/superadmin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Periode </a></li>
-                <li><a href="<?php echo base_url('index.php/superadmin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data User </a></li>
+                <li><a href="<?php echo base_url('Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="<?php echo base_url('superadmin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data UKM </a></li>
+                <li><a href="<?php echo base_url('superadmin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Periode </a></li>
+                <li><a href="<?php echo base_url('superadmin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data User </a></li>
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -46,6 +46,12 @@
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
+<<<<<<< HEAD
+                <li><a href="<?php echo base_url('admin/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
+                <li><a href="<?php echo base_url('admin/Data_proker/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
+                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+=======
                 <li><a href="<?php echo base_url('index.php/admin/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
                 <li><a href="<?php echo base_url('index.php/admin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
@@ -148,6 +154,7 @@
                 <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
                 <li><a href="<?php echo base_url('index.php/admin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
                 <li><a href="<?php echo base_url('index.php/admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+>>>>>>> 2fdbd6bdbcd9bf0b0e652d5a05b96d0b42afdffb
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
