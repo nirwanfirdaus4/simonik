@@ -38,6 +38,7 @@ class Admin_login extends CI_Controller {
 			$this->session->set_userdata('masuk',TRUE);
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);				
 			$this->session->set_userdata('ses_nama',$data['nama_user']);				
+			$this->session->set_userdata('ses_periode',$data['id_periode']);				
 			// $this->session->set_userdata('ses_nama_utype',$nama_utype);				
 			redirect(base_url("Welcome"));
 
@@ -47,7 +48,8 @@ class Admin_login extends CI_Controller {
 			$this->session->set_userdata('masuk',TRUE);
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);			
 			$this->session->set_userdata('ses_ukm',$data['id_ukm']);			
-			$this->session->set_userdata('ses_nama',$data['nama_user']);	
+			$this->session->set_userdata('ses_nama',$data['nama_user']);
+			$this->session->set_userdata('ses_periode',$data['id_periode']);				
 			redirect(base_url("admin/Welcome"));
 		}elseif ($cek_bph->num_rows() > 0) {
 			$data=$cek_bph->row_array();
@@ -56,6 +58,7 @@ class Admin_login extends CI_Controller {
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);			
 			$this->session->set_userdata('ses_ukm',$data['id_ukm']);			
 			$this->session->set_userdata('ses_nama',$data['nama_user']);	
+			$this->session->set_userdata('ses_periode',$data['id_periode']);
 			redirect(base_url("bph/Welcome"));
 		}elseif ($cek_divisi->num_rows() > 0) {
 			$data=$cek_divisi->row_array();
@@ -63,7 +66,8 @@ class Admin_login extends CI_Controller {
 			$this->session->set_userdata('masuk',TRUE);
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);			
 			$this->session->set_userdata('ses_ukm',$data['id_ukm']);			
-			$this->session->set_userdata('ses_nama',$data['nama_user']);								
+			$this->session->set_userdata('ses_nama',$data['nama_user']);
+			$this->session->set_userdata('ses_periode',$data['id_periode']);								
 			redirect(base_url("divisi/Welcome"));
 		}elseif ($cek_anggota->num_rows() > 0) {
 			$data=$cek_anggota->row_array();
@@ -71,7 +75,8 @@ class Admin_login extends CI_Controller {
 			$this->session->set_userdata('masuk',TRUE);
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);			
 			$this->session->set_userdata('ses_ukm',$data['id_ukm']);			
-			$this->session->set_userdata('ses_nama',$data['nama_user']);								
+			$this->session->set_userdata('ses_nama',$data['nama_user']);	
+			$this->session->set_userdata('ses_periode',$data['id_periode']);							
 			redirect(base_url("anggota/Welcome"));
 		}
 
