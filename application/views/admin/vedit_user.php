@@ -51,7 +51,7 @@
                   <?php 
                   $pengurus = $this->db->query("SELECT * FROM tb_type_user where id_type_user>2");
                   foreach($pengurus->result() as $row_kat)  { ?>
-                    <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
+                    <option value="<?php echo $row_kat->id_type_user?>"<?php echo ($row_kat->id_type_user == $data[0]['id_type_user'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_type_user; ?></option>
                   <?php } ?>
                 </select>
               </div>

@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Custom stylesheet - for your changes-->
   <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/css/habibie/style_habibie.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/nirwan/style.css') ?>">
   <!-- Favicon-->
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon.ico') ?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">

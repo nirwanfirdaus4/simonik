@@ -16,7 +16,7 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Bidang</strong></div>
+      <div class="title"><strong>Ubah Data Bidang</strong></div>
 
       <div class="block-body">
         <form action="<?php echo base_url('admin/Data_bidang/edit/'.$data[0]['id_bidang']) ?> " method="post">
