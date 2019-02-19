@@ -7,14 +7,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Proker Bidang Syi'ar</h2>
+      <h2 class="h5 no-margin-bottom">Data Program Kerja</h2>
     </div>
   </div>
   <!-- Breadcrumb--> 
   <div class="container-fluid">
     <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Data Program Kerja</li>
+      <li class="breadcrumb-item">Home</li>
+      <li class="breadcrumb-item active"></li>
     </ul>
   </div>
 
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-lg-4">
               <div style="background-color: #bb414d;">
                 <div class="box_space">
-                  <p class="box_title">Polinema Bersholawat</p>
+                  <a href="<?php echo base_url('anggota/Proker'); ?>"><p class="box_title">Polinema Bersholawat</p></a>
                   <p class="box_subtitle0">Ketua Pelaksana</p>                       
                   <!-- <p class="box_subtitle">Muh. Agung Cahya</p>                        -->
                 </div>   

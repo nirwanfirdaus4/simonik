@@ -130,11 +130,31 @@
                 <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
               </ul> -->
             </nav>               
-          <?php  }else { ?>
+
+          <?php  }elseif($this->session->userdata('ses_nav_proker') == 1) { ?>
+            <nav id="sidebar">
+              <!-- Sidebar Header-->
+              <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                  <?php $nama=$this->session->userdata('ses_nama');?>                              
+                  <h1 class="h5"><?php echo $nama; ?></h1>
+                  <p>Web Designer</p>
+                </div>
+              </div>
+              <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+              <ul class="list-unstyled">
+                <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_jobdesk/') ?>"> <i class="icon-grid"></i>Data Jobdesk</a></li>
+                <li><a href="<?php echo base_url('anggota/Data_panitia/') ?>"> <i class="fa fa-bar-chart"></i>Data Panitia </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+              </ul>
+            </nav>             
+          <?php  }elseif($this->session->userdata('ses_id_type_user') == 8) { ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header2">
-                <center><div class="avatar2"><img src="../assets/img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div></center>
+                <center><div class="avatar2"><img src="<?php echo base_url('assets/img/avatar-6.jpg') ?>" alt="..." class="img-fluid rounded-circle"></div></center>
               </div>
               <div class="sidebar-header">
                 <center>
@@ -146,8 +166,6 @@
                 </center>
               </div>
               
-            </nav>               
-          <?php  } ?>
-
-
+            </nav>  
+          <?php }?> 
 
