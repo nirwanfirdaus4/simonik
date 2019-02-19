@@ -27,7 +27,7 @@
 							<div class="form-group">
 								<b><p align="left" class="LoginText">Login</p></b>
 								<p class="welcome orkney">Selamat datang, silahkan isikan username dan password untuk masuk ke akun anda.</p>
-								<input type="text" name="username" placeholder="Username" class="form-control form_conf">
+								<input type="text" name="username" placeholder="Username" class="form-control form_conf" autocomplete="off">
 								<input type="password" name="password" placeholder="Password" class="form-control form_conf">
 							</div>
 								<p align="right" class="orkney forgot_password">Lupa password?</p>
