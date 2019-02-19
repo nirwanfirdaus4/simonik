@@ -31,14 +31,12 @@ class Data_user extends CI_Controller {
 		$this->form_validation->set_rules('id_ukm','ID UKM','trim|required');
 		$this->form_validation->set_rules('no_telp_user','Telp user','trim|required');
 		$this->form_validation->set_rules('email_user','Email user','trim|required');
-		$this->form_validation->set_rules('id_type_user','Tipe user','trim|required');
 		$this->form_validation->set_rules('id_periode','ID Periode','trim|required');
 
 		$value['id_ukm']=$this->input->post('id_ukm');
 		$value['id_periode']=$this->input->post('id_periode');
-		$value['id_type_user']=$this->input->post('id_type_user');
 
-		if ($this->form_validation->run()==FALSE || $value['id_type_user']=='zero' || $value['id_ukm']=='zero' ||$value['id_periode']=='zero') {
+		if ($this->form_validation->run()==FALSE || $value['id_ukm']=='zero' ||$value['id_periode']=='zero') {
 			$data['msg_error']="Silahkan isi semua kolom";
 			$this->load->view('superadmin/vtambah_user',$data);
 		}
@@ -46,10 +44,11 @@ class Data_user extends CI_Controller {
 			$send['id_user']='';
 			$send['nama_user']=$this->input->post('nama_user');
 			$send['nim']=$this->input->post('nim');
-			$send['id_ukm']=$this->input->post('id_ukm');
+			$ukm=$send['id_ukm']=$this->input->post('id_ukm');
 			$send['no_telp_user']=$this->input->post('no_telp_user');
 			$send['email_user']=$this->input->post('email_user');
-			$send['id_type_user']=$this->input->post('id_type_user');
+			$utype=2;
+			$send['id_type_user']=$utype;
 			$send['id_periode']=$this->input->post('id_periode');
 			if ($send['id_type_user'] != 7) {
 				$send['username']=$this->input->post('nim');
@@ -63,7 +62,7 @@ class Data_user extends CI_Controller {
 						
 			$this->load->view('superadmin/data_user',$kembalian);
 			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('superadmin/Data_user/');
+			redirect('superadmin/Data_user/detail/'.$ukm);
 		}
 	}
 
@@ -79,7 +78,6 @@ class Data_user extends CI_Controller {
 		$this->form_validation->set_rules('id_ukm','ID UKM','trim|required');
 		$this->form_validation->set_rules('no_telp_user','Telp user','trim|required');
 		$this->form_validation->set_rules('email_user','Email user','trim|required');
-		$this->form_validation->set_rules('id_type_user','Tipe user','trim|required');
 		$this->form_validation->set_rules('id_periode','ID Periode','trim|required');
 		
 		$value['id_ukm']=$this->input->post('id_ukm');
@@ -97,7 +95,8 @@ class Data_user extends CI_Controller {
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['no_telp_user']=$this->input->post('no_telp_user');
 			$send['email_user']=$this->input->post('email_user');
-			$send['id_type_user']=$this->input->post('id_type_user');
+			$utype=2;
+			$send['id_type_user']=$utype;
 			$send['id_periode']=$this->input->post('id_periode');
 			if ($send['id_type_user'] != 7) {
 				$send['username']=$this->input->post('nim');	

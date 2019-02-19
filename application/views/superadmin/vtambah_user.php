@@ -49,18 +49,6 @@
             <input type="text" placeholder="Email user" class="form-control" name="email_user" autocomplete="off">
           </div> 
           <div class="form-group">
-            <label class="form-control-label">Tipe User</label>
-            <!-- <input type="text" placeholder="" class="form-control" name="id_type_user" autocomplete="off"> -->
-              <select name="id_type_user" id="id_type_user" class="form-control">
-                <option value="zero">--Pilih Tipe User--</option>
-                <?php 
-                $pengurus = $this->db->query("SELECT * FROM tb_type_user where id_type_user!=1");
-                foreach($pengurus->result() as $row_kat)  { ?>
-                  <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
-                <?php } ?>
-              </select>
-          </div>
-          <div class="form-group">
             <label class="form-control-label">Periode</label>
 <!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
               <select name="id_periode" id="id_periode" class="form-control">

@@ -1,21 +1,91 @@
-<?php $this->load->view('bagian/header'); ?>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?> 
+<?php $this->load->view('bagian/header') ?>
 <!-- Sidebar Navigation end-->
 <div class="page-content">
-  <div class="page-header">
+  <!-- Page Header-->
+  <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Dashboard</h2>
+      <h2 class="h5 no-margin-bottom">Data Proker Bidang Syi'ar</h2>
     </div>
   </div>
-  <section class="no-padding-bottom">
-    <div class="container-fluid">
-      <div class="public-user-block block">
-        <div class="row d-flex align-items-center">                   
-          <div class="col-lg-12">
-            <div class="item"><i class="icon-info"></i><strong>Selamat Datang di Aplikasi SiMonik</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Breadcrumb--> 
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
+      <li class="breadcrumb-item active">Data Program Kerja</li>
+    </ul>
+  </div>
 
-    <?php $this->load->view('bagian/footer') ?>
+  <div class="container-fluid">
+    <div class="content_dashboard space_4">
+      <div class="row">
+        <div class="col-lg-4">
+          <div style="background-color: #7c36e2;">
+            <div class="box_space">
+              <p class="box_title">Safari Dakwah</p>
+              <p class="box_subtitle0">Sie Pubdekdok</p>                       
+              <!-- <p class="box_subtitle">Muh. Agung Cahya</p>                        -->
+            </div>   
+            <div style="background-color: #ecf0f1;">
+              <div class="box_space2">
+                <p class="box_content_place">
+                  <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Desa Purworejo</p>
+                    <p><span class="fa fa-calendar" style="font-size:19px"> 20 Juni 2018</p>
+                    </p>
+                  </div><hr class="hr">   
+                  <div class="box_space3">         
+                    <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
+                  </div>
+                </div>                              
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div style="background-color: #bb414d;">
+                <div class="box_space">
+                  <p class="box_title">Polinema Bersholawat</p>
+                  <p class="box_subtitle0">Ketua Pelaksana</p>                       
+                  <!-- <p class="box_subtitle">Muh. Agung Cahya</p>                        -->
+                </div>   
+                <div style="background-color: #ecf0f1;">
+                  <div class="box_space2">
+                    <p class="box_content_place">
+                     <p class="">&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Kampus Polinema</p>
+                      <p><span class="fa fa-calendar" style="font-size:19px"> 15 September 2018</p>
+                      </p>
+                    </div><hr class="hr">   
+                    <div class="box_space3">         
+                      <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
+                    </div>
+                  </div>                              
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div style="background-color: #009788;">
+                  <div class="box_space">
+                    <p class="box_title">Kajian Tahsin</p>
+                    <p class="box_subtitle0">Sie Acara</p>                       
+                    <!-- <p class="box_subtitle">Muh. Agung Cahya</p>                        -->
+                  </div>   
+                  <div style="background-color: #ecf0f1;">
+                    <div class="box_space2">
+                      <p class="box_content_place">
+                       <p class="">&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Masjid Raya Annur Polinema</p>
+                        <p><span class="fa fa-calendar" style="font-size:19px"> 27 Juli 2018</p>
+                        </p>
+                      </div><hr class="hr">   
+                      <div class="box_space3">         
+                        <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
+                      </div>
+                    </div>                              
+                  </div>
+                </div>
+              </div>        
+            </div>
+
+          </div>
+
+        </div>
+
+        <?php $this->load->view('bagian/footer') ?>

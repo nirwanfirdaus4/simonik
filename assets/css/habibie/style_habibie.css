@@ -19,7 +19,7 @@
 .space_help{margin: 0 1.3% 0 0;}
 .space_help_button{margin: 5% 0 0 0;}
 .content_dashboard{
-	padding: 0 0 0 2%;
+	padding: 0 2% 0 2%;
 }
 .box_title{
 	font-size: 135%;
@@ -35,9 +35,6 @@
 	font-size: 90%;
 	color: white;
 	margin-top: -6.8%;
-}
-.circle_mamba{
-border-radius: 80%;
 }
 .box_content_place {
 	color: #95a5a6;
@@ -61,4 +58,11 @@ border-radius: 80%;
 }
 .space_icon{
 	margin: 0 9% 0 0;
+}
+
+.name_anggota{
+	font-size: 140% !important;
+}
+.space_4{
+	margin-top: 3%;
 }

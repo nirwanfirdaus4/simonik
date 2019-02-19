@@ -768,6 +768,9 @@ nav#sidebar a i {
 nav#sidebar .sidebar-header {
   padding: 30px 20px;
 }
+nav#sidebar .sidebar-header2 {
+  padding: 30px 0px 10px 0;
+}
 
 nav#sidebar .sidebar-header h1,
 nav#sidebar .sidebar-header p {
@@ -793,6 +796,16 @@ nav#sidebar span.heading {
 nav#sidebar .avatar {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  background: none;
+  padding: 4px;
+  border: 3px solid #282b2f;
+}
+nav#sidebar .avatar2 {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 15px;
@@ -3424,6 +3437,13 @@ pre code {
 }
 
 .card-header {
+  padding: 0.75rem 1.25rem;
+  background-color: #34373d;
+  border-bottom: 1px solid #34373d;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-header2 {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid #34373d;
