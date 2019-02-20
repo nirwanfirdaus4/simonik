@@ -21,9 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container-fluid">
     <div class="content_dashboard space_4">
       <div class="row">
-        <div class="col-lg-4">
-          <?php $no=1;?>
-          <?php foreach ($array as $key) { ?>          
+        <?php $no=1;?>
+        <?php foreach ($array as $key) { ?>             
+          <div class="col-lg-4">     
             <div style="background-color: #7c36e2;">
               <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker']) ?>">
                 <?php
@@ -65,8 +65,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>                              
         </div>
-      <?php } ?>
-    </div>
+      </div>
+    <?php } ?>    
 <!--             <div class="col-lg-4">
               <div style="background-color: #bb414d;">
                 <div class="box_space">
