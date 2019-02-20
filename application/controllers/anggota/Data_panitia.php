@@ -35,7 +35,7 @@ class Data_panitia extends CI_Controller {
 		$value['id_sie']=$this->input->post('nm_sie');
 		$value['jenis_sie']=$this->input->post('jenis_sie');
 		
-		if ($value['id_user']=='zero' || $value['id_sie']=='zero' || $value['jenis_sie']=='zero') {
+		if (count($_POST) == 0) {
 			$data['msg_error']="Silahkan isi semua kolom";
 			$this->load->view('anggota/vtambah_panitia',$data);  
 		}

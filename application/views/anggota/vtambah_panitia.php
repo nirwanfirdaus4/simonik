@@ -19,9 +19,10 @@
       <div class="title"><strong>Tambah Data Panitia</strong></div>
 
       <div class="block-body">
-        <form action="<?php echo base_url('anggota/Data_panitia/tambahData/' . $id) ?> " method="post">
+        <form action="<?php echo base_url('anggota/Data_panitia/tambahData/' ) ?> " method="post">
           <div class="form-group">
-            <input type="hidden" name="id_proker" autocomplete="off" value="<?php echo $id ?>">
+            <?php $proker=$this->session->userdata('ses_id_selected_proker') ?>
+            <input type="hidden" name="id_proker" autocomplete="off" value="<?php echo $proker ?>">
             <?php
              $ukm = $this->session->userdata('ses_ukm');
              $periode = $this->session->userdata('ses_periode')
@@ -31,8 +32,8 @@
           </div>        
           <div class="form-group">
             <label class="form-control-label">Nama Koordinator / Anggota Sie</label>
-            <select name="nm_koor" id="nm_koor" class="form-control">
-              <option value="zero">-- Pilih Koordinator / Anggota Sie --</option>
+            <select name="nm_koor" id="nm_koor" class="form-control" required="required">
+              <option value="">-- Pilih Koordinator / Anggota Sie --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
               $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=8");
@@ -43,8 +44,8 @@
           </div>
            <div class="form-group">
             <label class="form-control-label">Nama Sie</label>
-            <select name="nm_sie" id="nm_sie" class="form-control">
-              <option value="zero">-- Pilih Sie --</option>
+            <select name="nm_sie" id="nm_sie" class="form-control" required="required">
+              <option value="" selected="selected">-- Pilih Sie --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
               $sie = $this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
@@ -55,8 +56,8 @@
           </div>
           <div class="form-group">
             <label class="form-control-label">Jenis Sie</label>
-            <select name="jenis_sie" id="jenis_sie" class="form-control">
-              <option value="zero">-- Pilih Jenis Sie --</option>
+            <select name="jenis_sie" id="jenis_sie" class="form-control" required="required">
+              <option value="" >-- Pilih Jenis Sie --</option>
                 <option value="Koordinator Sie">Koordinator Sie</option>
                 <option value="Angggota Sie">Angggota Sie</option>
               
@@ -64,8 +65,8 @@
           </div>
 
           <div class="form-group space_help_button">       
-            <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('anggota/Data_panitia/index_panitia/' . $id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <input type="submit" name="submit" value="Simpan" class="btn btn_dewe_color">
+            <a href="<?php echo base_url('anggota/Data_panitia/index_panitia/' ) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
