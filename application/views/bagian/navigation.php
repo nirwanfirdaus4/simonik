@@ -14,6 +14,7 @@
                 <ul class="list-unstyled">
                   <li><a href="<?php echo base_url('Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
                   <li><a href="<?php echo base_url('superadmin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data UKM </a></li>
+
                   <li><a href="<?php echo base_url('superadmin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Periode </a></li>
                   <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data User </a>
                     <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -46,6 +47,7 @@
                   <ul class="list-unstyled">
                     <li><a href="<?php echo base_url('admin/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
                     <li><a href="<?php echo base_url('admin/Data_bidang/') ?>"> <i class="icon-grid"></i>Data Bidang </a></li>
+                    <li><a href="<?php echo base_url('admin/Data_sie/') ?>"> <i class="icon-grid"></i>Data Sie </a></li>
                     <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
                     <li><a href="<?php echo base_url('admin/Data_proker/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
                     <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>

@@ -16,18 +16,18 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Sie</strong></div>
+      <div class="title"><strong>Ubah Data Sie</strong></div>
       <div class="block-body">
-        <form action="<?php echo base_url('superadmin/Data_sie/tambahData') ?> " method="post">
+        <form action="<?php echo base_url('admin/Data_sie/edit/'.$data[0]['id_sie']) ?> " method="post">
+          <input type="hidden" name="id_sie" value="<?php echo $data[0]['id_sie']; ?>">
           <div class="form-group">
             <label class="form-control-label">Nama Sie</label>
-            <input type="text" placeholder="Masukkan Nama Sie" class="form-control" name="nama_sie" autocomplete="off">
+            <input type="text" placeholder="Masukkan Nama SIE" class="form-control" name="nama_sie" autocomplete="off" value="<?php echo $data[0]['nama_sie'] ?>">
           </div>
-          <div class="form-group space_help_button">     
-            <?php $ukm = $this->session->userdata("ses_ukm") ?>
-            <input type="hidden" name="id_ukm" value="<?php echo $ukm; ?>"> 
+          <input type="hidden" name="id_ukm" value="<?php echo $data[0]['id_ukm']; ?>">
+          <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('superadmin/Data_sie') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('admin/Data_ukm') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
