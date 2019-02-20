@@ -4,30 +4,35 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Proker</h2>
+      <h2 class="h5 no-margin-bottom">Data Panitia</h2>
     </div> 
   </div>
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Data Proker</li>
+      <li class="breadcrumb-item active">Data Panitia</li>
     </ul>
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Proker</strong></div>
+      <div class="title"><strong>Tambah Data Panitia</strong></div>
 
       <div class="block-body">
-        <form action="<?php echo base_url('admin/Data_proker/tambahData') ?> " method="post">
+        <form action="<?php echo base_url('anggota/Data_panitia/tambahData/' . $id) ?> " method="post">
           <div class="form-group">
-            <label class="form-control-label">Nama Proker</label>
-            <input type="text" placeholder="Nama Proker" class="form-control" name="nama_proker" autocomplete="off">
-          </div>
+            <input type="hidden" name="id_proker" autocomplete="off" value="<?php echo $id ?>">
+            <?php
+             $ukm = $this->session->userdata('ses_ukm');
+             $periode = $this->session->userdata('ses_periode')
+             ?>
+            <input type="hidden" name="id_ukm" autocomplete="off" value="<?php echo $ukm ?>">
+            <input type="hidden" name="id_periode" autocomplete="off" value="<?php echo $periode ?>">
+          </div>        
           <div class="form-group">
-            <label class="form-control-label">Nama Ketua Proker</label>
-            <select name="nm_ketua_proker" id="nm_ketua_proker" class="form-control">
-              <option value="zero">-- Pilih Ketua Proker --</option>
+            <label class="form-control-label">Nama Koordinator / Anggota Sie</label>
+            <select name="nm_koor" id="nm_koor" class="form-control">
+              <option value="zero">-- Pilih Koordinator / Anggota Sie --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
               $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=8");
@@ -36,22 +41,25 @@
               <?php } ?>
             </select>
           </div>
-          <div class="form-group">
-            <label class="form-control-label">Tanggal Proker</label>
-            <input type="date" name="tgl_proker" placeholder="Tanggal Acara" autocomplete="off" class="form-control">
-          </div>
-           <?php $ukm=$this->session->userdata('ses_ukm');?>
-          <input type="hidden" value="<?php echo $ukm; ?>" class="form-control" name="id_ukm" autocomplete="off">          
-          <div class="form-group">
-            <label class="form-control-label">Nama Bidang</label>
-            <select name="nm_bidang" id="nm_bidang" class="form-control">
-              <option value="zero">-- Pilih Bidang --</option>
+           <div class="form-group">
+            <label class="form-control-label">Nama Sie</label>
+            <select name="nm_sie" id="nm_sie" class="form-control">
+              <option value="zero">-- Pilih Sie --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_bidang where id_ukm=$ukm");
-              foreach($ketua->result() as $row_kat)  { ?>
-                <option value="<?php echo $row_kat->id_bidang?>"><?php echo $row_kat->nama_bidang; ?></option>
+              $sie = $this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
+              foreach($sie->result() as $row_kat)  { ?>
+                <option value="<?php echo $row_kat->id_sie?>"><?php echo $row_kat->nama_sie; ?></option>
               <?php } ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">Jenis Sie</label>
+            <select name="jenis_sie" id="jenis_sie" class="form-control">
+              <option value="zero">-- Pilih Jenis Sie --</option>
+                <option value="Koordinator Sie">Koordinator Sie</option>
+                <option value="Angggota Sie">Angggota Sie</option>
+              
             </select>
           </div>
 
