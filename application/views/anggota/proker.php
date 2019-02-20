@@ -7,64 +7,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data User</h2>
+      <h2 class="h5 no-margin-bottom">Data Sie </h2>
     </div>
   </div>
   <section class="no-padding-top no-padding-bottom">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <div class="statistic-block block">
-            <div class="progress-details d-flex align-items-end justify-content-between">
-              <div class="title">
-                <div class="icon"><i class="icon-user-1"></i></div><strong>Sie Acara</strong>
+        <?php $no=1;?>
+        <?php foreach ($array as $key) { ?>          
+          <div class="col-md-3 col-sm-6">
+            <a class="unline" href="<?php echo base_url('anggota/Proker/index_sie/'.$key['id_sie']) ?>">
+            <div class="statistic-block block">
+              <div class="progress-details d-flex align-items-end justify-content-between">
+                <div class="title">
+
+                  <?php foreach ($convert_sie as $key_sie) { 
+                        if ($key_sie['id_sie']==$key['id_sie']) {
+                            $nama_sie=$key_sie['nama_sie'];
+                        }
+                    }
+                    ?>          
+                  <div class="icon"><i class="icon-user-1"></i></div><strong><?php echo $nama_sie ?></strong>
+                </div>
+                <div class="number dashtext-1">50%</div>
               </div>
-              <div class="number dashtext-1">27%</div>
-            </div>
-            <div class="progress progress-template">
-              <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="statistic-block block">
-            <div class="progress-details d-flex align-items-end justify-content-between">
-              <div class="title">
-                <div class="icon"><i class="icon-contract"></i></div><strong>Sie PDD</strong>
+              <div class="progress progress-template">
+                <div role="progressbar" style="width: 50%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
               </div>
-              <div class="number dashtext-2">100%</div>
             </div>
-            <div class="progress progress-template">
-              <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
-            </div>
+          </a>
           </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="statistic-block block">
-            <div class="progress-details d-flex align-items-end justify-content-between">
-              <div class="title">
-                <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>New Invoices</strong>
-              </div>
-              <div class="number dashtext-3">140</div>
-            </div>
-            <div class="progress progress-template">
-              <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="statistic-block block">
-            <div class="progress-details d-flex align-items-end justify-content-between">
-              <div class="title">
-                <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>All Projects</strong>
-              </div>
-              <div class="number dashtext-4">41</div>
-            </div>
-            <div class="progress progress-template">
-              <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
-            </div>
-          </div>
-        </div>
+        <?php } ?>
+
       </div>
     </div>
   </section>

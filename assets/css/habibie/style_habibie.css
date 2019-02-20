@@ -23,7 +23,7 @@
 }
 .box_title{
 	font-size: 135%;
-	padding: 3.8% 0 0 0;
+	padding: 8% 0 0 0;
 	color: #fff;
 }
 .box_subtitle{
@@ -34,7 +34,7 @@
 .box_subtitle0{
 	font-size: 90%;
 	color: white;
-	margin-top: -6.8%;
+	margin-top: -13.8%;
 }
 .box_content_place {
 	color: #95a5a6;
@@ -65,4 +65,7 @@
 }
 .space_4{
 	margin-top: 3%;
+}
+.unline:hover{
+	text-decoration: none;
 }
