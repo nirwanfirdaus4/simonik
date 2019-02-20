@@ -66,7 +66,7 @@
 
           <div class="form-group space_help_button">       
             <input type="submit" name="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('anggota/Data_panitia/index_panitia/' ) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('anggota/Data_panitia/index/'  ) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
