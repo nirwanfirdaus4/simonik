@@ -26,7 +26,7 @@ class mdl_data_panitia extends CI_Model {
 
 	public function tambahdata($paket)
 		{
-			$this->db->insert('tb_panitia', $paket);
+			$this->db->insert('tb_panitia_proker', $paket);
 			return $this->db->affected_rows();
 		}
 

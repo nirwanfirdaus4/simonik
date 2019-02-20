@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data Panitia</strong></div>
-      <a href="<?php echo base_url('anggota/Data_panitia/tambahData/' .$id) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
+      <a href="<?php echo base_url('anggota/Data_panitia/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>

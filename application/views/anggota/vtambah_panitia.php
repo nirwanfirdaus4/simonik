@@ -15,7 +15,7 @@
     </ul>
   </div>
   <div class="col-lg-12">
-    <div class="block">
+    <div class="block"> 
       <div class="title"><strong>Tambah Data Panitia</strong></div>
 
       <div class="block-body">
@@ -36,7 +36,7 @@
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
               $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=8");
-              foreach($ketua->result() as $row_kat)  { ?>
+              foreach($ketua->result() as $row_kat)  { ?> 
                 <option value="<?php echo $row_kat->id_user?>"><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
             </select>
@@ -65,7 +65,7 @@
 
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('admin/Data_bidang') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('anggota/Data_panitia/index_panitia/' . $id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
