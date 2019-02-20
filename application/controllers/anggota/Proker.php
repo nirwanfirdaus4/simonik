@@ -25,12 +25,12 @@ class Proker extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/proker',$data);
 	}
-	public function index_sie($sie)
+	public function index_sie($proker)
 	{	
 		$nav_ses=1;
 		$data['id'] = $proker;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
-		$data['array'] = $this->mdl_data_sie_anggota->ambildata_sie($sie);
+		$data['array'] = $this->mdl_data_sie_anggota->ambildata_sie($proker);
 		// $data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();
 		$this->load->view('anggota/jobdesk_sie',$data);
 	}
