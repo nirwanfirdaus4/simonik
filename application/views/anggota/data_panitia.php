@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="modal-body">
                       <p>Ingin hapus data?</p>
-                      <a href="<?php echo base_url('admin/Data_bidang/do_delete/' . $key['id_bidang']) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
+                      <a href="<?php echo base_url('anggota/Data_panitia/do_delete/' . $key['id_panitia']) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
                     </div>
                     <div class="modal-footer">
 

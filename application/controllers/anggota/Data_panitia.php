@@ -58,4 +58,10 @@ class Data_panitia extends CI_Controller {
 		}
 	}
 
+	public function do_delete($id){
+		$where = array('id_panitia' => $id);
+		$this->mdl_data_panitia->delete_data($where,'tb_panitia_proker');
+		redirect('anggota/Data_panitia/');
+	}
+
 }
