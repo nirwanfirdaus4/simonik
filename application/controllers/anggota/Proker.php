@@ -28,6 +28,7 @@ class Proker extends CI_Controller {
 	public function index_sie($sie)
 	{	
 		$nav_ses=1;
+		$data['id'] = $proker;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$data['array'] = $this->mdl_data_sie_anggota->ambildata_sie($sie);
 		// $data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();
