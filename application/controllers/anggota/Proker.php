@@ -19,6 +19,7 @@ class Proker extends CI_Controller {
 	public function index_proker($proker)
 	{	
 		$nav_ses=1;
+		$data['id'] = $proker;
 		$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker);
 		$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
@@ -39,5 +40,7 @@ class Proker extends CI_Controller {
 		$paket['array']=$this->mdl_data_panitia->ambildata();			
 		$this->load->view('anggota/index',$paket);
 	}
+
+
 
 }

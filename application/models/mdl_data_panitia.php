@@ -11,9 +11,9 @@ class mdl_data_panitia extends CI_Model {
 
 	public function ambildata()
 		{
-			$user=$this->session->userdata('ses_id_user');
+			// $user=$this->session->userdata('ses_id_user');
 			$ukm=$this->session->userdata('ses_ukm');
-			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_user=$user AND id_ukm=$ukm");
+			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm");
 			return $query->result_array();
 		}
 
@@ -38,4 +38,11 @@ class mdl_data_panitia extends CI_Model {
 		$sql="UPDATE tb_panitia SET id_ukm = ?, id_periode = ?, nama_panitia = ?, ketua_panitia = ?, sekretaris_panitia = ? WHERE id_panitia = ?";
 		$query=$this->db->query($sql, array( $send['id_ukm'], $send['id_periode'], $send['nama_panitia'], $send['nm_ketua_panitia'], $send['nm_sekretaris_panitia'], $send['id_panitia']));
 	}	
+
+	public function ambildataproker($proker)
+		{
+			$ukm=$this->session->userdata('ses_ukm');
+			$query=$this->db->query("SELECT * FROM tb_panitia_proker WHERE id_ukm=$ukm AND id_proker=$proker");
+			return $query->result_array();
+		}
 }

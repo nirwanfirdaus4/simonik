@@ -148,7 +148,7 @@
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="<?php echo base_url('anggota/Data_jobdesk/') ?>"> <i class="icon-grid"></i>Data Jobdesk</a></li>
-                <li><a href="<?php echo base_url('anggota/Data_panitia/') ?>"> <i class="fa fa-bar-chart"></i>Data Panitia </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_panitia/index_panitia/' .$id) ?>"> <i class="fa fa-bar-chart"></i>Data Panitia </a></li>
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
