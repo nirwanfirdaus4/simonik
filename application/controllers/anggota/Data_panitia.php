@@ -13,7 +13,7 @@ class Data_panitia extends CI_Controller {
 		$this->load->database();
 		if($this->session->userdata('masuk') == FALSE){
 			redirect('Admin_login','refresh');
-		}		
+		}		 
 	} 
  
 	public function index_panitia($proker)
@@ -39,7 +39,7 @@ class Data_panitia extends CI_Controller {
 
 		// if ($this->form_validation->run()==FALSE || $value['id_proker']=='zero' ||$value['id_bidang']=='zero') {
 		// 	$data['msg_error']="Silahkan isi semua kolom";
-			$this->load->view('anggota/vtambah_panitia/'.$proker);
+			$this->load->view('anggota/vtambah_panitia',$data); 
 		// }
 		// else{
 		// 	$send['id_proker']='';
