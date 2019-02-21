@@ -24,7 +24,13 @@ class Data_panitia extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/data_panitia',$data);
 	}
-	
+	public function detail($sie){
+		$paket['panitia']=$this->mdl_data_panitia->ambildata_detail($sie);	
+		$paket['sie']=$this->mdl_data_panitia->ambilDataSie();	
+		// session ini berfungsi untuk fungsi delete dll		
+		$this->session->set_userdata('ses_nav_sie',$sie);		
+		$this->load->view('anggota/data_panitia',$paket);
+	}
 	public function tambahData()
 	{
 		$nav_ses=1;
@@ -45,23 +51,24 @@ class Data_panitia extends CI_Controller {
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['id_periode']=$this->input->post('id_periode');
 			$send['id_user']=$this->input->post('nm_koor');
-			$send['id_sie']=$this->input->post('nm_sie');
+			$sie=$send['id_sie']=$this->input->post('nm_sie');
 			$send['jenis_panitia']=$this->input->post('jenis_sie');
 
 			// var_dump($send);
 			$kembalian['jumlah']=$this->mdl_data_panitia->tambahdata($send);
-			$kembalian['array']=$this->mdl_data_panitia->ambildata();
+			$kembalian['array']=$this->mdl_data_panitia->ambildata_detail($sie);
 
 			$this->load->view('anggota/data_panitia',$kembalian);
 			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('anggota/Data_panitia/');
+			redirect('anggota/Data_panitia/detail/'.$sie);
 		}
 	}
 
 	public function do_delete($id){
 		$where = array('id_panitia' => $id);
+		$sie=$this->session->userdata('ses_nav_sie');
 		$this->mdl_data_panitia->delete_data($where,'tb_panitia_proker');
-		redirect('anggota/Data_panitia/');
+		redirect('anggota/Data_panitia/detail/'.$sie);
 	}
 
 	public function edit($id_update){
@@ -83,12 +90,12 @@ class Data_panitia extends CI_Controller {
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['id_periode']=$this->input->post('id_periode');
 			$send['id_user']=$this->input->post('nm_koor');
-			$send['id_sie']=$this->input->post('nm_sie');
+			$sie=$send['id_sie']=$this->input->post('nm_sie');
 			$send['jenis_panitia']=$this->input->post('jenis_sie');
 
 			$kembalian['jumlah']=$this->mdl_data_panitia->modelupdate($send);
 			$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
-			redirect('anggota/Data_panitia');
+			redirect('anggota/Data_panitia/detail/'.$sie);
 		}
 	}
 }

@@ -22,6 +22,7 @@ class Data_user extends CI_Controller {
 	public function detail($ukm){
 		$paket['array']=$this->mdl_data_user->ambildata_detail($ukm);	
 		$paket['ukm']=$this->mdl_data_user->ambilDataUkm();	
+		$this->session->set_userdata('ses_nav_ukm',$ukm);
 		$this->load->view('superadmin/data_user',$paket);
 	}
 
@@ -68,8 +69,9 @@ class Data_user extends CI_Controller {
 
 	public function do_delete($id){
 		$where = array('id_user' => $id);
+		$ukm=$this->session->userdata('ses_nav_ukm');		
 		$this->mdl_data_user->delete_data($where,'tb_user');
-		redirect('superadmin/Data_user/');
+		redirect('superadmin/Data_user/detail/'.$ukm);
 	}
 
 	public function edit($id_update){
@@ -92,7 +94,7 @@ class Data_user extends CI_Controller {
 			$send['id_user']=$this->input->post('id_user');
 			$send['nama_user']=$this->input->post('nama_user');
 			$send['nim']=$this->input->post('nim');
-			$send['id_ukm']=$this->input->post('id_ukm');
+			$ukm=$send['id_ukm']=$this->input->post('id_ukm');
 			$send['no_telp_user']=$this->input->post('no_telp_user');
 			$send['email_user']=$this->input->post('email_user');
 			$utype=2;
@@ -103,10 +105,10 @@ class Data_user extends CI_Controller {
 			}else{
 
 			}				
-
+ 
 			$kembalian['jumlah']=$this->mdl_data_user->modelupdate($send); 
 			$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
-			redirect('superadmin/Data_user');
+			redirect('superadmin/Data_user/detail/'.$ukm);
 		}
 	}
 	
