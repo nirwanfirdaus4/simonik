@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } ?>
                 <td><?php echo $key['jenis_panitia'] ?></td>
                 <td>
-                  <a href="" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                  <a href="<?php echo base_url('anggota/Data_panitia/edit/' .$key['id_panitia']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                   <?php $modal++; }?>
 

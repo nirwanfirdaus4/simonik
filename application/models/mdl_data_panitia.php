@@ -36,8 +36,8 @@ class mdl_data_panitia extends CI_Model {
 	}
 
 	public function modelupdate($send){
-		$sql="UPDATE tb_panitia SET id_ukm = ?, id_periode = ?, nama_panitia = ?, ketua_panitia = ?, sekretaris_panitia = ? WHERE id_panitia = ?";
-		$query=$this->db->query($sql, array( $send['id_ukm'], $send['id_periode'], $send['nama_panitia'], $send['nm_ketua_panitia'], $send['nm_sekretaris_panitia'], $send['id_panitia']));
+		$sql="UPDATE tb_panitia_proker SET id_proker= ?, id_ukm = ?, id_periode = ?, id_user = ?, id_sie = ?, jenis_panitia = ? WHERE id_panitia = ?";
+		$query=$this->db->query($sql, array( $send['id_proker'], $send['id_ukm'], $send['id_periode'], $send['id_user'], $send['id_sie'], $send['jenis_panitia'], $send['id_panitia']));
 	}	
 
 	public function ambildataproker($proker)
