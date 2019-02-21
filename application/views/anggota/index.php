@@ -21,9 +21,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container-fluid">
     <div class="content_dashboard space_4">
       <div class="row">
-        <?php $no=1;?>
-        <?php foreach ($array as $key) { ?>             
-          <div class="col-lg-4">     
+        <?php $no=1; $p=0; $s=0;?>
+        <?php foreach ($array as $key) {
+          if ($key['id_proker']==$p && $key['id_sie']==$s) {
+
+          }else{ ?>             
+           <div class="col-lg-4">     
             <div style="background-color: #7c36e2;">
               <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker']) ?>">
                 <?php
@@ -66,7 +69,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>                              
         </div>
       </div>
-    <?php } ?>    
+      <?php
+    }
+    $p=$key['id_proker'];
+    $s=$key['id_sie'];
+  } ?>    
 <!--             <div class="col-lg-4">
               <div style="background-color: #bb414d;">
                 <div class="box_space">
