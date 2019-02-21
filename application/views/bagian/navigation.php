@@ -147,20 +147,30 @@
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>
-                <li><a href="<?php echo base_url('anggota/Data_jobdesk/') ?>"> <i class="icon-grid"></i>Data Jobdesk</a></li>
-                <li><a href="<?php echo base_url('anggota/Data_panitia/') ?>"> <i class="fa fa-bar-chart"></i>Data Panitia </a></li>
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data Panitia </a>
-                    <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data Jobdesk </a>
+                  <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                    <?php
+                    $query=$this->db->query("SELECT * FROM tb_sie");;
+                    foreach($query->result() as $row_sie)  { 
+                      $sie_id=$row_sie->id_sie;
+                      ?>                    
+                      <li><a href="<?php echo base_url('anggota/Data_jobdesk/detail/' . $sie_id) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
                       <?php
-                      $query=$this->db->query("SELECT * FROM tb_sie");;
-                      foreach($query->result() as $row_sie)  { 
-                        $sie_id=$row_sie->id_sie;
-                        ?>                    
-                        <li><a href="<?php echo base_url('anggota/Data_panitia/detail/' . $sie_id) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
-                        <?php
-                      } ?> 
-                    </ul>
-                  </li>
+                    } ?> 
+                  </ul>
+                </li>                
+                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data Panitia </a>
+                  <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                    <?php
+                    $query=$this->db->query("SELECT * FROM tb_sie");;
+                    foreach($query->result() as $row_sie)  { 
+                      $sie_id=$row_sie->id_sie;
+                      ?>                    
+                      <li><a href="<?php echo base_url('anggota/Data_panitia/detail/' . $sie_id) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
+                      <?php
+                    } ?> 
+                  </ul>
+                </li>
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             

@@ -17,6 +17,7 @@
 <script src="<?php echo base_url ('assets/vendor/jquery-validation/jquery.validate.min.js')?>"></script>
 <script src="<?php echo base_url ('assets/js/charts-home.js')?>"></script>
 <script src="<?php echo base_url ('assets/js/front.js')?>"></script>
+<script src="<?php echo base_url ('assets/js/dropzone.js')?>"></script>
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
