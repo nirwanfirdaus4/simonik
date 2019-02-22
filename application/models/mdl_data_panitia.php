@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mdl_data_panitia extends CI_Model {
+class mdl_data_panitia extends CI_Model { 
 
 	public function __construct()
 		{
@@ -14,7 +14,7 @@ class mdl_data_panitia extends CI_Model {
 			// $user=$this->session->userdata('ses_id_user');
 			$ukm=$this->session->userdata('ses_ukm');
 			$user=$this->session->userdata('ses_id_user');			
-			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm ");
+			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_user=$user ");
 			return $query->result_array();
 		}
 	public function ambildata_detail($sie)

@@ -28,10 +28,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <th>No</th>
               <th>Nama</th>
               <th>NIM</th>
-              <th>UKM</th>
               <th>Kontak</th>
               <th>Tipe User</th>
-              <th>Periode</th>
               <th>Aksi</th>
             </tr> 
           </thead>
@@ -61,15 +59,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td><?php echo $key['nama_user'] ?></td>
                 <td><?php echo $key['nim'] ?></td>
                 <?php
-                $periode = $this->db->query("SELECT * FROM tb_periode");
-                $ukm = $this->db->query("SELECT * FROM tb_ukm");
+                // $periode = $this->db->query("SELECT * FROM tb_periode");
+                // $ukm = $this->db->query("SELECT * FROM tb_ukm");
                 $tipe_user = $this->db->query("SELECT * FROM tb_type_user");
 
-                foreach($ukm->result() as $row_ukm)  {
-                  if ($row_ukm->id_ukm==$key['id_ukm']) { ?>                    
-                    <td><?php echo $row_ukm->nama_ukm; ?></td>
-                <?php }
-                } ?>
+                ?>
 
                 <td><?php echo $key['no_telp_user'] ?> <br><?php echo $key['email_user'] ?></td>
 
@@ -78,13 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach($tipe_user->result() as $row_utype)  {
                   if ($row_utype->id_type_user==$key['id_type_user']) { ?>                    
                     <td><?php echo $row_utype->nama_type_user; ?></td>
-                <?php }
-                }  
-                ?>
-                <?php
-                foreach($periode->result() as $row_periode)  {
-                  if ($row_periode->id_periode==$key['id_periode']) { ?>                    
-                    <td><?php echo $row_periode->th_periode; ?></td>
                 <?php }
                 }  
                 ?>

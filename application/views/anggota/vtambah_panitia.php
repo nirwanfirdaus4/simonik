@@ -59,7 +59,7 @@
             <select name="jenis_sie" id="jenis_sie" class="form-control" required="required">
               <option value="" >-- Pilih Jenis Sie --</option>
                 <option value="Koordinator Sie">Koordinator Sie</option>
-                <option value="Angggota Sie">Angggota Sie</option>
+                <option value="Anggota Sie">Anggota Sie</option>
               
             </select>
           </div>

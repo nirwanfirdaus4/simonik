@@ -43,8 +43,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               } 
             }
             ?>
-            <p class="box_title"><?php echo $nama_fix ?></p>
-            <p class="box_subtitle0"><?php echo $sie_fix?></p>   
+            <p class="box_title"><?php 
+            $text=$nama_fix;
+            $limit=2;
+            if (str_word_count($text, 0) > $limit) {
+              $words = str_word_count($text, 1);
+              $pos = array_keys($words);
+              $text = substr($text, 0, $pos[$limit]) . '...';
+              echo $text;
+            }else{
+              echo $nama_fix;
+            }
+            ?></p>
+            <p class="box_subtitle0"><?php echo $sie_fix;?></p>   
           </a>                    
         </div>   
         <div style="background-color: #ecf0f1;">

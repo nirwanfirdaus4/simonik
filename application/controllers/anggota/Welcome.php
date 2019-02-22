@@ -17,7 +17,9 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		$nav_ses=0;
 		$paket['array']=$this->mdl_data_panitia->ambildata();		
+		$this->session->set_userdata('ses_nav_proker',$nav_ses); 
 		$this->load->view('anggota/index', $paket);
 	}
 }

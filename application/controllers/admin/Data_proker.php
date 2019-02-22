@@ -7,6 +7,7 @@ class Data_proker extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url','form');
 		$this->load->model('mdl_data_proker');
+		$this->load->model('mdl_data_panitia');		
 		$this->load->library('form_validation');
 		$this->load->database();
 		if($this->session->userdata('masuk') == FALSE){
@@ -37,9 +38,23 @@ class Data_proker extends CI_Controller {
 			$send['tanggal_proker']=$this->input->post('tgl_proker');
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['id_bidang']=$this->input->post('nm_bidang');
-
-			// var_dump($send);
 			$kembalian['jumlah']=$this->mdl_data_proker->tambahdata($send);
+
+			$send_panitia['id_panitia']='';
+			$query0=$this->db->query("SELECT * FROM tb_daftar_proker");
+			foreach ($query0->result() as $key) {
+				if ($send['id_ukm']==$key->id_ukm && $send['ketua_proker']==$key->ketua_proker) {
+					$fix_proker=$key->id_proker;
+				}
+			}
+			$send_panitia['id_proker']=$fix_proker;	
+			$send_panitia['id_ukm']=$this->input->post('id_ukm');
+			$send_panitia['id_periode']=$this->session->userdata('ses_periode');
+			$send_panitia['id_user']=$this->input->post('nm_ketua_proker');
+			$send_panitia['id_sie']=1;
+		
+			$kembalian['jumlah']=$this->mdl_data_panitia->tambahdata($send_panitia);
+			// var_dump($send);
 			$kembalian['array']=$this->mdl_data_proker->ambildata();
 						
 			$this->load->view('admin/data_proker',$kembalian);
