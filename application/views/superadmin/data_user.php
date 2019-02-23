@@ -27,12 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <tr>
               <th>No</th>
               <th>Nama</th>
-              <th>NIM</th>
               <th>UKM</th>
               <th>Kontak</th>
               <th>Tipe User</th>
               <th>Periode</th>
-              <th>Foto User</th>
+              <th>Foto</th>
               <th>Aksi</th>
             </tr> 
           </thead>
@@ -59,8 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                          
               <tr>
                 <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_user'] ?></td>
-                <td><?php echo $key['nim'] ?></td>
+                <td><?php echo $key['nama_user'] ?><br><?php echo $key['nim'] ?></td>
+                
                 <?php
                 $periode = $this->db->query("SELECT * FROM tb_periode");
                 $ukm = $this->db->query("SELECT * FROM tb_ukm");
@@ -89,6 +88,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php }
                 }  
                 ?>
+                
+                <td><img width="100" height="100" style=" border-radius: 60px 60px 60px 60px;" src="<?php echo ($key['foto_user'] != '' ? base_url('./upload/foto_user/' . $key['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Foto UKM"></td>
+                
                 <td>
                   <?php
                     foreach($tipe_user->result() as $row_utype2)  {
@@ -105,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }else{
                   ?>
                   <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
-                  <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
+                  <button  title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                 <?php $modal++; }?>
 
                 </td>

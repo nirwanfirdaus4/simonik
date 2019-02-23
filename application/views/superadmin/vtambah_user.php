@@ -65,9 +65,8 @@
               </select>
           </div>
           <div class="form-group">
-            <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 100Kb)</label><br>
+            <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
             <input type="file" name="berkas" required="required">
-            
           </div>
 
           <div class="form-group space_help_button">       

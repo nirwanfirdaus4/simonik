@@ -39,9 +39,7 @@ class mdl_data_user extends CI_Model {
 
 	public function delete_data($where,$table){
 		$this->db->where($where);
-		unlink("./upload/foto_user/$where");
 		$this->db->delete($table);
-		
 	}
 
 	public function modelupdate($send){
