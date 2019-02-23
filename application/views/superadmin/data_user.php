@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <th>Kontak</th>
               <th>Tipe User</th>
               <th>Periode</th>
+              <th>Foto User</th>
               <th>Aksi</th>
             </tr> 
           </thead>

@@ -17,21 +17,25 @@
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Tambah Data User</strong></div>
-
+      <?php if ($this->session->flashdata('msg')) : ?>
+        <div style="color: #ff6666;">
+        <?php echo $this->session->flashdata('msg') ?>  
+        </div>
+      <?php endif; ?>
       <div class="block-body">
-        <form action="<?php echo base_url('superadmin/Data_user/tambahData') ?> " method="post">
+        <form action="<?php echo base_url('superadmin/Data_user/tambahData') ?> " method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="form-control-label">Nama User</label>
-            <input type="text" placeholder="Nama User" class="form-control" name="nama_user" autocomplete="off">
+            <input type="text" placeholder="Nama User" class="form-control" name="nama_user" autocomplete="off" required="required">
           </div>
           <div class="form-group">
             <label class="form-control-label">NIM</label>
-            <input type="text" placeholder="NIM user" class="form-control" name="nim" autocomplete="off">
+            <input type="number" placeholder="NIM user" class="form-control" name="nim" autocomplete="off" required="required">
           </div>
           <div class="form-group">
             <label class="form-control-label">UKM</label>
 <!--             <input type="text" placeholder="" class="form-control" name="id_ukm" autocomplete="off"> -->
-              <select name="id_ukm" id="id_ukm" class="form-control">
+              <select name="id_ukm" id="id_ukm" class="form-control" required="required">
               <option value="zero">--Pilih UKM--</option>
               <?php 
               $pengurus = $this->db->query("SELECT * FROM tb_ukm");
@@ -42,16 +46,16 @@
           </div>          
           <div class="form-group">
             <label class="form-control-label">Telp</label>
-            <input type="text" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off">
+            <input type="number" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off" required="required">
           </div>
           <div class="form-group">
             <label class="form-control-label">Email</label>
-            <input type="text" placeholder="Email user" class="form-control" name="email_user" autocomplete="off">
+            <input type="email" placeholder="Email user" class="form-control" name="email_user" autocomplete="off" required="required">
           </div> 
           <div class="form-group">
             <label class="form-control-label">Periode</label>
 <!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
-              <select name="id_periode" id="id_periode" class="form-control">
+              <select name="id_periode" id="id_periode" class="form-control" required="required">
                 <option value="zero">--Pilih Periode--</option>
                 <?php 
                 $pengurus = $this->db->query("SELECT * FROM tb_periode");
@@ -59,7 +63,11 @@
                   <option value="<?php echo $row_kat->id_periode?>"><?php echo $row_kat->th_periode; ?></option>
                 <?php } ?>
               </select>
-
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 100Kb)</label><br>
+            <input type="file" name="berkas" required="required">
+            
           </div>
 
           <div class="form-group space_help_button">       
