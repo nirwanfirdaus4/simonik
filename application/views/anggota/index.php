@@ -21,13 +21,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container-fluid">
     <div class="content_dashboard space_4">
       <div class="row">
-        <?php $no=1; $p=0; $s=0;?>
+        <?php $no=1; $p=0; $s=0; $a_color=1; ?>
+
         <?php foreach ($array as $key) {
+        
+        switch($a_color){
+          case 1:
+            $warna=$color1;
+            break;
+          case 2:
+            $warna=$color2;
+            break;
+          case 3:
+            $warna=$color3;
+            break;
+          case 4:
+            $warna=$color4;
+            break;
+          case 5:
+            $warna=$color5;
+            break;
+          case 6:
+            $warna=$color6;
+            break;
+          case 7:
+            $warna=$color7;
+            break;
+          case 8:
+            $warna=$color8;
+            break;
+          case 9:
+            $warna=$color9;
+            break;
+          default:
+            $warna=$color10;
+            break;
+        }
+
           if ($key['id_proker']==$p && $key['id_sie']==$s) {
-            
+              
           }else{ ?>             
            <div class="col-lg-4">     
-            <div style="background-color: #7c36e2;">
+            <div style="background-color: <?php echo $warna; ?>">
               <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker']) ?>">
                 <?php
                 $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
@@ -78,8 +113,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               } 
             }                    
             ?>
-            <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> <?php echo $tempat_fix ?></p>
-              <p><span class="fa fa-calendar" style="font-size:19px"> <?php echo $tanggal_fix ?></p>
+            <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"></span> <?php echo "&nbsp;".$tempat_fix ?></p>
+              <p><span class="fa fa-calendar" style="font-size:19px"></span> <?php echo "&nbsp;".$tanggal_fix ?></p>
               </p>
             </div><hr class="hr">   
             <div class="box_space3">         
@@ -92,6 +127,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
     $p=$key['id_proker'];
     $s=$key['id_sie'];
+    $a_color++;
+    if ($a_color>10) {
+      $a_color=1;
+    }else{
+
+    }
   } ?>    
 <!--             <div class="col-lg-4">
               <div style="background-color: #bb414d;">
