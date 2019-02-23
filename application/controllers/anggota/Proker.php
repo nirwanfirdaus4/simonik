@@ -8,32 +8,46 @@ class Proker extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url','form');
 		$this->load->model('mdl_data_sie_anggota');
-		$this->load->model('mdl_data_panitia');		
+		$this->load->model('mdl_data_panitia');			
 		$this->load->library('form_validation');
 		$this->load->database();
 		if($this->session->userdata('masuk') == FALSE){
 			redirect('Admin_login','refresh');
 		}		
 	} 
- 
+
 	public function index_proker($proker)
 	{	
+		$this->session->set_userdata('ses_id_selected_proker',$proker);		
 		$ukm=$this->session->userdata('ses_ukm');
 		$user=$this->session->userdata('ses_id_user');
-		$query0=$this->db->query("SELECT * FROM tb_panitia_proker where id_proker=$proker AND id_ukm=$ukm AND id_user=$user");
+		$query0=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
+
 		foreach($query0->result() as $row_user)  {
-			if ($row_user->jenis_panitia!='Anggota Sie') {
+			if ($row_user->jenis_panitia!='Anggota Sie' && $row_user->jenis_panitia!='Koordinator Sie' ) {
 				$nav_ses=1;
+				$page='anggota/proker';
+				$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker);
+				$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();
 			}else{
-				$nav_ses=0;
+				if ($row_user->jenis_panitia!='Koordinator Sie') {
+					$nav_ses=0;
+					$sie=$row_user->id_sie;
+					$page='anggota/proker_anggota';		
+					$data['jobdesk']=$this->mdl_data_sie_anggota->ambildata_jobdesk($ukm,$proker,$sie);	
+					$data['sie']=$this->mdl_data_sie_anggota->bahan_convert_sie();
+				}else{
+					$nav_ses=2;
+					$sie=$row_user->id_sie;
+					$page='anggota/proker_anggota';		
+					$data['jobdesk']=$this->mdl_data_sie_anggota->ambildata_jobdesk($ukm,$proker,$sie);	
+					$data['sie']=$this->mdl_data_sie_anggota->bahan_convert_sie();			
+				}
 			}
 		}
-		$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker);
-		$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();
 
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
-		$this->session->set_userdata('ses_id_selected_proker',$proker);
-		$this->load->view('anggota/proker',$data); 
+		$this->load->view($page,$data); 
 	}
 
 	public function index_sie($proker)

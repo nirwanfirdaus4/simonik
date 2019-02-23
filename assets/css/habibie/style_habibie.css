@@ -26,6 +26,11 @@
 	padding: 8% 0 0 0;
 	color: #fff;
 }
+.box_title2{
+	font-size: 135%;
+	padding: 4.5% 0 0 0;
+	color: #fff;
+}
 .box_subtitle{
 	font-size: 84%;
 	color: white;
@@ -35,6 +40,21 @@
 	font-size: 90%;
 	color: white;
 	margin-top: -13.8%;
+}
+.box_subtitle1{
+	font-size: 90%;
+	color: white;
+	margin-top: -13.1%;
+}
+.box_subtitle2{
+	font-size: 90%;
+	color: white;
+	margin-top: -8.9%;
+}
+.box_subtitle3{
+	font-size: 90%;
+	color: white;
+	margin-top: -8.3%;
 }
 .box_content_place {
 	color: #95a5a6;

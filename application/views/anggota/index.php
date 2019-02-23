@@ -43,19 +43,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               } 
             }
             ?>
-            <p class="box_title"><?php 
-            $text=$nama_fix;
-            $limit=2;
-            if (str_word_count($text, 0) > $limit) {
-              $words = str_word_count($text, 1);
-              $pos = array_keys($words);
-              $text = substr($text, 0, $pos[$limit]) . '...';
-              echo $text;
-            }else{
-              echo $nama_fix;
-            }
-            ?></p>
-            <p class="box_subtitle0"><?php echo $sie_fix;?></p>   
+            <?php
+            
+            $hitung=strlen($nama_fix);
+            if ($hitung<=13) {?>
+              <p class="box_title"><?php echo $nama_fix; ?></p>              
+              <p class="box_subtitle0"><?php echo $sie_fix;?></p>
+            <?php }elseif ($hitung>=14 && $hitung<=16) { ?>
+              <p class="box_title"><?php echo $nama_fix; ?></p>              
+              <p class="box_subtitle1"><?php echo $sie_fix;?></p>
+            <?php }elseif ($hitung>=17 && $hitung<=18) { ?>
+              <p class="box_title2"><?php echo $nama_fix; ?></p>
+              <p class="box_subtitle2"><?php echo $sie_fix;?></p>
+            <?php }else{ 
+              $shrink_text= substr($nama_fix,0,18).'...';
+              ?>
+              <p class="box_title2"><?php echo $shrink_text; ?></p>
+              <p class="box_subtitle3"><?php echo $sie_fix;?></p>
+            <?php  }
+
+            ?>
+
           </a>                    
         </div>   
         <div style="background-color: #ecf0f1;">
