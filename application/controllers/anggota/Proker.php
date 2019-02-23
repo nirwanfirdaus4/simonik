@@ -17,8 +17,10 @@ class Proker extends CI_Controller {
 	} 
 
 	public function index_proker($proker)
-	{	
-		$this->session->set_userdata('ses_id_selected_proker',$proker);		
+	{	 		
+		// padahal aku set nilai session proker terpilih d kne, tapi d kontroller lanjutan wes ono
+
+		// echo 'coba'.$proker_selected;
 		$ukm=$this->session->userdata('ses_ukm');
 		$user=$this->session->userdata('ses_id_user');
 		$query0=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
@@ -45,7 +47,9 @@ class Proker extends CI_Controller {
 				}
 			}
 		}
-
+		$this->session->set_userdata('ses_id_selected_proker',$proker);		
+		// $nilai_proker=$this->session->userdata('ses_id_selected_proker'); 
+		// $this->session->set_userdata('ses_proker_fix',$nilai_proker);
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view($page,$data); 
 	}

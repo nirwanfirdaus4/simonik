@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php $no=1; $p=0; $s=0;?>
         <?php foreach ($array as $key) {
           if ($key['id_proker']==$p && $key['id_sie']==$s) {
-
+            
           }else{ ?>             
            <div class="col-lg-4">     
             <div style="background-color: #7c36e2;">

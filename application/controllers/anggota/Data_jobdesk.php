@@ -18,12 +18,14 @@ class Data_jobdesk extends CI_Controller {
 		$paket['array']=$this->mdl_data_jobdesk->ambildata();	
 		$this->load->view('anggota/data_jobdesk',$paket);
 	}
-	public function detail($sie){
+	public function detail($sie){	
 		$paket['jobdesk']=$this->mdl_data_jobdesk->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_jobdesk->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		
 		$this->session->set_userdata('ses_nav_sie',$sie);		
 		$this->load->view('anggota/data_jobdesk',$paket);
+		// echo 'proker '.$proker_selected;
+		// echo '<br>sie '.$sie;
 	}
 	public function tambahData(){
 		$nav_ses=1;
