@@ -23,7 +23,7 @@
         <?php echo $this->session->flashdata('msg') ?>  
         </div>
       <?php endif; ?>
-        <form action="<?php echo base_url('superadmin/Data_user/edit/'.$data[0]['id_user']) ?> " method="post">
+        <form action="<?php echo base_url('superadmin/Data_user/edit/'.$data[0]['id_user']) ?> " method="post" enctype="multipart/form-data">
           <input type="hidden" name="id_user" value="<?php echo $data[0]['id_user']; ?>">
           <div class="form-group">
             <label class="form-control-label">Nama user</label>
