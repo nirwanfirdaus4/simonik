@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
           if ($key['id_proker']==$p && $key['id_sie']==$s) {
-              
+              // KARENA id_proker dan id_sie tidak mungkin 0
           }else{ ?>             
            <div class="col-lg-4">     
             <div style="background-color: <?php echo $warna; ?>">
