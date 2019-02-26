@@ -70,7 +70,7 @@
                 <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
               </ul> -->
             </nav>               
-          <?php  }elseif ($this->session->userdata('ses_id_type_user') == 6) { ?>
+          <?php  }elseif ($this->session->userdata('ses_id_type_user') == 3) { ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
@@ -102,7 +102,7 @@
                 <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
               </ul> -->
             </nav>               
-          <?php  }elseif($this->session->userdata('ses_id_type_user') == 7) { ?>
+          <?php  }elseif($this->session->userdata('ses_id_type_user') == 4) { ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
@@ -194,7 +194,7 @@
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
-          <?php  }elseif($this->session->userdata('ses_id_type_user') == 8) { ?>
+          <?php  }elseif($this->session->userdata('ses_id_type_user') == 5) { ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header2">
