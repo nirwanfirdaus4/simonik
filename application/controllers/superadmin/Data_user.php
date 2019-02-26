@@ -26,7 +26,7 @@ class Data_user extends CI_Controller {
 		$this->session->set_userdata('ses_nav_ukm',$ukm);
 		$this->load->view('superadmin/data_user',$paket);
 	}
-
+ 
 	public function tambahData($ukm){
 		$data['ukm_id']=$ukm;	 
 		$this->form_validation->set_rules('nama_user','Nama user','trim|required');
@@ -71,7 +71,7 @@ class Data_user extends CI_Controller {
 				// $error = array('error' => $this->upload->display_errors());
 				// // var_dump($error);
 				$this->session->set_flashdata('msg','* Foto Melebihi Kapasitas');
-				$this->load->view('superadmin/vtambah_user');
+				$this->load->view('superadmin/vtambah_user',$data);
 			}else{
 				$data = $this->upload->data();
 				// $this->load->view('superadmin/data_user', $data);

@@ -23,7 +23,7 @@
         </div>
       <?php endif; ?>
       <div class="block-body">
-        <form action="<?php echo base_url('superadmin/Data_user/tambahData') ?> " method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('superadmin/Data_user/tambahData/'.$ukm_id) ?> " method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="form-control-label">Nama User</label>
             <input type="text" placeholder="Nama User" class="form-control" name="nama_user" autocomplete="off" required="required">
