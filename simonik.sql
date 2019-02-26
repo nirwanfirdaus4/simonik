@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2019 at 10:07 PM
+-- Generation Time: Feb 26, 2019 at 10:31 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -188,7 +188,24 @@ CREATE TABLE `tb_ukm` (
 
 INSERT INTO `tb_ukm` (`id_ukm`, `nama_ukm`) VALUES
 (1, 'BEM'),
-(2, 'DPM');
+(2, 'DPM'),
+(3, 'RISPOL'),
+(4, 'KOMPEN'),
+(5, 'PLFM'),
+(6, 'MENWA'),
+(7, 'HMM'),
+(8, 'HME'),
+(9, 'HMA'),
+(10, 'HIMANIA'),
+(11, 'TALITAKUM'),
+(12, 'KMK'),
+(13, 'PP'),
+(14, 'USMA'),
+(15, 'BKM'),
+(16, 'SENI'),
+(17, 'OR'),
+(18, 'PASTI'),
+(19, 'OPA GG');
 
 -- --------------------------------------------------------
 
@@ -349,7 +366,7 @@ ALTER TABLE `tb_type_user`
 -- AUTO_INCREMENT for table `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
-  MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
