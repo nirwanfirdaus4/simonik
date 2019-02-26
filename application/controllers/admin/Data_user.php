@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_user extends CI_Controller {
 	public function __construct()//MEMPERSIAPKAN
-	{
+	{ 
 		parent::__construct();
 		$this->load->helper('url','form');
 		$this->load->model('mdl_data_user_ukm');
