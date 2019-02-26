@@ -61,7 +61,7 @@
 
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('superadmin/Data_user') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('superadmin/Data_user/detail/'.$ukm_id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>
