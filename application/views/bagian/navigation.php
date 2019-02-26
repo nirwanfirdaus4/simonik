@@ -2,6 +2,10 @@
 
               <nav id="sidebar">
                 <!-- Sidebar Header-->
+                <?php
+                  $id_user = $this->session->userdata('ses_id_type_user');
+                  $query=$this->db->query("SELECT * FROM tb_user where id_user =$id_user; ")
+                ?>
                 <div class="sidebar-header d-flex align-items-center">
                   <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                   <div class="title">
