@@ -20,13 +20,15 @@ class Data_user extends CI_Controller {
 		$this->load->view('superadmin/data_user',$paket);
 	}
 	public function detail($ukm){
+		$paket['ukm_id']=$ukm;
 		$paket['array']=$this->mdl_data_user->ambildata_detail($ukm);	
 		$paket['ukm']=$this->mdl_data_user->ambilDataUkm();	
 		$this->session->set_userdata('ses_nav_ukm',$ukm);
 		$this->load->view('superadmin/data_user',$paket);
 	}
 
-	public function tambahData(){ 
+	public function tambahData($ukm){
+		$data['ukm_id']=$ukm;	 
 		$this->form_validation->set_rules('nama_user','Nama user','trim|required');
 		$this->form_validation->set_rules('nim','Nim','trim|required');
 		$this->form_validation->set_rules('id_ukm','ID UKM','trim|required');

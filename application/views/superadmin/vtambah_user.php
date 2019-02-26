@@ -33,17 +33,7 @@
             <input type="number" placeholder="NIM user" class="form-control" name="nim" autocomplete="off" required="required">
           </div>
           <div class="form-group">
-            <label class="form-control-label">UKM</label>
-<!--             <input type="text" placeholder="" class="form-control" name="id_ukm" autocomplete="off"> -->
-              <select name="id_ukm" id="id_ukm" class="form-control" required="required">
-              <option value="zero">--Pilih UKM--</option>
-              <?php 
-              $pengurus = $this->db->query("SELECT * FROM tb_ukm");
-              foreach($pengurus->result() as $row_kat)  { ?>
-                <option value="<?php echo $row_kat->id_ukm?>"><?php echo $row_kat->nama_ukm; ?></option>
-              <?php } ?>
-              </select>
-          </div>          
+            <input type="hidden" placeholder="" class="form-control" value="<?php echo $ukm_id ?>" name="id_ukm" autocomplete="off">        
           <div class="form-group">
             <label class="form-control-label">Telp</label>
             <input type="number" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off" required="required">
