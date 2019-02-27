@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_user extends CI_Controller {
 	public function __construct()//MEMPERSIAPKAN
-	{ 
+	{
 		parent::__construct();
 		$this->load->helper('url','form');
 		$this->load->model('mdl_data_user_ukm');
@@ -20,6 +20,7 @@ class Data_user extends CI_Controller {
 	}
 
 	public function tambahData(){
+		 
 		$this->form_validation->set_rules('nama_user','Nama user','trim|required');
 		$this->form_validation->set_rules('nim','Nim','trim|required');
 		$this->form_validation->set_rules('id_ukm','ID UKM','trim|required');
@@ -28,11 +29,8 @@ class Data_user extends CI_Controller {
 		$this->form_validation->set_rules('id_type_user','Tipe user','trim|required');
 		$this->form_validation->set_rules('id_periode','ID Periode','trim|required');
 
-		$value['id_ukm']=$this->input->post('id_ukm');
-		$value['id_periode']=$this->input->post('id_periode');
-		$value['id_type_user']=$this->input->post('id_type_user');
 
-		if ($this->form_validation->run()==FALSE || $value['id_type_user']=='zero' ||$value['id_periode']=='zero') {
+		if ($this->form_validation->run()==FALSE || $this->input->post('id_ukm')=='zero' ||$this->input->post('id_periode')=='zero') {
 			$data['msg_error']="Silahkan isi semua kolom";
 			$this->load->view('admin/vtambah_user',$data);
 		}
@@ -48,16 +46,38 @@ class Data_user extends CI_Controller {
 			if ($send['id_type_user'] != 7) {
 				$send['username']=$this->input->post('nim');
 				$send['password']=$this->input->post('nim');			
-			}else{
-
 			}
 
-			$kembalian['jumlah']=$this->mdl_data_user_ukm->tambahdata($send);
-			$kembalian['array']=$this->mdl_data_user_ukm->ambildata();
-						
-			$this->load->view('admin/data_user',$kembalian);
-			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('admin/Data_user/');
+			$config['upload_path']          = './upload/foto_user/';
+			$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
+			$config['max_size']             = 400;
+			// $config['max_width']            = 1024;
+			// $config['max_height']           = 768;
+			
+			$this->load->library('upload', $config);
+
+			$value['id_ukm']=$this->input->post('id_ukm');
+			$value['id_periode']=$this->input->post('id_periode');
+			$value['id_type_user']=$this->input->post('id_type_user');
+			
+			if ( ! $this->upload->do_upload('berkas')){
+				$error =$this->upload->display_errors();
+				// // var_dump($error);
+				$this->session->set_flashdata('msg',$error);
+				$this->load->view('admin/vtambah_user');
+			}else{
+				$data = $this->upload->data();
+				// $this->load->view('admin/data_user', $data);
+				$send['foto_user']=$data['file_name'];
+
+				$kembalian['jumlah']=$this->mdl_data_user_ukm->tambahdata($send);
+				$kembalian['array']=$this->mdl_data_user_ukm->ambildata();
+							
+				$this->load->view('admin/data_user',$kembalian);
+				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+				redirect('admin/Data_user/');
+				
+			}
 		}
 	}
 

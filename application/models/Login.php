@@ -15,7 +15,7 @@ class Login extends CI_Model {
 	}	
 	public function auth_bph($username,$password)
 	{
-		$query=$this->db->query("SELECT * FROM tb_user where username='$username' AND password='$password' AND id_type_user=6");
+		$query=$this->db->query("SELECT * FROM tb_user where username='$username' AND password='$password' AND id_type_user=3");
 		return $query;
 	}	
 	public function auth_divisi($username,$password)

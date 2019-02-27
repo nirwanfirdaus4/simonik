@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2019 at 10:31 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Waktu pembuatan: 27 Feb 2019 pada 07.37
+-- Versi server: 10.1.32-MariaDB
+-- Versi PHP: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_bidang`
+-- Struktur dari tabel `tb_bidang`
 --
 
 CREATE TABLE `tb_bidang` (
@@ -37,10 +37,17 @@ CREATE TABLE `tb_bidang` (
   `sekretaris_bidang` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_bidang`
+--
+
+INSERT INTO `tb_bidang` (`id_bidang`, `id_ukm`, `id_periode`, `nama_bidang`, `ketua_bidang`, `sekretaris_bidang`) VALUES
+(1, 3, 2, 'Syiar', 3, 8);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_daftar_proker`
+-- Struktur dari tabel `tb_daftar_proker`
 --
 
 CREATE TABLE `tb_daftar_proker` (
@@ -56,7 +63,7 @@ CREATE TABLE `tb_daftar_proker` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_evaluasi`
+-- Struktur dari tabel `tb_evaluasi`
 --
 
 CREATE TABLE `tb_evaluasi` (
@@ -71,7 +78,7 @@ CREATE TABLE `tb_evaluasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_file_backup`
+-- Struktur dari tabel `tb_file_backup`
 --
 
 CREATE TABLE `tb_file_backup` (
@@ -86,7 +93,7 @@ CREATE TABLE `tb_file_backup` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jobdesk`
+-- Struktur dari tabel `tb_jobdesk`
 --
 
 CREATE TABLE `tb_jobdesk` (
@@ -105,7 +112,7 @@ CREATE TABLE `tb_jobdesk` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_panitia_proker`
+-- Struktur dari tabel `tb_panitia_proker`
 --
 
 CREATE TABLE `tb_panitia_proker` (
@@ -121,7 +128,7 @@ CREATE TABLE `tb_panitia_proker` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_periode`
+-- Struktur dari tabel `tb_periode`
 --
 
 CREATE TABLE `tb_periode` (
@@ -130,7 +137,7 @@ CREATE TABLE `tb_periode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_periode`
+-- Dumping data untuk tabel `tb_periode`
 --
 
 INSERT INTO `tb_periode` (`id_periode`, `th_periode`) VALUES
@@ -140,7 +147,7 @@ INSERT INTO `tb_periode` (`id_periode`, `th_periode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_sie`
+-- Struktur dari tabel `tb_sie`
 --
 
 CREATE TABLE `tb_sie` (
@@ -152,7 +159,7 @@ CREATE TABLE `tb_sie` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_type_user`
+-- Struktur dari tabel `tb_type_user`
 --
 
 CREATE TABLE `tb_type_user` (
@@ -161,7 +168,7 @@ CREATE TABLE `tb_type_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_type_user`
+-- Dumping data untuk tabel `tb_type_user`
 --
 
 INSERT INTO `tb_type_user` (`id_type_user`, `nama_type_user`) VALUES
@@ -174,7 +181,7 @@ INSERT INTO `tb_type_user` (`id_type_user`, `nama_type_user`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_ukm`
+-- Struktur dari tabel `tb_ukm`
 --
 
 CREATE TABLE `tb_ukm` (
@@ -183,7 +190,7 @@ CREATE TABLE `tb_ukm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_ukm`
+-- Dumping data untuk tabel `tb_ukm`
 --
 
 INSERT INTO `tb_ukm` (`id_ukm`, `nama_ukm`) VALUES
@@ -210,7 +217,7 @@ INSERT INTO `tb_ukm` (`id_ukm`, `nama_ukm`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -228,151 +235,155 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `nim`, `username`, `password`, `no_telp_user`, `email_user`, `id_type_user`, `id_periode`, `id_ukm`, `foto_user`) VALUES
-(1, 'Erlangga Dwi Prasetya', '1741223007', '1741223007', '1741223007', '088976543213', 'erlangga@gmail.com', 1, 2, 1, '');
+(1, 'Erlangga Dwi Prasetya', '1741223007', '1741223007', '1741223007', '088976543213', 'erlangga@gmail.com', 1, 2, 1, ''),
+(2, 'Alesandro Eka P', '167409808', '167409808', '167409808', '087989898991', 'alesandroeka@gmail.com', 2, 2, 3, 'Untitled.png'),
+(3, 'Rizky P', '163988198', '163988198', '163988198', '08108200299', 'Rizki@gmail.com', 3, 2, 3, ''),
+(7, 'Aris', '163892891', '163892891', '163892891', '912012019201', 'aris@gmail.com', 4, 2, 3, 'IMG20181114154432.jpg'),
+(8, 'Riza', '198918219', '198918219', '198918219', '898983', 'aksjaksja@gmail.com', 3, 2, 3, 'Untitled-1.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_bidang`
+-- Indeks untuk tabel `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
   ADD PRIMARY KEY (`id_bidang`);
 
 --
--- Indexes for table `tb_daftar_proker`
+-- Indeks untuk tabel `tb_daftar_proker`
 --
 ALTER TABLE `tb_daftar_proker`
   ADD PRIMARY KEY (`id_proker`);
 
 --
--- Indexes for table `tb_evaluasi`
+-- Indeks untuk tabel `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
   ADD PRIMARY KEY (`id_evaluasi`);
 
 --
--- Indexes for table `tb_file_backup`
+-- Indeks untuk tabel `tb_file_backup`
 --
 ALTER TABLE `tb_file_backup`
   ADD PRIMARY KEY (`id_file`);
 
 --
--- Indexes for table `tb_jobdesk`
+-- Indeks untuk tabel `tb_jobdesk`
 --
 ALTER TABLE `tb_jobdesk`
   ADD PRIMARY KEY (`id_jobdesk`);
 
 --
--- Indexes for table `tb_panitia_proker`
+-- Indeks untuk tabel `tb_panitia_proker`
 --
 ALTER TABLE `tb_panitia_proker`
   ADD PRIMARY KEY (`id_panitia`);
 
 --
--- Indexes for table `tb_periode`
+-- Indeks untuk tabel `tb_periode`
 --
 ALTER TABLE `tb_periode`
   ADD PRIMARY KEY (`id_periode`);
 
 --
--- Indexes for table `tb_sie`
+-- Indeks untuk tabel `tb_sie`
 --
 ALTER TABLE `tb_sie`
   ADD PRIMARY KEY (`id_sie`);
 
 --
--- Indexes for table `tb_type_user`
+-- Indeks untuk tabel `tb_type_user`
 --
 ALTER TABLE `tb_type_user`
   ADD PRIMARY KEY (`id_type_user`);
 
 --
--- Indexes for table `tb_ukm`
+-- Indeks untuk tabel `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
   ADD PRIMARY KEY (`id_ukm`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_bidang`
+-- AUTO_INCREMENT untuk tabel `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
-  MODIFY `id_bidang` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bidang` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_daftar_proker`
+-- AUTO_INCREMENT untuk tabel `tb_daftar_proker`
 --
 ALTER TABLE `tb_daftar_proker`
   MODIFY `id_proker` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_evaluasi`
+-- AUTO_INCREMENT untuk tabel `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
   MODIFY `id_evaluasi` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_file_backup`
+-- AUTO_INCREMENT untuk tabel `tb_file_backup`
 --
 ALTER TABLE `tb_file_backup`
   MODIFY `id_file` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_jobdesk`
+-- AUTO_INCREMENT untuk tabel `tb_jobdesk`
 --
 ALTER TABLE `tb_jobdesk`
   MODIFY `id_jobdesk` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_panitia_proker`
+-- AUTO_INCREMENT untuk tabel `tb_panitia_proker`
 --
 ALTER TABLE `tb_panitia_proker`
   MODIFY `id_panitia` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_periode`
+-- AUTO_INCREMENT untuk tabel `tb_periode`
 --
 ALTER TABLE `tb_periode`
   MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tb_sie`
+-- AUTO_INCREMENT untuk tabel `tb_sie`
 --
 ALTER TABLE `tb_sie`
   MODIFY `id_sie` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_type_user`
+-- AUTO_INCREMENT untuk tabel `tb_type_user`
 --
 ALTER TABLE `tb_type_user`
   MODIFY `id_type_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_ukm`
+-- AUTO_INCREMENT untuk tabel `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
   MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

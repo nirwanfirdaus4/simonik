@@ -56,11 +56,14 @@
                 </select>
               </div>
             <?php }
-
           ?>
           <?php $periode_id=$this->session->userdata('ses_periode');?>          
           <input type="hidden" placeholder="" value="<?php echo $periode_id ?>" class="form-control" name="id_periode" autocomplete="off">
-
+          <div class="form-group">
+            <label class="form-control-label">Foto User</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
+            <img src="<?php echo ($data[0]['foto_user'] != '' ? base_url('./upload/foto_user/' . $data[0]['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Logo UKM" width="100" height="120">
+            <input type="file" name="berkas" value="<?php base_url('./upload/foto_user/' . $data[0]['foto_user']) ?>">
+          </div>
           <div class="form-group space_help_button">       
             <input type="submit" value="Ubah Data" class="btn btn-success space_help">
             <a href="<?php echo base_url('admin/Data_user') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
