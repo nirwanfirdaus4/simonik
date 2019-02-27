@@ -130,7 +130,7 @@ class Data_user extends CI_Controller {
 			}
 
 			
-
+			
 			$config['upload_path']          = './upload/foto_user/';
 			$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
 			$config['max_size']             = 400;
