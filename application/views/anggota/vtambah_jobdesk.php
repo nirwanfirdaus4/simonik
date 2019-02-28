@@ -19,7 +19,7 @@
       <div class="title"><strong>Tambah Data Jobdesk</strong></div>
 
       <div class="block-body">
-        <form action="<?php echo base_url('anggota/Data_Jobdesk/tambahData') ?> " method="post">
+        <form action="<?php echo base_url('anggota/Data_Jobdesk/tambahData/' .$sie_id) ?> " method="post">
           <div class="form-group">
             <label class="form-control-label">Jobdesk</label>
             <input type="text" placeholder="Jobdesk" class="form-control" name="nama_jobdesk" autocomplete="off">
@@ -38,7 +38,7 @@
             if($row_kapel->id_sie == $sie_id && $row_kapel->id_sie ==1){ ?>
               <div class="form-group">
                 <label class="form-control-label">File</label>
-                <input type="file" placeholder="file_laporan" class="form-control" name="nama_Jobdesk" autocomplete="off">
+                <input type="file" class="form-control" name="berkas" autocomplete="off">
               </div>          
            <?php } ?>
           <?php } ?>

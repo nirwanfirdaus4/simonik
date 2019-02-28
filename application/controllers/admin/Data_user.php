@@ -71,10 +71,6 @@ class Data_user extends CI_Controller {
 					// $this->load->view('admin/data_user', $data);
 					$send['foto_user']=$data['file_name'];					
 				}	
-			}else{
-				$current =$this->input->post('id_user');
-				$query=$this->db->query("SELECT * FROM tb_user WHERE id_user=$current")->result_array();
-				$send['foto_user']=$query[0]['foto_user'];
 			}
 			
 			$kembalian['jumlah']=$this->mdl_data_user_ukm->tambahdata($send);
@@ -120,9 +116,35 @@ class Data_user extends CI_Controller {
 			$send['id_periode']=$this->input->post('id_periode');
 			if ($send['id_type_user'] != 7) {
 				$send['username']=$this->input->post('nim');	
-			}else{
+			}
 
-			}	
+			if ($_FILES["berkas"]["name"] != ""){
+				$config['upload_path']          = './upload/foto_user/';
+				$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
+				$config['max_size']             = 400;
+				// $config['max_width']            = 1024;
+				// $config['max_height']           = 768;
+				
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload('berkas')){ 
+					$error =$this->upload->display_errors();
+					// // var_dump($error);
+					$this->session->set_flashdata('msg',$error);
+					$indexrow['data']=$this->mdl_data_user_ukm->ambildata2($id_update);
+					$this->load->view('admin/vedit_user', $indexrow);
+				}else{
+					$data = $this->upload->data();
+					// $this->load->view('superadmin/data_user', $data);
+					$send['foto_user']=$data['file_name'];
+
+				}
+			}
+			else{
+				$current =$this->input->post('id_user');
+				$query=$this->db->query("SELECT * FROM tb_user WHERE id_user=$current")->result_array();
+				$send['foto_user']=$query[0]['foto_user'];
+			}			
 			$kembalian['jumlah']=$this->mdl_data_user_ukm->modelupdate($send);
 			$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
 			redirect('admin/Data_user');

@@ -8,7 +8,8 @@ class Proker extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url','form');
 		$this->load->model('mdl_data_sie_anggota');
-		$this->load->model('mdl_data_panitia');			
+		$this->load->model('mdl_data_panitia');	
+		$this->load->model('mdl_data_jobdesk');
 		$this->load->library('form_validation');
 		$this->load->database();
 		if($this->session->userdata('masuk') == FALSE){
@@ -23,6 +24,7 @@ class Proker extends CI_Controller {
 		// echo 'coba'.$proker_selected;
 		$ukm=$this->session->userdata('ses_ukm');
 		$user=$this->session->userdata('ses_id_user');
+		
 		$query0=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
 
 		foreach($query0->result() as $row_user)  {
@@ -81,6 +83,10 @@ class Proker extends CI_Controller {
 		$this->load->view('anggota/index',$paket);
 	}
 
-
+	public function index_detail($id){
+		$indexrow['id_new']=$id;
+		$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id);
+		$this->load->view('anggota/view_detail',$indexrow);
+	}
 
 }
