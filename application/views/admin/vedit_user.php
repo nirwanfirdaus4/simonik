@@ -17,8 +17,13 @@
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Ubah Data User</strong></div>
+      <?php if ($this->session->flashdata('msg')) : ?>
+        <div style="color: #ff6666;">
+        <?php echo $this->session->flashdata('msg') ?>  
+        </div>
+      <?php endif; ?>
       <div class="block-body">
-        <form action="<?php echo base_url('admin/Data_user/edit/'.$data[0]['id_user']) ?> " method="post">
+        <form action="<?php echo base_url('admin/Data_user/edit/'.$data[0]['id_user']) ?> " method="post" enctype="multipart/form-data">
           <input type="hidden" name="id_user" value="<?php echo $data[0]['id_user']; ?>">
           <div class="form-group">
             <label class="form-control-label">Nama user</label>
@@ -62,7 +67,7 @@
           <div class="form-group">
             <label class="form-control-label">Foto User</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
             <img src="<?php echo ($data[0]['foto_user'] != '' ? base_url('./upload/foto_user/' . $data[0]['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Logo UKM" width="100" height="120">
-            <input type="file" name="berkas" value="<?php base_url('./upload/foto_user/' . $data[0]['foto_user']) ?>">
+            <input type="file" name="berkas" >
           </div>
           <div class="form-group space_help_button">       
             <input type="submit" value="Ubah Data" class="btn btn-success space_help">

@@ -68,9 +68,9 @@ class Data_user extends CI_Controller {
 			$value['id_periode']=$this->input->post('id_periode');
 
 			if ( ! $this->upload->do_upload('berkas')){
-				// $error = array('error' => $this->upload->display_errors());
+				$error = $this->upload->display_errors();
 				// // var_dump($error);
-				$this->session->set_flashdata('msg','* Foto Melebihi Kapasitas');
+				$this->session->set_flashdata('msg',$error);
 				$this->load->view('superadmin/vtambah_user',$data);
 			}else{
 				$data = $this->upload->data();
