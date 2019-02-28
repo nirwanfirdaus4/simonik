@@ -48,36 +48,41 @@ class Data_user extends CI_Controller {
 				$send['password']=$this->input->post('nim');			
 			}
 
-			$config['upload_path']          = './upload/foto_user/';
-			$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
-			$config['max_size']             = 400;
-			// $config['max_width']            = 1024;
-			// $config['max_height']           = 768;
-			
-			$this->load->library('upload', $config);
-
-			$value['id_ukm']=$this->input->post('id_ukm');
-			$value['id_periode']=$this->input->post('id_periode');
-			$value['id_type_user']=$this->input->post('id_type_user');
-			
-			if ( ! $this->upload->do_upload('berkas')){
-				$error =$this->upload->display_errors();
-				// // var_dump($error);
-				$this->session->set_flashdata('msg',$error);
-				$this->load->view('admin/vtambah_user');
-			}else{
-				$data = $this->upload->data();
-				// $this->load->view('admin/data_user', $data);
-				$send['foto_user']=$data['file_name'];
-
-				$kembalian['jumlah']=$this->mdl_data_user_ukm->tambahdata($send);
-				$kembalian['array']=$this->mdl_data_user_ukm->ambildata();
-							
-				$this->load->view('admin/data_user',$kembalian);
-				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-				redirect('admin/Data_user/');
+			if ($_FILES["berkas"]["name"] != ""){
+				$config['upload_path']          = './upload/foto_user/';
+				$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
+				$config['max_size']             = 400;
+				// $config['max_width']            = 1024;
+				// $config['max_height']           = 768;
 				
+				$this->load->library('upload', $config);
+
+				$value['id_ukm']=$this->input->post('id_ukm');
+				$value['id_periode']=$this->input->post('id_periode');
+				$value['id_type_user']=$this->input->post('id_type_user');
+				
+				if ( ! $this->upload->do_upload('berkas')){
+					$error =$this->upload->display_errors();
+					// // var_dump($error);
+					$this->session->set_flashdata('msg',$error);
+					$this->load->view('admin/vtambah_user');
+				}else{
+					$data = $this->upload->data();
+					// $this->load->view('admin/data_user', $data);
+					$send['foto_user']=$data['file_name'];					
+				}	
+			}else{
+				$current =$this->input->post('id_user');
+				$query=$this->db->query("SELECT * FROM tb_user WHERE id_user=$current")->result_array();
+				$send['foto_user']=$query[0]['foto_user'];
 			}
+			
+			$kembalian['jumlah']=$this->mdl_data_user_ukm->tambahdata($send);
+			$kembalian['array']=$this->mdl_data_user_ukm->ambildata();
+						
+			$this->load->view('admin/data_user',$kembalian);
+			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+			redirect('admin/Data_user/');
 		}
 	}
 
