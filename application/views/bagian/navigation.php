@@ -4,14 +4,31 @@
                 <!-- Sidebar Header-->
                 <?php
                   $id_user = $this->session->userdata('ses_id_type_user');
-                  $query=$this->db->query("SELECT * FROM tb_user where id_user =$id_user; ")
+                  $query=$this->db->query("SELECT * FROM tb_user where id_user =$id_user");
                 ?>
                 <div class="sidebar-header d-flex align-items-center">
                   <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                   <div class="title">
-                    <?php $nama=$this->session->userdata('ses_nama');?>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
                     <h1 class="h5"><?php echo $nama; ?></h1>
-                    <p>Web Designer</p>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
                   </div>
                 </div>
                 <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
@@ -42,10 +59,27 @@
                   <div class="sidebar-header d-flex align-items-center">
                     <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                     <div class="title">
-                      <?php $nama=$this->session->userdata('ses_nama');?>                              
-                      <h1 class="h5"><?php echo $nama; ?></h1>
-                      <p>Web Designer</p>
-                    </div>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
+                    <h1 class="h5"><?php echo $nama; ?></h1>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                  </div>
                   </div>
                   <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                   <ul class="list-unstyled">
@@ -76,10 +110,27 @@
               <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                  <?php $nama=$this->session->userdata('ses_nama');?>                              
-                  <h1 class="h5"><?php echo $nama; ?></h1>
-                  <p>Web Designer</p>
-                </div>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
+                    <h1 class="h5"><?php echo $nama; ?></h1>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                  </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -108,10 +159,27 @@
               <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                  <?php $nama=$this->session->userdata('ses_nama');?>                              
-                  <h1 class="h5"><?php echo $nama; ?></h1>
-                  <p>Web Designer</p>
-                </div>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
+                    <h1 class="h5"><?php echo $nama; ?></h1>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                  </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -141,10 +209,27 @@
               <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                  <?php $nama=$this->session->userdata('ses_nama');?>                              
-                  <h1 class="h5"><?php echo $nama; ?></h1>
-                  <p>Web Designer</p>
-                </div>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
+                    <h1 class="h5"><?php echo $nama; ?></h1>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                  </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -182,10 +267,27 @@
               <div class="sidebar-header d-flex align-items-center">
                 <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
                 <div class="title">
-                  <?php $nama=$this->session->userdata('ses_nama');?>                              
-                  <h1 class="h5"><?php echo $nama; ?></h1>
-                  <p>Web Designer</p>
-                </div>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
+                    <h1 class="h5"><?php echo $nama; ?></h1>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                  </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -203,9 +305,26 @@
               <div class="sidebar-header">
                 <center>
                   <div class="title">
-                    <?php $nama=$this->session->userdata('ses_nama');?>                              
-                    <h1 class="h5 name_anggota"><?php echo $nama; ?></h1>
-                    <p>Web Designer</p>
+                    <?php
+                    $nama=$this->session->userdata('ses_nama');
+                    $ukm=$this->session->userdata('ses_ukm');
+                    $utype=$this->session->userdata('ses_id_type_user');
+
+                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                    foreach ($query_ukm->result() as $key) {
+                      if ($ukm==$key->id_ukm) {
+                        $ukm_fix=$key->nama_ukm;
+                      }
+                    }
+                    foreach ($query_utype->result() as $key_2) {
+                      if ($utype==$key_2->id_type_user) {
+                        $utype_fix=$key_2->nama_type_user;
+                      }
+                    }
+                    ?>
+                    <h1 class="h5"><?php echo $nama; ?></h1>
+                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
                   </div>
                 </center>
               </div>

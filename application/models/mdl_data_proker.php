@@ -15,6 +15,36 @@ class mdl_data_proker extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm");
 		return $query->result_array();
 	}
+	public function admin_ambildata_proker()
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm");
+		return $query->result_array();
+	}
+	public function ambildata_proker_bph($bidang)
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm AND id_bidang=$bidang");
+		return $query->result_array();
+	}
+	public function ambildata_sie_bph($proker)
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$query=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker");
+		return $query->result_array();
+	}
+	public function convert_sie()
+	{
+		$query=$this->db->query("SELECT * FROM tb_sie");
+		return $query->result_array();
+	}
+	public function ambildata_sie($sie)
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$proker=$this->session->userdata('ses_id_selected_proker');
+		$query=$this->db->query("SELECT * FROM tb_jobdesk WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie");
+		return $query->result_array();
+	}
 	public function ambildata_jobdesk($proker)
 	{
 		$ukm=$this->session->userdata('ses_ukm');	

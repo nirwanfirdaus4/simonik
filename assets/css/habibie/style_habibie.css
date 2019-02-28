@@ -89,3 +89,45 @@
 .unline:hover{
 	text-decoration: none;
 }
+.dashtext-1_custom{
+	color: #864DD9 !important;
+}
+.dashtext-2_custom{
+	color: #e65b25 !important;
+}
+.dashtext-3_custom{
+	color: #27ae60 !important;
+}
+.dashtext-4_custom{
+	color: #c0392b !important;
+}
+.dashtext-5_custom{
+	color: #16a085 !important;
+}
+.dashtext-6_custom{
+	color: #8e44ad !important;
+}
+.dashtext-7_custom{
+	color: #2980b9 !important;
+}
+.dashbg-1_custom{
+	background: #864DD9 !important;
+}
+.dashbg-2_custom{
+	background: #e65b25 !important;
+}
+.dashbg-3_custom{
+	background: #27ae60 !important;
+}
+.dashbg-4_custom{
+	background: #c0392b !important;
+}
+.dashbg-5_custom{
+	background: #16a085 !important;
+}
+.dashbg-6_custom{
+	background: #8e44ad !important;
+}
+.dashbg-7_custom{
+	background: #2980b9 !important;
+}

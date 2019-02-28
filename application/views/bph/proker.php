@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <?php $this->load->view('bagian/header') ?>
@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           }else{ ?>           
             <div class="col-md-3 col-sm-6">
-              <a class="unline" href="<?php echo base_url('anggota/Proker/index_sie/'.$key['id_sie']) ?>">
+              <a class="unline" href="<?php echo base_url('bph/Data_proker/index_sie/'.$key['id_sie']) ?>">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
