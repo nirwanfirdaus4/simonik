@@ -27,6 +27,12 @@ class mdl_data_proker extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm AND id_bidang=$bidang");
 		return $query->result_array();
 	}
+	public function ambildata_bph_dashboard($bidang)
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm AND id_bidang=$bidang");
+		return $query->result_array();
+	}
 	public function ambildata_sie_bph($proker)
 	{
 		$ukm=$this->session->userdata('ses_ukm');
