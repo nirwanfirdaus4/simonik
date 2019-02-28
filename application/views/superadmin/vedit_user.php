@@ -67,7 +67,7 @@
           <div class="form-group">
             <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
             <img src="<?php echo ($data[0]['foto_user'] != '' ? base_url('./upload/foto_user/' . $data[0]['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Logo UKM" width="100" height="120">
-            <input type="file" name="berkas" value="<?php base_url('./upload/foto_user/' . $data[0]['foto_user']) ?>">
+            <input type="file" name="berkas" >
           </div>
           <div class="form-group space_help_button">       
             <input type="submit" value="Ubah Data" class="btn btn-success space_help">

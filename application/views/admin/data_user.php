@@ -27,9 +27,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <tr>
               <th>No</th>
               <th>Nama</th>
-              <th>NIM</th>
               <th>Kontak</th>
               <th>Tipe User</th>
+              <th>Foto User</th>
               <th>Aksi</th>
             </tr> 
           </thead>
@@ -56,8 +56,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                          
               <tr>
                 <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_user'] ?></td>
-                <td><?php echo $key['nim'] ?></td>
+                <td><?php echo $key['nama_user'] ?><br><?php echo $key['nim'] ?></td>
+                
                 <?php
                 // $periode = $this->db->query("SELECT * FROM tb_periode");
                 // $ukm = $this->db->query("SELECT * FROM tb_ukm");
@@ -75,6 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php }
                 }  
                 ?>
+
+<td><img width="100" height="100" style=" border-radius: 60px 60px 60px 60px;" src="<?php echo ($key['foto_user'] != '' ? base_url('./upload/foto_user/' . $key['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Foto UKM"></td>
                 <td>
                   <?php
                     foreach($tipe_user->result() as $row_utype2)  {

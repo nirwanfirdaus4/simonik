@@ -19,6 +19,7 @@ class Data_jobdesk extends CI_Controller {
 		$this->load->view('anggota/data_jobdesk',$paket);
 	}
 	public function detail($sie){	
+		$paket['sie_id']=$sie;
 		$paket['jobdesk']=$this->mdl_data_jobdesk->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_jobdesk->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		
@@ -27,10 +28,10 @@ class Data_jobdesk extends CI_Controller {
 		// echo 'proker '.$proker_selected;
 		// echo '<br>sie '.$sie;
 	}
-	public function tambahData(){
+	public function tambahData($sie){
 		$nav_ses=1;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
-
+		$data['sie_id']=$sie;
 		$data['proker'] = $this->session->userdata('ses_id_selected_proker');	
 		$data['sie_id']=$this->session->userdata('ses_nav_sie');	
 		$data['ukm_id']=$this->session->userdata('ses_ukm');	

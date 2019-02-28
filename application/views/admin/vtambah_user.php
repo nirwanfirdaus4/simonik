@@ -17,26 +17,30 @@
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Tambah Data User</strong></div>
-
+      <?php if ($this->session->flashdata('msg')) : ?>
+        <div style="color: #ff6666;">
+        <?php echo $this->session->flashdata('msg') ?>  
+        </div>
+      <?php endif; ?>
       <div class="block-body">
-        <form action="<?php echo base_url('admin/Data_user/tambahData') ?> " method="post">
+        <form action="<?php echo base_url('admin/Data_user/tambahData') ?> " method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="form-control-label">Nama User</label>
             <input type="text" placeholder="Nama User" class="form-control" name="nama_user" autocomplete="off">
           </div>
           <div class="form-group">
             <label class="form-control-label">NIM</label>
-            <input type="text" placeholder="NIM user" class="form-control" name="nim" autocomplete="off">
+            <input type="number" placeholder="NIM user" class="form-control" name="nim" autocomplete="off">
           </div>
             <?php $ukm=$this->session->userdata('ses_ukm');?>
             <input type="hidden" value="<?php echo $ukm; ?>" class="form-control" name="id_ukm" autocomplete="off">          
           <div class="form-group">
             <label class="form-control-label">Telp</label>
-            <input type="text" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off">
+            <input type="number" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off">
           </div>
           <div class="form-group">
             <label class="form-control-label">Email</label>
-            <input type="text" placeholder="Email user" class="form-control" name="email_user" autocomplete="off">
+            <input type="email" placeholder="Email user" class="form-control" name="email_user" autocomplete="off">
           </div> 
           <div class="form-group">
             <label class="form-control-label">Tipe User</label>
@@ -49,6 +53,10 @@
                   <option value="<?php echo $row_kat->id_type_user?>"><?php echo $row_kat->nama_type_user; ?></option>
                 <?php } ?>
               </select>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">Foto User</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
+            <input type="file" name="berkas" required="required">
           </div>
             <?php $periode_id=$this->session->userdata('ses_periode');?>          
           <input type="hidden" placeholder="" value="<?php echo $periode_id ?>" class="form-control" name="id_periode" autocomplete="off">

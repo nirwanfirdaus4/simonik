@@ -32,10 +32,16 @@
             <label class="form-control-label">Deadline</label>
             <input type="date"class="form-control" name="deadline" value="<?php echo $data[0]['deadline'] ?>" autocomplete="off">
           </div>
-          <div class="form-group">
-            <label class="form-control-label">File</label>
-            <input type="file" placeholder="file_laporan" class="form-control" name="file_laporan" autocomplete="off">
-          </div>         
+          <?php
+          $query = $this->db->query("SELECT * FROM tb_panitia_proker where id_user =$user_id");
+          foreach ($query->result() as $row_kapel){
+            if($row_kapel->id_sie == $sie_id){ ?>
+              <div class="form-group">
+                <label class="form-control-label">File</label>
+                <input type="file" placeholder="file_laporan" class="form-control" name="nama_Jobdesk" autocomplete="off">
+              </div>          
+           <?php } ?>
+          <?php } ?>       
           <input type="hidden"name="id_jobdesk" value="<?php echo $data[0]['id_jobdesk'] ?>">
           <input type="hidden"name="id_proker" value="<?php echo $proker ?>">
           <input type="hidden"name="id_sie" value="<?php echo $sie_id ?>">

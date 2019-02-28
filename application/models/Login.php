@@ -25,7 +25,7 @@ class Login extends CI_Model {
 	}	
 	public function auth_anggota($username,$password)
 	{
-		$query=$this->db->query("SELECT * FROM tb_user where username='$username' AND password='$password' AND id_type_user=8");
+		$query=$this->db->query("SELECT * FROM tb_user where username='$username' AND password='$password' AND id_type_user=5");
 		return $query;
 	}	
 	// public function auth_utype($username,$password)

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Feb 2019 pada 04.28
+-- Waktu pembuatan: 26 Feb 2019 pada 04.20
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -42,9 +42,8 @@ CREATE TABLE `tb_bidang` (
 --
 
 INSERT INTO `tb_bidang` (`id_bidang`, `id_ukm`, `id_periode`, `nama_bidang`, `ketua_bidang`, `sekretaris_bidang`) VALUES
-(1, 3, 2, 'Syiar', 3, 8),
-(2, 3, 2, 'Ketakmiran', 11, 12),
-(3, 3, 2, 'Keputrian', 17, 18);
+(1, 31, 11, 'Ketakmiran', 18, 17),
+(2, 31, 11, 'Syi\'ar', 14, 14);
 
 -- --------------------------------------------------------
 
@@ -67,10 +66,8 @@ CREATE TABLE `tb_daftar_proker` (
 --
 
 INSERT INTO `tb_daftar_proker` (`id_proker`, `nama_proker`, `ketua_proker`, `tanggal_proker`, `tempat_proker`, `id_ukm`, `id_bidang`) VALUES
-(1, 'Safari Dakwah', 10, '2019-03-16', '', 3, 1),
-(2, 'Polinema Bersholawat', 13, '2019-02-28', '', 3, 2),
-(3, 'Palhalbil', 16, '2019-03-01', '', 3, 2),
-(4, 'Firma Ceria', 19, '2019-03-07', '', 3, 3);
+(1, 'Safari Dakwah', 17, '2019-06-20', 'Desa Purwoerjo', 31, 1),
+(6, 'Polinema Bersholawat', 24, '2019-02-23', 'Belum ada', 31, 2);
 
 -- --------------------------------------------------------
 
@@ -121,6 +118,15 @@ CREATE TABLE `tb_jobdesk` (
   `id_user` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `tb_jobdesk`
+--
+
+INSERT INTO `tb_jobdesk` (`id_jobdesk`, `id_ukm`, `id_proker`, `id_sie`, `nama_jobdesk`, `startline`, `deadline`, `status_jobdesk`, `file_laporan`, `id_user`) VALUES
+(1, 31, 1, 1, 'Membuat Timeline dan Scheadule', '2019-02-01', '2019-02-02', 'Belum Dikerjakan', 'jobdesk.pdf', 17),
+(6, 31, 1, 2, 'Membuat Surat', '2019-02-21', '2019-02-22', 'Belum Dikerjakan', '', 17),
+(7, 31, 1, 2, 'Membuat surat', '2019-02-14', '2019-02-15', 'Belum Dikerjakan', '', 17);
+
 -- --------------------------------------------------------
 
 --
@@ -142,10 +148,10 @@ CREATE TABLE `tb_panitia_proker` (
 --
 
 INSERT INTO `tb_panitia_proker` (`id_panitia`, `id_proker`, `id_ukm`, `id_periode`, `id_user`, `id_sie`, `jenis_panitia`) VALUES
-(1, 1, 3, 2, 10, 1, ''),
-(2, 2, 3, 2, 13, 1, ''),
-(3, 3, 3, 2, 16, 1, ''),
-(4, 4, 3, 2, 19, 1, '');
+(9, 1, 31, 11, 17, 1, ''),
+(10, 1, 31, 11, 24, 3, 'Anggota Sie'),
+(12, 6, 31, 11, 24, 1, ''),
+(13, 6, 31, 11, 17, 3, 'Koordinator Sie');
 
 -- --------------------------------------------------------
 
@@ -163,8 +169,9 @@ CREATE TABLE `tb_periode` (
 --
 
 INSERT INTO `tb_periode` (`id_periode`, `th_periode`) VALUES
-(1, '2018/2019'),
-(2, '2019/2020');
+(9, '2017/2018'),
+(10, '2018/2019'),
+(11, '2019/2020');
 
 -- --------------------------------------------------------
 
@@ -183,14 +190,9 @@ CREATE TABLE `tb_sie` (
 --
 
 INSERT INTO `tb_sie` (`id_sie`, `nama_sie`, `id_ukm`) VALUES
-(1, 'Ketua Pelaksana', 3),
-(2, 'Sekretaris Pelaksana', 3),
-(4, 'Sie Acara', 3),
-(5, 'Sie Humas', 3),
-(6, 'Sie Perlengkapan', 3),
-(7, 'Sie Konsumsi', 3),
-(8, 'Sie Pubdekdok', 3),
-(9, 'Sie Galang Dana', 3);
+(1, 'Ketua Pelaksana', 31),
+(2, 'Sekretaris Pelaksana', 31),
+(3, 'Sie Acara', 31);
 
 -- --------------------------------------------------------
 
@@ -208,11 +210,11 @@ CREATE TABLE `tb_type_user` (
 --
 
 INSERT INTO `tb_type_user` (`id_type_user`, `nama_type_user`) VALUES
-(1, 'Superadmin'),
+(1, 'Super admin'),
 (2, 'Admin'),
-(3, 'Badan Pengurus Harian'),
-(4, 'Divisi'),
-(5, 'Anggota');
+(6, 'Badan Pengurus Harian'),
+(7, 'Divisi'),
+(8, 'Anggota');
 
 -- --------------------------------------------------------
 
@@ -230,25 +232,12 @@ CREATE TABLE `tb_ukm` (
 --
 
 INSERT INTO `tb_ukm` (`id_ukm`, `nama_ukm`) VALUES
-(1, 'BEM'),
-(2, 'DPM'),
-(3, 'RISPOL'),
-(4, 'KOMPEN'),
-(5, 'PLFM'),
-(6, 'MENWA'),
-(7, 'HMM'),
-(8, 'HME'),
-(9, 'HMA'),
-(10, 'HIMANIA'),
-(11, 'TALITAKUM'),
-(12, 'KMK'),
-(13, 'PP'),
-(14, 'USMA'),
-(15, 'BKM'),
-(16, 'SENI'),
-(17, 'OR'),
-(18, 'PASTI'),
-(19, 'OPA GG');
+(3, 'BEM'),
+(30, 'DPM'),
+(31, 'RISPOL'),
+(32, 'USMA'),
+(33, 'KOMPEN'),
+(34, 'BKM');
 
 -- --------------------------------------------------------
 
@@ -275,21 +264,15 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `nim`, `username`, `password`, `no_telp_user`, `email_user`, `id_type_user`, `id_periode`, `id_ukm`, `foto_user`) VALUES
-(1, 'Erlangga Dwi Prasetya', '1741223007', '1741223007', '1741223007', '088976543213', 'erlangga@gmail.com', 1, 2, 1, ''),
-(2, 'Alesandro Eka P', '167409808', '167409808', '167409808', '087989898991', 'alesandroeka@gmail.com', 2, 2, 3, 'Untitled.png'),
-(3, 'Rizky P', '163988198', '163988198', '163988198', '08108200299', 'Rizki@gmail.com', 3, 2, 3, ''),
-(7, 'Aris', '163892891', '163892891', '163892891', '912012019201', 'aris@gmail.com', 4, 2, 3, 'IMG20181114154432.jpg'),
-(8, 'Riza', '198918219', '198918219', '198918219', '898983', 'aksjaksja@gmail.com', 3, 2, 3, 'Untitled-1.jpg'),
-(10, 'Tomi', '183281298', '183281298', '183281298', '08792928282', 'amama@gmail.com', 5, 2, 3, 'kupon_masjid.png'),
-(11, 'M agung Cahya Diyanto', '173152525257', '173152525257', '173152525257', '088723232323', 'agung@gmail.com', 3, 2, 3, '1548755cb44ff8e4a45ebd1eb88eca2d.jpg'),
-(12, 'Mia narulita', '173121223232', '173121223232', '173121223232', '08875656677878', 'mia@gmail.com', 3, 2, 3, 'index.jpg'),
-(13, 'Galih Sukma Indra', '187262652525', '187262652525', '187262652525', '08852626262', 'galih@gmail.com', 5, 2, 3, '4-google-flat.jpg'),
-(14, 'M Faiq Munir', '173232322333', '173232322333', '173232322333', '0885353535353', 'faiq@gmail.com', 3, 2, 3, '53168-responsive-layout.jpg'),
-(15, 'Yuni Adam', '173626263637', '173626263637', '173626263637', '088536373737', 'yuni@gmail.com', 3, 2, 3, '500_F_118976220_tDNkMVmS10peequbs9KFtQ1x24S8nUeX.jpg'),
-(16, 'Rega Setya Raga', '1831626262673', '1831626262673', '1831626262673', '0886535262727', 'rega@gmail.com', 5, 2, 3, 'Capture.PNG'),
-(17, 'Nunung Iswati', '173232322344', '173232322344', '173232322344', '08876353536536', 'noenoeng@gmail.com', 3, 2, 3, '7252-01-flat-design-process-powerpoint-16x9-8.jpg'),
-(18, 'Miftahul Jannah', '1782323232323', '1782323232323', '1782323232323', '0883526326737', 'miftah@gmail.com', 3, 2, 3, 'classic-solar-system-scheme-with-flat-design_23-2147929092.jpg'),
-(19, 'Hanum Ega', '1842332348889', '1842332348889', '1842332348889', '088537372887', 'hanum@gmail.com', 5, 2, 3, 'joomla-features.jpg');
+(12, 'Erlangga Panji Wibawa', '1731273382', '1731273382', 'super', '088976543234', 'erlangga7@gmail.com', 1, 11, 3, ''),
+(13, 'Abdulloh Habibie', '1631710011', '1631710011', 'admin', '088376743239', 'habibie4@gmail.com', 2, 11, 31, ''),
+(14, 'Gatot Kaca Pecah', '1631710923', '1631710923', 'bph', '088176543232', 'gatotkaca@gmail.com', 6, 11, 31, ''),
+(17, 'Alessandro Eka', '1731565563', '1731565563', 'anggota', '088965432124', 'ales@gmail.com', 8, 11, 31, ''),
+(18, 'Aji Broto Pakuningrat', '1531762212', '', '', '08865342122', 'ajibroto@gmail.com', 7, 11, 31, ''),
+(19, 'Yosi Fernando', '1763243111', '1763243111', '1763243111', '08876543421', 'yosi@gmail.com', 8, 11, 31, ''),
+(20, 'Riatno', '18212121214', '18212121214', '18212121212', '08823232323', 'das@gmail.com', 2, 11, 30, ''),
+(23, 'Yusuf', '163198921', '163198921', '163198921', '02891281982', 'asasajks@gmail.com', 2, 11, 34, ''),
+(24, 'Waluyo Ferbrianto', '1732142251', '1732142251', '1732142251', '08897262535', 'waluyo@gmail.com', 2, 11, 31, 'IMG201811141544321.jpg');
 
 --
 -- Indexes for dumped tables
@@ -369,13 +352,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT untuk tabel `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
-  MODIFY `id_bidang` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_bidang` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_daftar_proker`
 --
 ALTER TABLE `tb_daftar_proker`
-  MODIFY `id_proker` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_proker` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_evaluasi`
@@ -393,43 +376,43 @@ ALTER TABLE `tb_file_backup`
 -- AUTO_INCREMENT untuk tabel `tb_jobdesk`
 --
 ALTER TABLE `tb_jobdesk`
-  MODIFY `id_jobdesk` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jobdesk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_panitia_proker`
 --
 ALTER TABLE `tb_panitia_proker`
-  MODIFY `id_panitia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_panitia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_periode`
 --
 ALTER TABLE `tb_periode`
-  MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_sie`
 --
 ALTER TABLE `tb_sie`
-  MODIFY `id_sie` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_sie` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_type_user`
 --
 ALTER TABLE `tb_type_user`
-  MODIFY `id_type_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_type_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_ukm`
 --
 ALTER TABLE `tb_ukm`
-  MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_ukm` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
