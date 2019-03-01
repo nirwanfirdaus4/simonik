@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <section class="no-padding-top no-padding-bottom">
     <div class="container-fluid">
       <div class="row">
-        <?php $no=1; $s=0;?>
+        <?php $no=1; $s=0;$hit=0;?>
         <?php foreach ($array as $key) { 
           if ($key['id_sie']==$s) {
 
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
 
-                      <?php foreach ($convert_sie as $key_sie) { 
+                      <?php $hit=0; foreach ($convert_sie as $key_sie) { 
                         if ($key_sie['id_sie']==$key['id_sie']) {
                           $nama_sie=$key_sie['nama_sie'];
                         }
@@ -32,10 +32,73 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       ?>          
                       <div class="icon"><i class="icon-user-1"></i></div><strong><?php echo $nama_sie ?></strong>
                     </div>
-                    <div class="number dashtext-1">50%</div>
+
+                    <?php 
+
+                    $table='tb_jobdesk';
+                    $f_ukm='id_ukm';
+                    $f_proker='id_proker';
+                    $f_sie='id_sie';
+                    $ukm_id=$this->session->userdata('ses_ukm');
+                    $proker_id=$this->session->userdata('ses_id_selected_proker');
+                    $sie_id=$key['id_sie'];
+                    $query = $this->db->get_where($table,array($f_ukm=>$ukm_id,$f_proker=>$proker_id,$f_sie=>$sie_id));
+                    if($query->num_rows()>0)
+                    {
+                      $jumlah_jobdesk=$query->num_rows();
+                    }
+                    else
+                    {
+                      $jumlah_jobdesk=0;
+                    }
+
+                    $value_job=$this->db->query("SELECT * FROM tb_jobdesk where id_ukm=$ukm_id AND id_proker=$proker_id AND id_sie=$sie_id");
+                    $loop=0; $loop_2=0; $count=0;
+
+                    foreach ($value_job->result() as $result) {
+
+                      if ($jumlah_jobdesk!=0) {
+                        if ($loop<$jumlah_jobdesk) {
+                          $get_value=$result->status_jobdesk;
+                          if ($get_value=='Belum Dikerjakan') {
+                            $point=0;
+                          }elseif($get_value=='Progres'){
+                            $point=50;
+                          }else{
+                            $point=100;
+                          }
+                          $value[$loop]=$point;
+                        }
+                      }else{
+                        $value[$loop]=0;
+                      }
+
+
+                      $loop++;
+
+                    }
+
+                    foreach ($value_job->result() as $hasil) {
+                      if ($loop_2<$jumlah_jobdesk) {
+                        $count=$count+$value[$loop_2];
+                      }
+                      $loop_2++;
+                    }
+
+                    $hitung=$count/$jumlah_jobdesk;
+                    $hit=strlen($hitung);
+                      if ($hit<=2) {
+                        $print=$hitung;
+                      }else{ 
+                        $shrink_text= substr($hitung,0,2);
+                        $print=$shrink_text;
+                      }
+
+                    ?>                    
+                    <div class="number dashtext-1"><?php echo $print; ?>%</div>
                   </div>
                   <div class="progress progress-template">
-                    <div role="progressbar" style="width: 50%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                    <div role="progressbar" style="width: <?php echo $print;?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
                   </div>
                 </div>
               </a>
@@ -43,13 +106,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php 
           }
           $s=$key['id_sie'];
+          $hit++;
         }
-          ?>
+        ?>
 
-        </div>
       </div>
-    </section>
-    <!-- Breadcrumb-->
+    </div>
+  </section>
+  <!-- Breadcrumb-->
 
 
-    <?php $this->load->view('bagian/footer') ?>
+  <?php $this->load->view('bagian/footer') ?>

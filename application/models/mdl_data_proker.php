@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class mdl_data_proker extends CI_Model {
 
-	public function __construct()
+	public function __construct() 
 	{
 		parent::__construct();
 		$this->load->database();
@@ -63,6 +63,23 @@ class mdl_data_proker extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_daftar_proker where id_proker = $id_update");
 		return $query->result_array();
 	}
+	// public function hitungJumlahAsset()
+	// {   
+	// 	$ukm_id=$this->session->userdata('ses_ukm');
+	// 	$field1='id_ukm';
+	// 	$field2='id_proker';
+	// 	$table='tb_jobdesk';
+	// 	$query = $this->db->get_where($table,array($field1=>$ukm_id,$field2=>1));
+	// 	// $query = $this->db->get_where('tb_jobdesk');
+	// 	if($query->num_rows()>0)
+	// 	{
+	// 		return $query->num_rows();
+	// 	}
+	// 	else
+	// 	{
+	// 		return 0;
+	// 	}
+	// }	
 
 	public function tambahdata($paket)
 	{
@@ -75,11 +92,11 @@ class mdl_data_proker extends CI_Model {
 		$this->db->delete($table);
 	}
 	public function ambilDataSie()
-		{
-				$ukm=$this->session->userdata('ses_ukm');			
-				$query=$this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
-				return $query->result_array();
-		}
+	{
+		$ukm=$this->session->userdata('ses_ukm');			
+		$query=$this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
+		return $query->result_array();
+	}
 
 	public function modelupdate($send){
 		$sql="UPDATE tb_daftar_proker SET nama_proker = ?, ketua_proker = ?, tanggal_proker = ?, id_ukm = ?, id_bidang = ? WHERE id_proker = ?";
