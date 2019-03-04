@@ -49,4 +49,8 @@ class mdl_data_jobdesk extends CI_Model {
 		$sql="UPDATE tb_jobdesk SET id_ukm = ?, id_proker = ?, id_sie = ?, id_user = ?, status_jobdesk = ?, nama_jobdesk = ?, startline = ?, deadline = ? WHERE id_jobdesk = ?";
 		$query=$this->db->query($sql, array( $send['id_ukm'], $send['id_proker'], $send['id_sie'], $send['id_user'], $send['status_jobdesk'], $send['nama_jobdesk'],$send['startline'],$send['deadline'], $send['id_jobdesk']));
 	}	
+
+	public function upload_file($send){
+		$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, file_laporan = ? WHERE id_jobdesk = ?";
+		$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['file_laporan'], $send['id_jobdesk']));	}	
 }

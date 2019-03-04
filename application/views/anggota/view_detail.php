@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>File Laporan</th>
                                 <td>:</td>
-                                <td><?php echo ($data[0]['file_laporan'] != '' ? base_url('./upload/berkas_laoran/' . $data[0]['file_laporan']) : "Tidak ada file laporan"); ?></td>
+                                <td><?php echo ($data[0]['file_laporan'] != '' ? "<a target='blank' href='" . base_url('upload/berkas_laporan/' . $data[0]['file_laporan']) . "'>".$data[0]['file_laporan']. "</a>" : "Tidak ada file laporan"); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -81,15 +81,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-left:10px;">
                   </div>
                 </form>
-                <div class="title"><strong>Upload Berkas</strong></div>
-                <div class="stats-3-block block d-flex">
-                  <div class="form-group">
-                    <label class="form-control-label"></label><label style="font-size:12px; padding-left:5px;">(Format PDF maks 300Kb)</label><br>
-                    <input type="file" name="berkas"><input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-top:15px;">
+                <form action="<?php echo base_url('anggota/Data_jobdesk/upload/'.$data[0]['id_jobdesk']) ?>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_jobdesk" value="<?php echo $data[0]['id_jobdesk']  ?>">
+                <!-- <input type="hidden" value="<?php echo $data[0]['nama_jobdesk']  ?>">
+                <input type="hidden" value="<?php echo $data[0]['startline']  ?>">
+                <input type="hidden" value="<?php echo $data[0]['deadline']  ?>">
+                <input type="hidden" value="<?php echo $data[0]['status_jobdesk']  ?>">
+                <input type="hidden" value="<?php echo $data[0]['id_user']  ?>"> -->
+                <?php if ($this->session->flashdata('msg')) : ?>
+                  <div style="color: #ff6666;">
+                  <?php echo $this->session->flashdata('msg') ?>  
                   </div>
-                </div>
-              </div>
-              
+                <?php endif; ?>
+                  <div class="title"><strong>Upload Berkas</strong></div>
+                    <div class="stats-3-block block d-flex">
+                      <div class="form-group">
+                        <label class="form-control-label"></label><label style="font-size:12px; padding-left:5px;">(Format PDF maks 300Kb)</label><br>
+                        <input type="file" name="berkas"><input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-top:15px;">
+                      </div>
+                    </div>
+                  </div>
+                </form>
             </div>
           </div>
         </section>

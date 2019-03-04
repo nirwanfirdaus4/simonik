@@ -118,5 +118,55 @@ class Data_jobdesk extends CI_Controller {
 			redirect('anggota/Data_jobdesk/detail/'.$sie);
 		}
 	}
+
+	public function upload($id_upload){
+		$this->form_validation->set_rules('id_jobdesk','Id Jobdesk','trim|required');
+		
+		if($this->form_validation->run()==FALSE){
+			$indexrow['id_new']=$id_upload;
+			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_upload);
+			$this->load->view('anggota/view_detail', $indexrow);
+
+		}
+		else{
+			$send['id_jobdesk']=$this->input->post('id_jobdesk');
+			// $send['nama_jobdesk']=$this->input->post('nama_jobdesk');
+			// $send['startline']=$this->input->post('mulai');
+			// $send['deadline']=$this->input->post('deadline');
+			// // STATIS
+			// $send['id_ukm']=$this->input->post('id_ukm');
+			// $send['id_proker']=$this->input->post('id_proker');
+			// $sie=$send['id_sie']=$this->input->post('id_sie');
+			// $send['id_user']=$this->input->post('id_user');
+			// $send['status_jobdesk']=$this->input->post('status_jobdesk');
+
+			if ($_FILES["berkas"]["name"] != ""){
+				$config['upload_path']          = './upload/berkas_laporan/';
+				$config['allowed_types']        = 'pdf|PDF';
+				$config['max_size']             = 400;
+				// $config['max_width']            = 1024;
+				// $config['max_height']           = 768;
+				
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload('berkas')){ 
+					$error =$this->upload->display_errors();
+					// // var_dump($error);
+					$this->session->set_flashdata('msg',$error);
+					$indexrow['id_new']=$id_upload;
+					$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_upload);
+					$this->load->view('anggota/view_detail', $indexrow);
+				}else{
+					$data = $this->upload->data();
+					// $this->load->view('superadmin/data_user', $data);
+					$send['file_laporan']=$data['file_name'];
+
+					$kembalian['jumlah']=$this->mdl_data_jobdesk->upload_file($send);
+					$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
+					redirect('anggota/Proker/index_detail/' .$id_jobdesk);
+				}
+			}
+		}
+	}
 	
 }
