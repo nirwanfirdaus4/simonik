@@ -75,6 +75,8 @@ class Data_panitia extends CI_Controller {
 		$nav_ses=1;
 		$data['proker'] = $this->session->userdata('ses_id_selected_proker');
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
+		$indexrow['sie_id']=$user=$this->session->userdata('ses_nav_sie');
+		$indexrow['user_id']=$this->session->userdata('ses_id_user');
 
 		$value['id_user']=$this->input->post('nm_koor');
 		$value['id_sie']=$this->input->post('nm_sie');

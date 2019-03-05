@@ -37,7 +37,7 @@
               <option value="">-- Pilih Koordinator / Anggota Sie --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=8");
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=5");
               foreach($ketua->result() as $row_kat)  { ?> 
                 <option value="<?php echo $row_kat->id_user?>" <?php echo ($row_kat->id_user == $data[0]['id_user'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
@@ -55,15 +55,21 @@
               <?php } ?>
             </select>
           </div>
-          <div class="form-group">
-            <label class="form-control-label">Jenis Sie</label>
-            <select name="jenis_sie" id="jenis_sie" class="form-control" required="required">
-              <option value="" >-- Pilih Jenis Sie --</option>
-                <option value="Koordinator Sie" <?php echo $data[0]['jenis_panitia'] ? 'selected="selected"' : ''; ?>>Koordinator Sie</option>
-                <option value="Angggota Sie" <?php echo $data[0]['jenis_panitia'] ? 'selected="selected"' : ''; ?>>Angggota Sie</option>
-              
-            </select>
-          </div>
+          <?php
+          $query = $this->db->query("SELECT * FROM tb_panitia_proker where id_user =$user_id");
+          foreach ($query->result() as $row_kapel){
+            if($row_kapel->id_sie != $sie_id){ ?>
+              <div class="form-group">
+                <label class="form-control-label">Jenis Sie</label>
+                <select name="jenis_sie" id="jenis_sie" class="form-control" required="required">
+                  <option value="" >-- Pilih Jenis Sie --</option>
+                    <option value="Koordinator Sie" <?php echo $data[0]['jenis_panitia'] ? 'selected="selected"' : ''; ?>>Koordinator Sie</option>
+                    <option value="Angggota Sie" <?php echo $data[0]['jenis_panitia'] ? 'selected="selected"' : ''; ?>>Angggota Sie</option>
+                  
+                </select>
+              </div>
+          <?php } ?>
+          <?php } ?>
 
           <div class="form-group space_help_button">       
             <input type="submit" name="submit" value="Simpan" class="btn btn_dewe_color">

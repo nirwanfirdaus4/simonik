@@ -6,7 +6,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dark Bootstrap Admin by Bootstrapious.com</title>
+    <script language='JavaScript'>
+      var txt="SIMONIK || Sistem Informasi Monitoring Kegiatan dan Evaluasi";
+      var speed=300;
+      var refresh=null;
+      function action() { document.title=txt;
+      txt=txt.substring(1,txt.length)+txt.charAt(0);
+      refresh=setTimeout("action()",speed);}action();
+    </script>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
@@ -38,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="container-fluid d-flex align-items-center justify-content-between">
               <div class="navbar-header">
                 <!-- Navbar Header--><a href="index.html" class="navbar-brand">
-                  <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Dark</strong><strong>Admin</strong></div>
+                  <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">SI</strong><strong>MONIK</strong></div>
                   <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
                   <!-- Sidebar Toggle Btn-->
                   <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
