@@ -25,14 +25,24 @@ class Proker extends CI_Controller {
 		$ukm=$this->session->userdata('ses_ukm');
 		$user=$this->session->userdata('ses_id_user');
 		
-		$query0=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
+		$query_panitia=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
+		$query_jobdesk=$this->db->query("SELECT * FROM tb_jobdesk where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
 
-		foreach($query0->result() as $row_user)  {
+		foreach($query_panitia->result() as $row_user)  {
 			if ($row_user->jenis_panitia!='Anggota Sie' && $row_user->jenis_panitia!='Koordinator Sie' ) {
-				$nav_ses=1;
-				$page='anggota/proker';
-				$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker);
-				$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();
+
+				if ($query_jobdesk->num_rows()>0) {
+					$nav_ses=1;
+					$page='anggota/proker'; 
+					$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker); 
+					$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();					
+				}else{
+					$nav_ses=1;
+					$page='anggota/empty_jobdesc';
+					// useless
+					$data[]=1; 						
+				}
+
 			}else{
 				if ($row_user->jenis_panitia!='Koordinator Sie') {
 					$nav_ses=0;

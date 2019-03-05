@@ -32,14 +32,17 @@ class Data_proker extends CI_Controller {
 			$this->load->view('admin/vtambah_proker',$data);
 		}
 		else{
+			// $send ->kirim data ke proker
 			$send['id_proker']='';
 			$send['nama_proker']=$this->input->post('nama_proker');
 			$send['ketua_proker']=$this->input->post('nm_ketua_proker');
 			$send['tanggal_proker']=$this->input->post('tgl_proker');
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['id_bidang']=$this->input->post('nm_bidang');
+
 			$kembalian['jumlah']=$this->mdl_data_proker->tambahdata($send);
 
+			// $send_panitia ->kirim data ke panitia
 			$send_panitia['id_panitia']='';
 			$query0=$this->db->query("SELECT * FROM tb_daftar_proker");
 			foreach ($query0->result() as $key) {
@@ -52,7 +55,7 @@ class Data_proker extends CI_Controller {
 			$send_panitia['id_periode']=$this->session->userdata('ses_periode');
 			$send_panitia['id_user']=$this->input->post('nm_ketua_proker');
 			$send_panitia['id_sie']=1;
-		
+ 
 			$kembalian['jumlah']=$this->mdl_data_panitia->tambahdata($send_panitia);
 			// var_dump($send);
 			$kembalian['array']=$this->mdl_data_proker->ambildata();
