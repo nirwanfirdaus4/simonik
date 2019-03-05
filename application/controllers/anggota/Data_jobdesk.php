@@ -162,8 +162,10 @@ class Data_jobdesk extends CI_Controller {
 					$send['file_laporan']=$data['file_name'];
 
 					$kembalian['jumlah']=$this->mdl_data_jobdesk->upload_file($send);
-					$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
-					redirect('anggota/Proker/index_detail/' .$id_jobdesk);
+					$this->session->set_flashdata('msg', 'Berkas Berhasil Diupload');
+					$indexrow['id_new']=$id_upload;
+					$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_upload);
+					$this->load->view('anggota/view_detail', $indexrow);
 				}
 			}
 		}
