@@ -37,6 +37,7 @@ class Admin_login extends CI_Controller {
 				
 			$this->session->set_userdata('masuk',TRUE);
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);				
+			$this->session->set_userdata('ses_ukm',$data['id_ukm']);
 			$this->session->set_userdata('ses_nama',$data['nama_user']);				
 			$this->session->set_userdata('ses_periode',$data['id_periode']);				
 			// $this->session->set_userdata('ses_nama_utype',$nama_utype);				
