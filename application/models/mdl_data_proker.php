@@ -86,8 +86,17 @@ class mdl_data_proker extends CI_Model {
 		$this->db->insert('tb_daftar_proker', $paket);
 		return $this->db->affected_rows();
 	}
+	public function tambahdata_rating($paket)
+	{
+		$this->db->insert('tb_rating', $paket);
+		return $this->db->affected_rows();
+	}
 
 	public function delete_data($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+	public function delete_data_rating($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
 	}

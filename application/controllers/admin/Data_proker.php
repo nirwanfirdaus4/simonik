@@ -14,7 +14,7 @@ class Data_proker extends CI_Controller {
 			redirect('Admin_login','refresh');
 		}		
 	}
-
+ 
 	public function index(){
 		$paket['array']=$this->mdl_data_proker->ambildata();	
 		$this->load->view('admin/data_proker',$paket);
@@ -55,8 +55,14 @@ class Data_proker extends CI_Controller {
 			$send_panitia['id_periode']=$this->session->userdata('ses_periode');
 			$send_panitia['id_user']=$this->input->post('nm_ketua_proker');
 			$send_panitia['id_sie']=1;
- 
+ 			
+			$send_rating['id_rating']='';
+			$send_rating['id_ukm']=$this->input->post('id_ukm');
+			$send_rating['id_proker']=$fix_proker;
+			$send_rating['rate']=0;
+
 			$kembalian['jumlah']=$this->mdl_data_panitia->tambahdata($send_panitia);
+			$kembalian['jumlah']=$this->mdl_data_panitia->tambahdata_rating($send_rating);
 			// var_dump($send);
 			$kembalian['array']=$this->mdl_data_proker->ambildata();
 						
@@ -69,6 +75,7 @@ class Data_proker extends CI_Controller {
 	public function do_delete($id){
 		$where = array('id_proker' => $id);
 		$this->mdl_data_proker->delete_data($where,'tb_daftar_proker');
+		$this->mdl_data_proker->delete_data_rating($where,'tb_rating');
 		redirect('admin/Data_proker/');
 	}
 

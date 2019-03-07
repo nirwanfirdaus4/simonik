@@ -27,6 +27,27 @@
   $(document).ready( function () {
     $('#myTable').DataTable();
   } );
+
+  function addValue(value) {
+  	var values=value;
+  	if (values==1) {
+  		var nilai = 20;
+  		document.getElementById("rate").value = nilai;
+  	}else if(values==2){
+  		var nilai = 40;
+  		document.getElementById("rate").value = nilai;
+  	}else if(values==3){
+  		var nilai = 60;
+  		document.getElementById("rate").value = nilai;
+  	}else if(values==4){
+  		var nilai = 80;
+  		document.getElementById("rate").value = nilai;
+  	}else if(values==5){
+  		var nilai = 100;
+  		document.getElementById("rate").value = nilai;
+  	}
+  }
+
 </script>
 </body>
 </html>
