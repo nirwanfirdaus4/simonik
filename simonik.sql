@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2019 at 09:22 AM
+-- Generation Time: Mar 07, 2019 at 10:55 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -67,7 +67,7 @@ CREATE TABLE `tb_daftar_proker` (
 --
 
 INSERT INTO `tb_daftar_proker` (`id_proker`, `nama_proker`, `ketua_proker`, `tanggal_proker`, `tempat_proker`, `id_ukm`, `id_bidang`) VALUES
-(1, 'Safari Dakwah', 10, '2019-03-16', '', 3, 1),
+(1, 'Safari Dakwah', 10, '2019-03-06', '', 3, 1),
 (2, 'Polinema Bersholawat', 13, '2019-02-28', '', 3, 2),
 (3, 'Palhalbil', 16, '2019-03-01', '', 3, 2),
 (4, 'Firma Ceria', 19, '2019-03-07', '', 3, 3);
@@ -179,6 +179,26 @@ CREATE TABLE `tb_periode` (
 INSERT INTO `tb_periode` (`id_periode`, `th_periode`) VALUES
 (1, '2018/2019'),
 (2, '2019/2020');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_rating`
+--
+
+CREATE TABLE `tb_rating` (
+  `id_rating` int(5) NOT NULL,
+  `id_ukm` int(5) NOT NULL,
+  `id_proker` int(5) NOT NULL,
+  `rate` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_rating`
+--
+
+INSERT INTO `tb_rating` (`id_rating`, `id_ukm`, `id_proker`, `rate`) VALUES
+(3, 3, 1, 80);
 
 -- --------------------------------------------------------
 
@@ -352,6 +372,12 @@ ALTER TABLE `tb_periode`
   ADD PRIMARY KEY (`id_periode`);
 
 --
+-- Indexes for table `tb_rating`
+--
+ALTER TABLE `tb_rating`
+  ADD PRIMARY KEY (`id_rating`);
+
+--
 -- Indexes for table `tb_sie`
 --
 ALTER TABLE `tb_sie`
@@ -420,6 +446,12 @@ ALTER TABLE `tb_panitia_proker`
 --
 ALTER TABLE `tb_periode`
   MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_rating`
+--
+ALTER TABLE `tb_rating`
+  MODIFY `id_rating` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_sie`
