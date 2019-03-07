@@ -42,16 +42,23 @@ class Welcome extends CI_Controller {
 					$hasil_cek=$cek->rate;
 				}	
 				if ($hasil_cek<=0) {
-					$this->session->set_userdata('ses_date_rate',$tgl_acara);				
+					$this->session->set_userdata('ses_date_rate',$tgl_acara);			
 					$isi_rate=1;
 				}else{
 					$isi_rate=0;
 				}
+			}else{
+					//untuk mencegah error jika tidak ada yg dihasilkan dari query $proker
+					$isi_rate=0;				
 			}
 		}
 
 		if ($isi_rate==1) {
-			$this->load->view('bph/rating');			
+			$query_proker=$this->db->query("SELECT * FROM tb_daftar_proker where id_proker=$proker_selesai");
+			foreach ($query_proker->result() as $key) {
+				$send['nama_proker']=$key->nama_proker;
+			}
+			$this->load->view('bph/rating',$send);			
 		}else{
 			foreach ($bidang->result() as $row_bidang) {
 				if ($utype==$row_bidang->ketua_bidang || $utype==$row_bidang->sekretaris_bidang) {

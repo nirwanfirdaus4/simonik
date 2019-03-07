@@ -131,3 +131,16 @@
 .dashbg-7_custom{
 	background: #2980b9 !important;
 }
+.primary0{
+	font-size:100px;
+	color:#fff;
+	padding: 0 1.5% 0 0;
+}
+.primary{
+	font-size:100px;
+	color:#ffda44;
+	padding: 0 1.5% 0 0;
+}
+.congrats_rate{
+	margin: 3% 0 0 0;
+}
