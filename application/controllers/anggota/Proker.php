@@ -34,6 +34,7 @@ class Proker extends CI_Controller {
 				if ($query_jobdesk->num_rows()>0) {
 					$nav_ses=1;
 					$page='anggota/proker'; 
+					$sie=$row_user->id_sie;
 					$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker); 
 					$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();					
 				}else{
@@ -63,6 +64,7 @@ class Proker extends CI_Controller {
 		// $nilai_proker=$this->session->userdata('ses_id_selected_proker'); 
 		// $this->session->set_userdata('ses_proker_fix',$nilai_proker);
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
+		$this->session->set_userdata('ses_nav_sie_anggota',$sie);
 		$this->load->view($page,$data); 
 	}
 

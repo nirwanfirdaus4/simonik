@@ -63,23 +63,6 @@ class mdl_data_proker extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_daftar_proker where id_proker = $id_update");
 		return $query->result_array();
 	}
-	// public function hitungJumlahAsset()
-	// {   
-	// 	$ukm_id=$this->session->userdata('ses_ukm');
-	// 	$field1='id_ukm';
-	// 	$field2='id_proker';
-	// 	$table='tb_jobdesk';
-	// 	$query = $this->db->get_where($table,array($field1=>$ukm_id,$field2=>1));
-	// 	// $query = $this->db->get_where('tb_jobdesk');
-	// 	if($query->num_rows()>0)
-	// 	{
-	// 		return $query->num_rows();
-	// 	}
-	// 	else
-	// 	{
-	// 		return 0;
-	// 	}
-	// }	
 
 	public function tambahdata($paket)
 	{
@@ -105,6 +88,20 @@ class mdl_data_proker extends CI_Model {
 		$ukm=$this->session->userdata('ses_ukm');			
 		$query=$this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
 		return $query->result_array();
+	}
+	public function ambildataEvaluasi($periode,$ukm,$proker,$sie)
+	{
+		$query=$this->db->query("SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode");
+		return $query->result_array();
+	}
+	public function unggahDataEvaluasi($paket)
+	{
+		$this->db->insert('tb_evaluasi', $paket);
+		// return $this->db->affected_rows();
+	}
+	public function updateDataEvaluasi($send){
+		$sql="UPDATE tb_evaluasi SET id_ukm = ?, id_periode = ?, id_proker = ?, id_sie = ?, hasil_evaluasi = ? WHERE id_evaluasi = ?";
+		$query=$this->db->query($sql, array( $send['id_ukm'], $send['id_periode'], $send['id_proker'], $send['id_sie'], $send['hasil_evaluasi'], $send['id_evaluasi']));
 	}
 
 	public function modelupdate($send){

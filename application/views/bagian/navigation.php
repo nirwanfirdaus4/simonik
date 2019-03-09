@@ -258,6 +258,7 @@
                     } ?> 
                   </ul>
                 </li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/') ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
@@ -293,6 +294,7 @@
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>             
                 <li><a href="<?php echo base_url('anggota/Data_anggota/') ?>"> <i class="fa fa-bar-chart"></i>Data Anggota </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/') ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>                
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
