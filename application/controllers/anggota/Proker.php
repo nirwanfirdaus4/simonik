@@ -58,13 +58,13 @@ class Proker extends CI_Controller {
 					$data['jobdesk']=$this->mdl_data_sie_anggota->ambildata_jobdesk($ukm,$proker,$sie);	
 					$data['sie']=$this->mdl_data_sie_anggota->bahan_convert_sie();			
 				}
+				$this->session->set_userdata('ses_nav_sie_anggota',$sie);
 			}
 		}
 		$this->session->set_userdata('ses_id_selected_proker',$proker);		
 		// $nilai_proker=$this->session->userdata('ses_id_selected_proker'); 
 		// $this->session->set_userdata('ses_proker_fix',$nilai_proker);
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
-		$this->session->set_userdata('ses_nav_sie_anggota',$sie);
 		$this->load->view($page,$data); 
 	}
 
