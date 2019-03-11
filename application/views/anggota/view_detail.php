@@ -63,31 +63,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="col-lg-6">
               <div class="title"><strong>Ubah Status</strong></div>
-                <form action="">
-                <input type="hidden" value="<?php echo $data[0]['id_jobdesk']  ?>">
+                <form action="<?php echo base_url('anggota/Data_jobdesk/update_status/'.$data[0]['id_jobdesk']) ?>" method="post">
+                <?php if ($this->session->flashdata('msg_update')) : ?>
+                  <div style="color: #ff6666;">
+                  <?php echo $this->session->flashdata('msg_update') ?>  
+                  </div>
+                <?php endif; ?>
+                <input type="hidden" name="id_jobdesk" value="<?php echo $data[0]['id_jobdesk']  ?>">
                   <div class="stats-2-block block d-flex">
-                    <select name="" id="" class="form-control">
-                    
-                    <?php 
-                    $id_jobdesk = $this->session->userdata("ses_nav_sie");
+                    <select name="status_jobdesk" class="form-control">
+                    <!-- <?php 
+                    // $id_jobdesk = $this->session->userdata("ses_nav_sie");
                     // echo $id_jobdesk;
-                      $query = $this->load->db->query("SELECT * FROM tb_jobdesk where id_jobdesk=$id_new");
-                      foreach ($query->result() as $row_query){ ?>
-                        <option value="Belum Dikerjakan"<?php $data[0]['status_jobdesk']=='Belum Dikerjakan' ? ' selected="selected"' : '';?>>Belum Dikerjakan</option>
-                        <option value="Progress"<?php $data[0]['status_jobdesk']=='Progress' ? ' selected="selected"' : ''; ?>>Progress</option>
-                        <option value="Sudah Dikerjakan"<?php $data[0]['status_jobdesk']=='Sudah Dikerjakan' ? ' selected="selected"' : ''; ?>>Sudah Dikerjakan</option>
-                      <?php } ?>
+                      // $query = $this->load->db->query("SELECT * FROM tb_jobdesk where id_jobdesk=$id_new");
+                      // foreach ($query->result() as $row_query){ ?> -->
+                        <option value="Belum Dikerjakan">Belum Dikerjakan</option>
+                        <option value="Progres">Progress</option>
+                        <option value="Sudah Dikerjakan">Sudah Dikerjakan</option>
+                      
                     </select>
                     <input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-left:10px;">
                   </div>
                 </form>
                 <form action="<?php echo base_url('anggota/Data_jobdesk/upload/'.$data[0]['id_jobdesk']) ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_jobdesk" value="<?php echo $data[0]['id_jobdesk']  ?>">
-                <!-- <input type="hidden" value="<?php echo $data[0]['nama_jobdesk']  ?>">
-                <input type="hidden" value="<?php echo $data[0]['startline']  ?>">
-                <input type="hidden" value="<?php echo $data[0]['deadline']  ?>">
-                <input type="hidden" value="<?php echo $data[0]['status_jobdesk']  ?>">
-                <input type="hidden" value="<?php echo $data[0]['id_user']  ?>"> -->
                 <?php if ($this->session->flashdata('msg')) : ?>
                   <div style="color: #ff6666;">
                   <?php echo $this->session->flashdata('msg') ?>  
