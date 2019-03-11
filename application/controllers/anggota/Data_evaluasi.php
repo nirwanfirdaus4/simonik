@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Data_evaluasi extends CI_Controller {
+class Data_evaluasi extends CI_Controller { 
 
 	function __construct()
 	{
@@ -16,8 +16,8 @@ class Data_evaluasi extends CI_Controller {
 	} 
 
 	public function index(){	
-		$nav_ses=2;
-		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
+		// $nav_ses=2;
+		// $this->session->set_userdata('ses_nav_proker',$nav_ses);		
 
 		$ukm=$data['ukm'] = $this->session->userdata('ses_ukm');
 		$periode=$data['periode'] = $this->session->userdata('ses_periode');

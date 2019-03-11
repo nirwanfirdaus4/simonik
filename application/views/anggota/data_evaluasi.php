@@ -3,7 +3,11 @@
 <div class="page-content">
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Evaluasi</h2>
+      <h2 class="h5 no-margin-bottom">Data Evaluasi <?php 
+
+      $wa=$this->session->userdata('ses_nav_proker');
+      echo $wa;
+       ?></h2>
     </div>
   </div>
   <section class="no-padding-bottom">
@@ -12,7 +16,7 @@
         <div class="row d-flex align-items-center">                   
           <div class="col-lg-12">
             <p>Evaluasi <?php echo $nama_sie; ?> </p>
-
+ 
             <form action="<?php echo base_url('anggota/Data_evaluasi') ?> " method="post">
               <div class="form-group">
 

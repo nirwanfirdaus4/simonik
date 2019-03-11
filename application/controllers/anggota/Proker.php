@@ -1,4 +1,4 @@
-<?php
+ 	<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Proker extends CI_Controller {
@@ -23,7 +23,7 @@ class Proker extends CI_Controller {
 
 		// echo 'coba'.$proker_selected;
 		$ukm=$this->session->userdata('ses_ukm');
-		$user=$this->session->userdata('ses_id_user');
+		$user=$this->session->userdata('ses_id_user'); 
 		
 		$query_panitia=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
 		$query_jobdesk=$this->db->query("SELECT * FROM tb_jobdesk where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
@@ -37,13 +37,15 @@ class Proker extends CI_Controller {
 					$sie=$row_user->id_sie;
 					$data['array'] = $this->mdl_data_sie_anggota->ambildata($proker); 
 					$data['convert_sie'] = $this->mdl_data_sie_anggota->convert_sie();					
+
 				}else{
 					$nav_ses=1;
 					$page='anggota/empty_jobdesc';
+					$sie=$row_user->id_sie;
 					// useless
 					$data[]=1; 						
 				}
-
+					$this->session->set_userdata('ses_nav_sie_anggota',$sie);				
 			}else{
 				if ($row_user->jenis_panitia!='Koordinator Sie') {
 					$nav_ses=0;
@@ -62,8 +64,6 @@ class Proker extends CI_Controller {
 			}
 		}
 		$this->session->set_userdata('ses_id_selected_proker',$proker);		
-		// $nilai_proker=$this->session->userdata('ses_id_selected_proker'); 
-		// $this->session->set_userdata('ses_proker_fix',$nilai_proker);
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view($page,$data); 
 	}
