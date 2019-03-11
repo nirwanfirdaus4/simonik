@@ -7,19 +7,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data User</h2>
+      <h2 class="h5 no-margin-bottom">Data Bidang</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Data User</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('admin/Welcome') ?>">Home</a></li>
+      <li class="breadcrumb-item active">Data Bidang</li>
     </ul>
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data User</strong></div>
+      <div class="title"><strong>Data Bidang</strong></div>
       <a href="<?php echo base_url('admin/Data_bidang/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">

@@ -10,8 +10,9 @@
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Data User</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('Welcome') ?>">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('superadmin/Data_user/detail/'.$ukm_id) ?>">Data User</a></li>
+      <li class="breadcrumb-item active">Ubah Data User</li>
     </ul>
   </div>
   <div class="col-lg-12">

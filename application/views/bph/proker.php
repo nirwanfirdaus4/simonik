@@ -5,10 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Sidebar Navigation end-->
 <div class="page-content">
   <!-- Page Header-->
-  <div class="page-header">
+  <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Sie </h2>
+      <h2 class="h5 no-margin-bottom"><?php
+        foreach ($nama_proker as $key) {
+          $proker=$key['nama_proker'];
+        }
+       echo $proker; ?> 
+     </h2>
     </div>
+  </div>
+  <div class="container-fluid">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item"><a href="<?php echo base_url('bph/Welcome') ?>">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('bph/Data_proker') ?>">Data Program Kerja</a></li>
+      <li class="breadcrumb-item active"><?php echo $proker; ?></li>
+    </ul>
   </div>
   <section class="no-padding-top no-padding-bottom">
     <div class="container-fluid">

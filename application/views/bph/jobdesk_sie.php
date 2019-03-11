@@ -7,15 +7,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Progress Sie</h2>
+      <h2 class="h5 no-margin-bottom"><?php
+        foreach ($nama_proker as $key) {
+          $proker=$key['nama_proker'];
+        }
+        foreach ($nama_sie as $key) {
+          $sie=$key['nama_sie'];
+        }
+       echo $sie; ?> </h2>
     </div>
   </div>
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Proker/index_sie') ?>">Safari Dakwah</a></li>
-      <li class="breadcrumb-item active">Progress</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('bph/Data_proker') ?>">Data Program Kerja</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('bph/Data_proker/index_proker/'.$proker_id) ?>"><?php echo $proker; ?></a></li>
+      <li class="breadcrumb-item active"><?php echo $sie; ?></li>
     </ul>
   </div>
   <div class="col-lg-12">

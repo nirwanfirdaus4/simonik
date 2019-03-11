@@ -14,21 +14,7 @@ class Data_proker extends CI_Controller {
 			redirect('Admin_login','refresh');
 		}		
 	}
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+
 	public function index()
 	{
 		$nav_ses=1;
@@ -62,6 +48,7 @@ class Data_proker extends CI_Controller {
 	{	 		
 
 		$paket['array']=$this->mdl_data_proker->ambildata_sie_bph($proker);	
+		$paket['nama_proker']=$this->mdl_data_proker->namaProker_bph($proker);	
 		$paket['convert_sie'] = $this->mdl_data_proker->convert_sie();
 		$this->session->set_userdata('ses_id_selected_proker',$proker);							
 		$this->load->view('bph/proker',$paket); 
@@ -69,7 +56,10 @@ class Data_proker extends CI_Controller {
 	public function index_sie($sie)
 	{	
 		$nav_ses=1;
+		$data['proker_id'] = $this->session->userdata('ses_id_selected_proker');
 		$data['id'] = $sie;
+		$data['nama_proker']=$this->mdl_data_proker->namaProker_bph($data['proker_id']);
+		$data['nama_sie']=$this->mdl_data_proker->namaSie_bph($sie);
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$data['array'] = $this->mdl_data_proker->ambildata_sie($sie);
 		$this->load->view('bph/jobdesk_sie',$data);
