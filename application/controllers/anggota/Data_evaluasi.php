@@ -14,7 +14,7 @@ class Data_evaluasi extends CI_Controller {
 			redirect('Login_user','refresh');
 		}		 
 	} 
-
+ 
 	public function index(){	
 		// $nav_ses=2;
 		// $this->session->set_userdata('ses_nav_proker',$nav_ses);		
