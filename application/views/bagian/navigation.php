@@ -203,7 +203,9 @@
                 <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
               </ul> -->
             </nav>               
-          <?php  }elseif($this->session->userdata('ses_nav_proker') == 1) { ?>
+          <?php  }elseif($this->session->userdata('ses_nav_proker') == 1) { 
+            $ses_nav=$this->session->userdata('ses_nav_proker');
+            ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
@@ -258,11 +260,13 @@
                     } ?> 
                   </ul>
                 </li>
-                <li><a href="<?php echo base_url('anggota/Data_evaluasi/') ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
-          <?php  }elseif($this->session->userdata('ses_nav_proker') == 2) { ?>
+          <?php  }elseif($this->session->userdata('ses_nav_proker') == 2) { 
+            $ses_nav=$this->session->userdata('ses_nav_proker');
+            ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
@@ -294,7 +298,7 @@
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>             
                 <li><a href="<?php echo base_url('anggota/Data_anggota/') ?>"> <i class="fa fa-bar-chart"></i>Data Anggota </a></li>
-                <li><a href="<?php echo base_url('anggota/Data_evaluasi/') ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>                
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>                
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             

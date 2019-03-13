@@ -49,20 +49,18 @@ class Proker extends CI_Controller {
 			}else{
 				if ($row_user->jenis_panitia!='Koordinator Sie') {
 					$nav_ses=0;
-					$sie=$row_user->id_sie;
-					$page='anggota/proker_anggota';		
-					$data['jobdesk']=$this->mdl_data_sie_anggota->ambildata_jobdesk($ukm,$proker,$sie);	
-					$data['sie']=$this->mdl_data_sie_anggota->bahan_convert_sie();
 				}else{
-					$nav_ses=2;
-					$sie=$row_user->id_sie;
-					$page='anggota/proker_anggota';		
-					$data['jobdesk']=$this->mdl_data_sie_anggota->ambildata_jobdesk($ukm,$proker,$sie);	
-					$data['sie']=$this->mdl_data_sie_anggota->bahan_convert_sie();			
+					$nav_ses=2;			
 				}
+				$sie=$row_user->id_sie;
+				$page='anggota/proker_anggota';		
+				$data['jobdesk']=$this->mdl_data_sie_anggota->ambildata_jobdesk($ukm,$proker,$sie);	
+				$data['sie']=$this->mdl_data_sie_anggota->bahan_convert_sie();				
 				$this->session->set_userdata('ses_nav_sie_anggota',$sie);
 			}
 		}
+		$data['id_sie']=$this->session->userdata('ses_nav_sie_anggota');
+		// $data['id_nav']=$nav_ses;
 		$this->session->set_userdata('ses_id_selected_proker',$proker);		
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view($page,$data); 

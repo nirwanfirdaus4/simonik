@@ -14,11 +14,12 @@ class Data_jobdesk extends CI_Controller {
 		}		
 	}
 
-	public function index(){
+	public function index(){		
 		$paket['array']=$this->mdl_data_jobdesk->ambildata();	
 		$this->load->view('anggota/data_jobdesk',$paket);
 	}
 	public function detail($sie){	
+		$paket['id_sie']=$this->session->userdata('ses_nav_sie_anggota');
 		$paket['sie_id']=$sie;
 		$paket['jobdesk']=$this->mdl_data_jobdesk->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_jobdesk->ambilDataSie();	

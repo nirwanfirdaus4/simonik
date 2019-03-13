@@ -25,7 +25,11 @@
           <div class="col-lg-12">
             <p>Evaluasi <?php echo $nama_sie; ?> </p>
  
-            <form action="<?php echo base_url('anggota/Data_evaluasi') ?> " method="post">
+            <form action="<?php 
+            $ses_sie=$this->session->userdata('ses_nav_sie_anggota');
+            $ses_nav=$this->session->userdata('ses_nav_proker');
+             echo base_url('anggota/Data_evaluasi/value/'.$ses_sie.'/'.$ses_nav) 
+             ?> " method="post">
               <div class="form-group">
 
                 <?php 

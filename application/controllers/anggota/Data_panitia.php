@@ -25,6 +25,7 @@ class Data_panitia extends CI_Controller {
 		$this->load->view('anggota/data_panitia',$data);
 	}
 	public function detail($sie){
+		$paket['id_sie']=$this->session->userdata('ses_nav_sie_anggota');
 		$paket['panitia']=$this->mdl_data_panitia->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_panitia->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		

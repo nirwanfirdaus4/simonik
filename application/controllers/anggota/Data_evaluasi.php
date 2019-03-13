@@ -10,19 +10,20 @@ class Data_evaluasi extends CI_Controller {
 		$this->load->model('mdl_data_proker');		
 		$this->load->library('form_validation');
 		$this->load->database();
+
 		if($this->session->userdata('masuk') == FALSE){
 			redirect('Login_user','refresh');
 		}		 
 	} 
  
-	public function index(){	
-		// $nav_ses=2;
-		// $this->session->set_userdata('ses_nav_proker',$nav_ses);		
-
+	public function value($sie,$nav_ses){	
+		
+		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
 		$ukm=$data['ukm'] = $this->session->userdata('ses_ukm');
 		$periode=$data['periode'] = $this->session->userdata('ses_periode');
 		$proker=$data['proker'] = $this->session->userdata('ses_id_selected_proker');
-		$sie=$data['sie']=$user=$this->session->userdata('ses_nav_sie_anggota');	
+		// $sie=$data['sie']=$user=$this->session->userdata('ses_nav_sie_anggota');
+		$data['id_sie']=$sie;	
 		$evaluasi_cek=$this->db->query("SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode");
 		$sie_cek=$this->db->query("SELECT * FROM tb_sie WHERE id_ukm=$ukm AND id_sie=$sie");
 		foreach ($sie_cek->result() as $convert_sie) {
@@ -49,7 +50,7 @@ class Data_evaluasi extends CI_Controller {
 			$send['id_ukm']=$data['ukm'];
 			$send['id_periode']=$data['periode'];
 			$send['id_proker']=$data['proker'];
-			$send['id_sie']=$data['sie'];
+			$send['id_sie']=$data['id_sie'];
 			$send['hasil_evaluasi']=$this->input->post('hasil_evaluasi');
 
 			if ($evaluasi_cek->num_rows()>0) {		
@@ -66,34 +67,7 @@ class Data_evaluasi extends CI_Controller {
 			}
 
 
-			redirect('anggota/Data_evaluasi');
+			redirect('anggota/Data_evaluasi/value/'.$sie.'/'.$nav_ses);
 		}
 	}
-
-	public function tambahData()
-	{
-		$data['ukm'] = $this->session->userdata('ses_ukm');
-		$data['periode'] = $this->session->userdata('ses_periode');
-		$data['proker'] = $this->session->userdata('ses_id_selected_proker');
-		// $this->session->set_userdata('ses_nav_proker',$nav_ses);
-		$data['sie']=$user=$this->session->userdata('ses_nav_sie_anggota');
-		
-			$send['id_evaluasi']='';
-			$send['id_ukm']=$data['ukm'];
-			$send['id_periode']=$data['periode'];
-			$send['id_proker']=$data['proker'];
-			$send['id_sie']=$data['sie'];
-			$send['hasil_evaluasi']=$this->input->post('hasil_evaluasi');
-
-			// var_dump($send);
-			$this->mdl_data_proker->unggahDataEvaluasi($send);
-			
-			redirect('anggota/Data_evaluasi');
-	}
-	public function edit_evaluasi(){
-		
-	}
-
 }
-
-
