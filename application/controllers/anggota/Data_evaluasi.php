@@ -19,6 +19,8 @@ class Data_evaluasi extends CI_Controller {
 	public function value($sie,$nav_ses){	
 		
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
+		$data['ses_sie']=$sie;
+		$data['ses_nav']=$nav_ses;
 		$ukm=$data['ukm'] = $this->session->userdata('ses_ukm');
 		$periode=$data['periode'] = $this->session->userdata('ses_periode');
 		$proker=$data['proker'] = $this->session->userdata('ses_id_selected_proker');
