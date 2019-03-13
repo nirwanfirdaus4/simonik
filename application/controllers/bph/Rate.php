@@ -11,7 +11,7 @@ class Rate extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->database();
 		if($this->session->userdata('masuk') == FALSE){
-			redirect('Admin_login','refresh');
+			redirect('Login_user','refresh');
 		}		
 	}
 

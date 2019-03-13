@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url('assets/css/habibie/style_habibie.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/css/nirwan/style.css') ?>">
   <!-- Favicon-->
-  <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon.ico') ?>">
+  <link rel='shortcut icon' type='image/png' href="<?php echo base_url('assets/img/favicon.png') ?>" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
                 </div>
                 <div class="right-menu list-inline no-margin-bottom">  
-                <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span class="badge dashbg-3"></span></a>
+                <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class=""></i><span class="badge dashbg-3"></span></a>
               <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list"><a href="#" class="dropdown-item">
                   <div class="text d-flex justify-content-between"><strong>Task 1</strong><span>40% complete</span></div>
                   <div class="progress">
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>  
 
                   <!-- Log out               -->
-                  <div class="list-inline-item logout"><a id="logout" href="<?php echo base_url('Admin_login/logout') ?>" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
+                  <div class="list-inline-item logout"><a id="logout" href="<?php echo base_url('Login_user/logout') ?>" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
                 </div>
               </div>
             </nav>
