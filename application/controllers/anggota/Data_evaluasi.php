@@ -58,11 +58,11 @@ class Data_evaluasi extends CI_Controller {
 					$send['id_evaluasi']=$key->id_evaluasi;
 				}
 				$this->mdl_data_proker->updateDataEvaluasi($send);
-				$this->session->set_flashdata('mggg', 'Data Berhasil Diupdate');
+				$this->session->set_flashdata('mggg', '<b> Siip!! </b> Data Evaluasi Berhasil Diupdate');
 			}else{
 				$send['id_evaluasi']='';
 				$this->mdl_data_proker->unggahDataEvaluasi($send);	
-				$this->session->set_flashdata('msg', 'Data Berhasil Diinput');			
+				$this->session->set_flashdata('msg', '<b> Siip!! </b> Data Evaluasi Berhasil Diinput');			
 			}
 
 
