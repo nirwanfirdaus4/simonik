@@ -13,8 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Jobdesk</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Welcome') ?>">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Proker/index_proker/'.$proker_id) ?>">Jobdesk</a></li>
+      <li class="breadcrumb-item active">Detail</li>
     </ul>
   </div>
   <section class="no-padding-bottom">
