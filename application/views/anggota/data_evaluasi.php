@@ -10,8 +10,13 @@
     <div class="container-fluid">
     <div id="notifikasi">
       <?php if($this->session->flashdata('msg')):?>
-        <div class="alert alert-success">
+        <div class="alert alert-primary">
         <?php  echo $this->session->flashdata('msg')?>
+        </div>
+      <?php endif ;?>
+      <?php if($this->session->flashdata('mggg')):?>
+        <div class="alert alert-success">
+        <?php  echo $this->session->flashdata('mggg')?>
         </div>
       <?php endif ;?>
   </div> 

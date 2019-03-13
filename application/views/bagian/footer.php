@@ -81,7 +81,7 @@ tinymce.init({selector:'#TypeHere'});
 
 </script>
 <script type="text/javascript">
-      $('#notifikasi').slideDown('slow').delay(1000).slideUp('fast');
+      $('#notifikasi').slideDown('slow').delay(1500).slideUp('fast');
 </script>
 </body>
 </html>
