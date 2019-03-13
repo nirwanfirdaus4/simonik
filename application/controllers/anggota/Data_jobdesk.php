@@ -119,6 +119,26 @@ class Data_jobdesk extends CI_Controller {
 		}
 	}
 
+	public function update_status($id_update_status){
+		$this->form_validation->set_rules('id_jobdesk','ID Jobdesk', 'trim|required');
+		$this->form_validation->set_rules('status_jobdesk','Status Jobdesk', 'trim|required');
+		
+		if($this->form_validation->run()== FALSE){
+			$indexrow['id_new']=$id_update_status;
+			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_update_status);
+			$this->load->view('anggota/view_detail', $indexrow);
+		}
+		else{
+			$send['id_jobdesk']=$this->input->post('id_jobdesk');
+			$send['status_jobdesk']=$this->input->post('status_jobdesk');
+
+			$kembalian['jumlah']=$this->mdl_data_jobdesk->update_status($send);
+			$this->session->set_flashdata('msg_update', 'Data Berhasil diupdate');
+			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_update_status);
+			$this->load->view('anggota/view_detail', $indexrow);
+		}
+	}
+
 	public function upload($id_upload){
 		$this->form_validation->set_rules('id_jobdesk','Id Jobdesk','trim|required');
 		
@@ -126,20 +146,9 @@ class Data_jobdesk extends CI_Controller {
 			$indexrow['id_new']=$id_upload;
 			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_upload);
 			$this->load->view('anggota/view_detail', $indexrow);
-
 		}
 		else{
 			$send['id_jobdesk']=$this->input->post('id_jobdesk');
-			// $send['nama_jobdesk']=$this->input->post('nama_jobdesk');
-			// $send['startline']=$this->input->post('mulai');
-			// $send['deadline']=$this->input->post('deadline');
-			// // STATIS
-			// $send['id_ukm']=$this->input->post('id_ukm');
-			// $send['id_proker']=$this->input->post('id_proker');
-			// $sie=$send['id_sie']=$this->input->post('id_sie');
-			// $send['id_user']=$this->input->post('id_user');
-			// $send['status_jobdesk']=$this->input->post('status_jobdesk');
-
 			if ($_FILES["berkas"]["name"] != ""){
 				$config['upload_path']          = './upload/berkas_laporan/';
 				$config['allowed_types']        = 'pdf|PDF';
