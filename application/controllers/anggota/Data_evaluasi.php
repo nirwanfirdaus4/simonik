@@ -58,9 +58,11 @@ class Data_evaluasi extends CI_Controller {
 					$send['id_evaluasi']=$key->id_evaluasi;
 				}
 				$this->mdl_data_proker->updateDataEvaluasi($send);
+				$this->session->set_flashdata('msg', 'Data Berhasil Diupdate');
 			}else{
 				$send['id_evaluasi']='';
-				$this->mdl_data_proker->unggahDataEvaluasi($send);				
+				$this->mdl_data_proker->unggahDataEvaluasi($send);	
+				$this->session->set_flashdata('msg', 'Data Berhasil Diinput');			
 			}
 
 
@@ -70,7 +72,6 @@ class Data_evaluasi extends CI_Controller {
 
 	public function tambahData()
 	{
-
 		$data['ukm'] = $this->session->userdata('ses_ukm');
 		$data['periode'] = $this->session->userdata('ses_periode');
 		$data['proker'] = $this->session->userdata('ses_id_selected_proker');
@@ -86,7 +87,7 @@ class Data_evaluasi extends CI_Controller {
 
 			// var_dump($send);
 			$this->mdl_data_proker->unggahDataEvaluasi($send);
-
+			
 			redirect('anggota/Data_evaluasi');
 	}
 	public function edit_evaluasi(){
