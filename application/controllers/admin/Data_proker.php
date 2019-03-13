@@ -55,7 +55,8 @@ class Data_proker extends CI_Controller {
 			$send_panitia['id_periode']=$this->session->userdata('ses_periode');
 			$send_panitia['id_user']=$this->input->post('nm_ketua_proker');
 			$send_panitia['id_sie']=1;
- 			
+			$send_panitia['jenis_panitia']='Ketua Pelaksana';
+ 			 
 			$send_rating['id_rating']='';
 			$send_rating['id_ukm']=$this->input->post('id_ukm');
 			$send_rating['id_proker']=$fix_proker;

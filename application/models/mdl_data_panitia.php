@@ -14,9 +14,18 @@ class mdl_data_panitia extends CI_Model {
 			// $user=$this->session->userdata('ses_id_user');
 			$ukm=$this->session->userdata('ses_ukm');
 			$user=$this->session->userdata('ses_id_user');			
-			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_user=$user ");
+			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_user=$user");
 			return $query->result_array();
 		}
+	public function ambildata_hak_koor()
+		{
+			$ukm=$this->session->userdata('ses_ukm');
+			$user=$this->session->userdata('ses_id_user');			
+			$proker=$this->session->userdata('ses_id_selected_proker');						
+			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_proker=$proker AND id_sie!=1");
+			return $query->result_array();
+		}
+
 	public function ambildata_detail($sie)
 		{
 				$ukm=$this->session->userdata('ses_ukm');	

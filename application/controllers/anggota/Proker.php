@@ -17,7 +17,7 @@ class Proker extends CI_Controller {
 		}		
 	} 
 
-	public function index_proker($proker)
+	public function index_proker($proker) 
 	{	 		
 		// padahal aku set nilai session proker terpilih d kne, tapi d kontroller lanjutan wes ono
 
@@ -97,6 +97,7 @@ class Proker extends CI_Controller {
 
 	public function index_detail($id){
 		$indexrow['id_new']=$id;
+		$indexrow['proker_id']=$this->session->userdata('ses_id_selected_proker');
 		$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id);
 		$this->load->view('anggota/view_detail',$indexrow);
 	}

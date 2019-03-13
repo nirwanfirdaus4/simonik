@@ -3,11 +3,7 @@
 <div class="page-content">
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Evaluasi <?php 
-
-      $wa=$this->session->userdata('ses_nav_proker');
-      echo $wa;
-       ?></h2>
+      <h2 class="h5 no-margin-bottom">Data Evaluasi</h2>
     </div>
   </div>
   <section class="no-padding-bottom">

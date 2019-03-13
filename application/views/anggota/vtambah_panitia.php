@@ -10,8 +10,9 @@
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Data Panitia</li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Welcome') ?>">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Data_panitia/'.$sie_id) ?>">Data Panitia</a></li>
+      <li class="breadcrumb-item active">Tambah Data Panitia</li>
     </ul>
   </div>
   <div class="col-lg-12">

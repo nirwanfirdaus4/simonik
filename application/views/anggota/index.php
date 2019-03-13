@@ -11,11 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
   </div>
   <!-- Breadcrumb--> 
-  <div class="container-fluid">
-    <ul class="breadcrumb">
-      <li class="breadcrumb-item">Home</li>
-      <li class="breadcrumb-item active"></li>
-    </ul>
+  <div class="container-fluid" style="margin-top: 7%;">
+    
   </div>
 
   <div class="container-fluid">
