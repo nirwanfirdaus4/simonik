@@ -5,9 +5,21 @@
     <div class="container-fluid">
       <h2 class="h5 no-margin-bottom">Data Evaluasi</h2>
     </div>
-  </div>
+  </div>     
   <section class="no-padding-bottom">
     <div class="container-fluid">
+    <div id="notifikasi">
+      <?php if($this->session->flashdata('msg')):?>
+        <div class="alert alert-primary">
+        <?php  echo $this->session->flashdata('msg')?>
+        </div>
+      <?php endif ;?>
+      <?php if($this->session->flashdata('mggg')):?>
+        <div class="alert alert-success">
+        <?php  echo $this->session->flashdata('mggg')?>
+        </div>
+      <?php endif ;?>
+  </div> 
       <div class="public-user-block block">
         <div class="row d-flex align-items-center">                   
           <div class="col-lg-12">
