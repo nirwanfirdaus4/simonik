@@ -24,13 +24,15 @@ class Data_panitia extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/data_panitia',$data);
 	}
-	public function detail($sie){
-		$paket['id_sie']=$this->session->userdata('ses_nav_sie_anggota');
+	public function detail($sie,$sie_user){
+		$nav_ses=1;
+		$this->session->set_userdata('ses_nav_proker',$nav_ses);
+		$paket['id_sie']=$sie_user;
 		$paket['panitia']=$this->mdl_data_panitia->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_panitia->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		
 		$this->session->set_userdata('ses_nav_sie',$sie);		
-		$this->load->view('anggota/data_panitia',$paket);
+		$this->load->view('anggota/data_panitia',$paket); 
 	}
 	public function tambahData()
 	{

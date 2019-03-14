@@ -1,5 +1,5 @@
             <?php if ($this->session->userdata('ses_id_type_user') == 1) { ?>
-
+ 
               <nav id="sidebar">
                 <!-- Sidebar Header-->
                 <?php
@@ -243,7 +243,7 @@
                     foreach($query->result() as $row_sie)  { 
                       $sie_id=$row_sie->id_sie;
                       ?>                    
-                      <li><a href="<?php echo base_url('anggota/Data_jobdesk/detail/' . $sie_id) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
+                      <li><a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$sie_id.'/'.$id_sie) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
                       <?php
                     } ?> 
                   </ul>
@@ -255,7 +255,7 @@
                     foreach($query->result() as $row_sie)  { 
                       $sie_id=$row_sie->id_sie;
                       ?>                    
-                      <li><a href="<?php echo base_url('anggota/Data_panitia/detail/' . $sie_id) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
+                      <li><a href="<?php echo base_url('anggota/Data_panitia/detail/'.$sie_id.'/'.$id_sie) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
                       <?php
                     } ?> 
                   </ul>
