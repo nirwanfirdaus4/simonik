@@ -18,12 +18,13 @@ class Data_jobdesk extends CI_Controller {
 		$paket['array']=$this->mdl_data_jobdesk->ambildata();	
 		$this->load->view('anggota/data_jobdesk',$paket);
 	}
-	public function detail($sie,$sie_user){	
+	public function detail($proker,$sie,$sie_user){	
 		$nav_ses=1;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
+		$paket['ses_proker']=$proker;
 		$paket['id_sie']=$sie_user;
-		$paket['sie_id']=$sie;
-		$paket['jobdesk']=$this->mdl_data_jobdesk->ambildata_detail($sie);	
+		$paket['sie_id']=$sie; 
+		$paket['jobdesk']=$this->mdl_data_jobdesk->ambildata_detail($proker,$sie);	
 		$paket['sie']=$this->mdl_data_jobdesk->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		
 		$this->session->set_userdata('ses_nav_sie',$sie);		
@@ -31,11 +32,11 @@ class Data_jobdesk extends CI_Controller {
 		// echo 'proker '.$proker_selected;
 		// echo '<br>sie '.$sie;
 	}
-	public function tambahData($sie){
+	public function tambahData($proker,$sie){
 		$nav_ses=1;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
 		$data['sie_id']=$sie;
-		$data['proker'] = $this->session->userdata('ses_id_selected_proker');	
+		$data['proker'] = $proker;	
 		$data['sie_id']=$this->session->userdata('ses_nav_sie');	
 		$data['ukm_id']=$this->session->userdata('ses_ukm');	
 		$data['user_id']=$this->session->userdata('ses_id_user');	
@@ -71,7 +72,7 @@ class Data_jobdesk extends CI_Controller {
 
 			$this->load->view('anggota/data_jobdesk',$kembalian);
 			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('anggota/Data_jobdesk/detail/'.$sie);
+			redirect('anggota/Data_jobdesk/detail/'.$proker.'/'.$sie);
 		}
 	}
 

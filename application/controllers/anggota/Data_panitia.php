@@ -24,9 +24,10 @@ class Data_panitia extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/data_panitia',$data);
 	}
-	public function detail($sie,$sie_user){
+	public function detail($proker,$sie,$sie_user){
 		$nav_ses=1;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
+		$paket['ses_proker']=$proker;
 		$paket['id_sie']=$sie_user;
 		$paket['panitia']=$this->mdl_data_panitia->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_panitia->ambilDataSie();	

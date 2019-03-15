@@ -16,14 +16,14 @@ class Data_evaluasi extends CI_Controller {
 		}		 
 	} 
  
-	public function value($sie,$nav_ses){	
+	public function value($proker,$sie,$nav_ses){	
 		
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
 		$data['ses_sie']=$sie;
-		$data['ses_nav']=$nav_ses;
+		$data['ses_nav']=$nav_ses; 
 		$ukm=$data['ukm'] = $this->session->userdata('ses_ukm');
 		$periode=$data['periode'] = $this->session->userdata('ses_periode');
-		$proker=$data['proker'] = $this->session->userdata('ses_id_selected_proker');
+		$proker=$data['ses_proker'] = $proker;
 		// $sie=$data['sie']=$user=$this->session->userdata('ses_nav_sie_anggota');
 		$data['id_sie']=$sie;	
 		$evaluasi_cek=$this->db->query("SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode");
@@ -41,17 +41,21 @@ class Data_evaluasi extends CI_Controller {
 				$data['status']=1;			
 				$data['data_evaluasi']=$this->mdl_data_proker->ambildataEvaluasi($periode,$ukm,$proker,$sie);
 				$this->load->view('anggota/data_evaluasi', $data);
+				echo "ono";
+				echo "SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode";
 			}else{
 				$data['status']=0;
 				$data['data_evaluasi']=" ";
 				$this->load->view('anggota/data_evaluasi', $data);				
+				echo "ndak ono";
+				echo "SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode";
 			}
 
 		}
 		else{
 			$send['id_ukm']=$data['ukm'];
 			$send['id_periode']=$data['periode'];
-			$send['id_proker']=$data['proker'];
+			$send['id_proker']=$data['ses_proker'];
 			$send['id_sie']=$data['id_sie'];
 			$send['hasil_evaluasi']=$this->input->post('hasil_evaluasi');
 
@@ -69,7 +73,7 @@ class Data_evaluasi extends CI_Controller {
 			}
 
 
-			redirect('anggota/Data_evaluasi/value/'.$sie.'/'.$nav_ses);
+			redirect('anggota/Data_evaluasi/value/'.$proker.'/'.$sie.'/'.$nav_ses);
 		}
 	}
 }

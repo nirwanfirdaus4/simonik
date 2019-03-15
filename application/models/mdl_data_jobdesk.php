@@ -15,9 +15,8 @@ class mdl_data_jobdesk extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_jobdesk WHERE id_ukm=$ukm");
 		return $query->result_array();
 	}
-	public function ambildata_detail($sie)
-	{		
-		$proker=$this->session->userdata('ses_id_selected_proker'); 		
+	public function ambildata_detail($proker,$sie)
+	{		 		
 		$ukm=$this->session->userdata('ses_ukm');				
 		$query=$this->db->query("SELECT * FROM tb_jobdesk where id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie");
 		return $query->result_array();

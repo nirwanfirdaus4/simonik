@@ -16,12 +16,13 @@ class Data_anggota extends CI_Controller {
 		}		 
 	} 
 
-	public function index() 
+	public function daftar_anggota($proker,$sie_user) 
 	{	
-		$data['id_sie']=$this->session->userdata('ses_nav_sie_anggota');		
+		// $data['id_sie']=$this->session->userdata('ses_nav_sie_anggota');		
 		$nav_ses=2;
 		$data['id_nav']='';
-		$data['proker'] = $this->session->userdata('ses_id_selected_proker');
+		$data['ses_proker'] = $proker;
+		$data['id_sie'] = $sie_user;
 		$data['panitia'] = $this->mdl_data_panitia->ambildata_hak_koor();
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/data_panitia_anggota',$data);

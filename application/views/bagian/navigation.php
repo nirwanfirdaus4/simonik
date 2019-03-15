@@ -243,7 +243,7 @@
                     foreach($query->result() as $row_sie)  { 
                       $sie_id=$row_sie->id_sie;
                       ?>                    
-                      <li><a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$sie_id.'/'.$id_sie) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
+                      <li><a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
                       <?php
                     } ?> 
                   </ul>
@@ -255,12 +255,12 @@
                     foreach($query->result() as $row_sie)  { 
                       $sie_id=$row_sie->id_sie;
                       ?>                    
-                      <li><a href="<?php echo base_url('anggota/Data_panitia/detail/'.$sie_id.'/'.$id_sie) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
+                      <li><a href="<?php echo base_url('anggota/Data_panitia/detail/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>"><?php echo $row_sie->nama_sie; ?></a></li>
                       <?php
                     } ?> 
                   </ul>
                 </li>
-                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
@@ -297,8 +297,8 @@
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>             
-                <li><a href="<?php echo base_url('anggota/Data_anggota/') ?>"> <i class="fa fa-bar-chart"></i>Data Anggota </a></li>
-                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>                
+                <li><a href="<?php echo base_url('anggota/Data_anggota/daftar_anggota/'.$ses_proker.'/'.$id_sie) ?>"> <i class="fa fa-bar-chart"></i>Data Anggota </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>                
                 <li><a href="<?php echo base_url('anggota/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
               </ul>
             </nav>             
