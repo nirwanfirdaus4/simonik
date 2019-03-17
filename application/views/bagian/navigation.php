@@ -7,7 +7,7 @@
                   $query=$this->db->query("SELECT * FROM tb_user where id_user =$id_user");
                 ?>
                 <div class="sidebar-header d-flex align-items-center">
-                  <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                  
                   <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');
@@ -57,7 +57,7 @@
                 <nav id="sidebar">
                   <!-- Sidebar Header-->
                   <div class="sidebar-header d-flex align-items-center">
-                    <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    
                     <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');
@@ -108,7 +108,7 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                
                 <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');
@@ -157,7 +157,7 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                
                 <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');
@@ -209,7 +209,7 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                
                 <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');
@@ -270,7 +270,7 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                <div class="avatar"><img src="img/avatar-6.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                
                 <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');

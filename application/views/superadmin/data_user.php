@@ -30,7 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <th>UKM</th>
               <th>Kontak</th>
               <th>Tipe User</th>
-              <th>Periode</th>
+              <th>Akun user</th>
+<!--               <th>Periode</th> -->
               <th>Foto</th>
               <th>Aksi</th>
             </tr> 
@@ -79,15 +80,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   if ($row_utype->id_type_user==$key['id_type_user']) { ?>                    
                     <td><?php echo $row_utype->nama_type_user; ?></td>
                 <?php }
-                }  
-                ?>
-                <?php
+                }  ?>
+
+                <td><?php echo $key['username'] ?> <br><?php echo $key['password'] ?></td>
+
+<!--                 <?php
                 foreach($periode->result() as $row_periode)  {
                   if ($row_periode->id_periode==$key['id_periode']) { ?>                    
                     <td><?php echo $row_periode->th_periode; ?></td>
                 <?php }
                 }  
-                ?>
+                ?> -->
                 
                 <td><img width="100" height="100" style=" border-radius: 60px 60px 60px 60px;" src="<?php echo ($key['foto_user'] != '' ? base_url('./upload/foto_user/' . $key['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Foto UKM"></td>
                 
