@@ -13,7 +13,7 @@ class Login_user extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
-
+ 
 	public function aksi_login(){
 
 		$username = $this->input->post('username');

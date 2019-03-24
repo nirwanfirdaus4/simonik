@@ -21,7 +21,7 @@
               <div class="title"><strong>Pilih Periode :</strong></div>
 
               <div class="block-body">
-                <form action="<?php echo base_url('bph/Data_referensi/tampil') ?> " method="post">
+                <form action="<?php echo base_url('anggota/Data_referensi/tampil/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?> " method="post">
 
                   <div class="form-group">
                     <!-- <label class="form-control-label">Nama Ketua Bidang</label> -->
