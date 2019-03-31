@@ -1,6 +1,6 @@
  <footer class="footer">
   <div class="footer__block block no-margin-bottom">
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-center"> 
       <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
       <p class="no-margin-bottom">2019 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
     </div>
@@ -19,8 +19,8 @@
 <script src="<?php echo base_url ('assets/js/front.js')?>"></script>
 <script src="<?php echo base_url ('assets/js/dropzone.js')?>"></script>
 <script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo base_url ('assets/js/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url ('assets/js/dataTables.bootstrap4.min.js')?>"></script>
 
 
 <script type="text/javascript">

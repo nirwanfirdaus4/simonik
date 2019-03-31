@@ -50,3 +50,17 @@
     </section>
 
     <?php $this->load->view('bagian/footer') ?>
+
+    <script type="text/javascript"> 
+        $("#nm_periode").change(function(){
+                var nm_periode = {nm_periode:$("#nm_periode").val()};
+                   $.ajax({
+               type: "POST",
+               url : "<?php echo base_url(); ?>index.php/sinkron/siswa",
+               data: nm_periode,
+               success: function(msg){
+               $('#siswa').html(msg);
+               }
+            });
+              });
+       </script>
