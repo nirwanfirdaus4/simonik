@@ -21,7 +21,7 @@ class Data_bidang extends CI_Controller {
 
 	public function tambahData(){
 		$this->form_validation->set_rules('nama_bidang','Nama Bidang','trim|required');
-
+		$id_bidang = "t1" . md5(time());
 		$value['id_user']=$this->input->post('id_user');
 		$value['id_periode']=$this->input->post('id_periode');
 
@@ -30,7 +30,7 @@ class Data_bidang extends CI_Controller {
 			$this->load->view('admin/vtambah_bidang',$data);
 		}
 		else{
-			$send['id_bidang']='';
+			$send['id_bidang']=$id_bidang;
 			$send['nama_bidang']=$this->input->post('nama_bidang');
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['id_periode']=$this->input->post('id_periode');

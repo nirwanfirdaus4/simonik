@@ -3,13 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	function __construct()
-	{
-		parent::__construct();
-		if($this->session->userdata('masuk') == FALSE){
-			redirect('Login_user','refresh');
-		}		
-	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -27,6 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->helper('url');
+
+		$this->load->view('login');
 	}
 }
