@@ -11,7 +11,7 @@
   <div class="container-fluid">
     <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Welcome') ?>">Home</a></li>
-      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Data_anggota') ?>">Data Anggota</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Data_anggota/') ?>">Data Anggota</a></li>
       <li class="breadcrumb-item active">Tambah Data anggota</li>
     </ul>
   </div>
@@ -20,7 +20,7 @@
       <div class="title"><strong>Tambah Data Anggota</strong></div>
 
       <div class="block-body">
-        <form action="<?php echo base_url('anggota/Data_anggota/tambahData/' ) ?> " method="post">
+        <form action="<?php echo base_url('anggota/Data_anggota/tambahData/'.$ses_proker.'/'.$id_sie.'/'.$sie_id ) ?> " method="post">
           <div class="form-group">
             <?php $proker=$this->session->userdata('ses_id_selected_proker') ?>
             <input type="hidden" name="id_proker" autocomplete="off" value="<?php echo $proker ?>">
@@ -57,7 +57,7 @@
 
           <div class="form-group space_help_button">       
             <input type="submit" name="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('anggota/Data_anggota') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('anggota/Data_anggota/daftar_anggota/'.$ses_proker.'/'.$id_sie.'/'.$sie_id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>

@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } ?> -->
 
                 <td>
-                  <a href="<?php echo base_url('anggota/Proker/index_detail/' .$key['id_jobdesk']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-eye"></i> Detail</button></a>
+                  <a href="<?php echo base_url('anggota/Proker/index_detail/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$key['id_sie']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-eye"></i> Detail</button></a>
                   
                   <?php }?>
 

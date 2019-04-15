@@ -13,7 +13,7 @@ class Data_jobdesk extends CI_Controller {
 			redirect('Login_user','refresh');
 		}	 	
 	}
-
+ 
 	public function index(){		
 		$paket['array']=$this->mdl_data_jobdesk->ambildata();	
 		$this->load->view('anggota/data_jobdesk',$paket);
@@ -32,11 +32,13 @@ class Data_jobdesk extends CI_Controller {
 		// echo 'proker '.$proker_selected;
 		// echo '<br>sie '.$sie;
 	}
-	public function tambahData($proker,$sie){
+	public function tambahData($proker,$sie,$sie_user){
 		$nav_ses=1;
-		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
 		$data['sie_id']=$sie;
-		$data['proker'] = $proker;	
+		$paket['id_sie']=$sie_user;		
+		$data['id_sie']=$sie_user;		
+		$data['ses_proker'] = $proker;	
+		// $this->session->set_userdata('ses_nav_proker',$nav_ses);		
 		$data['sie_id']=$this->session->userdata('ses_nav_sie');	
 		$data['ukm_id']=$this->session->userdata('ses_ukm');	
 		$data['user_id']=$this->session->userdata('ses_id_user');	
@@ -72,23 +74,25 @@ class Data_jobdesk extends CI_Controller {
 
 			$this->load->view('anggota/data_jobdesk',$kembalian);
 			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('anggota/Data_jobdesk/detail/'.$proker.'/'.$sie);
+			redirect('anggota/Data_jobdesk/detail/'.$data['ses_proker'].'/'.$data['sie_id'].'/'.$data['id_sie']);
 		}
 	}
 
-	public function do_delete($id){
+	public function do_delete($id,$proker,$sie,$sie_user){
 		$where = array('id_jobdesk' => $id);
 		$sie=$this->session->userdata('ses_nav_sie');		
 		$this->mdl_data_jobdesk->delete_data($where,'tb_jobdesk');
-		redirect('anggota/Data_jobdesk/detail/'.$sie);
+		redirect('anggota/Data_jobdesk/detail/'.$proker.'/'.$sie.'/'.$sie_user);
 	}
 
-	public function edit($id_update){
+	public function edit($id_update,$proker,$sie,$sie_user){
 		$nav_ses=1;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
 
-		$data['proker'] = $this->session->userdata('ses_id_selected_proker');	
-		$data['sie_id']=$this->session->userdata('ses_nav_sie');	
+		$data['sie_id']=$sie;		
+		$data['id_sie']=$sie_user;		
+		$data['ses_proker'] = $proker;		
+		// $data['sie_id']=$this->session->userdata('ses_nav_sie');	
 		$data['ukm_id']=$this->session->userdata('ses_ukm');	
 		$data['user_id']=$this->session->userdata('ses_id_user');	
 		// VALIDASI
@@ -119,14 +123,18 @@ class Data_jobdesk extends CI_Controller {
 			// var_dump($send);
 			$kembalian['jumlah']=$this->mdl_data_jobdesk->modelupdate($send);
 			$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
-			redirect('anggota/Data_jobdesk/detail/'.$sie);
+			redirect('anggota/Data_jobdesk/detail/'.$data['ses_proker'].'/'.$data['sie_id'].'/'.$data['id_sie']);
 		}
 	}
 
-	public function update_status($id_update_status){
+	public function update_status($id_update_status,$proker,$sie){
+		$indexrow['id_sie']=$sie;
+		$indexrow['ses_proker']=$proker;
+
 		$this->form_validation->set_rules('id_jobdesk','ID Jobdesk', 'trim|required');
 		$this->form_validation->set_rules('status_jobdesk','Status Jobdesk', 'trim|required');
-		
+		$indexrow['id_sie']=$sie;
+
 		if($this->form_validation->run()== FALSE){
 			$indexrow['id_new']=$id_update_status;
 			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_update_status);
@@ -143,9 +151,11 @@ class Data_jobdesk extends CI_Controller {
 		}
 	}
 
-	public function upload($id_upload){
+	public function upload($id_upload,$proker,$sie){
 		$this->form_validation->set_rules('id_jobdesk','Id Jobdesk','trim|required');
-		
+		$indexrow['id_sie']=$sie;
+		$indexrow['ses_proker']=$proker;
+				
 		if($this->form_validation->run()==FALSE){
 			$indexrow['id_new']=$id_upload;
 			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_upload);

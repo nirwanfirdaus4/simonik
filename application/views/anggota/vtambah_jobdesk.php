@@ -11,7 +11,7 @@
   <div class="container-fluid"> 
     <ul class="breadcrumb"> 
       <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Welcome') ?>">Home</a></li>
-      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$sie_id) ?>">Data Jobdesk</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>">Data Jobdesk</a></li>
       <li class="breadcrumb-item active">Tambah Data Jobdesk</li>
     </ul>
   </div>
@@ -20,7 +20,7 @@
       <div class="title"><strong>Tambah Data Jobdesk</strong></div>
 
       <div class="block-body">
-        <form action="<?php echo base_url('anggota/Data_Jobdesk/tambahData/' .$sie_id) ?> " method="post">
+        <form action="<?php echo base_url('anggota/Data_Jobdesk/tambahData/' .$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> " method="post">
           <div class="form-group">
             <label class="form-control-label">Jobdesk</label>
             <input type="text" placeholder="Jobdesk" class="form-control" name="nama_jobdesk" autocomplete="off">
@@ -44,14 +44,14 @@
            <?php } ?>
           <?php } ?>
           
-          <input type="hidden"name="id_proker" value="<?php echo $proker ?>">
+          <input type="hidden"name="id_proker" value="<?php echo $ses_proker ?>">
           <input type="hidden"name="id_sie" value="<?php echo $sie_id ?>">
           <input type="hidden"name="id_ukm" value="<?php echo $ukm_id ?>">
           <input type="hidden"name="id_user" value="<?php echo $user_id ?>">
 
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$sie_id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('anggota/Data_jobdesk/detail/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>

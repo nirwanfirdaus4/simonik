@@ -23,7 +23,7 @@
       <div class="public-user-block block">
         <div class="row d-flex align-items-center">                   
           <div class="col-lg-12">
-            <p>Evaluasi <?php echo $nama_sie; echo $ses_sie; ?> </p>
+            <p>Evaluasi <?php echo $nama_sie; ?> </p>
  
             <form action="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$ses_sie.'/'.$ses_nav) 
              ?> " method="post">

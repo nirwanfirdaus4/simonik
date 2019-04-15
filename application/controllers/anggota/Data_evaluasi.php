@@ -41,14 +41,14 @@ class Data_evaluasi extends CI_Controller {
 				$data['status']=1;			
 				$data['data_evaluasi']=$this->mdl_data_proker->ambildataEvaluasi($periode,$ukm,$proker,$sie);
 				$this->load->view('anggota/data_evaluasi', $data);
-				echo "ono";
-				echo "SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode";
+				// echo "ono";
+				// echo "SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode";
 			}else{
 				$data['status']=0;
 				$data['data_evaluasi']=" ";
 				$this->load->view('anggota/data_evaluasi', $data);				
-				echo "ndak ono";
-				echo "SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode";
+				// echo "ndak ono";
+				// echo "SELECT * FROM tb_evaluasi WHERE id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie AND id_periode=$periode";
 			}
 
 		}

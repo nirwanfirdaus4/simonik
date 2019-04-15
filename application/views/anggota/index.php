@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }else{ ?>             
            <div class="col-lg-4">      
             <div style="background-color: <?php echo $warna; ?>">
-              <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker']) ?>">
+              <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker'].'/'.$key['id_sie']) ?>">
                 <?php
                 $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
                 $sie = $this->db->query("SELECT * FROM tb_sie");

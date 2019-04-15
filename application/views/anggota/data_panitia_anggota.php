@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data Anggota</strong></div>
-      <a href="<?php echo base_url('anggota/Data_anggota/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
+      <a href="<?php echo base_url('anggota/Data_anggota/tambahData/'.$ses_proker.'/'.$id_sie.'/'.$id_sie) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="modal-body">
                       <p>Ingin hapus data?</p>
-                      <a href="<?php echo base_url('anggota/Data_anggota/do_delete/' . $key['id_panitia']) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
+                      <a href="<?php echo base_url('anggota/Data_anggota/do_delete/' . $key['id_panitia'].'/'.$ses_proker.'/'.$id_sie) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
                     </div>
                     <div class="modal-footer">
 
@@ -85,7 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }else{ ?>
 
                       <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
-                      <?php $modal++; }?>
+                      <?php  }
+                        $modal++;
+                      ?>
                     <?php }
 
                   ?>
