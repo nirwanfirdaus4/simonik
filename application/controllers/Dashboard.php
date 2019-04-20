@@ -65,6 +65,28 @@ if(mysqli_num_rows($result)> 0){
       }
     }
 
+
+    function muse_post(){
+
+        $nim  = $this->post('nim');
+
+        $query_data=$this->db->query("SELECT * FROM tb_user where nim=$nim");      
+
+        foreach ($query_data->result() as $key_data) {
+           $data_nama= $key_data->nama_user;
+        }
+
+            $this->response(
+               array(
+                   "status" => "success",
+                   "message" => "jos",
+                   "result" => $data_nama
+               )
+            );
+
+    }
+
+
     function login_post($dataPanitia){
 
       if (empty($dataPanitia['username']) || empty($dataPanitia['password'])){
@@ -135,44 +157,61 @@ if(mysqli_num_rows($result)> 0){
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// function updatePanitia($dataPanitia){
+//      // Cek validasi
+//       if (empty($dataPanitia['idPanitia'])){
+//          $this->response(
+//              array(
+//                  "status" => "failed",
+//                  "message" => "Mohon Lengkapi Data"
+//              )
+//          );
+//       } else {
+//          // Cek apakah ada di database
+//          $getUser_baseID = $this->db->query("
+//              SELECT *
+//              FROM tb_panitia_proker
+//              WHERE id_panitia =  {$dataPanitia['idPanitia']} AND jenis_panitia = 'Ketua Pelaksana'")->num_rows();
+//           if($getUser_baseID == 0){
+//              // Jika tidak ada
+//              $this->response(
+//                  array(
+//                      "status"  => "failed",
+//                        "message" => "Anda belum menambahkan sie"
+//                  )
+//              );
+//           } else {
+//                     $update = $this->db->query("
+//                         SELECT * FROM tb_panitia_proker where
+//                             id_panitia = '{$dataPanitia['idPanitia']}',
+//                         WHERE idUser = {$dataPanitia['idUser']}"
+//                     );      
+//               if ($update){
+//                  $this->response(
+//                      array(
+//                          "status"    => "success",
+//                          "result"    => array($dataPanitia),
+//                          "message"   => $update
+//                      )
+//                  );
+//                 }
+//          }   
+//      }
+//     }
 
 
     function all_post() {
         $action  = $this->post('action');
         $dataPanitia = array(
-                     'id_panitia'   => $this->post('id_panitia'),
-                     'id_proker' => $this->post('id_proker'),
-                       'id_ukm' => $this->post('id_ukm'),
-                       'id_periode' => $this->post('id_periode'),
-                       'id_user' => $this->post('id_user'),
-                       'id_sie' => $this->post('id_sie'),
-                       'jenis_panitia' => $this->post('jenis_panitia')
+                     'idPanitia'   => $this->post('idPanitia'),
+                     'idProker' => $this->post('idProker'),
+                     'idSie' => $this->post('idSie'),
+                     'idUkm' => $this->post('idUkm'),
+                     'idPeriode' => $this->post('idPeriode'),
+                     'idUser' => $this->post('idUser'),
+                     'idJenisPanitia' => $this->post('idJenisPanitia'),
+                     'idProkerRaw' => $this->post('idProkerRaw'),
+                     'idSieRaw' => $this->post('idSieRaw')
                   );
         switch ($action) {
             case 'insert':
@@ -195,9 +234,65 @@ if(mysqli_num_rows($result)> 0){
         }
     }
 
+
+    function updateUser($dataPanitia){
+     // Cek validasi
+      if (empty($dataPanitia['idPanitia']) || empty($dataPanitia['idProker']) || empty($dataPanitia['idSie']) || empty($dataPanitia['idUkm']) || empty($dataPanitia['idPeriode']) || empty($dataPanitia['idUser']) || empty($dataPanitia['idJenisPanitia']) || empty($dataPanitia['idProkerRaw']) || empty($dataPanitia['idSieRaw'])){
+         $this->response(
+             array(
+                 "status" => "failed",
+                 "message" => "Mohon Lengkapi Data"
+             )
+         );
+      } else {
+         // Cek apakah ada di database
+         $getUser_baseID = $this->db->query("
+             SELECT *
+             FROM tb_panitia_proker
+             WHERE id_panitia =  {$dataPanitia['idPanitia']}")->num_rows();
+          if($getUser_baseID === 0){
+             // Jika tidak ada
+             $this->response(
+                 array(
+                     "status"  => "failed",
+                       "message" => "ID User tidak ditemukan"
+                 )
+             );
+          } else {
+                    $update = $this->db->query("
+                        UPDATE tb_panitia_proker
+                        SET
+                            id_proker = {$dataPanitia['idProkerRaw']},
+                            id_periode = '{$dataPanitia['idPeriode']}'
+                        WHERE id_panitia = {$dataPanitia['idPanitia']}"
+                    );      
+              if ($update){
+
+                 $dataHasil = array();
+                
+                 $dataHasil["id_panitia"] = $dataPanitia["idPanitia"];
+                 $dataHasil["id_ukm"] = $dataPanitia["idUkm"];
+                 $dataHasil["id_periode"] = $dataPanitia["idPeriode"];
+                 $dataHasil["id_user"] = $dataPanitia["idUser"];
+                 $dataHasil["id_sie"] = $dataPanitia["idSie"];
+                 $dataHasil["jenis_panitia"] = $dataPanitia["idJenisPanitia"];
+                 $dataHasil["id_proker_raw"] = $dataPanitia["idProkerRaw"];
+                 $dataHasil["id_sie_raw"] = $dataPanitia["idSieRaw"];
+                 $this->response(
+                     array(
+                         "status"    => "success",
+                         "result"    => array($dataHasil),
+                         "message"   => $update
+                     )
+                 );
+                }
+         }   
+     }
+    }
+
     function insertUser($dataPanitia){
      // Cek validasi
-      if (empty($dataPanitia['username']) || empty($dataPanitia['password']) || empty($dataPanitia['nama']) || empty($dataPanitia['jk']) || empty($dataPanitia['email'])){
+      if (empty($dataPanitia['idProker']) || empty($dataPanitia['idSie']) || empty($dataPanitia['idUkm']) || empty($dataPanitia['idPanitia']) || empty($dataPanitia['idJenisPanitia'])){
           $this->response(
              array(
                  "status" => "failed",
@@ -218,52 +313,6 @@ if(mysqli_num_rows($result)> 0){
       }
     }
 
-    function updateUser($dataPanitia){
-     // Cek validasi
-      if (empty($dataPanitia['username']) || empty($dataPanitia['password']) || empty($dataPanitia['nama']) || empty($dataPanitia['jk']) || empty($dataPanitia['email'])){
-         $this->response(
-             array(
-                 "status" => "failed",
-                 "message" => "Mohon Lengkapi Data"
-             )
-         );
-      } else {
-         // Cek apakah ada di database
-         $getUser_baseID = $this->db->query("
-             SELECT 1
-             FROM user
-             WHERE idUser =  {$dataPanitia['idUser']}")->num_rows();
-          if($getUser_baseID === 0){
-             // Jika tidak ada
-             $this->response(
-                 array(
-                     "status"  => "failed",
-                       "message" => "ID User tidak ditemukan"
-                 )
-             );
-          } else {
-                    $update = $this->db->query("
-                        UPDATE user
-                        SET
-                            username = '{$dataPanitia['username']}',
-                            password = '{$dataPanitia['password']}',
-                            nama = '{$dataPanitia['nama']}',
-                            jk = '{$dataPanitia['jk']}',
-                            email = '{$dataPanitia['email']}'
-                        WHERE idUser = {$dataPanitia['idUser']}"
-                    );      
-              if ($update){
-                 $this->response(
-                     array(
-                         "status"    => "success",
-                         "result"    => array($dataPanitia),
-                         "message"   => $update
-                     )
-                 );
-                }
-         }   
-     }
-    }
 
     function deleteUser($dataPanitia){
         if (empty($dataPanitia['idUser'])){
