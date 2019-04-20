@@ -98,6 +98,9 @@ class Proker extends CI_Controller {
 		$indexrow['id_sie']=$sie;
 		$indexrow['ses_proker']=$proker;
 		$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id);
+
+		$tautan_notifikasi=site_url('anggota/Proker/index_detail/' . $id . '/' . $proker . '/' . $sie);
+		$this->db->update('tb_notifikasi',array('status_notifikasi'=>'1'), array('penerima_notifikasi'=>$this->session->userdata('ses_id_user'), 'tautan_notifikasi'=>$tautan_notifikasi));
 		$this->load->view('anggota/view_detail',$indexrow);
 	}
 

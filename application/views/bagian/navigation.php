@@ -204,6 +204,7 @@
           <?php  }elseif($this->session->userdata('ses_nav_proker') == 1) { 
             $ses_nav=$this->session->userdata('ses_nav_proker');
             ?>
+
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
@@ -231,6 +232,7 @@
                     <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
                   </div>
               </div>
+              
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>
