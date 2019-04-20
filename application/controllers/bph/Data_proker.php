@@ -17,31 +17,49 @@ class Data_proker extends CI_Controller {
 
 	public function index()
 	{
-		$nav_ses=1;
-		$paket['color1']='#8e44ad';
-		$paket['color2']='#2980b9';
-		$paket['color3']='#c0392b';
-		$paket['color4']='#27ae60';
-		$paket['color5']='#d35400';
-		$paket['color6']='#16a085';
-		$paket['color7']='#cc0f80';
-		$paket['color8']='#504f45';
-		$paket['color9']='#deb617';
-		$paket['color10']='#7f8c8d';
 		$utype=$this->session->userdata('ses_id_user');
 		$bidang = $this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$utype OR sekretaris_bidang=$utype");
-		foreach ($bidang->result() as $row_bidang) {
-			if ($utype==$row_bidang->ketua_bidang || $utype==$row_bidang->sekretaris_bidang) {
-				$fix_bidang=$row_bidang->id_bidang;
+		
+		if ($bidang->num_rows() > 0) {
+
+			$nav_ses=1;
+			$paket['color1']='#8e44ad';
+			$paket['color2']='#2980b9';
+			$paket['color3']='#c0392b';
+			$paket['color4']='#27ae60';
+			$paket['color5']='#d35400';
+			$paket['color6']='#16a085';
+			$paket['color7']='#cc0f80';
+			$paket['color8']='#504f45';
+			$paket['color9']='#deb617';
+			$paket['color10']='#7f8c8d';
+			$utype=$this->session->userdata('ses_id_user');
+			$bidang = $this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$utype OR sekretaris_bidang=$utype");
+			foreach ($bidang->result() as $row_bidang) {
+				if ($utype==$row_bidang->ketua_bidang || $utype==$row_bidang->sekretaris_bidang) {
+					$fix_bidang=$row_bidang->id_bidang;
+			
+			$ukm=$this->session->userdata('ses_ukm');
+			$proker=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm AND id_bidang=$fix_bidang");
+
+			if ($proker->num_rows()>0) {
 				$page='bph/data_proker';
 				$paket['array']=$this->mdl_data_proker->ambildata_proker_bph($fix_bidang);			
-			}else{
-				$page='bph/data_proker_error';
+			}else{	
+				$page='bph/empty_proker_bidang';
 			}
-		}		
+			
+				}else{
+					$page='bph/data_proker_error';
+				}
+			}		
 
-		$this->session->set_userdata('ses_nav_proker',$nav_ses); 
-		$this->load->view($page,$paket);
+			$this->session->set_userdata('ses_nav_proker',$nav_ses); 
+			$this->load->view($page,$paket);			
+		}else{
+			$this->load->view('bph/empty_status_bph');
+		}	
+
 	}
 
 	public function index_proker($proker)

@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data Jobdesk</strong></div>
-      <a href="<?php echo base_url('anggota/Data_jobdesk/tambahData/'.$sie_id) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
+      <a href="<?php echo base_url('anggota/Data_jobdesk/tambahData/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="modal-body">
                       <p>Ingin hapus data?</p>
-                      <a href="<?php echo base_url('anggota/Data_jobdesk/do_delete/' . $key['id_jobdesk']) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
+                      <a href="<?php echo base_url('anggota/Data_jobdesk/do_delete/' . $key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
                     </div>
                     <div class="modal-footer">
 
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } ?>
 
                 <td>
-                  <a href="<?php echo base_url('anggota/Data_jobdesk/edit/' .$key['id_jobdesk']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                  <a href="<?php echo base_url('anggota/Data_jobdesk/edit/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                   <?php $modal++; }?>
 

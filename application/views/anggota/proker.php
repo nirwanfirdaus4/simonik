@@ -19,7 +19,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           }else{ ?>           
             <div class="col-md-3 col-sm-6">
-              <a class="unline" href="<?php echo base_url('anggota/Proker/index_sie/'.$key['id_sie']) ?>">
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
@@ -101,7 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div role="progressbar" style="width: <?php echo $print;?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
                   </div>
                 </div>
-              </a>
             </div>
             <?php 
           }

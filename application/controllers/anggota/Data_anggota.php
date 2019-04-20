@@ -19,7 +19,7 @@ class Data_anggota extends CI_Controller {
 	public function daftar_anggota($proker,$sie_user) 
 	{	
 		// $data['id_sie']=$this->session->userdata('ses_nav_sie_anggota');		
-		$nav_ses=2;
+		$nav_ses=2; 
 		$data['id_nav']='';
 		$data['ses_proker'] = $proker;
 		$data['id_sie'] = $sie_user;
@@ -27,21 +27,30 @@ class Data_anggota extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/data_panitia_anggota',$data);
 	}
-	public function detail($sie){
+	public function detail($proker,$sie,$sie_user){
+		$paket['ses_proker']=$proker;
+		$paket['id_sie']=$sie_user;
+		$paket['sie_id']=$sie; 
+
 		$paket['panitia']=$this->mdl_data_panitia->ambildata_detail($sie);	
 		$paket['sie']=$this->mdl_data_panitia->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		
 		$this->session->set_userdata('ses_nav_sie',$sie);		
 		$this->load->view('anggota/data_panitia',$paket);
 	}
-	public function tambahData()
+	public function tambahData($proker,$sie,$sie_user)
 	{
 		$nav_ses=2;
+
+		$data['sie_id']=$sie;		
+		$data['id_sie']=$sie_user;		
+		$data['ses_proker'] = $proker;	
+
 		$periode= $this->session->userdata('ses_periode');
 		$ukm= $this->session->userdata('ses_ukm');
 		$proker= $this->session->userdata('ses_id_selected_proker');
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
-		$data['sie_id']=$sie=$this->session->userdata('ses_nav_sie_anggota');
+		// $data['sie_id']=$sie=$this->session->userdata('ses_nav_sie_anggota');
 		$value['id_user']=$this->input->post('nm_anggota');
 
 		if (count($_POST) == 0) {
@@ -63,15 +72,14 @@ class Data_anggota extends CI_Controller {
 
 			$this->load->view('anggota/data_panitia_anggota',$kembalian);
 			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('anggota/Data_anggota');
+			redirect('anggota/Data_anggota/daftar_anggota/'.$proker.'/'.$sie);
 		}
 	}
 
-	public function do_delete($id){
+	public function do_delete($id,$proker,$sie){
 		$where = array('id_panitia' => $id);
-		$sie=$this->session->userdata('ses_nav_sie');
 		$this->mdl_data_panitia->delete_data($where,'tb_panitia_proker');
-		redirect('anggota/Data_anggota');
+		redirect('anggota/Data_anggota/daftar_anggota/'.$proker.'/'.$sie);
 	}	
 }
 

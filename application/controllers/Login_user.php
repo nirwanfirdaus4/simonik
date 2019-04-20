@@ -41,7 +41,7 @@ class Login_user extends CI_Controller {
 			$this->session->set_userdata('ses_nama',$data['nama_user']);				
 			$this->session->set_userdata('ses_periode',$data['id_periode']);				
 			// $this->session->set_userdata('ses_nama_utype',$nama_utype);				
-			redirect(base_url("Welcome"));
+			redirect(base_url("superadmin/Data_ukm"));
 
 		}elseif ($cek_admin->num_rows() > 0) {
 			$data=$cek_admin->row_array();

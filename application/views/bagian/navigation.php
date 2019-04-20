@@ -33,7 +33,6 @@
                 </div>
                 <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                 <ul class="list-unstyled">
-                  <li><a href="<?php echo base_url('Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
                   <li><a href="<?php echo base_url('superadmin/Data_ukm/') ?>"> <i class="icon-grid"></i>Data UKM </a></li>
 
                   <li><a href="<?php echo base_url('superadmin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Periode </a></li>

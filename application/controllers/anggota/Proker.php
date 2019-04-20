@@ -17,7 +17,7 @@ class Proker extends CI_Controller {
 		}		
 	} 
 
-	public function index_proker($proker) 
+	public function index_proker($proker,$sie) 
 	{	 		
 		// padahal aku set nilai session proker terpilih d kne, tapi d kontroller lanjutan wes ono
 
@@ -58,7 +58,7 @@ class Proker extends CI_Controller {
 				$this->session->set_userdata('ses_nav_sie_anggota',$sie);
 			}
 		}
-		$data['id_sie']=$this->session->userdata('ses_nav_sie_anggota');
+		$data['id_sie']=$sie;
 		// $data['id_nav']=$nav_ses;
 		$this->session->set_userdata('ses_id_selected_proker',$proker);		
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
@@ -93,9 +93,10 @@ class Proker extends CI_Controller {
 		$this->load->view('anggota/index',$paket);
 	}
 
-	public function index_detail($id){
+	public function index_detail($id,$proker,$sie){ 
 		$indexrow['id_new']=$id;
-		$indexrow['proker_id']=$this->session->userdata('ses_id_selected_proker');
+		$indexrow['id_sie']=$sie;
+		$indexrow['ses_proker']=$proker;
 		$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id);
 		$this->load->view('anggota/view_detail',$indexrow);
 	}

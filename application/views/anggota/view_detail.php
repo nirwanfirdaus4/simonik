@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="container-fluid">
     <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Welcome') ?>">Home</a></li>
-      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Proker/index_proker/'.$proker_id) ?>">Jobdesk</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('anggota/Proker/index_proker/'.$ses_proker.'/'.$id_sie) ?>">Jobdesk</a></li>
       <li class="breadcrumb-item active">Detail</li>
     </ul>
   </div>
@@ -50,7 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>Terakhir Edit</th>
                                 <td>:</td>
-                                <td><?php echo $data[0]['id_user']; ?></td>
+                                <?php 
+                                $query_nama= $this->db->query('SELECT * FROM tb_user');
+                                foreach ($query_nama->result() as $key) {
+                                  if ($key->id_user == $data[0]['id_user']) {
+                                    $convert_nama = $key->nama_user;
+                                  }
+                                }
+                                ?>
+                                <td><?php echo $convert_nama; ?></td>
                             </tr>
                             <tr>
                                 <th>File Laporan</th>
@@ -64,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="col-lg-6">
               <div class="title"><strong>Ubah Status</strong></div>
-                <form action="<?php echo base_url('anggota/Data_jobdesk/update_status/'.$data[0]['id_jobdesk']) ?>" method="post">
+                <form action="<?php echo base_url('anggota/Data_jobdesk/update_status/'.$data[0]['id_jobdesk'].'/'.$ses_proker.'/'.$id_sie) ?>" method="post">
                 <?php if ($this->session->flashdata('msg_update')) : ?>
                   <div style="color: #ff6666;">
                   <?php echo $this->session->flashdata('msg_update') ?>  
@@ -78,15 +86,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     // echo $id_jobdesk;
                       // $query = $this->load->db->query("SELECT * FROM tb_jobdesk where id_jobdesk=$id_new");
                       // foreach ($query->result() as $row_query){ ?> -->
-                        <option value="Belum Dikerjakan">Belum Dikerjakan</option>
-                        <option value="Progres">Progress</option>
-                        <option value="Sudah Dikerjakan">Sudah Dikerjakan</option>
+                        <option value="Belum Dikerjakan"<?php echo ('Belum Dikerjakan' == $data[0]['status_jobdesk'] ? 'selected="selected"' : ''); ?>>Belum Dikerjakan</option>
+                        <option value="Progres"<?php echo ('Progres' == $data[0]['status_jobdesk'] ? 'selected="selected"' : ''); ?>>Progres</option>
+                        <option value="Sudah Dikerjakan"<?php echo ('Sudah Dikerjakan' == $data[0]['status_jobdesk'] ? 'selected="selected"' : ''); ?>>Sudah Dikerjakan</option>
+                        <!-- <option value="Progres">Progress</option> -->
+                        <!-- <option value="Sudah Dikerjakan">Sudah Dikerjakan</option> -->
                       
                     </select>
                     <input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-left:10px;">
                   </div>
                 </form>
-                <form action="<?php echo base_url('anggota/Data_jobdesk/upload/'.$data[0]['id_jobdesk']) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('anggota/Data_jobdesk/upload/'.$data[0]['id_jobdesk'].'/'.$ses_proker.'/'.$id_sie) ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_jobdesk" value="<?php echo $data[0]['id_jobdesk']  ?>">
                 <?php if ($this->session->flashdata('msg')) : ?>
                   <div style="color: #ff6666;">

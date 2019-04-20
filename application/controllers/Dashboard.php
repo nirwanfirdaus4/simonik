@@ -65,7 +65,7 @@ if(mysqli_num_rows($result)> 0){
       }
     }
 
-    function loginProses($dataPanitia){
+    function login_post($dataPanitia){
 
       if (empty($dataPanitia['username']) || empty($dataPanitia['password'])){
         // JIKA FIELD PADA FORM TIDAK D ISI
@@ -300,35 +300,35 @@ if(mysqli_num_rows($result)> 0){
       }
     }
 
-    function login_post(){
+  //   function login_post(){
 
-       $usernmae = $this->post('username');
-       $password = $this->post('password');
+  //      $usernmae = $this->post('username');
+  //      $password = $this->post('password');
 
-       // Validasi
-        $this->db->where('username', $username);
-        $this->db->where('password', $password);
+  //      // Validasi
+  //       $this->db->where('username', $username);
+  //       $this->db->where('password', $password);
 
-        $result = $this->db->get('user');
+  //       $result = $this->db->get('user');
 
-        if($result->num_rows() === 1){
-            // Jika ada
-               $this->response(
-                   array(
-                       "status"  => "success", 
-                       "result" => $result->row(0)->idUser,
-                       "message" => "User ditemukan"
-                   )
-               );
-        } else {
-            // Jika tidak ada
-               $this->response(
-                   array(
-                       "status"  => "failed", 
-                       "message" => "Username atau password salah"
-                   )
-               );
-       }
-  }
+  //       if($result->num_rows() === 1){
+  //           // Jika ada
+  //              $this->response(
+  //                  array(
+  //                      "status"  => "success", 
+  //                      "result" => $result->row(0)->idUser,
+  //                      "message" => "User ditemukan"
+  //                  )
+  //              );
+  //       } else {
+  //           // Jika tidak ada
+  //              $this->response(
+  //                  array(
+  //                      "status"  => "failed", 
+  //                      "message" => "Username atau password salah"
+  //                  )
+  //              );
+  //      }
+  // }
 
 }
