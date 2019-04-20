@@ -34,7 +34,7 @@ class Login_user extends CI_Controller {
 			// 		$nama_utype=$key['nama_type_user'];
 			// 	}
 			// }
-				
+				 
 			$this->session->set_userdata('masuk',TRUE);
 			$this->session->set_userdata('ses_id_type_user',$data['id_type_user']);				
 			$this->session->set_userdata('ses_ukm',$data['id_ukm']);

@@ -55,10 +55,10 @@
                 <?php } ?>
               </select>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="form-control-label">Foto User</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
             <input type="file" name="berkas">
-          </div>
+          </div> -->
             <?php $periode_id=$this->session->userdata('ses_periode');?>          
           <input type="hidden" placeholder="" value="<?php echo $periode_id ?>" class="form-control" name="id_periode" autocomplete="off">
 <!--           <div class="form-group">
