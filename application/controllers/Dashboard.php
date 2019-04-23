@@ -8,13 +8,12 @@ require APPPATH . 'libraries/Format.php';
 
 class Dashboard extends REST_Controller {
 
-    function all_get(){
-        // $query_panitia= $this->db->query("SELECT * FROM tb_panitia_proker WHERE id_user=16");
-        // $query_proker= $this->db->query("SELECT * FROM tb_daftar_proker");
+    function all_post(){
+        $idPanitia  = $this->post('idPanitia');
         $query_proker = $this->db->query("SELECT * FROM tb_daftar_proker");
         $query_sie = $this->db->query("SELECT * FROM tb_sie");
         // $query = $this->db->query("SELECT * FROM tb_panitia_proker WHERE id_user=16");
-        $query_0 ="SELECT * FROM tb_panitia_proker WHERE id_user=16";
+        $query_0 ="SELECT * FROM tb_panitia_proker WHERE id_user=$idPanitia";
         $con=mysqli_connect("localhost","root","","simonik");
         $result=mysqli_query($con,$query_0);
 
@@ -24,6 +23,15 @@ if(mysqli_num_rows($result)> 0){
     $response['status']= "success" ;
     $response['message']="Data ditemukan";
     $response["result"] = array();       
+
+    $image = array();
+
+    $image[0]=1;
+    $image[1]=2;
+    $image[2]=3;
+    $image[3]=4;
+
+    $no=0;
 
     while ($row = mysqli_fetch_array($result)) {
 
@@ -51,9 +59,13 @@ if(mysqli_num_rows($result)> 0){
 
            $pl["id_proker_raw"] = $row["id_proker"];
            $pl["id_sie_raw"] = $row["id_sie"];           
+           $pl["warna"] = $image[$no];           
 
            array_push($response["result"], $pl);
-
+           $no++;
+           if ($no==4) {
+            $no=0;
+           }
       }
 
   // return
@@ -68,9 +80,9 @@ if(mysqli_num_rows($result)> 0){
 
     function muse_post(){
 
-        $nim  = $this->post('nim');
+        $id_user  = $this->post('idUser');
 
-        $query_data=$this->db->query("SELECT * FROM tb_user where nim=$nim");      
+        $query_data=$this->db->query("SELECT * FROM tb_user where id_user=$id_user");      
 
         foreach ($query_data->result() as $key_data) {
            $data_nama= $key_data->nama_user;
@@ -85,6 +97,124 @@ if(mysqli_num_rows($result)> 0){
             );
 
     }
+
+    function viewAnggota_post(){
+
+        $id_proker  = $this->post('idProker');
+        $id_sie  = $this->post('idSie');
+
+        // $query_data=$this->db->query("SELECT id_user FROM tb_panitia_proker where id_proker=$id_proker AND id_sie=$id_sie");      
+        $query_user=$this->db->query("SELECT * FROM tb_user");      
+
+        // $query_0 ="SELECT id_user FROM tb_panitia_proker where id_proker=$id_proker AND id_sie=$id_sie";
+        // $con=mysqli_connect("localhost","root","","simonik");
+        // $result=mysqli_query($con,$query_0);
+
+        $query_0 = $this->db->query("SELECT * FROM tb_panitia_proker where id_proker=$id_proker AND id_sie=$id_sie");
+
+          // echo $id_proker."dan sie ".$id_sie;
+
+    if($query_0->num_rows()> 0){
+
+        $response['status']= "success" ;
+        $response['message']="Data ditemukan";
+        $response["result"] = array();       
+
+        // while ($row = mysqli_fetch_array($result)) {
+       foreach ($query_0->result() as $key_ua) {
+
+               $bahan= $key_ua->id_user;
+
+               foreach ($query_user->result() as $key_u) {
+                  if ($key_u->id_user==$bahan) {
+                    $nama_user=$key_u->nama_user;
+                    $email_user=$key_u->email_user;
+                    $nim=$key_u->nim;
+                    $jenisPanitia=$key_ua->jenis_panitia;
+                  }
+               }
+
+
+               $pl = array();
+
+               $pl["nama_user"] = $nama_user;
+               $pl["jenis_panitia"] = $jenisPanitia;
+
+               array_push($response["result"], $pl);
+               
+          }
+
+      // return
+       echo json_encode($response);
+
+          }else{
+              $response['status']= "false" ;
+              $response['message']="Belum ada Anggota";       
+              echo "Tidak Ada Data ";
+          }
+    }
+
+    function sie_post(){
+
+        $id_proker  = $this->post('idProker');
+        $query_sie = $this->db->query("SELECT * FROM tb_sie");
+        $query_ukm = $this->db->query("SELECT * FROM tb_ukm");
+        $query_data=$this->db->query("SELECT DISTINCT id_sie FROM tb_panitia_proker where id_proker=$id_proker");      
+
+
+    $query_0 ="SELECT DISTINCT id_sie FROM tb_panitia_proker where id_proker=$id_proker";
+    $con=mysqli_connect("localhost","root","","simonik");
+    $result=mysqli_query($con,$query_0);
+
+
+    $response['status']= "success" ;
+    $response['message']="Data sie didapat";
+    $response["result"] = array();       
+
+    $image = array();
+
+    $image[0]=1;
+    $image[1]=2;
+    $image[2]=3;
+
+    $no=0;
+
+    while ($row = mysqli_fetch_array($result)) {
+
+           $pl = array();
+
+           $pl["id_sie"] = $row["id_sie"];
+           $pl["warna"] = $image[$no];           
+           // $pl["id_ukm"] = $row["id_ukm"];
+
+           foreach ($query_sie->result() as $key_sie) {
+              if ($key_sie->id_sie==$row["id_sie"]) {
+                $convert_sie=$key_sie->nama_sie;
+              }
+           }
+           // foreach ($query_ukm->result() as $key_ukm) {
+           //    if ($key_ukm->id_ukm==$row["id_ukm"]) {
+           //      $convert_ukm=$key_ukm->nama_ukm;
+           //    }
+           // }
+
+           $pl["sie_convert"] = $convert_sie;
+           // $pl["ukm_convert"] = $convert_ukm;           
+
+           array_push($response["result"], $pl);
+           $no++;
+           if ($no==3) {
+            $no=0;
+           }
+      }
+
+  // return
+   echo json_encode($response);
+
+
+
+    }
+
 
 
     function login_post($dataPanitia){
@@ -200,7 +330,7 @@ if(mysqli_num_rows($result)> 0){
 //     }
 
 
-    function all_post() {
+    function alli_post() {
         $action  = $this->post('action');
         $dataPanitia = array(
                      'idPanitia'   => $this->post('idPanitia'),

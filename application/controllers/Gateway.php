@@ -77,7 +77,7 @@ class Gateway extends REST_Controller {
                  $dataHasil["username"] = $keyLogin->username;
                  $dataHasil["password"] = $keyLogin->password;
                  // $dataHasil["id_user"] = $keyLogin->id_user;
-                 $dataHasil["nama_user"] = $keyLogin->nama_user;
+                 $dataHasil["id_user"] = $keyLogin->id_user;
                  // $dataHasil["id_type_user"] = $keyLogin->id_type_user;
                  // $dataHasil["id_ukm"] = $keyLogin->id_ukm;
                 }
@@ -87,7 +87,7 @@ class Gateway extends REST_Controller {
                    array(
                        "status" => "success",
                        "message" => "jos",
-                       "result" => array($dataHasil)
+                       "idUser" => $dataHasil["id_user"]
                    )
                );
 
