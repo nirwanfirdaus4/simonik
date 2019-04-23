@@ -50,38 +50,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <!-- Sidebar Toggle Btn-->
                   <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
                 </div>
+                <?php
+                if($this->session->userdata('ses_id_type_user')==5){ ?>
+                <?php
+                  $semua_notifikasi = $this->db->get_where('tb_notifikasi', array('penerima_notifikasi' => $this->session->userdata('ses_id_user')))->result();
+                  $belum_dibaca = $this->db->get_where('tb_notifikasi', array('penerima_notifikasi' => $this->session->userdata('ses_id_user'), 'status_notifikasi' => '0'))->result();
+                  // $session_sie = $this->session->userdata('ses_sie');
+                  // $isi = $this->db->get_where('tb_jobdesk', array('id_sie' => $session_sie))->result();
+                  $nama_proker = $this->db->query("SELECT * FROM tb_daftar_proker")->result();
+                ?>
                 <div class="right-menu list-inline no-margin-bottom">  
-                <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class=""></i><span class="badge dashbg-3"></span></a>
-              <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list"><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 1</strong><span>40% complete</span></div>
-                  <div class="progress">
-                    <div role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
-                  </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 2</strong><span>20% complete</span></div>
-                  <div class="progress">
-                    <div role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-3"></div>
-                  </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 3</strong><span>70% complete</span></div>
-                  <div class="progress">
-                    <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-2"></div>
-                  </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 4</strong><span>30% complete</span></div>
-                  <div class="progress">
-                    <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-4"></div>
-                  </div></a><a href="#" class="dropdown-item">
-                  <div class="text d-flex justify-content-between"><strong>Task 5</strong><span>65% complete</span></div>
-                  <div class="progress">
-                    <div role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
-                  </div></a><a href="#" class="dropdown-item text-center"> <strong>See All Tasks <i class="fa fa-angle-right"></i></strong></a>
-              </div>
-            </div>  
+                 <div class="list-inline-item dropdown">
+                    <a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="fa fa-bell"></i><span class="badge dashbg-3"><?php echo count($belum_dibaca) ?></span></a>
+                    <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list">
+                      <?php foreach($semua_notifikasi as $notifikasi) { 
+                        $konten = $notifikasi->konten_notifikasi;
+                        $tgl = $notifikasi->tanggal_notifikasi;
+                        $tgl = date('Y-m-d');
+                        $tautan = $notifikasi->tautan_notifikasi;
 
-                  <!-- Log out               -->
-                  <div class="list-inline-item logout"><a id="logout" href="<?php echo base_url('Login_user/logout') ?>" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
-                </div>
+                        $id_proker = substr($tautan, strrpos($tautan, '/') + 1);
+
+                        $data_proker = $this->db->get_where('tb_daftar_proker', array('id_proker' => $id_proker))->row();
+                        ?>
+                        
+                        <!-- <?php foreach ($isi as $jbd) {
+                          $isi_jobdesk = $jbd->nama_jobdesk;
+                          $isi_id = $jbd->id_proker;
+                          foreach ($nama_proker as $proker) {
+                            $select_id_proker = $proker->id_proker;
+                            if ($isi_id == $select_id_proker) {
+                              $select_proker = $proker->nama_proker;
+                            }
+                          }
+                        } ?> -->
+                        
+                      <a style="background-color: <?php echo ($notifikasi->status_notifikasi=='0' ? '#282b2f' : '') ?>" href="<?php echo $tautan ?>" class="dropdown-item">
+                        <div class="content"><strong class="d-block"><?php echo $tgl ?></strong><span class="d-block"><?php echo $konten . " untuk " . $data_proker->nama_proker; ?></span></div>
+                      </a>
+                      
+                      <?php } ?>
+                      <a href="#" class="dropdown-item text-center"> <strong>Tandai Semua Sebagai Telah Dilihat</strong></a>
+                    </div>
+                  </div>
+  
+                <?php }?>      
+                
+                <!-- Log out               -->
+                <div class="list-inline-item logout"><a id="logout" href="<?php echo base_url('Login_user/logout') ?>" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
               </div>
-            </nav>
-          </header>
+            </div>
+          </nav>
+        </header>
           <div class="d-flex align-items-stretch">
             <!-- Sidebar Navigation-->
           <?php $this->load->view('bagian/navigation') ?>
