@@ -33,6 +33,49 @@ class mdl_referensi extends CI_Model {
 		return $query->result_array();
 	}
 
+
+	public function ambildata_proker($periode)
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		// $periode=$this->session->userdata('ses_periode');
+		$id_user=$this->session->userdata('ses_id_user');
+		$query_bidang=$this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$id_user");
+
+		foreach ($query_bidang->result() as $key_bidang) {
+			if ($key_bidang->ketua_bidang==$id_user) {
+				$bidang=$key_bidang->id_bidang;
+			}
+		}
+		// echo "periode = ".$periode."<br>";
+		// echo "bidang = ".$bidang."<br>";
+		// echo "ukm = ".$ukm."<br>";
+		// echo "id-user = ".$id_user."<br>";
+		$query=$this->db->query("SELECT DISTINCT * FROM tb_file_backup where id_periode=$periode AND id_ukm=$ukm AND id_bidang=$bidang AND id_periode=$periode");
+		return $query->result_array();
+	}
+
+	public function ambildata_sie($proker)
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$id_user=$this->session->userdata('ses_id_user');
+		// $query_bidang=$this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$id_user");
+
+		// foreach ($query_bidang->result() as $key_bidang) {
+		// 	if ($key_bidang->ketua_bidang==$id_user) {
+		// 		$bidang=$key_bidang->id_bidang;
+		// 	}
+		// }
+		// echo "periode = ".$periode."<br>";
+		// echo "bidang = ".$bidang."<br>";
+		// echo "ukm = ".$ukm."<br>";
+		// echo "id-user = ".$id_user."<br>";
+		$query=$this->db->query("SELECT * FROM tb_file_backup where id_proker=$proker");
+		return $query->result_array();
+	}
+
+
+
+
 	public function anggota_ambildata($periode,$proker)
 	{
 		$ukm=$this->session->userdata('ses_ukm');

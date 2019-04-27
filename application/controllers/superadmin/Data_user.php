@@ -7,6 +7,7 @@ class Data_user extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url','form');
 		$this->load->model('mdl_data_user');
+		$this->load->model('mdl_data_sie');
 		$this->load->library('form_validation');
 		$this->load->database();
 		if($this->session->userdata('masuk') == FALSE){
@@ -37,19 +38,20 @@ class Data_user extends CI_Controller {
 		$this->form_validation->set_rules('id_periode','ID Periode','trim|required');
 		
 		
-		if ($this->form_validation->run()==FALSE || $this->input->post('id_ukm')=='zero' ||$this->input->post('id_periode')=='zero') {
+		if ($this->form_validation->run()==FALSE || $this->input->post('id_ukm')=='zero' ||$this->input->post('id_periode')=='zero' || $this->input->post('id_uType')=='zero') {
 			$data['msg_error']="Silahkan isi semua kolom";
 			$this->load->view('superadmin/vtambah_user',$data);
 		}
-		else{
+		else{ 
 			$send['id_user']='';
 			$send['nama_user']=$this->input->post('nama_user');
 			$send['nim']=$this->input->post('nim');
 			$ukm=$send['id_ukm']=$this->input->post('id_ukm');
 			$send['no_telp_user']=$this->input->post('no_telp_user');
 			$send['email_user']=$this->input->post('email_user');
-			$utype=2;
-			$send['id_type_user']=$utype;
+			// $utype=2;
+			// $send['id_type_user']=$utype;
+			$send['id_type_user']=$this->input->post('id_uType');
 			$send['id_periode']=$this->input->post('id_periode');
 			if ($send['id_type_user'] != 7) {
 				$send['username']=$this->input->post('nim');
@@ -78,6 +80,26 @@ class Data_user extends CI_Controller {
 				$send['foto_user']=$data['file_name'];
 
 				$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
+
+				for ($i=0; $i<=2 ; $i++) { 
+					if ($i==0) {
+						$send_sie['id_sie']='';
+						$send_sie['nama_sie']="Ketua Pelaksana";
+						$send_sie['id_ukm']=$ukm;						
+						$this->mdl_data_sie->tambahdata($send_sie);						
+					}elseif ($i==1) {
+						$send_sie['id_sie']='';
+						$send_sie['nama_sie']="Sekretaris Pelaksana";
+						$send_sie['id_ukm']=$ukm;						
+						$this->mdl_data_sie->tambahdata($send_sie);						
+					}else{
+						$send_sie['id_sie']='';
+						$send_sie['nama_sie']="Sie Acara";
+						$send_sie['id_ukm']=$ukm;						
+						$this->mdl_data_sie->tambahdata($send_sie);
+					}					
+				}
+
 				$kembalian['array']=$this->mdl_data_user->ambildata();
 							
 				$this->load->view('superadmin/data_user',$kembalian);

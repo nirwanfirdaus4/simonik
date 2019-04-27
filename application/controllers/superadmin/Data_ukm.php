@@ -40,6 +40,12 @@ class Data_ukm extends CI_Controller {
 		$where = array('id_ukm' => $id);
 		$this->mdl_data_ukm->delete_data($where,'tb_user');
 		$this->mdl_data_ukm->delete_data($where,'tb_ukm');
+		$this->mdl_data_ukm->delete_data($where,'tb_panitia_proker');		
+		$this->mdl_data_ukm->delete_data($where,'tb_jobdesk');
+		$this->mdl_data_ukm->delete_data($where,'tb_rating');
+		$this->mdl_data_ukm->delete_data($where,'tb_sie');
+		$this->mdl_data_ukm->delete_data($where,'tb_evaluasi');
+		$this->mdl_data_ukm->delete_data($where,'tb_file_backup');
 		redirect('superadmin/Data_ukm/');
 	}
 

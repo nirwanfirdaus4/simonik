@@ -34,9 +34,15 @@ class Data_referensi extends CI_Controller {
 		if ($periode=='zero') {
 			$this->load->view('bph/data_referensi',$paket);
 		}else{
-			$paket['array']=$this->mdl_referensi->ambildata($periode);
-			$this->load->view('bph/data_referensi_tampil',$paket);
+			$paket['array']=$this->mdl_referensi->ambildata_proker($periode);
+			$this->load->view('bph/data_referensi_tampil',$paket); 
 		}
+	}
+
+	public function view_sie($proker)
+	{
+		$paket['array']=$this->mdl_referensi->ambildata_sie($proker);
+		$this->load->view('bph/data_referensi_sie_tampil',$paket); 		
 	}
 
 }

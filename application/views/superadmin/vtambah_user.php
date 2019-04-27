@@ -44,6 +44,17 @@
             <input type="email" placeholder="Email user" class="form-control" name="email_user" autocomplete="off" required="required">
           </div> 
           <div class="form-group">
+            <label class="form-control-label">Tipe User</label>
+<!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
+              <select name="id_periode" id="id_uType" class="form-control" required="required">
+                <option value="zero">--Pilih Tipe User--</option>
+                  <option value="2">Admin</option>
+                  <option value="3">Badan Pengurus Harian</option>
+                  <option value="4">Divisi Bidang</option>
+                  <option value="5">Anggota OC</option>
+              </select>
+          </div>
+          <div class="form-group">
             <label class="form-control-label">Periode</label>
 <!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
               <select name="id_periode" id="id_periode" class="form-control" required="required">

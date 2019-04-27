@@ -21,6 +21,7 @@ class Rate extends CI_Controller {
 		$value['rate']=$this->input->post('rate');
 
 		$ukm=$this->session->userdata('ses_ukm');
+		$periode=$this->session->userdata('ses_periode');
 		$user=$this->session->userdata('ses_id_user');
 		$tanggal_proker=$this->session->userdata('ses_date_rate');
 
@@ -39,6 +40,7 @@ class Rate extends CI_Controller {
 		// echo $id_proker;
 		$send['id_rating']=$id_rate;
 		$send['id_ukm']=$ukm;
+		$send['id_periode']=$periode;
 		$send['id_proker']=$id_proker;
 		$send['rate']=$this->input->post('rate');
 

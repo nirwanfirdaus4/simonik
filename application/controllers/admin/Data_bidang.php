@@ -49,6 +49,7 @@ class Data_bidang extends CI_Controller {
 	public function do_delete($id){
 		$where = array('id_bidang' => $id);
 		$this->mdl_data_bidang->delete_data($where,'tb_bidang');
+		$this->mdl_data_bidang->delete_data($where,'tb_file_backup');
 		redirect('admin/Data_bidang/');
 	}
 

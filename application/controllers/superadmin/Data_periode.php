@@ -25,20 +25,39 @@ class Data_periode extends CI_Controller {
 			$this->load->view('superadmin/vtambah_periode');
 		}
 		else{
+
+			$query_cek= $this->db->query("SELECT * FROM tb_periode");
+			if ($query_cek->num_rows()>2) {
+
+				$hit=0;
+				foreach ($query_cek->result() as $k_value) {
+					if ($hit==0) {
+						$id = $k_value->id_periode;
+						$where = array('id_periode' => $id);
+						$this->mdl_data_periode->delete_data($where,'tb_periode');	
+					}
+				$hit++;
+				}
+
+			}
+		
 			$send['id_periode']='';
 			$send['th_periode']=$this->input->post('th_periode');
 
-			$kembalian['jumlah']=$this->mdl_data_periode->tambahdata($send);
-			$kembalian['array']=$this->mdl_data_periode->ambildata();
-			$this->load->view('superadmin/data_periode',$kembalian);
-			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
-			redirect('superadmin/Data_periode/');
+				$kembalian['jumlah']=$this->mdl_data_periode->tambahdata($send);
+				$kembalian['array']=$this->mdl_data_periode->ambildata();
+				$this->load->view('superadmin/data_periode',$kembalian);
+				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+				redirect('superadmin/Data_periode/');
+
 		}
 	}
 
 	public function do_delete($id){
 		$where = array('id_periode' => $id);
 		$this->mdl_data_periode->delete_data($where,'tb_user');
+		$this->mdl_data_periode->delete_data($where,'tb_periode');
+		$this->mdl_data_periode->delete_data($where,'tb_panitia_proker');
 		$this->mdl_data_periode->delete_data($where,'tb_periode');
 		redirect('superadmin/Data_periode/');
 	}

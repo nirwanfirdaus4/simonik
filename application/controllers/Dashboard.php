@@ -154,6 +154,57 @@ if(mysqli_num_rows($result)> 0){
           }
     }
 
+
+    function viewJobdesk_post(){
+
+        $id_proker  = $this->post('idProker');
+        $id_sie  = $this->post('idSie');
+
+        $query_user=$this->db->query("SELECT * FROM tb_user");      
+        $query_0 = $this->db->query("SELECT * FROM tb_jobdesk where id_proker=$id_proker AND id_sie=$id_sie");
+
+
+    if($query_0->num_rows()> 0){
+
+        $response['status']= "success" ;
+        $response['message']="Data Ditemukan";
+        $response["result"] = array();       
+
+        // while ($row = mysqli_fetch_array($result)) {
+       foreach ($query_0->result() as $key_ua) {
+
+               // $bahan= $key_ua->id_user;
+
+               // foreach ($query_user->result() as $key_u) {
+               //    if ($key_u->id_user==$bahan) {
+               //      $nama_user=$key_u->nama_user;
+               //      $email_user=$key_u->email_user;
+               //      $nim=$key_u->nim;
+               //      $jenisPanitia=$key_ua->jenis_panitia;
+               //    }
+               // }
+
+
+               $pl = array();
+
+               $pl["id_jobdesk"] = $key_ua->id_jobdesk;
+               $pl["nama_jobdesk"] = $key_ua->nama_jobdesk;
+
+               array_push($response["result"], $pl);
+
+          }
+
+      // return
+       echo json_encode($response);
+
+          }else{
+              $response['status']= "false" ;
+              $response['message']="Belum ada Jobdesk";       
+              echo "Tidak Ada Data ";
+          }
+    }
+
+
     function sie_post(){
 
         $id_proker  = $this->post('idProker');
@@ -176,6 +227,7 @@ if(mysqli_num_rows($result)> 0){
     $image[0]=1;
     $image[1]=2;
     $image[2]=3;
+    $image[3]=4;
 
     $no=0;
 
@@ -192,26 +244,19 @@ if(mysqli_num_rows($result)> 0){
                 $convert_sie=$key_sie->nama_sie;
               }
            }
-           // foreach ($query_ukm->result() as $key_ukm) {
-           //    if ($key_ukm->id_ukm==$row["id_ukm"]) {
-           //      $convert_ukm=$key_ukm->nama_ukm;
-           //    }
-           // }
 
            $pl["sie_convert"] = $convert_sie;
            // $pl["ukm_convert"] = $convert_ukm;           
 
            array_push($response["result"], $pl);
            $no++;
-           if ($no==3) {
+           if ($no==4) {
             $no=0;
            }
       }
 
   // return
    echo json_encode($response);
-
-
 
     }
 

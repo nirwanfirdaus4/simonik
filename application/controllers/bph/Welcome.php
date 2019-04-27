@@ -25,34 +25,71 @@ class Welcome extends CI_Controller {
 		if ($bidang->num_rows() > 0) {
 			foreach ($bidang->result() as $row_bidang) {
 				if ($utype==$row_bidang->ketua_bidang || $utype==$row_bidang->sekretaris_bidang) {
-					$fix_bidang=$row_bidang->id_bidang;			
+					$fix_bidang=$row_bidang->id_bidang;
+					// ambil bidang			
 				}
 			}
+
 			$ukm=$this->session->userdata('ses_ukm');
+			$proker0=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm AND id_bidang=$fix_bidang");			
+
+			$get_tgl_sekarang=date('Y-m-d');
+		
+			$no=0;
+			foreach ($proker0->result() as $key_get) {
+				$tgl_bahanAcara=$key_get->tanggal_proker;
+				$limit=date('Y-m-d',strtotime('+5 days', strtotime($tgl_bahanAcara)));
+
+				if($no==0){
+
+					if($get_tgl_sekarang>$tgl_bahanAcara && $get_tgl_sekarang<$limit){
+						$idProker=$key_get->id_proker;
+						$no=1;
+					}
+
+				}else{
+				
+				}
+
+			}
+
 			$proker=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm AND id_bidang=$fix_bidang");
+			$proker1=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm AND id_bidang=$fix_bidang AND id_proker=$idProker");
 
 			if ($proker->num_rows() > 0) {
 				$tgl_sekarang=date('Y-m-d');
-				foreach ($proker->result() as $row_proker) {
+				foreach ($proker1->result() as $row_proker) {
 					$tgl_acara=$row_proker->tanggal_proker;
 					$proker_selesai=$row_proker->id_proker;	
 					$limit=date('Y-m-d',strtotime('+5 days', strtotime($tgl_acara)));
-
+					
 					if ($tgl_sekarang>$tgl_acara && $tgl_sekarang<$limit) {
 
 						$cek_rating=$this->db->query("SELECT * FROM tb_rating where id_ukm=$ukm AND id_proker=$proker_selesai");
-						foreach ($cek_rating->result() as $cek) {
-							$hasil_cek=$cek->rate;
-						}	
-						if ($hasil_cek<=0) {
+						
+						
+						if ($cek_rating->num_rows()>0) {
+							foreach ($cek_rating->result() as $cek) {
+								$hasil_cek=$cek->rate;
+							}							
+						}else{
+							$hasil_cek=0;
+						}
+
+
+						if ($hasil_cek==0) {
 							$this->session->set_userdata('ses_date_rate',$tgl_acara);			
 							$isi_rate=1;
 						}else{
 							$isi_rate=0;
 						}
+
+
+
 					}else{
 					//untuk mencegah error jika tidak ada yg dihasilkan dari query $proker
-						$isi_rate=0;				
+						$isi_rate=0;
+						// echo "eong1";				
 					}
 				}
 

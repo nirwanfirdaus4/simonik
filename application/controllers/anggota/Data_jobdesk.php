@@ -82,6 +82,14 @@ class Data_jobdesk extends CI_Controller {
 		$where = array('id_jobdesk' => $id);
 		$sie=$this->session->userdata('ses_nav_sie');		
 		$this->mdl_data_jobdesk->delete_data($where,'tb_jobdesk');
+
+		$query_cek=$this->db->query("SELECT * FROM tb_panitia_proker WHERE id_proker=$proker AND id_sie=$sie");
+		$where2 = array('id_proker' => $proker,'id_sie' => $sie);
+
+		if ($query_cek->num_rows()>0) {
+			$this->mdl_data_jobdesk->delete_data($where2,'tb_panitia_proker');
+		}
+
 		redirect('anggota/Data_jobdesk/detail/'.$proker.'/'.$sie.'/'.$sie_user);
 	}
 

@@ -17,7 +17,7 @@
         </div> -->
         <div class="row d-flex align-items-center">                   
           <div class="col-lg-12">
-            <div class="block">
+            <div class="block"> 
               <div class="title"><strong>Pilih Periode :</strong></div>
 
               <div class="block-body">
@@ -55,8 +55,8 @@
                       <th>No</th>
                       <th>Periode</th>
                       <th>Program kerja</th>
-                      <th>Nama Sie</th>
-                      <th>File</th>
+                      <th>Rating</th>
+                      <th>Opsi</th>
                     </tr> 
                   </thead>
                   <tbody>
@@ -102,13 +102,68 @@
                           <?php }
                         } ?>
 
-                        <?php
-                        foreach($sie->result() as $row_sie)  {
-                          if ($row_sie->id_sie==$key['id_sie']) { ?>                    
-                            <td><?php echo $row_sie->nama_sie; ?></td>
-                          <?php }
-                        } ?>
-                        <td><?php echo ($key['file_laporan'] != '' ? "<a target='blank' href='" . base_url('upload/berkas_laporan/' . $key['file_laporan']) . "'>".$key['file_laporan']. "</a>" : "Tidak ada file laporan"); ?></td>
+                        <td>
+
+                      <?php 
+
+                        $bahan_rating = $this->db->query("SELECT * FROM tb_rating");
+
+                        foreach ($bahan_rating->result() as $keyo) {
+
+                          if ($keyo->id_ukm==$key['id_ukm'] && $keyo->id_proker==$key['id_proker'] && $keyo->id_periode==$key['id_periode']) {
+                            $index_rate=$keyo->rate;
+                            // echo "eong";
+                            // echo "<br>"."id_ukm ".$keyo->id_ukm."<br>";
+                            // echo "<br>"."id_proker ".$keyo->id_proker."<br>";
+                            // echo "<br>"."id_periode ".$keyo->id_periode."<br>";
+                          }else{
+                            // echo "waa";
+                          }
+                        }
+
+
+                        if($index_rate==20){ ?>
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                       <?php }elseif ($index_rate==40) { ?>
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>
+                       <?php }elseif ($index_rate==60) { ?>
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>
+                       <?php }elseif ($index_rate==80) { ?>
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary4"></i>
+                       <?php }elseif ($index_rate==100) { ?>
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i>                          
+                         <i class="fa fa-star primary3"></i> 
+                       <?php }else{ ?>
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>                          
+                         <i class="fa fa-star primary4"></i>
+                       <?php } ?>
+                        </td>
+                        <td>
+                          <!-- <?php echo "Detail"; ?> -->
+                          <a href="<?php echo base_url('bph/Data_referensi/view_sie/'.$key['id_proker']) ?>" title="Lihat"><button type="button" class="btn btn-success">Lihat</button></a>
+                        </td>
                         <td>
                           <?php $modal++; }?>
 
