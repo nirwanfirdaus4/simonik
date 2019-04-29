@@ -61,7 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 ?>
                 <div class="right-menu list-inline no-margin-bottom">  
                  <div class="list-inline-item dropdown">
-                    <a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="fa fa-bell"></i><span class="badge dashbg-3"><?php echo count($belum_dibaca) ?></span></a>
+                   <?php $hitung_notif = count($belum_dibaca); ?>
+                    <a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="fa fa-bell"></i><?php if ($hitung_notif>=1){?> <span class="badge dashbg-3"><?php echo count($belum_dibaca) ?></span><?php } ?></a>
                     <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list">
                       <?php foreach($semua_notifikasi as $notifikasi) { 
                         $konten = $notifikasi->konten_notifikasi;
@@ -73,17 +74,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         $data_proker = $this->db->get_where('tb_daftar_proker', array('id_proker' => $id_proker))->row();
                         ?>
-                        
-                        <!-- <?php foreach ($isi as $jbd) {
-                          $isi_jobdesk = $jbd->nama_jobdesk;
-                          $isi_id = $jbd->id_proker;
-                          foreach ($nama_proker as $proker) {
-                            $select_id_proker = $proker->id_proker;
-                            if ($isi_id == $select_id_proker) {
-                              $select_proker = $proker->nama_proker;
-                            }
-                          }
-                        } ?> -->
                         
                       <a style="background-color: <?php echo ($notifikasi->status_notifikasi=='0' ? '#282b2f' : '') ?>" href="<?php echo $tautan ?>" class="dropdown-item">
                         <div class="content"><strong class="d-block"><?php echo $tgl ?></strong><span class="d-block"><?php echo $konten . " untuk " . $data_proker->nama_proker; ?></span></div>

@@ -26,7 +26,7 @@ class Proker extends CI_Controller {
 		$user=$this->session->userdata('ses_id_user'); 
 		
 		$query_panitia=$this->db->query("SELECT * FROM tb_panitia_proker where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
-		$query_jobdesk=$this->db->query("SELECT * FROM tb_jobdesk where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user");
+		$query_jobdesk=$this->db->query("SELECT * FROM tb_jobdesk where  id_ukm=$ukm AND id_proker=$proker AND id_user=$user AND id_sie=$sie");
 
 		foreach($query_panitia->result() as $row_user)  {
 			if ($row_user->jenis_panitia!='Anggota Sie' && $row_user->jenis_panitia!='Koordinator Sie' ) {
