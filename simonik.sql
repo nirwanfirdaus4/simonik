@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2019 at 05:44 PM
+-- Generation Time: Jun 02, 2019 at 08:00 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -116,7 +116,7 @@ INSERT INTO `tb_file_backup` (`id_file`, `id_jobdesk`, `id_proker`, `id_bidang`,
 (6, 6, 1, 1, 3, 13, 2, ''),
 (7, 7, 1, 1, 3, 13, 2, ''),
 (8, 8, 2, 1, 3, 1, 2, 'Document_81559486827.pdf'),
-(9, 9, 2, 1, 3, 1, 2, 'Document_91559486889.pdf'),
+(9, 9, 2, 1, 3, 1, 2, ''),
 (10, 10, 2, 1, 3, 2, 2, ''),
 (11, 11, 2, 1, 3, 2, 2, ''),
 (12, 12, 2, 1, 3, 3, 2, ''),
@@ -167,7 +167,7 @@ INSERT INTO `tb_jobdesk` (`id_jobdesk`, `id_ukm`, `id_proker`, `id_sie`, `nama_j
 (6, 3, 1, 13, 'Menjalankan Birokrasi Proposal', '2019-05-27', '2019-06-12', 'Belum Dikerjakan', '', '', 9),
 (7, 3, 1, 13, 'Meminta Scan TTD', '2019-05-29', '2019-06-12', 'Belum Dikerjakan', '', '', 9),
 (8, 3, 2, 1, 'Membuat Jobdesk', '2019-05-22', '2019-06-05', 'Progres', '', 'Document_81559486827.pdf', 11),
-(9, 3, 2, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-06-03', 'Progres', '', 'Document_91559486889.pdf', 11),
+(9, 3, 2, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-06-03', 'Progres', '', '', 11),
 (10, 3, 2, 2, 'Membuat Proposal Kegiatan', '2019-05-23', '2019-05-25', 'Belum Dikerjakan', '', '', 11),
 (11, 3, 2, 2, 'Membuat Undangan', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', '', 11),
 (12, 3, 2, 3, 'Membuat Susunan Acara', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', '', 11),
@@ -515,7 +515,7 @@ ALTER TABLE `tb_bidang`
 -- AUTO_INCREMENT for table `tb_daftar_proker`
 --
 ALTER TABLE `tb_daftar_proker`
-  MODIFY `id_proker` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_proker` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_evaluasi`
@@ -545,7 +545,7 @@ ALTER TABLE `tb_notifikasi`
 -- AUTO_INCREMENT for table `tb_panitia_proker`
 --
 ALTER TABLE `tb_panitia_proker`
-  MODIFY `id_panitia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_panitia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_periode`
@@ -557,7 +557,7 @@ ALTER TABLE `tb_periode`
 -- AUTO_INCREMENT for table `tb_rating`
 --
 ALTER TABLE `tb_rating`
-  MODIFY `id_rating` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rating` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_sie`
@@ -581,7 +581,7 @@ ALTER TABLE `tb_ukm`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
