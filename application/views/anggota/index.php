@@ -136,7 +136,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
 
                     $file=$key_printFile->file_laporan;
-                    
+                    if ($file==null) {
+                      $file="Belum ada file laporan";
+                      $link=0;
+                      // Document_91559486889.pdf untuk idjobdesk 9 d hubungi pemateri 
+                    }else{
+                      $link=1;
+                    }
+
                     foreach ($query_convertNamaJobdesk->result() as $keyNamaJobdesk) {
 
                       if ($keyNamaJobdesk->id_jobdesk==$key_printFile->id_jobdesk) {
@@ -147,7 +154,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     ?>
                       <p class="loch_text"><?php echo $convertNamaJobdesk." :" ?></p>                                               
-                      <i> <a target='blank' href="<?php base_url('upload/berkas_laporan/' . $file)?>"><p class="loch_text2"><?php echo $file; ?></p></a></i>
+                      
+                      <?php 
+
+                      if ($link!=0) { ?>
+                          <i> <a target='blank' href="<?php base_url('upload/berkas_laporan/' . $file)?>"><p class="loch_text2"><?php echo $file; ?></p></a></i>
+                      <?php }else{ ?>
+                          <i><p class="loch_text2"><?php echo $file; ?></p></i>
+                      <?php }
+
+                       ?>
                     </div>
                   </div>
                   <?php } ?>

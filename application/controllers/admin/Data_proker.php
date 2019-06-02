@@ -38,6 +38,7 @@ class Data_proker extends CI_Controller {
 			$send['ketua_proker']=$this->input->post('nm_ketua_proker');
 			$send['tanggal_proker']=$this->input->post('tgl_proker');
 			$send['id_ukm']=$this->input->post('id_ukm');
+			$send['tempat_proker']=$this->input->post('tempat_pelaksanaan');
 			$send['id_bidang']=$this->input->post('nm_bidang');
 
 			$kembalian['jumlah']=$this->mdl_data_proker->tambahdata($send);
@@ -99,6 +100,7 @@ class Data_proker extends CI_Controller {
 			$send['nm_ketua_proker']=$this->input->post('nm_ketua_proker');
 			$send['tgl_proker']=$this->input->post('tgl_proker');
 			$send['id_ukm']=$this->input->post('id_ukm');
+			$send['tempat_proker']=$this->input->post('tempat_pelaksanaan');
 			$send['nm_bidang']=$this->input->post('nm_bidang');
 			
 			$kembalian['jumlah']=$this->mdl_data_proker->modelupdate($send);

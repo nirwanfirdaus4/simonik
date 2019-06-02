@@ -26,10 +26,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama Proker</th>
-              <th>Nama Ketua Proker</th>
-              <th>Nama Tanggal Proker</th>
-              <th>Nama Bidang</th>
+              <th>Program Kerja</th>
+              <th>Nama Ketua</th>
+              <th>Tanggal</th>
+              <th>Lokasi Pelaksanaan</th>
               <th>Aksi</th>
             </tr> 
           </thead>
@@ -71,14 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } ?>
 
                 <td><?php echo $key['tanggal_proker']; ?></td>
-
-                <?php
-                $bidang = $this->db->query("SELECT * FROM tb_bidang");
-                foreach($bidang->result() as $row_bidang)  {
-                  if ($row_bidang->id_bidang==$key['id_bidang']) { ?>                    
-                    <td><?php echo $row_bidang->nama_bidang; ?></td>
-                <?php }
-                } ?>
+                <td><?php echo $key['tempat_proker']; ?></td>
 
                 <td>
                   <a href="<?php echo base_url('admin/Data_proker/edit/' . $key['id_proker']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>

@@ -117,7 +117,7 @@ class mdl_data_proker extends CI_Model {
 	}
 
 	public function modelupdate($send){
-		$sql="UPDATE tb_daftar_proker SET nama_proker = ?, ketua_proker = ?, tanggal_proker = ?, id_ukm = ?, id_bidang = ? WHERE id_proker = ?";
-		$query=$this->db->query($sql, array( $send['nama_proker'], $send['nm_ketua_proker'], $send['tgl_proker'], $send['id_ukm'], $send['nm_bidang'], $send['id_proker']));
+		$sql="UPDATE tb_daftar_proker SET nama_proker = ?, ketua_proker = ?, tanggal_proker = ?, id_ukm = ?, tempat_proker = ?, id_bidang = ? WHERE id_proker = ?";
+		$query=$this->db->query($sql, array( $send['nama_proker'], $send['nm_ketua_proker'], $send['tgl_proker'], $send['id_ukm'],$send['tempat_proker'], $send['nm_bidang'], $send['id_proker']));
 	}	
 }

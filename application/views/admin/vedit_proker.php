@@ -32,7 +32,7 @@
               <option value="zero">-- Pilih Ketua Proker --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=8");
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=5");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>"<?php echo ($row_kat->id_user == $data[0]['ketua_proker'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
@@ -44,6 +44,10 @@
           </div>
            <?php $ukm=$this->session->userdata('ses_ukm');?>
           <input type="hidden" value="<?php echo $ukm; ?>" class="form-control" name="id_ukm" autocomplete="off">          
+          <div class="form-group">
+            <label class="form-control-label">Tempat Pelaksanaan</label>
+            <input type="text" placeholder="Lokasi" class="form-control" name="tempat_pelaksanaan" autocomplete="off" value="<?php echo $data[0]['tempat_proker'] ?>">
+          </div>
           <div class="form-group">
             <label class="form-control-label">Nama Bidang</label>
             <select name="nm_bidang" id="nm_bidang" class="form-control">

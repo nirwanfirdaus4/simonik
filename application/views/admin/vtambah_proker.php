@@ -38,10 +38,14 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-control-label">Tanggal Proker</label>
+            <label class="form-control-label">Tanggal Pelaksanaan</label>
             <input type="date" name="tgl_proker" placeholder="Tanggal Acara" autocomplete="off" class="form-control">
           </div>
-           <?php $ukm=$this->session->userdata('ses_ukm');?>
+          <div class="form-group">
+            <label class="form-control-label">Tempat Pelaksanaan</label>
+            <input type="text" placeholder="Tempat" class="form-control" name="tempat_pelaksanaan" autocomplete="off">
+          </div>
+          <?php $ukm=$this->session->userdata('ses_ukm');?>
           <input type="hidden" value="<?php echo $ukm; ?>" class="form-control" name="id_ukm" autocomplete="off">          
           <div class="form-group">
             <label class="form-control-label">Nama Bidang</label>

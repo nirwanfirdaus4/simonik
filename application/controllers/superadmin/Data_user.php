@@ -70,14 +70,9 @@ class Data_user extends CI_Controller {
 			$value['id_ukm']=$this->input->post('id_ukm');
 			$value['id_periode']=$this->input->post('id_periode');
 
-			if ( ! $this->upload->do_upload('berkas')){
-				$error = $this->upload->display_errors();
-				// // var_dump($error);
-				$this->session->set_flashdata('msg',$error);
-				$this->load->view('superadmin/vtambah_user',$data);
-			}else{
+			if ($this->upload->do_upload('berkas')){
+
 				$data = $this->upload->data();
-				// $this->load->view('superadmin/data_user', $data);
 				$send['foto_user']=$data['file_name'];
 
 				$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
@@ -87,7 +82,16 @@ class Data_user extends CI_Controller {
 				$this->load->view('superadmin/data_user',$kembalian);
 				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
 				redirect('superadmin/Data_user/detail/'.$ukm);
-			}
+
+			}else{
+				$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
+
+				$kembalian['array']=$this->mdl_data_user->ambildata();
+							
+				$this->load->view('superadmin/data_user',$kembalian);
+				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+				redirect('superadmin/Data_user/detail/'.$ukm);
+			}	
 
 
 			
