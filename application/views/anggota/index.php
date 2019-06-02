@@ -114,10 +114,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="modal-body">
                     <?php
                     // $user=$key['id_user'];
-                    // $query_cekAnggota=$this->db->query("SELECT * FROM tb_user");
 
                     $b_proker=$key['id_proker'];
                     $b_sie=$key['id_sie'];
+
+                    $query_convertNamaJobdesk=$this->db->query("SELECT * FROM tb_jobdesk");
 
                     $query_printNamaSie=$this->db->query("SELECT * FROM tb_sie where id_sie=$b_sie");
                     $query_printFile=$this->db->query("SELECT * FROM tb_file_backup where id_proker=$b_proker AND id_sie=$b_sie");
@@ -136,8 +137,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     $file=$key_printFile->file_laporan;
                     
+                    foreach ($query_convertNamaJobdesk->result() as $keyNamaJobdesk) {
+
+                      if ($keyNamaJobdesk->id_jobdesk==$key_printFile->id_jobdesk) {
+                        $convertNamaJobdesk=$keyNamaJobdesk->nama_jobdesk;
+                      }
+
+                    }                    
+
                     ?>
-                      <p class="loch_text"><?php echo $namaSie; ?></p>                                               
+                      <p class="loch_text"><?php echo $convertNamaJobdesk." :" ?></p>                                               
                       <i> <a target='blank' href="<?php base_url('upload/berkas_laporan/' . $file)?>"><p class="loch_text2"><?php echo $file; ?></p></a></i>
                     </div>
                   </div>

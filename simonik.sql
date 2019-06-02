@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2019 at 05:42 AM
+-- Generation Time: Jun 02, 2019 at 05:44 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -21,17 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `simonik`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gambar`
---
-
-CREATE TABLE `gambar` (
-  `id_gambar` int(10) NOT NULL,
-  `gambar` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -78,9 +67,9 @@ CREATE TABLE `tb_daftar_proker` (
 --
 
 INSERT INTO `tb_daftar_proker` (`id_proker`, `nama_proker`, `ketua_proker`, `tanggal_proker`, `tempat_proker`, `id_ukm`, `id_bidang`, `id_periode`) VALUES
-(1, 'Safari Dakwah', 9, '2019-05-25', '', 3, 1, 0),
-(2, 'Sholawatan Rutin', 11, '2019-06-02', '', 3, 1, 0),
-(3, 'Firma Ceria', 16, '2019-06-25', '', 3, 2, 0);
+(1, 'Safari Dakwah', 9, '2019-05-25', 'Desa Bulupitu', 3, 1, 0),
+(2, 'Sholawatan Rutin', 11, '2019-06-02', 'Masjid Raya An Nur Polinema', 3, 1, 0),
+(3, 'Firma Ceria', 16, '2019-06-25', 'Aula Pertamina', 3, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -123,11 +112,11 @@ INSERT INTO `tb_file_backup` (`id_file`, `id_jobdesk`, `id_proker`, `id_bidang`,
 (2, 2, 1, 1, 3, 1, 2, ''),
 (3, 3, 1, 1, 3, 1, 2, ''),
 (4, 4, 1, 1, 3, 2, 2, ''),
-(5, 5, 1, 1, 3, 3, 2, ''),
+(5, 5, 1, 1, 3, 3, 2, 'Document_51559471011.pdf'),
 (6, 6, 1, 1, 3, 13, 2, ''),
 (7, 7, 1, 1, 3, 13, 2, ''),
-(8, 8, 2, 1, 3, 1, 2, ''),
-(9, 9, 2, 1, 3, 1, 2, ''),
+(8, 8, 2, 1, 3, 1, 2, 'Document_81559486827.pdf'),
+(9, 9, 2, 1, 3, 1, 2, 'Document_91559486889.pdf'),
 (10, 10, 2, 1, 3, 2, 2, ''),
 (11, 11, 2, 1, 3, 2, 2, ''),
 (12, 12, 2, 1, 3, 3, 2, ''),
@@ -160,6 +149,7 @@ CREATE TABLE `tb_jobdesk` (
   `startline` date NOT NULL,
   `deadline` date NOT NULL,
   `status_jobdesk` enum('Belum Dikerjakan','Progres','Sudah Dikerjakan') NOT NULL,
+  `catatan_progres` varchar(200) NOT NULL,
   `file_laporan` varchar(50) NOT NULL,
   `id_user` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -168,32 +158,32 @@ CREATE TABLE `tb_jobdesk` (
 -- Dumping data for table `tb_jobdesk`
 --
 
-INSERT INTO `tb_jobdesk` (`id_jobdesk`, `id_ukm`, `id_proker`, `id_sie`, `nama_jobdesk`, `startline`, `deadline`, `status_jobdesk`, `file_laporan`, `id_user`) VALUES
-(1, 3, 1, 1, 'Membuat Jobdesk', '2019-05-22', '2019-05-23', 'Belum Dikerjakan', '', 9),
-(2, 3, 1, 1, 'Mengontrol Kinerja Anggota', '2019-05-23', '2019-06-15', 'Belum Dikerjakan', '', 9),
-(3, 3, 1, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-06-05', 'Belum Dikerjakan', '', 9),
-(4, 3, 1, 2, 'Membuat Proposal Kegiatan', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', 9),
-(5, 3, 1, 3, 'Membuat Susunan Acara', '2019-05-27', '2019-05-31', 'Belum Dikerjakan', '', 9),
-(6, 3, 1, 13, 'Menjalankan Birokrasi Proposal', '2019-05-27', '2019-06-12', 'Belum Dikerjakan', '', 9),
-(7, 3, 1, 13, 'Meminta Scan TTD', '2019-05-30', '2019-06-12', 'Belum Dikerjakan', '', 9),
-(8, 3, 2, 1, 'Membuat Jobdesk', '2019-05-22', '2019-05-23', 'Belum Dikerjakan', '', 11),
-(9, 3, 2, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-05-31', 'Belum Dikerjakan', '', 11),
-(10, 3, 2, 2, 'Membuat Proposal Kegiatan', '2019-05-23', '2019-05-25', 'Belum Dikerjakan', '', 11),
-(11, 3, 2, 2, 'Membuat Undangan', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', 11),
-(12, 3, 2, 3, 'Membuat Susunan Acara', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', 11),
-(13, 3, 2, 3, 'Membuat Susunan Panitia Teknis', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', 11),
-(14, 3, 2, 3, 'Membuat List Perlengkapan', '2019-05-29', '2019-05-31', 'Belum Dikerjakan', '', 11),
-(15, 3, 2, 14, 'Membuat Desain Backdrop', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', 11),
-(16, 3, 2, 14, 'Membuat Slide Selamat Datang', '2019-05-30', '2019-06-03', 'Belum Dikerjakan', '', 11),
-(17, 3, 3, 1, 'Membuat Jobdesk', '2019-05-22', '2019-05-23', 'Belum Dikerjakan', '', 16),
-(18, 3, 3, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', 16),
-(19, 3, 3, 2, 'Membuat Proposal Kegiatan', '2019-05-23', '2019-05-24', 'Belum Dikerjakan', '', 16),
-(20, 3, 3, 2, 'Membuat Surat Peminjaman Barang', '2019-05-27', '2019-05-31', 'Belum Dikerjakan', '', 16),
-(21, 3, 3, 3, 'Membuat Susunan Panitia Teknis', '2019-05-23', '2019-05-25', 'Belum Dikerjakan', '', 16),
-(22, 3, 3, 3, 'Membuat List Anggaran Dana', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', 16),
-(23, 3, 3, 3, 'Membuat List Perlengkapan', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', 16),
-(24, 3, 3, 15, 'Membuat List Perlengkapan', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', 16),
-(25, 3, 3, 15, 'Membuat List Anggaran Dana', '2019-05-28', '2019-05-31', 'Belum Dikerjakan', '', 16);
+INSERT INTO `tb_jobdesk` (`id_jobdesk`, `id_ukm`, `id_proker`, `id_sie`, `nama_jobdesk`, `startline`, `deadline`, `status_jobdesk`, `catatan_progres`, `file_laporan`, `id_user`) VALUES
+(1, 3, 1, 1, 'Membuat Jobdesk', '2019-05-22', '2019-05-31', 'Progres', '', '', 9),
+(2, 3, 1, 1, 'Mengontrol Kinerja Anggota', '2019-05-23', '2019-06-15', 'Belum Dikerjakan', '', '', 9),
+(3, 3, 1, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-06-05', 'Belum Dikerjakan', '', '', 9),
+(4, 3, 1, 2, 'Membuat Proposal Kegiatan', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', '', 9),
+(5, 3, 1, 3, 'Membuat Susunan Acara', '2019-05-27', '2019-05-31', 'Progres', 'Kurang susac bagian pembukaan saja', 'Document_51559471011.pdf', 9),
+(6, 3, 1, 13, 'Menjalankan Birokrasi Proposal', '2019-05-27', '2019-06-12', 'Belum Dikerjakan', '', '', 9),
+(7, 3, 1, 13, 'Meminta Scan TTD', '2019-05-29', '2019-06-12', 'Belum Dikerjakan', '', '', 9),
+(8, 3, 2, 1, 'Membuat Jobdesk', '2019-05-22', '2019-06-05', 'Progres', '', 'Document_81559486827.pdf', 11),
+(9, 3, 2, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-06-03', 'Progres', '', 'Document_91559486889.pdf', 11),
+(10, 3, 2, 2, 'Membuat Proposal Kegiatan', '2019-05-23', '2019-05-25', 'Belum Dikerjakan', '', '', 11),
+(11, 3, 2, 2, 'Membuat Undangan', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', '', 11),
+(12, 3, 2, 3, 'Membuat Susunan Acara', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', '', 11),
+(13, 3, 2, 3, 'Membuat Susunan Panitia Teknis', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', '', 11),
+(14, 3, 2, 3, 'Membuat List Perlengkapan', '2019-05-29', '2019-05-31', 'Belum Dikerjakan', '', '', 11),
+(15, 3, 2, 14, 'Membuat Desain Backdrop', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', '', 11),
+(16, 3, 2, 14, 'Membuat Slide Selamat Datang', '2019-05-30', '2019-06-02', 'Belum Dikerjakan', '', '', 11),
+(17, 3, 3, 1, 'Membuat Jobdesk', '2019-05-22', '2019-05-23', 'Belum Dikerjakan', '', '', 16),
+(18, 3, 3, 1, 'Menghubungi Pemateri', '2019-05-27', '2019-05-30', 'Belum Dikerjakan', '', '', 16),
+(19, 3, 3, 2, 'Membuat Proposal Kegiatan', '2019-05-23', '2019-05-24', 'Belum Dikerjakan', '', '', 16),
+(20, 3, 3, 2, 'Membuat Surat Peminjaman Barang', '2019-05-27', '2019-05-31', 'Belum Dikerjakan', '', '', 16),
+(21, 3, 3, 3, 'Membuat Susunan Panitia Teknis', '2019-05-23', '2019-05-25', 'Belum Dikerjakan', '', '', 16),
+(22, 3, 3, 3, 'Membuat List Anggaran Dana', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', '', 16),
+(23, 3, 3, 3, 'Membuat List Perlengkapan', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', '', 16),
+(24, 3, 3, 15, 'Membuat List Perlengkapan', '2019-05-27', '2019-05-29', 'Belum Dikerjakan', '', '', 16),
+(25, 3, 3, 15, 'Membuat List Anggaran Dana', '2019-05-28', '2019-05-31', 'Belum Dikerjakan', '', '', 16);
 
 -- --------------------------------------------------------
 
@@ -203,6 +193,10 @@ INSERT INTO `tb_jobdesk` (`id_jobdesk`, `id_ukm`, `id_proker`, `id_sie`, `nama_j
 
 CREATE TABLE `tb_notifikasi` (
   `id_notifikasi` bigint(20) NOT NULL,
+  `tipe_notifikasi` varchar(20) NOT NULL,
+  `id_jobdesk` int(5) NOT NULL,
+  `id_proker` int(5) NOT NULL,
+  `id_sie` int(5) NOT NULL,
   `konten_notifikasi` longtext NOT NULL,
   `penerima_notifikasi` int(5) NOT NULL,
   `tautan_notifikasi` text NOT NULL,
@@ -214,9 +208,9 @@ CREATE TABLE `tb_notifikasi` (
 -- Dumping data for table `tb_notifikasi`
 --
 
-INSERT INTO `tb_notifikasi` (`id_notifikasi`, `konten_notifikasi`, `penerima_notifikasi`, `tautan_notifikasi`, `status_notifikasi`, `tanggal_notifikasi`) VALUES
-(1, 'Membuat Jobdesk', 9, 'http://localhost/simonik/anggota/Proker/index_detail/1/1/1', '0', '2019-05-22 03:29:02'),
-(2, 'Membuat Jobdesk', 11, 'http://localhost/simonik/anggota/Proker/index_detail/8/2/1', '0', '2019-05-22 03:35:29');
+INSERT INTO `tb_notifikasi` (`id_notifikasi`, `tipe_notifikasi`, `id_jobdesk`, `id_proker`, `id_sie`, `konten_notifikasi`, `penerima_notifikasi`, `tautan_notifikasi`, `status_notifikasi`, `tanggal_notifikasi`) VALUES
+(184, 'website', 16, 2, 14, 'Membuat Slide Selamat Datang', 21, 'http://localhost/simonik/anggota/Proker/index_detail/16/2/14', '1', '2019-06-02 06:17:18'),
+(187, 'website', 9, 2, 1, 'Menghubungi Pemateri', 11, 'http://localhost/simonik/anggota/Proker/index_detail/9/2/1', '1', '2019-06-02 06:41:28');
 
 -- --------------------------------------------------------
 
@@ -429,12 +423,6 @@ INSERT INTO `tb_user` (`id_user`, `nama_user`, `nim`, `username`, `password`, `n
 --
 
 --
--- Indexes for table `gambar`
---
-ALTER TABLE `gambar`
-  ADD PRIMARY KEY (`id_gambar`);
-
---
 -- Indexes for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
@@ -518,12 +506,6 @@ ALTER TABLE `tb_user`
 --
 
 --
--- AUTO_INCREMENT for table `gambar`
---
-ALTER TABLE `gambar`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tb_bidang`
 --
 ALTER TABLE `tb_bidang`
@@ -557,7 +539,7 @@ ALTER TABLE `tb_jobdesk`
 -- AUTO_INCREMENT for table `tb_notifikasi`
 --
 ALTER TABLE `tb_notifikasi`
-  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
 -- AUTO_INCREMENT for table `tb_panitia_proker`
