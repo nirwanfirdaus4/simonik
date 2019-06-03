@@ -44,9 +44,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <nav class="navbar navbar-expand-lg">
             <div class="container-fluid d-flex align-items-center justify-content-between">
               <div class="navbar-header">
-                <!-- Navbar Header--><a href="index.html" class="navbar-brand">
-                  <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">SI</strong><strong>MONIK</strong></div>
-                  <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
+                <!-- Navbar Header--><a href="" class="navbar-brand">
+                  <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">SIMON</strong><strong style="color: #feb938;">IK</strong></div>
+                  <div class="brand-text brand-sm"><strong class="text-primary">S</strong><strong style="color: #feb938;">I</strong></div></a>
                   <!-- Sidebar Toggle Btn-->
                   <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
                 </div>

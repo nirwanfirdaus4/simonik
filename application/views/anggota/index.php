@@ -217,7 +217,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             </a>                    
           </div>   
-          <div style="background-color: #ecf0f1;">
+          <div style="background-color: #fff;">
             <div class="box_space2">
               <p class="box_content_place">
                 <?php

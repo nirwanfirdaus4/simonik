@@ -17,7 +17,6 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		// $paket['array']=$this->mdl_data_proker->bph_ambildata_proker();
 		$utype=$this->session->userdata('ses_id_user');
 		$bidang = $this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$utype OR sekretaris_bidang=$utype");
 
@@ -26,12 +25,11 @@ class Welcome extends CI_Controller {
 			foreach ($bidang->result() as $row_bidang) {
 				if ($utype==$row_bidang->ketua_bidang || $utype==$row_bidang->sekretaris_bidang) {
 					$fix_bidang=$row_bidang->id_bidang;
-					// ambil bidang			
+
 				}
 			}
 
 			$ukm=$this->session->userdata('ses_ukm');
-			// echo "Bidang ".$fix_bidang;
 			$proker0=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm AND id_bidang=$fix_bidang");			
 
 			$get_tgl_sekarang=date('Y-m-d');
@@ -80,10 +78,8 @@ class Welcome extends CI_Controller {
 								}							
 							}else{
 								$hasil_cek=0;
-								echo "hasil";
 							}
 
-							echo "hasil cek : ";
 							if ($hasil_cek==0) {
 								$this->session->set_userdata('ses_date_rate',$tgl_acara);			
 								$isi_rate=1;
@@ -95,9 +91,7 @@ class Welcome extends CI_Controller {
 
 						}else{
 					//untuk mencegah error jika tidak ada yg dihasilkan dari query $proker
-							$isi_rate=0;
-							echo "hasil cek 2: ";
-						// echo "eong1";				
+							$isi_rate=0;				
 						}
 					}
 				}else{
