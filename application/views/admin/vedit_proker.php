@@ -39,7 +39,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-control-label">Tanggal Proker</label>
+            <label class="form-control-label">Tanggal Proker ( jika proker ini beberapa hari, masukkan tanggal terakhir saja )</label>
             <input type="date" name="tgl_proker" placeholder="Tanggal Acara" value="<?php echo $data[0]['tanggal_proker'] ?>" autocomplete="off" class="form-control">
           </div>
            <?php $ukm=$this->session->userdata('ses_ukm');?>

@@ -38,7 +38,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-control-label">Tanggal Pelaksanaan</label>
+            <label class="form-control-label">Tanggal Pelaksanaan ( jika proker ini beberapa hari, masukkan tanggal terakhir saja )</label>
             <input type="date" name="tgl_proker" placeholder="Tanggal Acara" autocomplete="off" class="form-control">
           </div>
           <div class="form-group">

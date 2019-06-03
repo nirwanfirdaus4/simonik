@@ -206,8 +206,6 @@ class Data_jobdesk extends CI_Controller {
 				$config['allowed_types']        = 'pdf|PDF';
 				$config['max_size']             = 400;
 				$config['file_name'] ="Document_".$send['id_jobdesk'].time();
-				// $config['max_width']            = 1024;
-				// $config['max_height']           = 768;
 				
 				$this->load->library('upload', $config);
 

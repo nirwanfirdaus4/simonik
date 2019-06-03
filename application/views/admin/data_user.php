@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama</th>
+              <th>Nama</th> 
               <th>Kontak</th>
               <th>Tipe User</th>
               <th>Foto User</th>
@@ -35,7 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </thead>
           <tbody>
             <?php $no=1; $modal=0; ?>
-            <?php foreach ($array as $key) { ?>
+            <?php foreach ($array as $key) {   
+              ?>
 
             <div class="modal fade" id="myModal<?php echo $modal ?>" role="dialog">
                 <div class="modal-dialog modal-sm">
@@ -46,6 +47,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="modal-body">
                       <p>Ingin hapus data?</p>
                       <a href="<?php echo base_url('admin/Data_user/do_delete/' . $key['id_user']) ?>" title="Hapus Data"><button type="button" class="btn btn-danger">Hapus <i class="fa fa-trash"></i></button></a>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="myFoto<?php echo $modal ?>" role="dialog">
+                <div class="modal-dialog modal-large">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Foto User</h4>
+                    </div>
+                    <div class="modal-body">
+                      <center><img style=" width: 50%; margin: 4% 0 4% 0;" src="<?php echo ($key['foto_user'] != '' ? base_url('./upload/foto_user/' . $key['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Foto User"></center>
+
                     </div>
                     <div class="modal-footer">
 
@@ -76,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }  
                 ?>
 
-<td><img width="100" height="100" style=" border-radius: 60px 60px 60px 60px;" src="<?php echo ($key['foto_user'] != '' ? base_url('./upload/foto_user/' . $key['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Foto UKM"></td>
+                <td><i data-toggle="modal" data-target="#myFoto<?php echo $modal ?>" class="fa fa-eye"></i></td>
                 <td>
                   <?php
                     foreach($tipe_user->result() as $row_utype2)  {
@@ -94,11 +111,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   ?>
                   <a href="<?php echo base_url('admin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
-                <?php $modal++; }?>
+                <?php }?>
 
                 </td>
                </tr>
-             <?php } ?>
+             <?php $modal++; } ?>
            </tbody>
          </table>
        </div>  

@@ -27,7 +27,7 @@ class Data_user extends CI_Controller {
 		$this->session->set_userdata('ses_nav_ukm',$ukm);
 		$this->load->view('superadmin/data_user',$paket); 
 	}
- 
+
 	public function tambahData($ukm){
 		$data['ukm_id']=$ukm;	 
 		$this->form_validation->set_rules('nama_user','Nama user','trim|required');
@@ -62,6 +62,7 @@ class Data_user extends CI_Controller {
 			$config['upload_path']          = './upload/foto_user/';
 			$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
 			$config['max_size']             = 400;
+			$config['file_name'] ="Foto_".$send['id_ukm']."_".$send['nim'].time();
 			// $config['max_width']            = 1024;
 			// $config['max_height']           = 768;
 			
@@ -78,7 +79,7 @@ class Data_user extends CI_Controller {
 				$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
 
 				$kembalian['array']=$this->mdl_data_user->ambildata();
-							
+
 				$this->load->view('superadmin/data_user',$kembalian);
 				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
 				redirect('superadmin/Data_user/detail/'.$ukm);
@@ -87,7 +88,7 @@ class Data_user extends CI_Controller {
 				$kembalian['jumlah']=$this->mdl_data_user->tambahdata($send);
 
 				$kembalian['array']=$this->mdl_data_user->ambildata();
-							
+
 				$this->load->view('superadmin/data_user',$kembalian);
 				$this->session->set_flashdata('msg','Data berhasil ditambahkan');
 				redirect('superadmin/Data_user/detail/'.$ukm);
@@ -102,7 +103,11 @@ class Data_user extends CI_Controller {
 		$where = array('id_user' => $id);
 		$ukm=$this->session->userdata('ses_nav_ukm');	
 		$query = $this->db->get_where('tb_user',$where)->result_array();
-		unlink("./upload/foto_user/".$query[0]['foto_user']);	
+		if ($query[0]['foto_user']!="") {
+			$target= "upload/foto_user/".$query[0]['foto_user'];
+			unlink($target);
+		}
+
 		$this->mdl_data_user->delete_data($where,'tb_user');
 		redirect('superadmin/Data_user/detail/'.$ukm);
 	}
@@ -139,10 +144,14 @@ class Data_user extends CI_Controller {
 				$send['username']=$this->input->post('nim');	
 			}
 
-			if ($_FILES["berkas"]["name"] != ""){
+			$current =$this->input->post('id_user');
+			$query=$this->db->query("SELECT * FROM tb_user WHERE id_user=$current")->result_array();
+
+			if ($_FILES["berkas"]["name"] != "" && $_FILES["berkas"]["name"] != $query[0]['foto_user']){
 				$config['upload_path']          = './upload/foto_user/';
 				$config['allowed_types']        = 'jpg|JPG|jpeg|JPEG|png|PNG';
 				$config['max_size']             = 400;
+				$config['file_name'] ="Foto_".$send['id_ukm']."_".$send['nim'].time();				
 				// $config['max_width']            = 1024;
 				// $config['max_height']           = 768;
 				
@@ -155,15 +164,14 @@ class Data_user extends CI_Controller {
 					$indexrow['data']=$this->mdl_data_user->ambildata2($id_update);
 					$this->load->view('superadmin/vedit_user', $indexrow);
 				}else{
+					$target= "upload/foto_user/".$query[0]['foto_user'];
+					unlink($target);
 					$data = $this->upload->data();
-					// $this->load->view('superadmin/data_user', $data);
 					$send['foto_user']=$data['file_name'];
 
 				}
 			}
 			else{
-				$current =$this->input->post('id_user');
-				$query=$this->db->query("SELECT * FROM tb_user WHERE id_user=$current")->result_array();
 				$send['foto_user']=$query[0]['foto_user'];
 			}
 			$kembalian['jumlah']=$this->mdl_data_user->modelupdate($send); 
