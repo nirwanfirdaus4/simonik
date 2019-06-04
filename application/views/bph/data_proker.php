@@ -60,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           if ($key['id_proker']==$p) {
               // KARENA id_proker dan id_sie tidak mungkin 0
           }else{ ?>             
-           <div class="col-lg-4">     
-            <div style="background-color: <?php echo $warna; ?>">
+           <div class="col-lg-4">      
+            <div style="background-color: <?php echo $warna; ?>; border-right: 1px solid #bdc3c7; border-left: 1px solid #bdc3c7; border-bottom: 1px solid;">
               <div class="box_space"><a class="unline" href="<?php echo base_url('bph/Data_proker/index_proker/'.$key['id_proker']) ?>">
 
               <?php
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           </a>                    
         </div>   
-        <div style="background-color: #fff;">
+        <div style="background-color: #fff; ">
           <div class="box_space2">
             <p class="box_content_place">
               <?php
@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"></span> <?php echo "&nbsp;".$tempat_fix ?></p>
               <p><span class="fa fa-calendar" style="font-size:19px"></span> <?php echo "&nbsp;".$tanggal_fix ?></p>
               </p>
-            </div><hr class="hr">   
+            </div><hr style="border-color: #bdc3c7;" class="hr">   
             <div class="box_space3">         
               <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
             </div>

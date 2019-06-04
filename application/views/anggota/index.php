@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             <div class="col-lg-4">      
-              <div style="background-color: <?php echo $warna; ?>">
+              <div style="background-color: <?php echo $warna; ?>;border-right: 1px solid #bdc3c7; border-left: 1px solid #bdc3c7; border-bottom: 1px solid;">
                 <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker'].'/'.$key['id_sie']) ?>">
                   <?php
                   $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
@@ -232,7 +232,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"></span> <?php echo "&nbsp;".$tempat_fix ?></p>
               <p><span class="fa fa-calendar" style="font-size:19px"></span> <?php echo "&nbsp;".$tanggal_fix ?></p>
             </p>
-          </div><hr class="hr">   
+          </div><hr style="border-color: #bdc3c7;" class="hr">   
           <div class="box_space3">         
             <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"></i><i class="fa fa-folder-o" style="font-size:19px" data-toggle="modal" data-target="#myFiles<?php echo $modal ?>"></i></p>
           </div>
