@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="container-fluid">
             <div class="row">
             <div class="col-lg-6">
-                <div class="drills-chart block">
+                <div class="drills-chart block_whiteBorder">
                 <div class="title"><strong>Detail Jobdesk</strong></div>
                 <div class="table-responsive">
                     <table class="table">   
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="col-lg-6">
               <div class="title"><strong>Ubah Status</strong></div>
-                <form action="<?php echo base_url('anggota/Data_jobdesk/update_status/'.$data[0]['id_jobdesk'].'/'.$ses_proker.'/'.$id_sie) ?>" method="post">
+                <form class="whiteBorder" action="<?php echo base_url('anggota/Data_jobdesk/update_status/'.$data[0]['id_jobdesk'].'/'.$ses_proker.'/'.$id_sie) ?>" method="post">
                 <?php if ($this->session->flashdata('msg_update')) : ?>
                   <div style="color: #ff6666;">
                   <?php echo $this->session->flashdata('msg_update') ?>  
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                 <?php endif; ?>
                   <div class="title"><strong>Upload Berkas</strong></div>
-                    <div class="stats-3-block block d-flex">
+                    <div class="stats-3-block block_whiteBorder d-flex">
                       <div class="form-group">
                         <label class="form-control-label"></label><label style="font-size:12px; padding-left:5px;">(Format PDF maks 300Kb)</label><br>
                         <input type="file" name="berkas"><input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-top:15px;">

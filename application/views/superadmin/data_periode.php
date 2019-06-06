@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
-      <li class="breadcrumb-item"><a href="<?php echo base_url('Welcome') ?>">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?php echo base_url('superadmin/Data_ukm/') ?>">Home</a></li>
       <li class="breadcrumb-item active">Data Periode</li>
     </ul>
   </div>

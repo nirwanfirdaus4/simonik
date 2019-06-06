@@ -13,8 +13,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <section class="no-padding-top no-padding-bottom">
     <div class="container-fluid">
       <div class="row">
-        <?php $no=1; $s=0;$hit=0;?>
+        <?php $no=1; $s=0;$hit=0; $color=1;?>
         <?php foreach ($array as $key) { 
+
+          switch($color){
+            case 1:
+            $fix_color='dashtext-1_custom';
+            $fix_bg='dashbg-1_custom';
+            break;
+            case 2:
+            $fix_color='dashtext-2_custom';
+            $fix_bg='dashbg-2_custom';
+            break;
+            case 3:
+            $fix_color='dashtext-3_custom';
+            $fix_bg='dashbg-3_custom';
+            break;
+            case 4:
+            $fix_color='dashtext-4_custom';
+            $fix_bg='dashbg-4_custom';
+            break;
+            case 5:
+            $fix_color='dashtext-5_custom';
+            $fix_bg='dashbg-5_custom';
+            break;
+            case 6:
+            $fix_color='dashtext-6_custom';
+            $fix_bg='dashbg-6_custom';
+            break;
+            case 7:
+            $fix_color='dashtext-7_custom';
+            $fix_bg='dashbg-7_custom';
+            break;
+            default:
+            $fix_color='dashtext-1_custom';
+            $fix_bg='dashbg-1_custom';
+            break;
+          }
+
           if ($key['id_sie']==$s) {
 
           }else{ ?>           
@@ -88,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     // echo $count.$jumlah_jobdesk;
                     // $hitung=1.333;
                     $cek_1digit=substr($hitung,1,1);
-                    $hit=strlen($hitung);
+                    $hit=strlen($hitung); 
                       if ($hit<=2) {
                         $print=$hitung;
                       }else{ 
@@ -105,11 +141,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                       }
 
-                    ?>                    
-                    <div class="number dashtext-1"><?php echo $print; ?>%</div>
-                  </div>
-                  <div class="progress progress-template">
-                    <div role="progressbar" style="width: <?php echo $print;?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
+                    ?>                     
+                <div class="number <?php echo $fix_color ?>"><?php echo $print."%"; ?></div>
+              </div>
+              <div class="progress progress-template">
+                <div role="progressbar" style="width: <?php echo $print ?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template <?php echo $fix_bg ?>"></div>
                   </div>
                 </div>
             </div>
@@ -117,6 +153,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
           $s=$key['id_sie'];
           $hit++;
+          $color++;
+          if ($color>7) {
+            $color=1;
+          }
         }
         ?>
 

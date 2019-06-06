@@ -90,7 +90,7 @@
 	text-decoration: none;
 }
 .dashtext-1_custom{
-	color: #864DD9 !important;
+	color: #3498db !important;
 }
 .dashtext-2_custom{
 	color: #e65b25 !important;
@@ -105,13 +105,13 @@
 	color: #16a085 !important;
 }
 .dashtext-6_custom{
-	color: #8e44ad !important;
+	color: #f1c40f !important;
 }
 .dashtext-7_custom{
 	color: #2980b9 !important;
 }
 .dashbg-1_custom{
-	background: #864DD9 !important;
+	background: #3498db !important;
 }
 .dashbg-2_custom{
 	background: #e65b25 !important;
@@ -126,7 +126,7 @@
 	background: #16a085 !important;
 }
 .dashbg-6_custom{
-	background: #8e44ad !important;
+	background: #f1c40f !important;
 }
 .dashbg-7_custom{
 	background: #2980b9 !important;
