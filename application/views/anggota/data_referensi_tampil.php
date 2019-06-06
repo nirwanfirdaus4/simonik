@@ -56,6 +56,7 @@
                       <th>Periode</th>
                       <th>Program kerja</th>
                       <th>Nama Sie</th>
+                      <th>Jobdesk</th>
                       <th>File</th>
                     </tr> 
                   </thead>
@@ -87,6 +88,7 @@
                         $user = $this->db->query("SELECT * FROM tb_ukm");
                         $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
                         $sie = $this->db->query("SELECT * FROM tb_sie");
+                        $jobdesk = $this->db->query("SELECT * FROM tb_jobdesk");
                         $periode = $this->db->query("SELECT * FROM tb_periode");
 
                         foreach($periode->result() as $row_periode)  {
@@ -106,6 +108,12 @@
                         foreach($sie->result() as $row_sie)  {
                           if ($row_sie->id_sie==$key['id_sie']) { ?>                    
                             <td><?php echo $row_sie->nama_sie; ?></td>
+                          <?php }
+                        } ?>
+                        <?php
+                        foreach($jobdesk->result() as $row_jobdesk)  {
+                          if ($row_jobdesk->id_jobdesk==$key['id_jobdesk']) { ?>                    
+                            <td><?php echo $row_jobdesk->nama_jobdesk; ?></td>
                           <?php }
                         } ?>
                         <td><?php echo ($key['file_laporan'] != '' ? "<a target='blank' href='" . base_url('upload/berkas_laporan/' . $key['file_laporan']) . "'>".$key['file_laporan']. "</a>" : "Tidak ada file laporan"); ?></td>
