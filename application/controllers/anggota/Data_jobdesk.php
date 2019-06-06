@@ -180,6 +180,7 @@ class Data_jobdesk extends CI_Controller {
 		}
 		else{
 			$send['id_jobdesk']=$this->input->post('id_jobdesk');
+			$send['id_user']=$this->session->userdata('ses_id_user');
 			$send['status_jobdesk']=$this->input->post('status_jobdesk');
 
 			$kembalian['jumlah']=$this->mdl_data_jobdesk->update_status($send);
@@ -204,7 +205,7 @@ class Data_jobdesk extends CI_Controller {
 			if ($_FILES["berkas"]["name"] != ""){
 				$config['upload_path']          = './upload/berkas_laporan/';
 				$config['allowed_types']        = 'pdf|PDF';
-				$config['max_size']             = 400;
+				$config['max_size']             = 500;
 				$config['file_name'] ="Document_".$send['id_jobdesk'].time();
 				
 				$this->load->library('upload', $config);
@@ -236,6 +237,7 @@ class Data_jobdesk extends CI_Controller {
 					$data = $this->upload->data();
 					// $this->load->view('superadmin/data_user', $data);
 					$send['file_laporan']=$data['file_name'];
+					$send['id_user']=$this->session->userdata('ses_id_user');
 
 					$kembalian['jumlah']=$this->mdl_data_jobdesk->upload_file($send);
 					$this->mdl_data_jobdesk->update_file_backup($send);

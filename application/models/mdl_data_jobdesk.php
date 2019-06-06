@@ -99,12 +99,12 @@ class mdl_data_jobdesk extends CI_Model {
 	}	
 
 	public function upload_file($send){
-		$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, file_laporan = ? WHERE id_jobdesk = ?";
-		$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['file_laporan'], $send['id_jobdesk']));
+		$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, file_laporan = ?,id_user = ? WHERE id_jobdesk = ?";
+		$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['file_laporan'],$send['id_user'], $send['id_jobdesk']));
 	}	
 
 	public function update_status($send){
-		$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, status_jobdesk = ? WHERE id_jobdesk = ?";
-		$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['status_jobdesk'], $send['id_jobdesk']));
+		$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, status_jobdesk = ?, id_user = ? WHERE id_jobdesk = ?";
+		$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['status_jobdesk'],$send['id_user'], $send['id_jobdesk']));
 	}
 }
