@@ -4,7 +4,7 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Panitia</h2>
+      <h2 class="h5 no-margin-bottom"style="color: #111">Data Panitia</h2>
     </div> 
   </div>
   <!-- Breadcrumb-->
@@ -16,7 +16,7 @@
   </div>
   <div class="col-lg-12">
     <div class="block"> 
-      <div class="title"><strong>Sunting Data Panitia <?php echo $convert_sie; ?></strong></div>
+      <div class="title"><strong style="color: #111">Sunting Data Panitia <?php echo $convert_sie; ?></strong></div>
 
       <div class="block-body">
         <form action="<?php echo base_url('anggota/Data_panitia/edit/' .$data[0]['id_panitia'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> " method="post">
@@ -32,7 +32,7 @@
             <input type="hidden" name="id_periode" autocomplete="off" value="<?php echo $periode ?>">
           </div>        
           <div class="form-group">
-            <label class="form-control-label">Nama Koordinator / Anggota Sie</label>
+            <label style="color: #111" class="form-control-label">Nama Koordinator / Anggota Sie</label>
             <select name="nm_koor" id="nm_koor" class="form-control" required="required">
               <option value="">-- Pilih Koordinator / Anggota Sie --</option>
               <?php 
@@ -48,7 +48,7 @@
           foreach ($query->result() as $row_kapel){
             if($row_kapel->id_sie != $sie_id){ ?>
               <div class="form-group">
-                <label class="form-control-label">Jenis Sie</label>
+                <label style="color: #111" class="form-control-label">Jenis Sie</label>
                 <select name="jenis_sie" id="jenis_sie" class="form-control" required="required">
                   <option value="" >-- Pilih Jenis Sie --</option>
                     <option value="Koordinator Sie" <?php echo $data[0]['jenis_panitia'] ? 'selected="selected"' : ''; ?>>Koordinator Sie</option>

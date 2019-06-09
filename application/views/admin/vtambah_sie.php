@@ -4,7 +4,7 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Sie</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Sie</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -17,11 +17,11 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Sie</strong></div>
+      <div class="title"><strong style="color: #111">Tambah Data Sie</strong></div>
       <div class="block-body">
         <form action="<?php echo base_url('admin/Data_sie/tambahData') ?> " method="post">
           <div class="form-group">
-            <label class="form-control-label">Nama Sie</label>
+            <label style="color: #111" class="form-control-label">Nama Sie</label>
             <input type="text" placeholder="Masukkan Nama Sie" class="form-control" name="nama_sie" autocomplete="off">
           </div>
           <div class="form-group space_help_button">     

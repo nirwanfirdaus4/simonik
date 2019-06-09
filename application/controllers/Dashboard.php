@@ -81,8 +81,38 @@ class Dashboard extends REST_Controller {
 
 function muse_post(){
 
-  $id_user  = $this->post('idUser');
+  $tanggal = date('Y-m-d');
+  $bahan_bulan=substr($tanggal,5,2);
 
+  if ($bahan_bulan=="01") {
+      $bulan="Jan";
+  }elseif ($bahan_bulan=="02") {
+      $bulan="Feb";
+  }elseif ($bahan_bulan=="03") {
+      $bulan="Mar";
+  }elseif ($bahan_bulan=="04") {
+      $bulan="Apr";
+  }elseif ($bahan_bulan=="05") {
+      $bulan="Mei";
+  }elseif ($bahan_bulan=="06") {
+      $bulan="Jun";
+  }elseif ($bahan_bulan=="07") {
+      $bulan="Jul";
+  }elseif ($bahan_bulan=="08") {
+      $bulan="Agust";
+  }elseif ($bahan_bulan=="09") {
+      $bulan="Sept";
+  }elseif ($bahan_bulan=="10") {
+      $bulan="Okt";
+  }elseif ($bahan_bulan=="11") {
+      $bulan="Nov";
+  }else{
+      $bulan="Des";
+  }
+
+  $tanggal_sekarang= substr($tanggal,8,2)." - ".$bulan." - ".substr($tanggal,0,4);
+
+  $id_user  = $this->post('idUser');
   $query_data=$this->db->query("SELECT * FROM tb_user where id_user=$id_user");      
 
   foreach ($query_data->result() as $key_data) {
@@ -93,6 +123,7 @@ function muse_post(){
    array(
      "status" => "success",
      "message" => "jos",
+     "tanggal" => $tanggal_sekarang,
      "result" => $data_nama
    )
  );

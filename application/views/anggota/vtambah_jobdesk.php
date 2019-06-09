@@ -4,7 +4,7 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Jobdesk</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Jobdesk</h2>
     </div> 
   </div>
   <!-- Breadcrumb-->
@@ -17,20 +17,20 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Jobdesk</strong></div>
+      <div class="title"><strong style="color: #111">Tambah Data Jobdesk</strong></div>
 
       <div class="block-body">
         <form action="<?php echo base_url('anggota/Data_Jobdesk/tambahData/' .$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> " method="post">
           <div class="form-group">
-            <label class="form-control-label">Jobdesk</label>
+            <label style="color: #111" class="form-control-label">Jobdesk</label>
             <input type="text" placeholder="Jobdesk" class="form-control" name="nama_jobdesk" autocomplete="off">
           </div>
           <div class="form-group">
-            <label class="form-control-label">Mulai</label>
+            <label style="color: #111" class="form-control-label">Mulai</label>
             <input type="date"class="form-control" name="mulai" autocomplete="off">
           </div>         
           <div class="form-group">
-            <label class="form-control-label">Deadline</label>
+            <label style="color: #111" class="form-control-label">Deadline</label>
             <input type="date"class="form-control" name="deadline" autocomplete="off">
           </div>
           <?php 
@@ -38,7 +38,7 @@
           foreach ($query->result() as $row_kapel){
             if($row_kapel->id_sie == $sie_id && $row_kapel->id_sie ==1){ ?>
               <div class="form-group">
-                <label class="form-control-label">File</label>
+                <label style="color: #111" class="form-control-label">File</label>
                 <input type="file" class="form-control" name="berkas" autocomplete="off">
               </div>          
            <?php } ?>

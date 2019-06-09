@@ -83,9 +83,9 @@
                   <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                   <ul class="list-unstyled">
                     <li><a href="<?php echo base_url('admin/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
-                    <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
+                    <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-user"></i>Data Anggota </a></li>
                     <li><a href="<?php echo base_url('admin/Data_bidang/') ?>"> <i class="icon-grid"></i>Data Bidang </a></li> <li><a href="<?php echo base_url('admin/Data_proker/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
-                    <li><a href="<?php echo base_url('admin/Data_sie/') ?>"> <i class="icon-grid"></i>Data Sie </a></li>
+                    <li><a href="<?php echo base_url('admin/Data_sie/') ?>"> <i class="fa fa-wpforms"></i>Data Sie </a></li>
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -134,7 +134,7 @@
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('bph/Welcome') ?>"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="<?php echo base_url('bph/Data_proker/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
-                <li><a href="<?php echo base_url('bph/Data_referensi/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+                <li><a href="<?php echo base_url('bph/Data_referensi/') ?>"> <i class="fa fa-file"></i>Data Referensi </a></li>
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -182,9 +182,9 @@
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('admin/Welcome') ?>"> <i class="icon-home"></i>Anggota </a></li>
-                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="icon-grid"></i>Data Anggota </a></li>
+                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-user"></i>Data Anggota </a></li>
                 <li><a href="<?php echo base_url('admin/Data_periode/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
-                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+                <li><a href="<?php echo base_url('admin/Data_user/') ?>"> <i class="fa fa-bar-file"></i>Data Referensi </a></li>
 <!--                 <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -246,7 +246,7 @@
                     } ?> 
                   </ul>
                 </li>                
-                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data Panitia </a>
+                <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-user"></i>Data Panitia </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <?php
                     $query=$this->db->query("SELECT * FROM tb_sie");
@@ -258,8 +258,8 @@
                     } ?> 
                   </ul>
                 </li>
-                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>
-                <li><a href="<?php echo base_url('anggota/Data_referensi/periode/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="icon-padnote"></i>Data Evaluasi </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_referensi/periode/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-file"></i>Data Referensi </a></li>
               </ul>
             </nav>             
           <?php  }elseif($this->session->userdata('ses_nav_proker') == 2) { 
@@ -295,9 +295,9 @@
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
                 <li><a href="<?php echo base_url('anggota/Proker/back_index') ?>"> <i class="icon-home"></i>Home </a></li>             
-                <li><a href="<?php echo base_url('anggota/Data_anggota/daftar_anggota/'.$ses_proker.'/'.$id_sie) ?>"> <i class="fa fa-bar-chart"></i>Data Anggota </a></li>
-                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Evaluasi </a></li>                
-                <li><a href="<?php echo base_url('anggota/Data_referensi/periode/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-bar-chart"></i>Data Referensi </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_anggota/daftar_anggota/'.$ses_proker.'/'.$id_sie) ?>"> <i class="fa fa-user"></i>Data Anggota </a></li>
+                <li><a href="<?php echo base_url('anggota/Data_evaluasi/value/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa icon-padnote"></i>Data Evaluasi </a></li>                
+                <li><a href="<?php echo base_url('anggota/Data_referensi/periode/'.$ses_proker.'/'.$id_sie.'/'.$ses_nav) ?>"> <i class="fa fa-file"></i>Data Referensi </a></li>
               </ul>
             </nav>             
           <?php  }elseif($this->session->userdata('ses_id_type_user') == 5) { ?>

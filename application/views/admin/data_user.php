@@ -7,30 +7,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data User</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111111">Data User</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
   <div class="container-fluid">
     <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="<?php echo base_url('admin/Welcome') ?>">Home</a></li>
-      <li class="breadcrumb-item active">Data User</li>
+      <li class="breadcrumb-item active" style="color: #111111">Data User</li>
     </ul>
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data User</strong></div>
+      <div class="title"><strong style="color: #111111">Data User</strong></div>
       <a href="<?php echo base_url('admin/Data_user/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Nama</th> 
-              <th>Kontak</th>
-              <th>Tipe User</th>
-              <th>Foto User</th>
-              <th>Aksi</th>
+              <th style="color: #111">No</th>
+              <th style="color: #111">Nama</th> 
+              <th style="color: #111">Kontak</th>
+              <th style="color: #111">Tipe User</th>
+              <th style="color: #111">Foto User</th>
+              <th style="color: #111">Aksi</th>
             </tr> 
           </thead>
           <tbody>
@@ -72,8 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
                          
               <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_user'] ?><br><?php echo $key['nim'] ?></td>
+                <td style="color: #111"><?php echo $no++ ?></td>
+                <td style="color: #111"><?php echo $key['nama_user'] ?><br><?php echo $key['nim'] ?></td>
                 
                 <?php
                 // $periode = $this->db->query("SELECT * FROM tb_periode");
@@ -82,19 +82,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 ?>
 
-                <td><?php echo $key['no_telp_user'] ?> <br><?php echo $key['email_user'] ?></td>
+                <td style="color: #111"><?php echo $key['no_telp_user'] ?> <br><?php echo $key['email_user'] ?></td>
 
                 
                 <?php
                 foreach($tipe_user->result() as $row_utype)  {
                   if ($row_utype->id_type_user==$key['id_type_user']) { ?>                    
-                    <td><?php echo $row_utype->nama_type_user; ?></td>
+                    <td style="color: #111"><?php echo $row_utype->nama_type_user; ?></td>
                 <?php }
                 }  
                 ?>
 
-                <td><i data-toggle="modal" data-target="#myFoto<?php echo $modal ?>" class="fa fa-eye"></i></td>
-                <td>
+                <td style="color: #111"><i data-toggle="modal" data-target="#myFoto<?php echo $modal ?>" class="fa fa-eye"></i></td>
+                <td style="color: #111">
                   <?php
                     foreach($tipe_user->result() as $row_utype2)  {
                     if ($row_utype2->id_type_user==$key['id_type_user']) { 

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Bidang</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Bidang</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -19,17 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data Bidang</strong></div>
+      <div class="title"><strong style="color: #111">Data Bidang</strong></div>
       <a href="<?php echo base_url('admin/Data_bidang/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Nama Bidang</th>
-              <th>Nama Ketua Bidang</th>
-              <th>Nama Sekretaris Bidang</th>
-              <th>Aksi</th>
+              <th style="color: #111">No</th>
+              <th style="color: #111">Nama Bidang</th>
+              <th style="color: #111">Nama Ketua Bidang</th>
+              <th style="color: #111">Nama Sekretaris Bidang</th>
+              <th style="color: #111">Aksi</th>
             </tr> 
           </thead>
           <tbody>
@@ -54,8 +54,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
 
               <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_bidang'] ?></td>
+                <td style="color: #111"><?php echo $no++ ?></td>
+                <td style="color: #111"><?php echo $key['nama_bidang'] ?></td>
 
                 <?php
                 $user = $this->db->query("SELECT * FROM tb_user");
@@ -65,18 +65,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach($user->result() as $row_user)  {
                   if ($row_user->id_user==$key['ketua_bidang']) { ?>                    
-                    <td><?php echo $row_user->nama_user; ?></td>
+                    <td style="color: #111"><?php echo $row_user->nama_user; ?></td>
                 <?php }
                 } ?>
 
                 <?php
                 foreach($user->result() as $row_user)  {
                   if ($row_user->id_user==$key['sekretaris_bidang']) { ?>                    
-                    <td><?php echo $row_user->nama_user; ?></td>
+                    <td style="color: #111"><?php echo $row_user->nama_user; ?></td>
                 <?php }
                 } ?>
 
-                <td>
+                <td style="color: #111">
                   <a href="<?php echo base_url('admin/Data_bidang/edit/' . $key['id_bidang']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                   <?php $modal++; }?>

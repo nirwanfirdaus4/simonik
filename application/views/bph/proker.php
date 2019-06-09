@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }else{ ?>           
             <div class="col-md-3 col-sm-6">
               <a class="unline" href="<?php echo base_url('bph/Data_proker/index_sie/'.$key['id_sie']) ?>">
-                <div class="statistic-block block">
+                <div class="statistic-block block" style="background-color: #f7f7f5; border: 2px solid; border-radius: 6px;">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
 
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         }
                       }
                       ?>          
-                      <div class="icon"><i class="icon-user-1"></i></div><strong><?php echo $nama_sie ?></strong>
+                      <div class="icon"><i class="icon-user-1"></i></div><strong style="color: #111"><?php echo $nama_sie ?></strong>
                     </div>
                     <div class="number dashtext-1">50%</div>
                   </div>

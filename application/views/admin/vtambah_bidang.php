@@ -4,7 +4,7 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Bidang</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Bidang</h2>
     </div> 
   </div>
   <!-- Breadcrumb-->
@@ -17,12 +17,12 @@
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Tambah Data Bidang</strong></div>
+      <div class="title"><strong style="color: #111">Tambah Data Bidang</strong></div>
 
       <div class="block-body">
         <form action="<?php echo base_url('admin/Data_bidang/tambahData') ?> " method="post">
           <div class="form-group">
-            <label class="form-control-label">Nama Bidang</label>
+            <label style="color: #111" class="form-control-label">Nama Bidang</label>
             <input type="text" placeholder="Nama Bidang" class="form-control" name="nama_bidang" autocomplete="off">
           </div>
           <?php $ukm=$this->session->userdata('ses_ukm');?>
@@ -30,7 +30,7 @@
           <?php $periode=$this->session->userdata('ses_periode');?>
           <input type="hidden" value="<?php echo $periode; ?>" class="form-control" name="id_periode" autocomplete="off">          
           <div class="form-group">
-            <label class="form-control-label">Nama Ketua Bidang</label>
+            <label style="color: #111" class="form-control-label">Nama Ketua Bidang</label>
             <select name="nm_ketua_bidang" id="nm_ketua_bidang" class="form-control">
               <option value="zero">--Pilih Ketua Bidang--</option>
               <?php 
@@ -42,7 +42,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-control-label">Nama Sekretaris Bidang</label>
+            <label style="color: #111" class="form-control-label">Nama Sekretaris Bidang</label>
             <select name="nm_sekretaris_bidang" id="nm_sekretaris_bidang" class="form-control">
               <option value="zero">--Pilih Sekretaris Bidang--</option>
               <?php 
