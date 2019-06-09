@@ -108,9 +108,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <p>&nbsp;<span class="fa fa-map-marker" style="font-size:19px"></span> <?php echo "&nbsp;".$tempat_fix ?></p>
               <p><span class="fa fa-calendar" style="font-size:19px"></span> <?php echo "&nbsp;".$tanggal_fix ?></p>
               </p>
-            </div><hr style="border-color: #bdc3c7;" class="hr">   
+            </div><hr style="border-color: #bdc3c7; margin-top: 8%;" class="hr">   
             <div class="box_space3">         
-              <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
+              <p align="center"> </p>
             </div>
           </div>                              
         </div>
@@ -125,44 +125,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     }
   } ?>    
-<!--             <div class="col-lg-4">
-              <div style="background-color: #bb414d;">
-                <div class="box_space">
-                  <a href="<?php echo base_url('anggota/Proker'); ?>"><p class="box_title">Polinema Bersholawat</p></a>
-                  <p class="box_subtitle0">Ketua Pelaksana</p>                       
-                </div>   
-                <div style="background-color: #ecf0f1;">
-                  <div class="box_space2">
-                    <p class="box_content_place">
-                     <p class="">&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Kampus Polinema</p>
-                      <p><span class="fa fa-calendar" style="font-size:19px"> 15 September 2018</p>
-                      </p>
-                    </div><hr class="hr">   
-                    <div class="box_space3">         
-                      <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
-                    </div>
-                  </div>                              
-                </div>
-              </div> -->
-              <!-- <div class="col-lg-4">
-                <div style="background-color: #009788;">
-                  <div class="box_space">
-                    <p class="box_title">Kajian Tahsin</p>
-                    <p class="box_subtitle0">Sie Acara</p>                       
-                  </div>   
-                  <div style="background-color: #ecf0f1;">
-                    <div class="box_space2">
-                      <p class="box_content_place">
-                       <p class="">&nbsp;<span class="fa fa-map-marker" style="font-size:19px"> Masjid Raya Annur Polinema</p>
-                        <p><span class="fa fa-calendar" style="font-size:19px"> 27 Juli 2018</p>
-                        </p>
-                      </div><hr class="hr">   
-                      <div class="box_space3">         
-                        <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px"></i><i class="fa fa-folder-o" style="font-size:19px"></i></p>
-                      </div>
-                    </div>                              
-                  </div>
-                </div> -->
               </div>        
             </div>
 

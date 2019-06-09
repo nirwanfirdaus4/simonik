@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php $no=1; $p=0; $s=0; $a_color=1; $modal=0; ?>
 
         <?php foreach ($array as $key) {
-
+ 
           switch($a_color){
             case 1:
             $warna=$color1;
@@ -126,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     foreach ($query_printFile->result() as $key_printFile) {
                     ?>
                     <div class="before_loch2">
-                    <img width="25%" src="<?php echo base_url('assets/img/icon-anggota.png') ?>">                        
+                    <img width="25%" src="<?php echo base_url('assets/img/icon-file.png') ?>">                        
                     <div class="loch">
 
                     <?php
@@ -155,15 +155,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     ?>
                       <p class="loch_text"><?php echo $convertNamaJobdesk." :" ?></p>                                               
                       
-                      <?php 
+                      <?php echo ($link != '' ? "<a target='blank' href='" . base_url('upload/berkas_laporan/' . $file) . "'>"."<p class='loch_text2'>".$file."</p>"."</a>" : "<p class='loch_text2'>Tidak ada file laporan</p>"); ?>
+                      
 
-                      if ($link!=0) { ?>
-                          <i> <a target='blank' href="<?php base_url('upload/berkas_laporan/' . $file)?>"><p class="loch_text2"><?php echo $file; ?></p></a></i>
-                      <?php }else{ ?>
-                          <i><p class="loch_text2"><?php echo $file; ?></p></i>
-                      <?php }
-
-                       ?>
                     </div>
                   </div>
                   <?php } ?>
@@ -234,7 +228,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </p>
           </div><hr style="border-color: #bdc3c7;" class="hr">   
           <div class="box_space3">         
-            <p align="right" class="icon_file"><i class="fa fa-address-book-o space_icon" style="font-size:19px" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"></i><i class="fa fa-folder-o" style="font-size:19px" data-toggle="modal" data-target="#myFiles<?php echo $modal ?>"></i></p>
+            <p align="right" class="icon_file"><i title="anggota sie" class="fa fa-address-book-o space_icon" style="font-size:19px" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"></i><i title="file sie" class="fa fa-folder-o" style="font-size:19px" data-toggle="modal" data-target="#myFiles<?php echo $modal ?>"></i></p>
           </div>
         </div>                              
       </div>

@@ -40,10 +40,10 @@ class Data_proker extends CI_Controller {
 			$send['id_ukm']=$this->input->post('id_ukm');
 			$send['tempat_proker']=$this->input->post('tempat_pelaksanaan');
 			$send['id_bidang']=$this->input->post('nm_bidang');
+			$send['id_periode']=$this->session->userdata('ses_periode');
 
 			$kembalian['jumlah']=$this->mdl_data_proker->tambahdata($send);
 
-			// $send_panitia ->kirim data ke panitia
 			$send_panitia['id_panitia']='';
 			$query0=$this->db->query("SELECT * FROM tb_daftar_proker");
 			foreach ($query0->result() as $key) {
@@ -60,7 +60,7 @@ class Data_proker extends CI_Controller {
  			 
 			$send_rating['id_rating']='';
 			$send_rating['id_ukm']=$this->input->post('id_ukm');
-			$send_rating['id_periode']=$this->session->userdata('ses_periode');;
+			$send_rating['id_periode']=$this->session->userdata('ses_periode');
 			$send_rating['id_proker']=$fix_proker;
 			$send_rating['rate']=0;
 

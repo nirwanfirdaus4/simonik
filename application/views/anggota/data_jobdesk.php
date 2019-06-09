@@ -72,13 +72,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php }
                 } ?>
 
+                <?php
+
+                if ($sie_id!=1) { ?>
+                <td style="color: #111">
+                  <a href="<?php echo base_url('anggota/Data_jobdesk/edit/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                  <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
+                </td>
+
+                <?php
+                }else{ ?>
                 <td style="color: #111">
                   <a class="kol" href="<?php echo base_url('anggota/Proker/index_detail/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id) ?>" title="Laporan"><button type="button" class="btn bluebird_button"><i class="fa fa-check-square setWhite"></i></button></a>
                   <a href="<?php echo base_url('anggota/Data_jobdesk/edit/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
-                  <?php $modal++; }?>
-
-                </td>
+                </td>                  
+                <?php $modal++;
+                  }
+                }
+                 ?>
               </tr>
 
             </tbody>
