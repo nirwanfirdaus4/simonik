@@ -7,7 +7,7 @@ class mdl_data_panitia extends CI_Model {
 		{
 			parent::__construct();
 			$this->load->database();
-		}
+		} 
  
 	public function ambildata()
 		{
@@ -67,4 +67,9 @@ class mdl_data_panitia extends CI_Model {
 			$query=$this->db->query("SELECT * FROM tb_panitia_proker WHERE id_ukm=$ukm AND id_proker=$proker");
 			return $query->result_array();
 		}
+
+	public function upload_file($send){
+		$sql="UPDATE tb_user SET foto_user = ? WHERE id_user = ?";
+		$query=$this->db->query($sql, array( $send['foto_user'], $send['id_user']));
+	}
 }

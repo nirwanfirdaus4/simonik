@@ -87,3 +87,7 @@
 .setWhite{
 	color: #fff;
 }
+.profil_hover:hover{
+		opacity: 0.5;
+		filter: alpha(opacity=50);
+}

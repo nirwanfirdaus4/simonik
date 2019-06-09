@@ -1,13 +1,13 @@
             <?php if ($this->session->userdata('ses_id_type_user') == 1) { ?>
- 
+
               <nav id="sidebar">
                 <!-- Sidebar Header-->
                 <?php
-                  $id_user = $this->session->userdata('ses_id_type_user');
-                  $query=$this->db->query("SELECT * FROM tb_user where id_user =$id_user");
+                $id_user = $this->session->userdata('ses_id_type_user');
+                $query=$this->db->query("SELECT * FROM tb_user where id_user =$id_user");
                 ?>
                 <div class="sidebar-header d-flex align-items-center">
-                  
+
                   <div class="title">
                     <?php
                     $nama=$this->session->userdata('ses_nama');
@@ -56,29 +56,29 @@
                 <nav id="sidebar">
                   <!-- Sidebar Header-->
                   <div class="sidebar-header d-flex align-items-center">
-                    
-                    <div class="title">
-                    <?php
-                    $nama=$this->session->userdata('ses_nama');
-                    $ukm=$this->session->userdata('ses_ukm');
-                    $utype=$this->session->userdata('ses_id_type_user');
 
-                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
-                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
-                    foreach ($query_ukm->result() as $key) {
-                      if ($ukm==$key->id_ukm) {
-                        $ukm_fix=$key->nama_ukm;
+                    <div class="title">
+                      <?php
+                      $nama=$this->session->userdata('ses_nama');
+                      $ukm=$this->session->userdata('ses_ukm');
+                      $utype=$this->session->userdata('ses_id_type_user');
+
+                      $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                      $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                      foreach ($query_ukm->result() as $key) {
+                        if ($ukm==$key->id_ukm) {
+                          $ukm_fix=$key->nama_ukm;
+                        }
                       }
-                    }
-                    foreach ($query_utype->result() as $key_2) {
-                      if ($utype==$key_2->id_type_user) {
-                        $utype_fix=$key_2->nama_type_user;
+                      foreach ($query_utype->result() as $key_2) {
+                        if ($utype==$key_2->id_type_user) {
+                          $utype_fix=$key_2->nama_type_user;
+                        }
                       }
-                    }
-                    ?>
-                    <h1 class="h5"><?php echo $nama; ?></h1>
-                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
-                  </div>
+                      ?>
+                      <h1 class="h5"><?php echo $nama; ?></h1>
+                      <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                    </div>
                   </div>
                   <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
                   <ul class="list-unstyled">
@@ -106,29 +106,29 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                
-                <div class="title">
-                    <?php
-                    $nama=$this->session->userdata('ses_nama');
-                    $ukm=$this->session->userdata('ses_ukm');
-                    $utype=$this->session->userdata('ses_id_type_user');
 
-                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
-                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
-                    foreach ($query_ukm->result() as $key) {
-                      if ($ukm==$key->id_ukm) {
-                        $ukm_fix=$key->nama_ukm;
-                      }
+                <div class="title">
+                  <?php
+                  $nama=$this->session->userdata('ses_nama');
+                  $ukm=$this->session->userdata('ses_ukm');
+                  $utype=$this->session->userdata('ses_id_type_user');
+
+                  $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                  $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                  foreach ($query_ukm->result() as $key) {
+                    if ($ukm==$key->id_ukm) {
+                      $ukm_fix=$key->nama_ukm;
                     }
-                    foreach ($query_utype->result() as $key_2) {
-                      if ($utype==$key_2->id_type_user) {
-                        $utype_fix=$key_2->nama_type_user;
-                      }
+                  }
+                  foreach ($query_utype->result() as $key_2) {
+                    if ($utype==$key_2->id_type_user) {
+                      $utype_fix=$key_2->nama_type_user;
                     }
-                    ?>
-                    <h1 class="h5"><?php echo $nama; ?></h1>
-                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
-                  </div>
+                  }
+                  ?>
+                  <h1 class="h5"><?php echo $nama; ?></h1>
+                  <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -155,29 +155,29 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                
-                <div class="title">
-                    <?php
-                    $nama=$this->session->userdata('ses_nama');
-                    $ukm=$this->session->userdata('ses_ukm');
-                    $utype=$this->session->userdata('ses_id_type_user');
 
-                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
-                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
-                    foreach ($query_ukm->result() as $key) {
-                      if ($ukm==$key->id_ukm) {
-                        $ukm_fix=$key->nama_ukm;
-                      }
+                <div class="title">
+                  <?php
+                  $nama=$this->session->userdata('ses_nama');
+                  $ukm=$this->session->userdata('ses_ukm');
+                  $utype=$this->session->userdata('ses_id_type_user');
+
+                  $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                  $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                  foreach ($query_ukm->result() as $key) {
+                    if ($ukm==$key->id_ukm) {
+                      $ukm_fix=$key->nama_ukm;
                     }
-                    foreach ($query_utype->result() as $key_2) {
-                      if ($utype==$key_2->id_type_user) {
-                        $utype_fix=$key_2->nama_type_user;
-                      }
+                  }
+                  foreach ($query_utype->result() as $key_2) {
+                    if ($utype==$key_2->id_type_user) {
+                      $utype_fix=$key_2->nama_type_user;
                     }
-                    ?>
-                    <h1 class="h5"><?php echo $nama; ?></h1>
-                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
-                  </div>
+                  }
+                  ?>
+                  <h1 class="h5"><?php echo $nama; ?></h1>
+                  <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -207,29 +207,29 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                
-                <div class="title">
-                    <?php
-                    $nama=$this->session->userdata('ses_nama');
-                    $ukm=$this->session->userdata('ses_ukm');
-                    $utype=$this->session->userdata('ses_id_type_user');
 
-                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
-                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
-                    foreach ($query_ukm->result() as $key) {
-                      if ($ukm==$key->id_ukm) {
-                        $ukm_fix=$key->nama_ukm;
-                      }
+                <div class="title">
+                  <?php
+                  $nama=$this->session->userdata('ses_nama');
+                  $ukm=$this->session->userdata('ses_ukm');
+                  $utype=$this->session->userdata('ses_id_type_user');
+
+                  $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                  $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                  foreach ($query_ukm->result() as $key) {
+                    if ($ukm==$key->id_ukm) {
+                      $ukm_fix=$key->nama_ukm;
                     }
-                    foreach ($query_utype->result() as $key_2) {
-                      if ($utype==$key_2->id_type_user) {
-                        $utype_fix=$key_2->nama_type_user;
-                      }
+                  }
+                  foreach ($query_utype->result() as $key_2) {
+                    if ($utype==$key_2->id_type_user) {
+                      $utype_fix=$key_2->nama_type_user;
                     }
-                    ?>
-                    <h1 class="h5"><?php echo $nama; ?></h1>
-                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
-                  </div>
+                  }
+                  ?>
+                  <h1 class="h5"><?php echo $nama; ?></h1>
+                  <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -268,29 +268,29 @@
             <nav id="sidebar">
               <!-- Sidebar Header-->
               <div class="sidebar-header d-flex align-items-center">
-                
-                <div class="title">
-                    <?php
-                    $nama=$this->session->userdata('ses_nama');
-                    $ukm=$this->session->userdata('ses_ukm');
-                    $utype=$this->session->userdata('ses_id_type_user');
 
-                    $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
-                    $query_utype=$this->db->query("SELECT * FROM tb_type_user");
-                    foreach ($query_ukm->result() as $key) {
-                      if ($ukm==$key->id_ukm) {
-                        $ukm_fix=$key->nama_ukm;
-                      }
+                <div class="title">
+                  <?php
+                  $nama=$this->session->userdata('ses_nama');
+                  $ukm=$this->session->userdata('ses_ukm');
+                  $utype=$this->session->userdata('ses_id_type_user');
+
+                  $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
+                  $query_utype=$this->db->query("SELECT * FROM tb_type_user");
+                  foreach ($query_ukm->result() as $key) {
+                    if ($ukm==$key->id_ukm) {
+                      $ukm_fix=$key->nama_ukm;
                     }
-                    foreach ($query_utype->result() as $key_2) {
-                      if ($utype==$key_2->id_type_user) {
-                        $utype_fix=$key_2->nama_type_user;
-                      }
+                  }
+                  foreach ($query_utype->result() as $key_2) {
+                    if ($utype==$key_2->id_type_user) {
+                      $utype_fix=$key_2->nama_type_user;
                     }
-                    ?>
-                    <h1 class="h5"><?php echo $nama; ?></h1>
-                    <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
-                  </div>
+                  }
+                  ?>
+                  <h1 class="h5"><?php echo $nama; ?></h1>
+                  <p><?php echo $ukm_fix.' / '. $utype_fix; ?></p>
+                </div>
               </div>
               <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
               <ul class="list-unstyled">
@@ -303,16 +303,59 @@
           <?php  }elseif($this->session->userdata('ses_id_type_user') == 5) { ?>
             <nav id="sidebar">
               <!-- Sidebar Header-->
+              <?php
+              $nama=$this->session->userdata('ses_nama');
+              $ukm=$this->session->userdata('ses_ukm');
+              $utype=$this->session->userdata('ses_id_type_user');
+              ?>
+              <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Foto</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Ubah Foto Profil</p>
+                      <form action="<?php echo base_url('anggota/Welcome/ganti_foto') ?> " method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                          <label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 5MB)</label><br>
+                          <input type="file" name="berkas">
+                        </div>
+                        <div class="form-group space_help_button" style="margin-top: 15%;">       
+                          <input type="submit" name="submit" value="Upload" class="btn btn_dewe_color">
+                        </div>                        
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div class="sidebar-header2">
-                <center><div class="avatar2"><img src="<?php echo base_url('assets/img/avatar-6.jpg') ?>" alt="..." class="img-fluid rounded-circle"></div></center>
+                <?php 
+  
+                $f_user=$this->session->userdata('ses_id_user');
+                $get_foto=$this->db->query("SELECT * FROM tb_user where id_user=$f_user");
+
+                foreach ($get_foto->result() as $getFoto) {
+                  $foto=$getFoto->foto_user;
+                }
+
+                if ($foto!=null) {
+                  $link='upload/foto_user/'.$foto;
+                }else{
+                  $link='assets/img/avatar-6.jpg';
+                }
+                 ?>
+
+                <center><div class="avatar2 profil_hover"><img data-toggle="modal" data-target="#myModal" src="<?php echo base_url($link) ?>" title="Ganti Foto" alt="..." class="img-fluid rounded-circle"></div></center>
               </div>
               <div class="sidebar-header">
                 <center>
                   <div class="title">
                     <?php
-                    $nama=$this->session->userdata('ses_nama');
-                    $ukm=$this->session->userdata('ses_ukm');
-                    $utype=$this->session->userdata('ses_id_type_user');
 
                     $query_ukm=$this->db->query("SELECT * FROM tb_ukm");
                     $query_utype=$this->db->query("SELECT * FROM tb_type_user");
