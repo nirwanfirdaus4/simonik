@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Jobdesk</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Jobdesk</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -19,19 +19,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data Jobdesk</strong></div>
+      <div class="title"><strong style="color: #111">Data Jobdesk</strong></div>
       <a href="<?php echo base_url('anggota/Data_jobdesk/tambahData/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Jobdesk</th>
-              <th>Mulai</th>
-              <th>Deadline</th>
-              <th>Status</th>
-              <th>Terakhir dirubah</th>
-              <th>Aksi</th>
+              <th style="color: #111">No</th>
+              <th style="color: #111">Jobdesk</th>
+              <th style="color: #111">Mulai</th>
+              <th style="color: #111">Deadline</th>
+              <th style="color: #111">Status</th>
+              <th style="color: #111">Terakhir dirubah</th>
+              <th style="color: #111">Aksi</th>
             </tr> 
           </thead>
           <tbody>
@@ -56,11 +56,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
 
               <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_jobdesk'] ?></td>
-                <td><?php echo $key['startline'] ?></td>
-                <td><?php echo $key['deadline'] ?></td>
-                <td><?php echo $key['status_jobdesk'] ?></td>
+                <td style="color: #111"><?php echo $no++ ?></td>
+                <td style="color: #111"><?php echo $key['nama_jobdesk'] ?></td>
+                <td style="color: #111"><?php echo $key['startline'] ?></td>
+                <td style="color: #111"><?php echo $key['deadline'] ?></td>
+                <td style="color: #111"><?php echo $key['status_jobdesk'] ?></td>
                 <?php
                 $user = $this->db->query("SELECT * FROM tb_user");
                 ?>
@@ -68,11 +68,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach($user->result() as $row_user)  {
                   if ($row_user->id_user==$key['id_user']) { ?>                    
-                    <td><?php echo $row_user->nama_user; ?></td>
+                    <td style="color: #111"><?php echo $row_user->nama_user; ?></td>
                 <?php }
                 } ?>
 
-                <td>
+                <td style="color: #111">
                   <a class="kol" href="<?php echo base_url('anggota/Proker/index_detail/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id) ?>" title="Laporan"><button type="button" class="btn bluebird_button"><i class="fa fa-check-square setWhite"></i></button></a>
                   <a href="<?php echo base_url('anggota/Data_jobdesk/edit/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>

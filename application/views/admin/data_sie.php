@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data SIE</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data SIE</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -19,15 +19,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data SIE</strong></div>
+      <div class="title"><strong style="color: #111">Data SIE</strong></div>
       <a href="<?php echo base_url('admin/Data_sie/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Nama SIE</th>
-              <th>Aksi</th>
+              <th style="color: #111">No</th>
+              <th style="color: #111">Nama SIE</th>
+              <th style="color: #111">Aksi</th>
             </tr> 
           </thead>
           <tbody>
@@ -52,9 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div> 
 
               <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_sie'] ?></td>
-                <td>
+                <td style="color: #111"><?php echo $no++ ?></td>
+                <td style="color: #111"><?php echo $key['nama_sie'] ?></td>
+                <td style="color: #111">
                   <a href="<?php echo base_url('admin/Data_sie/edit/' . $key['id_sie']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                   </td>

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Dashboard </h2>
+      <h2 class="h5 no-margin-bottom" style="color:#111111">Dashboard </h2>
     </div>
   </div>
   <section class="no-padding-top no-padding-bottom">
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           ?>           
           <div class="col-md-3 col-sm-6">
 
-            <div class="statistic-block block" style="background-color: #3b3e47;">
+            <div class="statistic-block block" style="background-color: #f7f7f5; border: 2px solid; border-radius: 6px;">
               <div class="progress-details d-flex align-items-end justify-content-between">
                 <div class="title">
 
@@ -62,12 +62,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                   $hitung=strlen($key['nama_proker']);
                   if ($hitung<=13) {?>
-                    <div class="icon"><i class="icon-user-1"></i></div><strong style="color: #bdc3c7;"><?php echo $key['nama_proker']; ?></strong>
+                    <div class="icon"><i class="icon-user-1"></i></div><strong style="color: #111111;"><?php echo $key['nama_proker']; ?></strong>
                     <?php
                   }else{ 
                     $shrink_text= substr($key['nama_proker'],0,18).'...';
                     ?>
-                    <div class="icon"><i class="icon-user-1"></i></div><strong style="color: #bdc3c7;"><?php echo $shrink_text; ?></strong>
+                    <div class="icon"><i class="icon-user-1"></i></div><strong style="color: #111111;"><?php echo $shrink_text; ?></strong>
                   <?php  }
 
                   ?>                      

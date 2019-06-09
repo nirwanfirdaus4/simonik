@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Panitia</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Panitia</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -19,17 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div> 
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data Anggota</strong></div>
+      <div class="title"><strong style="color: #111">Data Anggota</strong></div>
       <a href="<?php echo base_url('anggota/Data_anggota/tambahData/'.$ses_proker.'/'.$id_sie.'/'.$id_sie) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Nama Anggota</th>
-              <th>Sie</th>
-              <th>Peran</th>
-              <th>Aksi</th>
+              <th style="color: #111">No</th>
+              <th style="color: #111">Nama Anggota</th>
+              <th style="color: #111">Sie</th>
+              <th style="color: #111">Peran</th>
+              <th style="color: #111">Aksi</th>
             </tr> 
           </thead>
           <tbody>
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
 
               <tr>
-                <td><?php echo $no++ ?></td>
+                <td style="color: #111"><?php echo $no++ ?></td>
 
                 <?php
                 $user = $this->db->query("SELECT * FROM tb_user");
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach($user->result() as $row_user)  {
                   if ($row_user->id_user==$key['id_user']) { ?>                    
-                    <td><?php echo $row_user->nama_user; ?></td>
+                    <td style="color: #111"><?php echo $row_user->nama_user; ?></td>
                 <?php }
                 } ?>
 
@@ -73,11 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach($sie->result() as $row_sie)  {
                   if ($row_sie->id_sie==$key['id_sie']) { ?>                    
-                    <td><?php echo $row_sie->nama_sie; ?></td>
+                    <td style="color: #111"><?php echo $row_sie->nama_sie; ?></td>
                 <?php }
                 } ?>
-                <td><?php echo $key['jenis_panitia'] ?></td>
-                <td>
+                <td style="color: #111"><?php echo $key['jenis_panitia'] ?></td>
+                <td style="color: #111">
                   <?php
 
                     if ($key['jenis_panitia']!='Anggota Sie') {

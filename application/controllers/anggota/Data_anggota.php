@@ -23,7 +23,7 @@ class Data_anggota extends CI_Controller {
 		$data['id_nav']='';
 		$data['ses_proker'] = $proker;
 		$data['id_sie'] = $sie_user;
-		$data['panitia'] = $this->mdl_data_panitia->ambildata_hak_koor();
+		$data['panitia'] = $this->mdl_data_panitia->ambildata_hak_koor($sie_user);
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$this->load->view('anggota/data_panitia_anggota',$data);
 	}

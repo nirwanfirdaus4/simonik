@@ -17,12 +17,12 @@ class mdl_data_panitia extends CI_Model {
 			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_user=$user");
 			return $query->result_array();
 		}
-	public function ambildata_hak_koor()
+	public function ambildata_hak_koor($sie_user)
 		{
 			$ukm=$this->session->userdata('ses_ukm');
 			$user=$this->session->userdata('ses_id_user');			
 			$proker=$this->session->userdata('ses_id_selected_proker');						
-			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_proker=$proker AND id_sie!=1");
+			$query=$this->db->query("SELECT * FROM tb_panitia_proker where id_ukm=$ukm AND id_proker=$proker AND id_sie=$sie_user");
 			return $query->result_array();
 		}
 

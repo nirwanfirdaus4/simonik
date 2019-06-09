@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data Proker</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Proker</h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -19,18 +19,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="col-lg-12">
     <div class="block">
-      <div class="title"><strong>Data Proker</strong></div>
+      <div class="title"><strong style="color: #111">Data Proker</strong></div>
       <a href="<?php echo base_url('admin/Data_proker/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>
             <tr>
-              <th>No</th>
-              <th>Program Kerja</th>
-              <th>Nama Ketua</th>
-              <th>Tanggal</th>
-              <th>Lokasi Pelaksanaan</th>
-              <th>Aksi</th>
+              <th style="color: #111">No</th>
+              <th style="color: #111">Program Kerja</th>
+              <th style="color: #111">Nama Ketua</th>
+              <th style="color: #111">Tanggal</th>
+              <th style="color: #111">Lokasi Pelaksanaan</th>
+              <th style="color: #111">Aksi</th>
             </tr> 
           </thead>
           <tbody>
@@ -55,8 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>   
 
               <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $key['nama_proker'] ?></td>
+                <td style="color: #111"><?php echo $no++ ?></td>
+                <td style="color: #111"><?php echo $key['nama_proker'] ?></td>
 
                 <?php
                 $user = $this->db->query("SELECT * FROM tb_user");
@@ -66,14 +66,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach($user->result() as $row_user)  {
                   if ($row_user->id_user==$key['ketua_proker']) { ?>                    
-                    <td><?php echo $row_user->nama_user; ?></td>
+                    <td style="color: #111"><?php echo $row_user->nama_user; ?></td>
                 <?php }
                 } ?>
 
-                <td><?php echo $key['tanggal_proker']; ?></td>
-                <td><?php echo $key['tempat_proker']; ?></td>
+                <td style="color: #111"><?php echo $key['tanggal_proker']; ?></td>
+                <td style="color: #111"><?php echo $key['tempat_proker']; ?></td>
 
-                <td>
+                <td style="color: #111">
                   <a href="<?php echo base_url('admin/Data_proker/edit/' . $key['id_proker']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
                   <?php $modal++; }?>

@@ -3,7 +3,7 @@
 <div class="page-content">
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Referensi</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111">Referensi</h2>
     </div>
   </div>
   <section class="no-padding-bottom">
@@ -18,7 +18,7 @@
         <div class="row d-flex align-items-center">                   
           <div class="col-lg-12">
             <div class="block">
-              <div class="title"><strong>Pilih Periode :</strong></div>
+              <div class="title"><strong style="color: #111">Pilih Periode :</strong></div>
 
               <div class="block-body">
                 <form action="<?php echo base_url('bph/Data_referensi/tampil') ?> " method="post">
