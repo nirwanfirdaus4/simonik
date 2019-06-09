@@ -14,7 +14,7 @@
       <li class="breadcrumb-item"><a href="<?php echo base_url('admin/Data_bidang') ?>">Data Bidang</a></li>
       <li class="breadcrumb-item active">Ubah Data Bidang</li>
     </ul>
-  </div>
+  </div> 
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong style="color: #111">Ubah Data Bidang</strong></div>
@@ -36,7 +36,7 @@
               <option value="zero">--Pilih Ketua Bidang--</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=6");
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=3");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>" <?php echo ($row_kat->id_user == $data[0]['ketua_bidang'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
@@ -48,7 +48,7 @@
               <option value="zero">--Pilih Sekretaris Bidang--</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=6");
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=3");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>"<?php echo ($row_kat->id_user == $data[0]['sekretaris_bidang'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
