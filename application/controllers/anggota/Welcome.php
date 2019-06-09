@@ -16,7 +16,7 @@ class Welcome extends CI_Controller {
 	} 
 
 	public function index()
-	{
+	{ 
 		$nav_ses=0;
 		$paket['color1']='#8e44ad';
 		$paket['color2']='#2980b9';

@@ -11,7 +11,6 @@ class Login_user extends CI_Controller {
 
 	public function index()
 	{
-		// Cek Deadline
 		$semua_jobdesk = $this->db->get_where('tb_jobdesk', array('status_jobdesk' => 'Belum Dikerjakan'))->result_array();
 
 		foreach($semua_jobdesk as $jobdesk) {
