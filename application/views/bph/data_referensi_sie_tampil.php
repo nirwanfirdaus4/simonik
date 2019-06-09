@@ -3,18 +3,31 @@
 <div class="page-content">
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Referensi</h2>
+      <?php foreach ($array as $key) { 
+        $bahan_proker=$key['id_proker'];
+        $bahan_periode=$key['id_periode'];
+      }
+
+      $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
+      $periode = $this->db->query("SELECT * FROM tb_periode");
+
+      foreach ($proker->result() as $l_proker) {
+        if ($l_proker->id_proker==$bahan_proker) {
+          $label_proker=$l_proker->nama_proker;
+        }
+      }
+      foreach ($periode->result() as $l_periode) {
+        if ($l_periode->id_periode==$bahan_periode) {
+          $label_periode=$l_periode->th_periode;
+        }
+      }
+      ?>
+      <h2 class="h5 no-margin-bottom">Data Referensi : <?php echo $label_proker; ?> | <?php echo $label_periode; ?></h2>
     </div>
   </div>
   <section class="no-padding-bottom">
     <div class="container-fluid">
       <div class="public-user-block block">
-        <!-- <div class="row d-flex align-items-center">                   
-          <div class="col-lg-12">
-            <div class="item"><i class="icon-info"></i><strong>Data Referensi</strong></div>
-          </div>
-
-        </div> -->
 
         <div class="row d-flex align-items-center">
           <div class="col-lg-12">
@@ -25,9 +38,9 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Periode</th>
-                      <th>Proker</th>
                       <th>Nama Sie</th>
+                      <th>Jobdesk</th>
+                      <th>File Laporan</th>
                       <th>Evaluasi</th>
                     </tr> 
                   </thead>
@@ -43,70 +56,53 @@
                               <h4 class="modal-title">Evaluasi</h4>
                             </div>
                             <div class="modal-body">
-                           <?php
+                             <?php
 
-                            $get_eval = $this->db->query("SELECT * FROM tb_evaluasi");
+                             $get_eval = $this->db->query("SELECT * FROM tb_evaluasi");
 
-                            foreach ($get_eval->result() as $getVal) {
-
-                              // echo "<br> ukm :".$key['id_ukm'];
-                              // echo "<br> sie :".$key['id_sie'];
-                              // echo "<br> proker :".$key['id_proker'];
-                              // echo "<br> periode :".$key['id_periode'];
-                              // echo "<br> ukm :".$getVal->id_ukm;
-                              // echo "<br> proker :".$getVal->id_proker;
-                              // echo "<br> sie Val :".$getVal->id_sie;
-                              // echo "<br> periode :".$getVal->id_periode;
+                             foreach ($get_eval->result() as $getVal) {
 
                               if ($getVal->id_sie==$key['id_sie'] && $getVal->id_ukm==$key['id_ukm'] && $getVal->id_proker==$key['id_proker'] && $getVal->id_periode==$key['id_periode']) {
-                                  $eval = $getVal->hasil_evaluasi; 
-                                  echo $eval;
+                                $eval = $getVal->hasil_evaluasi; 
+                                echo $eval;
                               }
                             }
 
 
                             ?>
-                            </div>
-                            <div class="modal-footer">
+                          </div>
+                          <div class="modal-footer">
 
-                            </div>
                           </div>
                         </div>
-                      </div>   
+                      </div>
+                    </div>   
 
-                      <tr>
-                        <td><?php echo $no++; ?></td>
-                        <?php
-                        $user = $this->db->query("SELECT * FROM tb_ukm");
-                        $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
-                        $sie = $this->db->query("SELECT * FROM tb_sie");
-                        $periode = $this->db->query("SELECT * FROM tb_periode");
+                    <tr>
+                      <td><?php echo $no++; ?></td>
+                      <?php
+                      $user = $this->db->query("SELECT * FROM tb_ukm");
+                      $sie = $this->db->query("SELECT * FROM tb_sie");
+                      $jobdesk = $this->db->query("SELECT * FROM tb_jobdesk");
 
-                        foreach($periode->result() as $row_periode)  {
-                          if ($row_periode->id_periode==$key['id_periode']) { ?>                    
-                            <td><?php echo $row_periode->th_periode; ?></td>
-                          <?php }
-                        } ?>
+                      foreach($sie->result() as $row_sie)  {
+                        if ($row_sie->id_sie==$key['id_sie']) { ?>                    
+                          <td><?php echo $row_sie->nama_sie; ?></td>
+                        <?php }
+                      } ?>
+                      <?php
+                      foreach($jobdesk->result() as $row_jobdesk)  {
+                        if ($row_jobdesk->id_jobdesk==$key['id_jobdesk']) { ?>                    
+                          <td><?php echo $row_jobdesk->nama_jobdesk; ?></td>
+                        <?php }
+                      } ?>                    
+                      <td><?php echo $key['file_laporan']; ?></td>
 
-                        <?php
-                        foreach($proker->result() as $row_proker)  {
-                          if ($row_proker->id_proker==$key['id_proker']) { ?>                    
-                            <td><?php echo $row_proker->nama_proker; ?></td>
-                          <?php }
-                        } ?>
+                      <td>
+                        <button title="Hapus Data" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-eye"></i></button>
+                      </td>
 
-                        <?php
-                        foreach($sie->result() as $row_sie)  {
-                          if ($row_sie->id_sie==$key['id_sie']) { ?>                    
-                            <td><?php echo $row_sie->nama_sie; ?></td>
-                          <?php }
-                        } ?>
-
-                        <td>
-                          <button title="Hapus Data" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-eye"></i></button>
-                        </td>
-
-                    <?php $modal++;  }?>
+                      <?php $modal++;  }?>
 
                     </tr>
 
