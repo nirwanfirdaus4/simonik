@@ -335,7 +335,7 @@
 
               <div class="sidebar-header2">
                 <?php 
-  
+
                 $f_user=$this->session->userdata('ses_id_user');
                 $get_foto=$this->db->query("SELECT * FROM tb_user where id_user=$f_user");
 
@@ -346,9 +346,9 @@
                 if ($foto!=null) {
                   $link='upload/foto_user/'.$foto;
                 }else{
-                  $link='assets/img/avatar-6.jpg';
+                  $link='assets/img/test.png';
                 }
-                 ?>
+                ?>
 
                 <center><div class="avatar2 profil_hover"><img data-toggle="modal" data-target="#myModal" src="<?php echo base_url($link) ?>" title="Ganti Foto" alt="..." class="img-fluid rounded-circle"></div></center>
               </div>
