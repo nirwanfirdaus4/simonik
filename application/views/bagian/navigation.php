@@ -346,7 +346,7 @@
                 if ($foto!=null) {
                   $link='upload/foto_user/'.$foto;
                 }else{
-                  $link='assets/img/avatar-6.jpg';
+                  $link='assets/img/test.png';
                 }
                 ?>
 
