@@ -13,12 +13,12 @@ class Dashboard extends REST_Controller {
     $query_proker = $this->db->query("SELECT * FROM tb_daftar_proker");
     $query_sie = $this->db->query("SELECT * FROM tb_sie");
         // $query = $this->db->query("SELECT * FROM tb_panitia_proker WHERE id_user=16");
-    $query_0 ="SELECT * FROM tb_panitia_proker WHERE id_user=$idPanitia";
-    $con=mysqli_connect("localhost","root","","simonik");
-    $result=mysqli_query($con,$query_0);
+    $query_0 =$this->db->query("SELECT * FROM tb_panitia_proker WHERE id_user=$idPanitia");
+    // $con=mysqli_connect("localhost","root","","simonik");
+    // $result=mysqli_query($con,$query_0);
 
 
-    if(mysqli_num_rows($result)> 0){
+    if($query_0->num_rows()> 0){
 
       $response['status']= "success" ;
       $response['message']="Data ditemukan";
@@ -32,33 +32,34 @@ class Dashboard extends REST_Controller {
       $image[3]=4;
 
       $no=0;
-
-      while ($row = mysqli_fetch_array($result)) {
+  
+      foreach ($query_0->result() as $key_ua) {
+      // while ($row = mysqli_fetch_array($result)) {
 
        $pl = array();
 
-       $pl["id_panitia"] = $row["id_panitia"];
+       $pl["id_panitia"] = $key_ua->id_panitia;
 
        foreach ($query_proker->result() as $key_1) {
-        if ($key_1->id_proker==$row["id_proker"]) {
+        if ($key_1->id_proker==$key_ua->id_proker) {
           $convert_proker=$key_1->nama_proker;
         }
       }
       foreach ($query_sie->result() as $key_2) {
-        if ($key_2->id_sie==$row["id_sie"]) {
+        if ($key_2->id_sie==$key_ua->id_sie) {
           $convert_sie=$key_2->nama_sie;
         }
       }
 
       $pl["id_proker"] = $convert_proker;
-      $pl["id_ukm"] = $row["id_ukm"];
-      $pl["id_periode"] = $row["id_periode"];
-      $pl["id_user"] = $row["id_user"];
+      $pl["id_ukm"] = $key_ua->id_ukm;
+      $pl["id_periode"] = $key_ua->id_periode;
+      $pl["id_user"] = $key_ua->id_user;
       $pl["id_sie"] = $convert_sie;
-      $pl["jenis_panitia"] = $row["jenis_panitia"];
+      $pl["jenis_panitia"] = $key_ua->jenis_panitia;
 
-      $pl["id_proker_raw"] = $row["id_proker"];
-      $pl["id_sie_raw"] = $row["id_sie"];           
+      $pl["id_proker_raw"] = $key_ua->id_proker;
+      $pl["id_sie_raw"] = $key_ua->id_sie;           
       $pl["warna"] = $image[$no];           
 
       array_push($response["result"], $pl);
@@ -295,9 +296,9 @@ function sie_post(){
   $query_data=$this->db->query("SELECT DISTINCT id_sie FROM tb_panitia_proker where id_proker=$id_proker");      
 
 
-  $query_0 ="SELECT DISTINCT id_sie FROM tb_panitia_proker where id_proker=$id_proker";
-  $con=mysqli_connect("localhost","root","","simonik");
-  $result=mysqli_query($con,$query_0);
+  $query_0 = $this->db->query("SELECT DISTINCT id_sie FROM tb_panitia_proker where id_proker=$id_proker");
+  // $con= mysqli_connect("localhost","root","","simonik");
+  // $result= mysqli_query($con,$query_0);
 
 
   $response['status']= "success" ;
@@ -313,16 +314,16 @@ function sie_post(){
 
   $no=0;
 
-  while ($row = mysqli_fetch_array($result)) {
+    foreach ($query_0->result() as $key_ua) {
 
    $pl = array();
 
-   $pl["id_sie"] = $row["id_sie"];
+   $pl["id_sie"] = $key_ua->id_sie;
    $pl["warna"] = $image[$no];           
            // $pl["id_ukm"] = $row["id_ukm"];
 
    foreach ($query_sie->result() as $key_sie) {
-    if ($key_sie->id_sie==$row["id_sie"]) {
+    if ($key_sie->id_sie==$key_ua->id_sie) {
       $convert_sie=$key_sie->nama_sie;
     }
   }
