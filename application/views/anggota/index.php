@@ -10,6 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <h2 class="h5 no-margin-bottom">Data Program Kerja</h2>
     </div>
   </div>
+  <div class="container" id="notifikasi">  
+    <?php if ($this->session->flashdata('msg')) : ?>    
+      <div class="alert alert-danger">
+        <?php echo $this->session->flashdata('msg') ?>  
+      </div>
+    <?php endif; ?>
+  </div>
   <!-- Breadcrumb--> 
   <div class="container-fluid" style="margin-top: 7%;">
 
@@ -21,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php $no=1; $p=0; $s=0; $a_color=1; $modal=0; ?>
 
         <?php foreach ($array as $key) {
- 
+
           switch($a_color){
             case 1:
             $warna=$color1;
@@ -76,26 +83,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $query_printAnggota=$this->db->query("SELECT * FROM tb_panitia_proker where id_proker=$b_proker AND id_sie=$b_sie");
 
                     foreach ($query_printAnggota->result() as $key_printAnggota) {
-                    ?>
-                    <div class="before_loch">
-                    <img width="25%" src="<?php echo base_url('assets/img/icon-anggota.png') ?>">                        
-                    <div class="loch">
+                      ?>
+                      <div class="before_loch">
+                        <img width="25%" src="<?php echo base_url('assets/img/icon-anggota.png') ?>">                        
+                        <div class="loch">
 
-                    <?php
-                    $c_anggota=$key_printAnggota->id_user;
-                    foreach ($query_cekAnggota->result() as $key_cekAnggota) {
+                          <?php
+                          $c_anggota=$key_printAnggota->id_user;
+                          foreach ($query_cekAnggota->result() as $key_cekAnggota) {
 
-                      if ($c_anggota==$key_cekAnggota->id_user) {
-                        $nama_user=$key_cekAnggota->nama_user;
-                        $jenis_panitia=$key_printAnggota->jenis_panitia;
-                      }
-                    }
-                    ?>
-                      <p class="loch_text"><?php echo $nama_user; ?></p>                                               
-                      <i><p class="loch_text2"><?php echo $jenis_panitia; ?></p></i>                        
-                    </div>
-                  </div>
-                  <?php } ?>
+                            if ($c_anggota==$key_cekAnggota->id_user) {
+                              $nama_user=$key_cekAnggota->nama_user;
+                              $jenis_panitia=$key_printAnggota->jenis_panitia;
+                            }
+                          }
+                          ?>
+                          <p class="loch_text"><?php echo $nama_user; ?></p>                                               
+                          <i><p class="loch_text2"><?php echo $jenis_panitia; ?></p></i>                        
+                        </div>
+                      </div>
+                    <?php } ?>
 
                   </div>
                   <div class="modal-footer">
@@ -124,43 +131,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $query_printFile=$this->db->query("SELECT * FROM tb_file_backup where id_proker=$b_proker AND id_sie=$b_sie");
 
                     foreach ($query_printFile->result() as $key_printFile) {
-                    ?>
-                    <div class="before_loch2">
-                    <img width="25%" src="<?php echo base_url('assets/img/icon-file.png') ?>">                        
-                    <div class="loch">
+                      ?>
+                      <div class="before_loch2">
+                        <img width="25%" src="<?php echo base_url('assets/img/icon-file.png') ?>">                        
+                        <div class="loch">
 
-                    <?php
+                          <?php
 
-                    foreach ($query_printNamaSie->result() as $keyNamaSie) {
-                      $namaSie=$keyNamaSie->nama_sie;
-                    }
+                          foreach ($query_printNamaSie->result() as $keyNamaSie) {
+                            $namaSie=$keyNamaSie->nama_sie;
+                          }
 
-                    $file=$key_printFile->file_laporan;
-                    if ($file==null) {
-                      $file="Belum ada file laporan";
-                      $link=0;
+                          $file=$key_printFile->file_laporan;
+                          if ($file==null) {
+                            $file="Belum ada file laporan";
+                            $link=0;
                       // Document_91559486889.pdf untuk idjobdesk 9 d hubungi pemateri 
-                    }else{
-                      $link=1;
-                    }
+                          }else{
+                            $link=1;
+                          }
 
-                    foreach ($query_convertNamaJobdesk->result() as $keyNamaJobdesk) {
+                          foreach ($query_convertNamaJobdesk->result() as $keyNamaJobdesk) {
 
-                      if ($keyNamaJobdesk->id_jobdesk==$key_printFile->id_jobdesk) {
-                        $convertNamaJobdesk=$keyNamaJobdesk->nama_jobdesk;
-                      }
+                            if ($keyNamaJobdesk->id_jobdesk==$key_printFile->id_jobdesk) {
+                              $convertNamaJobdesk=$keyNamaJobdesk->nama_jobdesk;
+                            }
 
-                    }                    
+                          }                    
 
-                    ?>
-                      <p class="loch_text"><?php echo $convertNamaJobdesk." :" ?></p>                                               
-                      
-                      <?php echo ($link != '' ? "<a target='blank' href='" . base_url('upload/berkas_laporan/' . $file) . "'>"."<p class='loch_text2'>".$file."</p>"."</a>" : "<p class='loch_text2'>Tidak ada file laporan</p>"); ?>
-                      
+                          ?>
+                          <p class="loch_text"><?php echo $convertNamaJobdesk." :" ?></p>                                               
 
-                    </div>
-                  </div>
-                  <?php } ?>
+                          <?php echo ($link != '' ? "<a target='blank' href='" . base_url('upload/berkas_laporan/' . $file) . "'>"."<p class='loch_text2'>".$file."</p>"."</a>" : "<p class='loch_text2'>Tidak ada file laporan</p>"); ?>
+
+
+                        </div>
+                      </div>
+                    <?php } ?>
 
                   </div>
                   <div class="modal-footer">
@@ -256,3 +263,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <?php $this->load->view('bagian/footer') ?>
+
+<script type="text/javascript">
+  $('#notifikasi').delay(5000).slideUp('slow');
+</script>

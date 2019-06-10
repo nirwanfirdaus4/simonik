@@ -45,8 +45,9 @@ class Welcome extends CI_Controller {
 				$this->load->library('upload', $config);
 
 				if ( ! $this->upload->do_upload('berkas')){ 
-					// $error =$this->upload->display_errors();
-					// $this->session->set_flashdata('msg',$error);
+					$error =$this->upload->display_errors();
+					$this->session->set_flashdata('msg',$error);
+					$this->session->set_flashdata('berhasil', 'Foto berhasil diupload');
 					// $indexrow['id_new']=$id_upload;
 					// $indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_upload);
 					// $this->load->view('anggota/view_detail', $indexrow);
