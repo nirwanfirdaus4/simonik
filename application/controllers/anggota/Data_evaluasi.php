@@ -31,7 +31,6 @@ class Data_evaluasi extends CI_Controller {
 		foreach ($sie_cek->result() as $convert_sie) {
 					$data['nama_sie']=$convert_sie->nama_sie;
 				}
-
 		$this->form_validation->set_rules('hasil_evaluasi','Hasil Evaluasi','trim|required');
 
 		if($this->form_validation->run()==FALSE){

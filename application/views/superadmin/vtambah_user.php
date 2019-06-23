@@ -20,7 +20,7 @@
       <div class="title"><strong>Tambah Data User</strong></div>
       <?php if ($this->session->flashdata('msg')) : ?>
         <div style="color: #ff6666;">
-        <?php echo $this->session->flashdata('msg') ?>  
+          <?php echo $this->session->flashdata('msg') ?>  
         </div>
       <?php endif; ?>
       <div class="block-body">
@@ -35,28 +35,28 @@
           </div>
           <div class="form-group">
             <input type="hidden" placeholder="" class="form-control" value="<?php echo $ukm_id ?>" name="id_ukm" autocomplete="off">        
-          <div class="form-group">
-            <label class="form-control-label">Telp</label>
-            <input type="number" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off" required="required">
-          </div>
-          <div class="form-group">
-            <label class="form-control-label">Email</label>
-            <input type="email" placeholder="Email user" class="form-control" name="email_user" autocomplete="off" required="required">
-          </div> 
-          <div class="form-group">
-            <label class="form-control-label">Tipe User</label>
-<!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
+            <div class="form-group">
+              <label class="form-control-label">Telp</label>
+              <input type="number" placeholder="Telp user" class="form-control" name="no_telp_user" autocomplete="off" required="required">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label">Email</label>
+              <input type="email" placeholder="Email user" class="form-control" name="email_user" autocomplete="off" required="required">
+            </div> 
+            <div class="form-group">
+              <label class="form-control-label">Tipe User</label>
               <select name="id_userType" id="id_userType" class="form-control" required="required">
                 <option value="zero">--Pilih Tipe User--</option>
-                  <option value="2">Admin</option>
-                  <option value="3">Badan Pengurus Harian</option>
-                  <option value="4">Divisi Bidang</option>
-                  <option value="5">Anggota OC</option>
+                <option value="1">Super Admin</option>
+                <option value="2">Admin</option>
+                <option value="3">Badan Pengurus Harian</option>
+                <option value="4">Divisi Bidang</option>
+                <option value="5">Anggota OC</option>
               </select>
-          </div>
-          <div class="form-group">
-            <label class="form-control-label">Periode</label>
-<!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
+            </div>
+            <div class="form-group">
+              <label class="form-control-label">Periode</label>
+              <!--             <input type="text" placeholder="" class="form-control" name="id_periode" autocomplete="off"> -->
               <select name="id_periode" id="id_periode" class="form-control" required="required">
                 <option value="zero">--Pilih Periode--</option>
                 <?php 
@@ -65,20 +65,30 @@
                   <option value="<?php echo $row_kat->id_periode?>"><?php echo $row_kat->th_periode; ?></option>
                 <?php } ?>
               </select>
-          </div>
-          <div class="form-group">
-            <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
-            <input type="file" name="berkas">
-          </div>
+            </div>
+            <div class="container" id="notifikasi">  
+              <?php if ($this->session->flashdata('pesan_error')) : ?>    
+                <div class="alert alert-danger">
+                  <?php echo $this->session->flashdata('pesan_error') ?>  
+                </div>
+              <?php endif; ?>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
+              <input type="file" name="berkas">
+            </div>
 
-          <div class="form-group space_help_button">       
-            <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('superadmin/Data_user/detail/'.$ukm_id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
-          </div>
-        </form>
+            <div class="form-group space_help_button">       
+              <input type="submit" value="Simpan" class="btn btn_dewe_color">
+              <a href="<?php echo base_url('superadmin/Data_user/detail/'.$ukm_id) ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<?php $this->load->view('bagian/footer') ?>
+  <?php $this->load->view('bagian/footer') ?>
+  <script type="text/javascript">
+      $('#notifikasi').delay(5000).slideUp('slow');
+    </script>

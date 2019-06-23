@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mdl_data_proker extends CI_Model {
+class Mdl_data_proker extends CI_Model {
 
 	public function __construct() 
 	{
@@ -12,19 +12,32 @@ class mdl_data_proker extends CI_Model {
 	public function ambildata()
 	{
 		$ukm=$this->session->userdata('ses_ukm');
-		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm");
+		$periode=$this->session->userdata('ses_periode');
+		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm AND id_periode=$periode");
 		return $query->result_array();
 	}
 	public function admin_ambildata_proker()
 	{
 		$ukm=$this->session->userdata('ses_ukm');
-		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm");
+		$periode=$this->session->userdata('ses_periode');
+		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm AND id_periode=$periode");
 		return $query->result_array();
 	}
 	public function ambildata_proker_bph($bidang)
 	{
 		$ukm=$this->session->userdata('ses_ukm');
 		$query=$this->db->query("SELECT * FROM tb_daftar_proker WHERE id_ukm=$ukm AND id_bidang=$bidang");
+		return $query->result_array();
+	}
+	public function ambildata_validasi_sie()
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$query=$this->db->query("SELECT * FROM tb_sie WHERE id_ukm=$ukm");
+		return $query->result_array();
+	}
+	public function ambildata_validasi_jobdesk($proker,$sie)
+	{
+		$query=$this->db->query("SELECT * FROM tb_jobdesk WHERE id_proker=$proker AND id_sie=$sie");
 		return $query->result_array();
 	}
 	public function namaProker_bph($proker)

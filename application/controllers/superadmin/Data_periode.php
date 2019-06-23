@@ -58,7 +58,10 @@ class Data_periode extends CI_Controller {
 		$this->mdl_data_periode->delete_data($where,'tb_user');
 		$this->mdl_data_periode->delete_data($where,'tb_periode');
 		$this->mdl_data_periode->delete_data($where,'tb_panitia_proker');
-		$this->mdl_data_periode->delete_data($where,'tb_periode');
+		$this->mdl_data_periode->delete_data($where,'tb_bidang');
+		$this->mdl_data_periode->delete_data($where,'tb_daftar_proker');
+		$this->mdl_data_periode->delete_data($where,'tb_file_backup');
+		$this->mdl_data_periode->delete_data($where,'tb_rating');
 		redirect('superadmin/Data_periode/');
 	}
 

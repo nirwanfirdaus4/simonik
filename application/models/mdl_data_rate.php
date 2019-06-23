@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mdl_data_rate extends CI_Model {
+class Mdl_data_rate extends CI_Model {
 
 	public function __construct()
 		{

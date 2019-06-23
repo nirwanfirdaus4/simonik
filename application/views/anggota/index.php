@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div class="container" id="notifikasi">  
     <?php if ($this->session->flashdata('msg')) : ?>    
-      <div class="alert alert-danger">
+      <div class="alert alert-success">
         <?php echo $this->session->flashdata('msg') ?>  
       </div>
     <?php endif; ?>
@@ -182,8 +182,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div style="background-color: <?php echo $warna; ?>;border-right: 1px solid #bdc3c7; border-left: 1px solid #bdc3c7; border-bottom: 1px solid;">
                 <div class="box_space"><a class="unline" href="<?php echo base_url('anggota/Proker/index_proker/'.$key['id_proker'].'/'.$key['id_sie']) ?>">
                   <?php
+                  $ukm = $this->session->userdata('ses_ukm');
                   $proker = $this->db->query("SELECT * FROM tb_daftar_proker");
-                  $sie = $this->db->query("SELECT * FROM tb_sie");
+                  $sie = $this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
                   foreach($proker->result() as $row_proker)  {
                    if ($key['id_proker']==$row_proker->id_proker) {
                     $nama_fix=$row_proker->nama_proker;

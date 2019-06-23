@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom" style="color: #111">Data Panitia</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111"><?php echo $revisi_namaSie." ".$revisi_namaProker; ?></h2>
     </div>
   </div>
   <!-- Breadcrumb-->

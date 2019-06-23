@@ -14,7 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         foreach ($nama_sie as $key) {
           $sie=$key['nama_sie'];
         }
-       echo $sie; ?> </h2>
+                        
+       echo $sie;?> </h2>
     </div>
   </div>
   <!-- Breadcrumb-->

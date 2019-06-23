@@ -29,6 +29,20 @@ class Data_panitia extends CI_Controller {
 		$paket['ses_proker']=$proker;
 		$paket['id_sie']=$sie_user;
 		$paket['sie_id']=$sie; 
+		$query_cekProker=$this->db->query("SELECT * FROM tb_daftar_proker");
+		$query_cekSie=$this->db->query("SELECT * FROM tb_sie");
+
+		foreach ($query_cekProker->result() as $cekProker) {
+			if ($proker==$cekProker->id_proker) {
+					$paket['revisi_namaProker']=$cekProker->nama_proker;									
+			}
+		}
+		foreach ($query_cekSie->result() as $cekSie) {
+			if ($sie==$cekSie->id_sie) {
+					$paket['revisi_namaSie']=$cekSie->nama_sie;									
+			}
+		}
+
 
 		$nav_ses=1;
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);

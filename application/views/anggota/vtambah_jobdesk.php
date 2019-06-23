@@ -20,7 +20,7 @@
       <div class="title"><strong style="color: #111">Tambah Data Jobdesk</strong></div>
 
       <div class="block-body">
-        <form action="<?php echo base_url('anggota/Data_Jobdesk/tambahData/' .$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> " method="post">
+        <form action="<?php echo base_url('anggota/Data_jobdesk/tambahData/' .$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> " method="post">
           <div class="form-group">
             <label style="color: #111" class="form-control-label">Jobdesk</label>
             <input type="text" placeholder="Jobdesk" class="form-control" name="nama_jobdesk" autocomplete="off">

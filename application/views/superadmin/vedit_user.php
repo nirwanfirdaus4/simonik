@@ -4,7 +4,17 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data User</h2>
+      <?php 
+        $revisi_periode=$this->session->userdata('ses_periode');
+        $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
+        foreach ($queryPeriode->result() as $keyRevPeriode) {
+          if ($keyRevPeriode->id_periode==$revisi_periode) {
+            $veriode=$keyRevPeriode->th_periode;
+          }
+        }
+
+      ?>      
+      <h2 class="h5 no-margin-bottom">Data User <?php echo $veriode; ?> </h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -26,6 +36,7 @@
       <?php endif; ?>
         <form action="<?php echo base_url('superadmin/Data_user/edit/'.$data[0]['id_user']) ?> " method="post" enctype="multipart/form-data">
           <input type="hidden" name="id_user" value="<?php echo $data[0]['id_user']; ?>">
+          <input type="hidden" name="id_utype" value="<?php echo $data[0]['id_type_user']; ?>">          
           <div class="form-group">
             <label class="form-control-label">Nama user</label>
             <input type="text" placeholder="Nama user" class="form-control" name="nama_user" autocomplete="off" value="<?php echo $data[0]['nama_user'] ?>">
@@ -53,6 +64,14 @@
             <label class="form-control-label">Email</label>
             <input type="text" placeholder="" class="form-control" name="email_user" autocomplete="off" value="<?php echo $data[0]['email_user'] ?>">
           </div>
+          <div class="form-group">
+            <label class="form-control-label">Username</label>
+            <input type="text" placeholder="" class="form-control" name="username" autocomplete="off" value="<?php echo $data[0]['username'] ?>">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">Password</label>
+            <input type="text" placeholder="" class="form-control" name="password" autocomplete="off" value="<?php echo $data[0]['password'] ?>">
+          </div>
 
           <div class="form-group">
             <label class="form-control-label">Periode</label>
@@ -66,7 +85,7 @@
               </select> 
           </div>
           <div class="form-group">
-            <label class="form-control-label">Logo UKM</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
+            <label class="form-control-label">Foto User</label><label style="font-size:12px; padding-left:5px;">(Format JPG/JPEG/PNG maks 300Kb)</label><br>
             <img src="<?php echo ($data[0]['foto_user'] != '' ? base_url('./upload/foto_user/' . $data[0]['foto_user']) : base_url('./upload/foto_user/img_defautl.jpg')); ?>" alt="Logo UKM" width="100" height="120">
             <input type="file" name="berkas" >
           </div>

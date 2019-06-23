@@ -31,7 +31,8 @@
               <option value="zero">-- Pilih Ketua Proker --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=5");
+              $periode=$this->session->userdata('ses_periode');
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=5 and id_periode=$periode");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>"><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
@@ -53,7 +54,8 @@
               <option value="zero">-- Pilih Bidang --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_bidang where id_ukm=$ukm");
+              $periode=$this->session->userdata('ses_periode');
+              $ketua = $this->db->query("SELECT * FROM tb_bidang where id_ukm=$ukm and id_periode=$periode");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_bidang?>"><?php echo $row_kat->nama_bidang; ?></option>
               <?php } ?>
@@ -62,7 +64,7 @@
 
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">
-            <a href="<?php echo base_url('admin/Data_bidang') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
+            <a href="<?php echo base_url('admin/Data_proker') ?>"><button type="button" class="btn btn-primary">Batal</button></a>
           </div>
         </form>
       </div>

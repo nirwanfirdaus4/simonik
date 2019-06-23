@@ -22,7 +22,7 @@
         <form action="<?php echo base_url('superadmin/Data_periode/tambahData') ?> " method="post">
           <div class="form-group">
             <label class="form-control-label">Tahun Periode</label>
-            <input type="text" placeholder="Masukkan Tahun Periode" class="form-control" name="th_periode" autocomplete="off">
+            <input type="text" placeholder="contoh : 2016/2017" class="form-control" name="th_periode" autocomplete="off">
           </div>
           <div class="form-group space_help_button">       
             <input type="submit" value="Simpan" class="btn btn_dewe_color">

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom" style="color: #111">Data Jobdesk</h2>
+      <h2 class="h5 no-margin-bottom" style="color: #111"><?php echo $revisi_namaSie." ".$revisi_namaProker; ?></h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -20,6 +20,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong style="color: #111">Data Jobdesk</strong></div>
+  <div class="container" id="notifikasi">  
+    <?php if ($this->session->flashdata('msg_p')) : ?>    
+      <div class="alert alert-danger">
+        <?php echo $this->session->flashdata('msg_p') ?>  
+      </div>
+    <?php endif; ?>
+  </div>      
       <a href="<?php echo base_url('anggota/Data_jobdesk/tambahData/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
@@ -74,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <?php
 
-                if ($sie_id!=1) { ?>
+                if ($sie_nama!=1) { ?>
                 <td style="color: #111">
                   <a href="<?php echo base_url('anggota/Data_jobdesk/edit/' .$key['id_jobdesk'].'/'.$ses_proker.'/'.$sie_id.'/'.$id_sie) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
                   <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>

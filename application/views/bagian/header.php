@@ -73,20 +73,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         // $id_proker = substr($tautan, strrpos($tautan, '/') + 1);
 
                         $data_proker = $this->db->get_where('tb_daftar_proker', array('id_proker' => $id_proker))->row();
-                        // echo $id_proker;
                         ?>
                         
                         <a style="background-color: <?php echo ($notifikasi->status_notifikasi=='0' ? '#282b2f' : '') ?>" href="<?php echo $tautan ?>" class="dropdown-item">
-                          <?php if($notifikasi->status_notifikasi=='0'){?>
-                            <div class="content"><strong class="d-block"><?php echo $tgl ?></strong><span class="d-block"><?php echo $konten . " untuk " . $data_proker->nama_proker; ?></span></div>  
-                          <?php } else{ ?>
-                            <div class="content"><strong class="d-block">Tidak ada deadline</strong></div>
-                          <?php } ?>
-
+                          <div class="content"><strong class="d-block"><?php echo $tgl ?></strong><span class="d-block"><?php echo $konten . " untuk " . $data_proker->nama_proker; ?></span></div>
                         </a>
 
                       <?php } ?>
-                      <?php if($notifikasi->status_notifikasi=='0'){?>
+                      <?php if($jumlah=='0'){?>
                          <a class="dropdown-item text-center"><strong style="color: #ffff">Deadline Jobdesk</strong></a>
                       <?php } ?>
                     </div>

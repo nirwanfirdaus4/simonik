@@ -4,7 +4,23 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom" style="color: #111">Data Proker</h2>
+      <?php 
+        $revisi_periode=$this->session->userdata('ses_periode');
+        $revisi_ukm=$this->session->userdata('ses_ukm');
+        $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
+        $queryUkm=$this->db->query("SELECT * FROM tb_ukm");
+        foreach ($queryPeriode->result() as $keyRevPeriode) {
+          if ($keyRevPeriode->id_periode==$revisi_periode) {
+            $veriode=$keyRevPeriode->th_periode;
+          }
+        }
+        foreach ($queryUkm->result() as $keyRevUkm) {
+          if ($keyRevUkm->id_ukm==$revisi_ukm) {
+            $vkm=$keyRevUkm->nama_ukm;
+          }
+        }
+      ?>   
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Proker <?php echo $vkm." Periode ".$veriode; ?></h2>
     </div> 
   </div>
   <!-- Breadcrumb-->
@@ -32,7 +48,8 @@
               <option value="zero">-- Pilih Ketua Proker --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=5");
+              $periode=$this->session->userdata('ses_periode');
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=5 and id_periode=$periode");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>"<?php echo ($row_kat->id_user == $data[0]['ketua_proker'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
@@ -54,7 +71,8 @@
               <option value="zero">-- Pilih Bidang --</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_bidang where id_ukm=$ukm");
+              $periode=$this->session->userdata('ses_periode');              
+              $ketua = $this->db->query("SELECT * FROM tb_bidang where id_ukm=$ukm and id_periode=$periode");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_bidang?>"<?php echo ($row_kat->id_bidang == $data[0]['id_bidang'] ? 'selected="selected"' : ''); ?>><?php echo $row_kat->nama_bidang; ?></option>
               <?php } ?>

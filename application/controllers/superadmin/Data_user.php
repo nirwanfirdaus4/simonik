@@ -49,14 +49,15 @@ class Data_user extends CI_Controller {
 			$ukm=$send['id_ukm']=$this->input->post('id_ukm');
 			$send['no_telp_user']=$this->input->post('no_telp_user');
 			$send['email_user']=$this->input->post('email_user');
-			// $utype=2;
-			// $send['id_type_user']=$utype;
 			$send['id_type_user']=$this->input->post('id_userType');
 			$send['id_periode']=$this->input->post('id_periode');
-			echo "NILAI ".$this->input->post('id_userType');
+			// echo "NILAI ".$this->input->post('id_userType');
 			if ($send['id_type_user'] != 4) {
 				$send['username']=$this->input->post('nim');
 				$send['password']=$this->input->post('nim');			
+			}else{
+				$send['username']="";
+				$send['password']="";							
 			}
 
 			$config['upload_path']          = './upload/foto_user/';
@@ -137,11 +138,15 @@ class Data_user extends CI_Controller {
 			$ukm=$send['id_ukm']=$this->input->post('id_ukm');
 			$send['no_telp_user']=$this->input->post('no_telp_user');
 			$send['email_user']=$this->input->post('email_user');
-			$utype=2;
-			$send['id_type_user']=$utype;
+			$send['id_type_user']=$this->input->post('id_utype');
 			$send['id_periode']=$this->input->post('id_periode');
-			if ($send['id_type_user'] != 7) {
-				$send['username']=$this->input->post('nim');	
+			
+			if ($send['id_type_user'] != 4) {
+				$send['username']=$this->input->post('username');	
+				$send['password']=$this->input->post('password');	
+			}else{
+				$send['username']="";
+				$send['password']="";							
 			}
 
 			$current =$this->input->post('id_user');
@@ -170,8 +175,7 @@ class Data_user extends CI_Controller {
 					$send['foto_user']=$data['file_name'];
 
 				}
-			}
-			else{
+			}else{
 				$send['foto_user']=$query[0]['foto_user'];
 			}
 			$kembalian['jumlah']=$this->mdl_data_user->modelupdate($send); 

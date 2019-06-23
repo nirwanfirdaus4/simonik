@@ -19,6 +19,21 @@ class Data_proker extends CI_Controller {
 		$paket['array']=$this->mdl_data_proker->ambildata();	
 		$this->load->view('admin/data_proker',$paket);
 	}
+	public function validasi(){
+		$paket['array']=$this->mdl_data_proker->ambildata();	
+		$this->load->view('admin/validasi_listProker',$paket);
+	}
+	public function validasi_sie($id_proker){
+
+		$this->session->set_userdata('ses_validasi_proker',$id_proker);
+		$paket['id_proker']=$id_proker;
+		$paket['array']=$this->mdl_data_proker->ambildata_validasi_sie();	
+		$this->load->view('admin/validasi_listSie',$paket);
+	}
+	public function validasi_jobdesk($id_proker,$id_sie){
+		$paket['array']=$this->mdl_data_proker->ambildata_validasi_jobdesk($id_proker,$id_sie);	
+		$this->load->view('admin/validasi_listJobdesk',$paket);
+	}
 
 	public function tambahData(){
 		$this->form_validation->set_rules('nama_proker','Nama Bidang','trim|required');
@@ -55,7 +70,15 @@ class Data_proker extends CI_Controller {
 			$send_panitia['id_ukm']=$this->input->post('id_ukm');
 			$send_panitia['id_periode']=$this->session->userdata('ses_periode');
 			$send_panitia['id_user']=$this->input->post('nm_ketua_proker');
-			$send_panitia['id_sie']=1;
+
+			$u_ukm=$this->session->userdata('ses_ukm');
+			$query_getSie=$this->db->query("SELECT * FROM tb_sie where id_ukm=$u_ukm");
+			foreach ($query_getSie->result() as $keySie) {
+				if ($keySie->nama_sie=="Ketua Pelaksana") {
+					$id_sie=$keySie->id_sie;
+				}
+			}
+			$send_panitia['id_sie']=$id_sie;
 			$send_panitia['jenis_panitia']='Ketua Pelaksana';
  			 
 			$send_rating['id_rating']='';
@@ -79,6 +102,11 @@ class Data_proker extends CI_Controller {
 		$where = array('id_proker' => $id);
 		$this->mdl_data_proker->delete_data($where,'tb_daftar_proker');
 		$this->mdl_data_panitia->delete_data($where,'tb_panitia_proker');
+		$this->mdl_data_panitia->delete_data($where,'tb_evaluasi');
+		$this->mdl_data_panitia->delete_data($where,'tb_file_backup');
+		$this->mdl_data_panitia->delete_data($where,'tb_jobdesk');
+		$this->mdl_data_panitia->delete_data($where,'tb_notifikasi');
+		$this->mdl_data_panitia->delete_data($where,'tb_evaluasi');
 		$this->mdl_data_proker->delete_data_rating($where,'tb_rating');
 		redirect('admin/Data_proker/');
 	}

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class mdl_referensi extends CI_Model { 
+class Mdl_referensi extends CI_Model { 
 
 	public function __construct()
 	{
@@ -18,10 +18,10 @@ class mdl_referensi extends CI_Model {
 	{
 		$ukm=$this->session->userdata('ses_ukm');
 		$id_user=$this->session->userdata('ses_id_user');
-		$query_bidang=$this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$id_user");
+		$query_bidang=$this->db->query("SELECT * FROM tb_bidang");
 
 		foreach ($query_bidang->result() as $key_bidang) {
-			if ($key_bidang->ketua_bidang==$id_user) {
+			if ($key_bidang->ketua_bidang==$id_user || $key_bidang->sekretaris_bidang==$id_user) {
 				$bidang=$key_bidang->id_bidang;
 			}
 		}
@@ -39,10 +39,11 @@ class mdl_referensi extends CI_Model {
 		$ukm=$this->session->userdata('ses_ukm');
 		// $periode=$this->session->userdata('ses_periode');
 		$id_user=$this->session->userdata('ses_id_user');
-		$query_bidang=$this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$id_user");
+		// $query_bidang=$this->db->query("SELECT * FROM tb_bidang where ketua_bidang=$id_user");
+		$query_bidang=$this->db->query("SELECT * FROM tb_bidang");
 
 		foreach ($query_bidang->result() as $key_bidang) {
-			if ($key_bidang->ketua_bidang==$id_user) {
+			if ($key_bidang->ketua_bidang==$id_user || $key_bidang->sekretaris_bidang==$id_user) {
 				$bidang=$key_bidang->id_bidang;
 			}
 		}

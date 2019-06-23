@@ -7,7 +7,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom" style="color: #111">Data Proker</h2>
+      <?php 
+        $revisi_periode=$this->session->userdata('ses_periode');
+        $revisi_ukm=$this->session->userdata('ses_ukm');
+        $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
+        $queryUkm=$this->db->query("SELECT * FROM tb_ukm");
+        foreach ($queryPeriode->result() as $keyRevPeriode) {
+          if ($keyRevPeriode->id_periode==$revisi_periode) {
+            $veriode=$keyRevPeriode->th_periode;
+          }
+        }
+        foreach ($queryUkm->result() as $keyRevUkm) {
+          if ($keyRevUkm->id_ukm==$revisi_ukm) {
+            $vkm=$keyRevUkm->nama_ukm;
+          }
+        }
+      ?>         
+      <h2 class="h5 no-margin-bottom" style="color: #111">Data Proker <?php echo $vkm." Periode ".$veriode; ?></h2>
     </div>
   </div>
   <!-- Breadcrumb-->

@@ -46,6 +46,9 @@ class Data_user extends CI_Controller {
 			if ($send['id_type_user'] != 4) {
 				$send['username']=$this->input->post('nim');
 				$send['password']=$this->input->post('nim');			
+			}else{
+				$send['username']="";
+				$send['password']="";					
 			}
 
 			if ($_FILES["berkas"]["name"] != ""){
@@ -62,7 +65,7 @@ class Data_user extends CI_Controller {
 				
 				if ( ! $this->upload->do_upload('berkas')){
 					$error =$this->upload->display_errors();
-					$this->session->set_flashdata('msg',$error);
+					$this->session->set_flashdata('pesan_error',$error);
 					$this->load->view('admin/vtambah_user');
 				}else{
 					$data = $this->upload->data();
@@ -74,7 +77,7 @@ class Data_user extends CI_Controller {
 			$kembalian['array']=$this->mdl_data_user_ukm->ambildata();
 
 			$this->load->view('admin/data_user',$kembalian);
-			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+			$this->session->set_flashdata('berhasil','Data berhasil ditambahkan');
 			redirect('admin/Data_user/');
 		}
 	}
@@ -125,8 +128,12 @@ class Data_user extends CI_Controller {
 			$send['email_user']=$this->input->post('email_user');
 			$send['id_type_user']=$this->input->post('id_type_user');
 			$send['id_periode']=$this->input->post('id_periode');
-			if ($send['id_type_user'] != 7) {
-				$send['username']=$this->input->post('nim');	
+			if ($send['id_type_user'] != 4) {
+				$send['username']=$this->input->post('username');
+				$send['password']=$this->input->post('password');	
+			}else{
+				$send['username']="";
+				$send['password']="";					
 			}
 
 			$current =$this->input->post('id_user');
@@ -159,7 +166,7 @@ class Data_user extends CI_Controller {
 				$send['foto_user']=$query[0]['foto_user'];
 			}			
 			$kembalian['jumlah']=$this->mdl_data_user_ukm->modelupdate($send);
-			$this->session->set_flashdata('msg', 'Data Berhasil diupdate');
+			$this->session->set_flashdata('berhasil', 'Data Berhasil diupdate');
 			redirect('admin/Data_user');
 		}
 	}

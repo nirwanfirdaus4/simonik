@@ -23,7 +23,32 @@ class Data_jobdesk extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);		
 		$paket['ses_proker']=$proker;
 		$paket['id_sie']=$sie_user;
-		$paket['sie_id']=$sie; 
+		$paket['sie_id']=$sie;
+		$query_cekProker=$this->db->query("SELECT * FROM tb_daftar_proker");
+		$query_cekSie=$this->db->query("SELECT * FROM tb_sie");
+
+		foreach ($query_cekProker->result() as $cekProker) {
+			if ($proker==$cekProker->id_proker) {
+					$paket['revisi_namaProker']=$cekProker->nama_proker;									
+			}
+		}
+		foreach ($query_cekSie->result() as $cekSie) {
+			if ($sie==$cekSie->id_sie) {
+					$paket['revisi_namaSie']=$cekSie->nama_sie;									
+			}
+		}
+
+		$query_cekSie=$this->db->query("SELECT * FROM tb_sie");
+		foreach ($query_cekSie->result() as $key_valueSie) {
+			if ($sie==$key_valueSie->id_sie) {
+				if ($key_valueSie->nama_sie=="Ketua Pelaksana") {
+					$paket['sie_nama']=1;					
+				}else{
+					$paket['sie_nama']=0;										
+				}
+			}
+		}
+
 		$paket['jobdesk']=$this->mdl_data_jobdesk->ambildata_detail($proker,$sie);	
 		$paket['sie']=$this->mdl_data_jobdesk->ambilDataSie();	
 		// session ini berfungsi untuk fungsi delete dll		
@@ -73,7 +98,7 @@ class Data_jobdesk extends CI_Controller {
 			$kembalian['array']=$this->mdl_data_jobdesk->ambildata();
 
 			$this->load->view('anggota/data_jobdesk',$kembalian);
-			$this->session->set_flashdata('msg','Data berhasil ditambahkan');
+			$this->session->set_flashdata('msg_p','Data berhasil ditambahkan');
 			redirect('anggota/Data_jobdesk/detail/'.$data['ses_proker'].'/'.$data['sie_id'].'/'.$data['id_sie']);
 		}
 	}

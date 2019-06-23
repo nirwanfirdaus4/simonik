@@ -26,9 +26,10 @@ class Welcome extends CI_Controller {
 		$semua_jobdesk = $this->db->get_where('tb_jobdesk', array('status_jobdesk' => 'Belum Dikerjakan'))->result_array();
 
 		foreach($semua_jobdesk as $jobdesk) {
+			$hari_ini = date('Y-m-d', time());
 			$deadline = $jobdesk['deadline'];
 
-			$diff = abs(time() - strtotime($deadline));
+			$diff = strtotime($hari_ini) - strtotime($deadline);
 
 			$years = floor($diff / (365*60*60*24));
 			$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
@@ -40,26 +41,33 @@ class Welcome extends CI_Controller {
 				$id_ukm = $jobdesk['id_ukm'];
 
 				$semua_panitia = $this->db->get_where('tb_panitia_proker', array('id_proker' => $id_proker, 'id_sie' => $id_sie, 'id_ukm' => $id_ukm))->result_array();
-
-				foreach($semua_panitia as $panitia) {
-					$data_notifikasi = array(
-						'konten_notifikasi' => 'Sudahkah Anda Mengerjakan :',
-						'penerima_notifikasi' => $panitia['id_user'],
-						'tautan_notifikasi' => site_url('anggota/Proker/index_detail/' . $jobdesk['id_jobdesk'] . '/' . $jobdesk['id_proker'] . '/' . $jobdesk['id_sie'])
-					);
+				if(strtotime($hari_ini) < strtotime($deadline)) {
+					foreach($semua_panitia as $panitia) {
+						$data_notifikasi = array(
+							'konten_notifikasi' => 'Sudahkah Anda Mengerjakan :',
+							'penerima_notifikasi' => $panitia['id_user'],
+							'tautan_notifikasi' => site_url('anggota/Proker/index_detail/' . $jobdesk['id_jobdesk'] . '/' . $jobdesk['id_proker'] . '/' . $jobdesk['id_sie'])
+						);
 
 					// Cek Notifikasi
-					$tanggal_sekarang = date('Y-m-d', time());
-					$cek_notifikasi = $this->db->query("SELECT * FROM tb_notifikasi WHERE tanggal_notifikasi LIKE '%" . $tanggal_sekarang . "%'")->result_array();
+						$tanggal_sekarang = date('Y-m-d', time());
+						$cek_notifikasi = $this->db->query("SELECT * FROM tb_notifikasi WHERE tanggal_notifikasi LIKE '%" . $tanggal_sekarang . "%'")->result_array();
 
-					if(count($cek_notifikasi) == 0) {
-						$this->db->insert('tb_notifikasi', $data_notifikasi);
+						if(count($cek_notifikasi) == 0) {
+							$this->db->insert('tb_notifikasi', $data_notifikasi);
+						}
+
 					}
-
 				}
 			}
 		}
 
 		$this->load->view('login');
+	}
+
+	public function email(){
+		$penerima = array('fuadhdn@gmail.com');
+
+		send_email($penerima,'Subjek', 'Pesan Test');
 	}
 }

@@ -7,7 +7,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data User</h2>
+      <?php 
+        $revisi_periode=$this->session->userdata('ses_periode');
+        $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
+        foreach ($queryPeriode->result() as $keyRevPeriode) {
+          if ($keyRevPeriode->id_periode==$revisi_periode) {
+            $veriode=$keyRevPeriode->th_periode;
+          }
+        }
+
+      ?>      
+      <h2 class="h5 no-margin-bottom">Data User <?php echo $veriode; ?></h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -20,6 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
       <div class="title"><strong>Data User</strong></div>
+      
       <a href="<?php echo base_url('superadmin/Data_user/tambahData/'.$ukm_id) ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
@@ -31,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <th>Kontak</th>
               <th>Tipe User</th>
               <th>Akun user</th>
-<!--               <th>Periode</th> -->
+              <!--               <th>Periode</th> -->
               <th>Foto</th>
               <th>Aksi</th>
             </tr> 
@@ -40,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php $no=1; $modal=0; ?>
             <?php foreach ($array as $key) { ?>
 
-            <div class="modal fade" id="myModal<?php echo $modal ?>" role="dialog">
+              <div class="modal fade" id="myModal<?php echo $modal ?>" role="dialog">
                 <div class="modal-dialog modal-sm">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -57,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
               </div>   
 
-            <div class="modal fade" id="myFoto<?php echo $modal ?>" role="dialog">
+              <div class="modal fade" id="myFoto<?php echo $modal ?>" role="dialog">
                 <div class="modal-dialog modal-large">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -74,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
               </div>
 
-                         
+
               <tr>
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $key['nama_user'] ?><br><?php echo $key['nim'] ?></td>
@@ -87,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach($ukm->result() as $row_ukm)  {
                   if ($row_ukm->id_ukm==$key['id_ukm']) { ?>                    
                     <td><?php echo $row_ukm->nama_ukm; ?></td>
-                <?php }
+                  <?php }
                 } ?>
 
                 <td><?php echo $key['no_telp_user'] ?> <br><?php echo $key['email_user'] ?></td>
@@ -97,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 foreach($tipe_user->result() as $row_utype)  {
                   if ($row_utype->id_type_user==$key['id_type_user']) { ?>                    
                     <td><?php echo $row_utype->nama_type_user; ?></td>
-                <?php }
+                  <?php }
                 }  ?>
 
                 <td><?php echo $key['username'] ?> <br><?php echo $key['password'] ?></td>                
@@ -105,31 +116,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <td>
                   <?php
-                    foreach($tipe_user->result() as $row_utype2)  {
+                  foreach($tipe_user->result() as $row_utype2)  {
                     if ($row_utype2->id_type_user==$key['id_type_user']) { 
-                  ?> 
+                      ?> 
 
-                  <?php
-                    $hasil=$row_utype2->id_type_user;
+                      <?php
+                      $hasil=$row_utype2->id_type_user;
                     } }
                     if ($hasil==1) { 
-                  ?>
-                  <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
-                  <?php                  
+                      ?>
+                      <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                      <?php                  
                     }else{
-                  ?>
-                  <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
-                  <button  title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
-                <?php }?>
+                      ?>
+                      <a href="<?php echo base_url('superadmin/Data_user/edit/' . $key['id_user']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
+                      <button  title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
+                    <?php }?>
 
-                </td>
-               </tr>
-             <?php $modal++; } ?>
-           </tbody>
-         </table>
-       </div>  
-     </div>
-   </div>
- </div>
+                  </td>
+                </tr>
+                <?php $modal++; } ?>
+              </tbody>
+            </table>
+          </div>  
+        </div>
+      </div>
+    </div>
 
- <?php $this->load->view('bagian/footer') ?>
+    <?php $this->load->view('bagian/footer') ?>
+
+    <script type="text/javascript">
+      $('#notifikasi').delay(5000).slideUp('slow');
+    </script>

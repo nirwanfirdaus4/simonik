@@ -5,7 +5,6 @@
     <link href="<?php echo base_url('assets/css/nirwan/bootstrap.min.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/nirwan/style.css'); ?>" rel="stylesheet" type="text/css">
     <link rel='shortcut icon' type='image/png' href="<?php echo base_url('assets/img/favicon.png') ?>" />
-    <script src="assets/js/nirwan/bootstrap.min.js"></script>    
 </head>
 <body style="background-color:#2b3137;" >
 

@@ -120,7 +120,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       }
                       $loop_2++;
                     }
-
                     $hitung=$count/$jumlah_jobdesk;
                     // echo $count.$jumlah_jobdesk;
                     // $hitung=1.333;

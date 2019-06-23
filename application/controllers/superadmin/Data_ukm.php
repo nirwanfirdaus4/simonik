@@ -24,8 +24,7 @@ class Data_ukm extends CI_Controller {
 		$this->form_validation->set_rules('nama_ukm','Nama UKM','trim|required');
 		if ($this->form_validation->run()==FALSE) {
 			$this->load->view('superadmin/vtambah_ukm'); 
-		}
-		else{
+		}else{
 			$send['id_ukm']='';
 			$n_ukm=$send['nama_ukm']=$this->input->post('nama_ukm');
 
@@ -36,24 +35,25 @@ class Data_ukm extends CI_Controller {
 				$ukm=$key_ukm->id_ukm;
 			}
 
-			for ($i=0; $i<=2 ; $i++) { 
-				if ($i==0) {
-					$send_sie['id_sie']='';
-					$send_sie['nama_sie']="Ketua Pelaksana";
-					$send_sie['id_ukm']=$ukm;						
-					$this->mdl_data_sie->tambahdata($send_sie);						
-				}elseif ($i==1) {
-					$send_sie['id_sie']='';
-					$send_sie['nama_sie']="Sekretaris Pelaksana";
-					$send_sie['id_ukm']=$ukm;						
-					$this->mdl_data_sie->tambahdata($send_sie);						
-				}else{
-					$send_sie['id_sie']='';
-					$send_sie['nama_sie']="Sie Acara";
-					$send_sie['id_ukm']=$ukm;						
-					$this->mdl_data_sie->tambahdata($send_sie);
-				}					
-			}
+			// // for ($i=0; $i<=2 ; $i++) {
+			// 	// $i=0; 
+			// 	// if ($i==0) {
+			// 		$send_sie['id_sie']='';
+			// 		$send_sie['nama_sie']="Ketua Pelaksana";
+			// 		$send_sie['id_ukm']=$ukm;						
+			// 		$this->mdl_data_sie->tambahdata($send_sie);						
+			// 	// }elseif ($i==1) {
+			// 		$send_sie1['id_sie']='';
+			// 		$send_sie1['nama_sie']="Sekretaris Pelaksana";
+			// 		$send_sie1['id_ukm']=$ukm;						
+			// 		$this->mdl_data_sie->tambahdata($send_sie1);						
+			// 	// }else{
+			// 		$send_sie2['id_sie']='';
+			// 		$send_sie2['nama_sie']="Sie Acara";
+			// 		$send_sie2['id_ukm']=$ukm;						
+			// 		$this->mdl_data_sie->tambahdata($send_sie2);
+			// 	// }					
+			// // }
 
 			$this->mdl_data_ukm->tambah_sie($ukm);
 			$kembalian['array']=$this->mdl_data_ukm->ambildata();

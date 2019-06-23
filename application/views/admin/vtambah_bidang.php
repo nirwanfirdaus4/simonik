@@ -35,7 +35,8 @@
               <option value="zero">--Pilih Ketua Bidang--</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=3");
+              $periode=$this->session->userdata('ses_periode');
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=3 and id_periode=$periode");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>"><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>
@@ -47,7 +48,8 @@
               <option value="zero">--Pilih Sekretaris Bidang--</option>
               <?php 
               $ukm=$this->session->userdata('ses_ukm');
-              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=3");
+              $periode=$this->session->userdata('ses_periode');
+              $ketua = $this->db->query("SELECT * FROM tb_user where id_ukm=$ukm and id_type_user=3 and id_periode=$periode");
               foreach($ketua->result() as $row_kat)  { ?>
                 <option value="<?php echo $row_kat->id_user?>"><?php echo $row_kat->nama_user; ?></option>
               <?php } ?>

@@ -4,7 +4,17 @@
   <!-- Page Header-->
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Data UKM</h2>
+      <?php 
+        $revisi_periode=$this->session->userdata('ses_periode');
+        $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
+        foreach ($queryPeriode->result() as $keyRevPeriode) {
+          if ($keyRevPeriode->id_periode==$revisi_periode) {
+            $veriode=$keyRevPeriode->th_periode;
+          }
+        }
+
+      ?>      
+      <h2 class="h5 no-margin-bottom">Data UKM <?php echo $veriode; ?></h2>
     </div>
   </div>
   <!-- Breadcrumb-->
