@@ -31,9 +31,19 @@ class Data_proker extends CI_Controller {
 		$this->load->view('admin/validasi_listSie',$paket);
 	}
 	public function validasi_jobdesk($id_proker,$id_sie){
+		$paket['help_proker']=$id_proker;
+		$paket['help_sie']=$id_sie;
 		$paket['array']=$this->mdl_data_proker->ambildata_validasi_jobdesk($id_proker,$id_sie);	
 		$this->load->view('admin/validasi_listJobdesk',$paket);
 	}
+	public function do_validasi($proker,$sie,$id_jobdesk){
+
+		$validasi=$this->input->post('status_validasi');
+		$this->mdl_data_proker->do_validasi($id_jobdesk,$validasi);	
+		redirect('admin/Data_proker/validasi_jobdesk/'.$proker."/".$sie);
+	}
+
+
 
 	public function tambahData(){
 		$this->form_validation->set_rules('nama_proker','Nama Bidang','trim|required');

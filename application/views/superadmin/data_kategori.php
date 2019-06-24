@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
       ?>      
-      <h2 class="h5 no-margin-bottom">Data Kategori <?php echo $veriode; ?></h2>
+      <h2 class="h5 no-margin-bottom">Data Kategori Jobdesk<?php echo $veriode; ?></h2>
     </div>
   </div>
   <!-- Breadcrumb-->
@@ -31,7 +31,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-lg-12">
     <div class="block">
 <!--       <div class="title"><strong>Data UKM</strong></div> -->
-      <a href="<?php echo base_url('superadmin/Data_kategori/tambahData/') ?> "><button type="button" class="btn btn_dewe space_add">Tambah Data</button></a>
       <div class="table-responsive"> 
         <table class="table table-striped table-sm" id="myTable">
           <thead>

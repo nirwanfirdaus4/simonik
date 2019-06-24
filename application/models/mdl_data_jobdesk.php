@@ -104,7 +104,12 @@ class Mdl_data_jobdesk extends CI_Model {
 	}	
 
 	public function update_status($send){
-		$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, status_jobdesk = ?, id_user = ? WHERE id_jobdesk = ?";
-		$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['status_jobdesk'],$send['id_user'], $send['id_jobdesk']));
+		if ($send['status_jobdesk']=="Sudah Dikerjakan") {
+			$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, status_jobdesk = ?, id_user = ?, validasi = ? WHERE id_jobdesk = ?";
+			$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['status_jobdesk'],$send['id_user'],"Menunggu validasi", $send['id_jobdesk']));
+		}else{
+			$sql="UPDATE tb_jobdesk SET id_jobdesk = ?, status_jobdesk = ?, id_user = ? WHERE id_jobdesk = ?";
+			$query=$this->db->query($sql, array( $send['id_jobdesk'],$send['status_jobdesk'],$send['id_user'], $send['id_jobdesk']));
+		}
 	}
 }

@@ -40,6 +40,16 @@ class Mdl_data_proker extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_jobdesk WHERE id_proker=$proker AND id_sie=$sie");
 		return $query->result_array();
 	}
+	public function do_validasi($jobdesk,$validasi)
+	{
+		if ($validasi=="Tervalidasi") {
+			$sql="UPDATE tb_jobdesk SET validasi = ?,status_jobdesk = ? WHERE id_jobdesk = ?";
+			$query=$this->db->query($sql, array( $validasi,"Sudah Dikerjakan", $jobdesk));
+		}else{
+			$sql="UPDATE tb_jobdesk SET validasi = ?,status_jobdesk = ? WHERE id_jobdesk = ?";
+			$query=$this->db->query($sql, array( $validasi,"Progres", $jobdesk));
+		}
+	}
 	public function namaProker_bph($proker)
 	{
 		$ukm=$this->session->userdata('ses_ukm');

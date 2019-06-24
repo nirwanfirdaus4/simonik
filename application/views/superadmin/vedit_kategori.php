@@ -32,7 +32,7 @@
           <input type="hidden" name="id_kategori" value="<?php echo $data[0]['id_kategori']; ?>">
           <div class="form-group">
             <label class="form-control-label">Kategori</label>
-            <input type="text" placeholder="Masukkan Nama kategori" class="form-control" name="nama_kategori" autocomplete="off" value="<?php echo $data[0]['nama_kategori'] ?>">
+            <input readonly="readonly" type="text" placeholder="Masukkan Nama kategori" class="form-control" name="nama_kategori" autocomplete="off" value="<?php echo $data[0]['nama_kategori'] ?>">
           </div>
           <div class="form-group">
             <label class="form-control-label">Nilai Kategori</label>

@@ -8,28 +8,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="page-header no-margin-bottom">
     <div class="container-fluid">
       <?php 
-        $revisi_periode=$this->session->userdata('ses_periode');
-        $revisi_ukm=$this->session->userdata('ses_ukm');
-        $revisi_proker=$this->session->userdata('ses_validasi_proker');
-        $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
-        $queryUkm=$this->db->query("SELECT * FROM tb_ukm");
-        $queryProker=$this->db->query("SELECT * FROM tb_daftar_proker");
+      $revisi_periode=$this->session->userdata('ses_periode');
+      $revisi_ukm=$this->session->userdata('ses_ukm');
+      $revisi_proker=$this->session->userdata('ses_validasi_proker');
+      $queryPeriode=$this->db->query("SELECT * FROM tb_periode");
+      $queryUkm=$this->db->query("SELECT * FROM tb_ukm");
+      $queryProker=$this->db->query("SELECT * FROM tb_daftar_proker");
 
-        foreach ($queryProker->result() as $keyProker) {
-            if ($keyProker->id_proker==$revisi_proker) {
-              $Proker=$keyProker->nama_proker;
-            }
+      foreach ($queryProker->result() as $keyProker) {
+        if ($keyProker->id_proker==$revisi_proker) {
+          $Proker=$keyProker->nama_proker;
         }
-        foreach ($queryPeriode->result() as $keyRevPeriode) {
-          if ($keyRevPeriode->id_periode==$revisi_periode) {
-            $veriode=$keyRevPeriode->th_periode;
-          }
+      }
+      foreach ($queryPeriode->result() as $keyRevPeriode) {
+        if ($keyRevPeriode->id_periode==$revisi_periode) {
+          $veriode=$keyRevPeriode->th_periode;
         }
-        foreach ($queryUkm->result() as $keyRevUkm) {
-          if ($keyRevUkm->id_ukm==$revisi_ukm) {
-            $vkm=$keyRevUkm->nama_ukm;
-          }
+      }
+      foreach ($queryUkm->result() as $keyRevUkm) {
+        if ($keyRevUkm->id_ukm==$revisi_ukm) {
+          $vkm=$keyRevUkm->nama_ukm;
         }
+      }
       ?> 
       <h2 class="h5 no-margin-bottom" style="color: #111">Validasi Proker <?php echo $Proker." Periode ".$veriode; ?></h2>
     </div>
@@ -58,42 +58,78 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </thead>
           <tbody>
             <?php $no=1; $modal=0; ?>
-            <?php foreach ($array as $key) { ?>
+            <?php foreach ($array as $key) { 
 
-              <div class="modal fade" id="myModal<?php echo $modal ?>" role="dialog">
-                <div class="modal-dialog modal-sm">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Hapus</h4>
-                    </div>
-                    <div class="modal-body">
-                      <p>Ingin hapus data?</p>
-                      <a href="<?php echo base_url('admin/Data_proker/do_delete/' . $key['id_proker']) ?>" title="Hapus Data"><button type="button" class="btn btn-primary" style="margin-left: 170px;">Hapus <i class="fa fa-trash"></i></button></a>
-                    </div>
-                    <div class="modal-footer">
+            $modal++;
+              ?>
 
-                    </div>
+             <div class="modal fade" id="myModal<?php echo $modal ?>" role="dialog">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Validasi Jobdesk</h4>
                   </div>
+                  <div class="modal-body">
+                    <form action="<?php echo base_url('admin/Data_proker/do_validasi/' .$help_proker."/".$help_sie."/". $key['id_jobdesk']) ?>" method="post" enctype="multipart/form-data">
+                     <div class="form-group" style="margin-top:25px;">                  
+                      <select name="status_validasi" class="form-control">
+                        <option value="Tervalidasi">Sudah selesai</option>                              
+                        <option value="Belum selesai">Belum selesai</option>                        
+                      </select> 
+                      <input type="submit" value="Validasi" class="btn btn_dewe_color" style="margin-top:5%;">
+                    </div>
+                  </form>
                 </div>
-              </div>   
+                <div class="modal-footer">
 
-              <tr>
-                <td style="color: #111"><?php echo $no++ ?></td>
-                <td style="color: #111"><?php echo $key['nama_jobdesk'] ?></td>
-                <td style="color: #111"><?php echo $key['file_laporan'] ?></td>
-                <td style="color: #111"><?php echo $key['status_jobdesk'] ?></td>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                <td style="color: #111">
-                  <a href="<?php echo base_url('admin/Data_proker/validasi_jobdesk/' . $key['id_jobdesk']) ?>" title="Validasi"><button type="button" class="btn btn-success"><i class="fa fa-eye"></i></button></a>
-                </td>
-              <?php } ?>
-              </tr>
+          <tr>
+            <td style="color: #111"><?php echo $no++ ?></td>
+            <td style="color: #111"><?php echo $key['nama_jobdesk'] ?></td>
+            <td style="color: #111"><?php echo $key['file_laporan'] ?></td>
+            <td style="color: #111"><?php echo $key['status_jobdesk'] ?></td>
 
-            </tbody>
-          </table>
-        </div>  
-      </div>
-    </div>
+            <?php
+            if ($key['validasi']=="Tervalidasi") {
+              $class="btn btn-success";
+              $word="Sudah validasi";
+              $v=1;
+            }elseif($key['validasi']=="Menunggu validasi"){
+              $class="btn btn_dewe2";                  
+              $word="Menunggu validasi";
+              $v=2;
+            }else{
+              $class="btn btn-danger";
+              $word="Belum selesai";
+              $v=3;
+            }
+
+            if ($v==1) { ?>
+              <td style="color: #111">
+                <button title="" type="button" class="<?php echo $class; ?>" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><?php echo $word; ?></button>
+              </td>
+            <?php }elseif($v==2){ ?>
+              <td style="color: #111">
+                <button title="" type="button" class="<?php echo $class; ?>" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><?php echo $word; ?></button>
+              </td>
+            <?php }else{ ?>
+              <td style="color: #111">
+                <button title="" type="button" class="<?php echo $class; ?>"><?php echo $word; ?></button>
+              </td>
+            <?php } ?>
+
+            <?php  } ?>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>  
   </div>
+</div>
+</div>
 
-  <?php $this->load->view('bagian/footer') ?>
+<?php $this->load->view('bagian/footer') ?>

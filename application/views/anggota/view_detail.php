@@ -81,19 +81,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <input type="hidden" name="id_jobdesk" value="<?php echo $data[0]['id_jobdesk']  ?>">
                   <div class="stats-2-block block d-flex">
                     <select name="status_jobdesk" class="form-control">
-                    <!-- <?php 
-                    // $id_jobdesk = $this->session->userdata("ses_nav_sie");
-                    // echo $id_jobdesk;
-                      // $query = $this->load->db->query("SELECT * FROM tb_jobdesk where id_jobdesk=$id_new");
-                      // foreach ($query->result() as $row_query){ ?> -->
-                        <option value="Belum Dikerjakan"<?php echo ('Belum Dikerjakan' == $data[0]['status_jobdesk'] ? 'selected="selected"' : ''); ?>>Belum Dikerjakan</option>
-                        <option value="Progres"<?php echo ('Progres' == $data[0]['status_jobdesk'] ? 'selected="selected"' : ''); ?>>Progres</option>
-                        <option value="Sudah Dikerjakan"<?php echo ('Sudah Dikerjakan' == $data[0]['status_jobdesk'] ? 'selected="selected"' : ''); ?>>Sudah Dikerjakan</option>
-                        <!-- <option value="Progres">Progress</option> -->
-                        <!-- <option value="Sudah Dikerjakan">Sudah Dikerjakan</option> -->
-                      
+                      <?php 
+                      $queryKategori=$this->db->query("SELECT * FROM kategori_lapor");
+                      foreach ($queryKategori->result() as $keyKategori){ ?>
+                        <option value="<?php echo $keyKategori->nama_kategori; ?>"<?php echo ($data[0]['status_jobdesk'] == $keyKategori->nama_kategori ? 'selected="selected"' : ''); ?>><?php echo $keyKategori->nama_kategori; ?></option>                        
+                      <?php } ?>
                     </select>
-                    <input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-left:10px;">
+                    <?php
+
+                    if ($data[0]['validasi']=="Menunggu validasi") { ?>
+                      <input type="submit" value="Proses Validasi" disabled="disabled" class="btn btn_dewe2" style="margin-left:10px;">
+                    <?php }elseif($data[0]['validasi']=="Tervalidasi"){ ?>
+                      <input type="submit" value="Tervalidasi" disabled="disabled" class="btn btn-success" style="margin-left:10px;">                      
+                    <?php }else{ ?>
+                      <input type="submit" value="Ubah" class="btn btn_dewe_color" style="margin-left:10px;">
+                    <?php } ?>                    
                   </div>
                 </form>
                 <form action="<?php echo base_url('anggota/Data_jobdesk/upload/'.$data[0]['id_jobdesk'].'/'.$ses_proker.'/'.$id_sie) ?>" method="post" enctype="multipart/form-data">

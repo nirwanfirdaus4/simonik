@@ -91,7 +91,7 @@ class Proker extends CI_Controller {
 		$this->session->set_userdata('ses_nav_proker',$nav_ses);
 		$paket['array']=$this->mdl_data_panitia->ambildata();			
 		$this->load->view('anggota/index',$paket);
-	}
+	} 
 
 	public function index_detail($id,$proker,$sie){  
 		$indexrow['id_new']=$id;

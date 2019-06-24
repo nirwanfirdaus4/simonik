@@ -207,11 +207,11 @@ class Data_jobdesk extends CI_Controller {
 			$send['id_jobdesk']=$this->input->post('id_jobdesk');
 			$send['id_user']=$this->session->userdata('ses_id_user');
 			$send['status_jobdesk']=$this->input->post('status_jobdesk');
-
 			$kembalian['jumlah']=$this->mdl_data_jobdesk->update_status($send);
 			$this->session->set_flashdata('msg_update', 'Data Berhasil diupdate');
-			$indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_update_status);
-			$this->load->view('anggota/view_detail', $indexrow);
+			// $indexrow['data']=$this->mdl_data_jobdesk->ambildata2($id_update_status);
+			// $this->load->view('anggota/view_detail', $indexrow);
+			redirect('anggota/Proker/index_detail/'.$send['id_jobdesk']."/".$proker.'/'.$sie);
 		}
 	}
 
