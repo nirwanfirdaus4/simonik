@@ -68,8 +68,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td><?php echo $key['nilai'] ?></td>
                 <td>
                   <a href="<?php echo base_url('superadmin/Data_kategori/edit/' . $key['id_kategori']) ?>" title="Edit Data"><button type="button" class="btn btn-success"><i class="fa fa-edit"></i></button></a>
-                  <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
-                  </td>
+                  <!-- <button title="Hapus Data" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"><i class="fa fa-trash"></i></button>
+                   --></td>
                </tr>
                             
              <?php $modal++; } ?>
