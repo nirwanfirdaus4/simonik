@@ -86,6 +86,7 @@
                     <li><a href="<?php echo base_url('admin/Data_bidang/') ?>"> <i class="icon-grid"></i>Data Bidang </a></li> 
                     <li><a href="<?php echo base_url('admin/Data_proker/') ?>"> <i class="fa fa-bar-chart"></i>Data Program Kerja </a></li>
                     <li><a href="<?php echo base_url('admin/Data_proker/validasi') ?>"> <i class="icon-grid"></i>Validasi Jobdesk </a></li> 
+                    <li><a href="<?php echo base_url('admin/Data_rekap_evaluasi/') ?>"> <i class="fa fa-wpforms"></i>Rekap Data Evaluasi </a></li>
                     <li><a href="<?php echo base_url('admin/Data_sie/') ?>"> <i class="fa fa-wpforms"></i>Data Sie </a></li>
             </nav>               
           <?php  }elseif ($this->session->userdata('ses_id_type_user') == 3) { ?>
