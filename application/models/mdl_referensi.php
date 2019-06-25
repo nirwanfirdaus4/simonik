@@ -13,7 +13,8 @@ class Mdl_referensi extends CI_Model {
 	{
 		$query=$this->db->query("SELECT * FROM tb_periode");
 		return $query->result_array();
-	} 
+	}
+
 	public function ambildata($periode)
 	{
 		$ukm=$this->session->userdata('ses_ukm');
@@ -25,10 +26,6 @@ class Mdl_referensi extends CI_Model {
 				$bidang=$key_bidang->id_bidang;
 			}
 		}
-		// echo "periode = ".$periode."<br>";
-		// echo "bidang = ".$bidang."<br>";
-		// echo "ukm = ".$ukm."<br>";
-		// echo "id-user = ".$id_user."<br>";
 		$query=$this->db->query("SELECT * FROM tb_file_backup where id_periode=$periode AND id_ukm=$ukm AND id_bidang=$bidang");
 		return $query->result_array();
 	}

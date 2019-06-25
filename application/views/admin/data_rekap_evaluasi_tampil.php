@@ -3,7 +3,7 @@
 <div class="page-content">
   <div class="page-header">
     <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom" style="color: #111">Rekap Data Evaluai Proker</h2>
+      <h2 class="h5 no-margin-bottom">Rekap Data evaluasi</h2>
     </div>
   </div>
   <section class="no-padding-bottom">
@@ -43,8 +43,40 @@
               </div>
             </div>
           </div>
+        </div>  
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-12">
+            <div class="block">
 
-        </div>    
+              <div class="table-responsive"> 
+                <table class="table table-striped table-sm" id="myTable">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Sie</th>
+                      <th>Detail</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                    <?php $no=1; $modal=0; ?>
+                    <?php foreach ($array_eval as $key) { 
+                      ?>   
+
+                      <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $key['nama_sie']; ?></td>
+                        <td><a href="<?php echo base_url('admin/Data_rekap_evaluasi/tampilEval/' . $key['id_sie']) ?>" title=""><button type="button" class="btn btn-success"><i class="fa fa-eye"></i></button></a></td>
+                        
+                        <?php $modal++; }?>
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>  
+              </div>
+            </div>
+          </div>         
         </div>
       </div>
     </section>

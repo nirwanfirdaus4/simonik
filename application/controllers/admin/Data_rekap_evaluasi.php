@@ -18,6 +18,19 @@ class Data_rekap_evaluasi extends CI_Controller {
 		$paket['array']=$this->mdl_rekap_evaluasi->ambildata();	
 		$this->load->view('admin/data_rekap_evaluasi',$paket);
 	}
+	public function tampil()
+	{
+		$proker=$this->input->post('nm_rekap');
+		if ($proker=='zero') {
+			// $this->load->view('admin/data_rekap_evaluasi',$paket);
+			// $paket['array']=$this->mdl_rekap_evaluasi->ambildata();
+			redirect('admin/Data_rekap_evaluasi/');
+		}else{			
+			$paket['array']=$this->mdl_rekap_evaluasi->ambildata();			
+			$paket['array_eval']=$this->mdl_rekap_evaluasi->revisi_ambildataRekap($proker);
+			$this->load->view('admin/data_rekap_evaluasi_tampil',$paket);
+		}
+	}
 
 	public function tambahData(){
 		$this->form_validation->set_rules('nama_bidang','Nama Bidang','trim|required');

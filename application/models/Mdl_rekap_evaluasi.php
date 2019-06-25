@@ -22,6 +22,12 @@ class Mdl_rekap_evaluasi extends CI_Model {
 		$query_proker=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm AND id_periode=$periode");
 		return $query_proker->result_array();
 	}
+	public function revisi_ambildataRekap()
+	{
+		$ukm=$this->session->userdata('ses_ukm');
+		$query=$this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
+		return $query->result_array();	
+	}
 
 	public function ambildata_proker($periode) 
 	{
