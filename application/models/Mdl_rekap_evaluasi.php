@@ -28,6 +28,11 @@ class Mdl_rekap_evaluasi extends CI_Model {
 		$query=$this->db->query("SELECT * FROM tb_sie where id_ukm=$ukm");
 		return $query->result_array();	
 	}
+	public function revisi_ambildataRekapEval($sie)
+	{
+		$query=$this->db->query("SELECT * FROM tb_evaluasi where id_sie=$sie");
+		return $query->result_array();	
+	}
 
 	public function ambildata_proker($periode) 
 	{
@@ -54,9 +59,6 @@ class Mdl_rekap_evaluasi extends CI_Model {
 		return $query->result_array();
 	}
 
-
-
-
 	public function anggota_ambildata($periode,$proker)
 	{
 		$ukm=$this->session->userdata('ses_ukm');
@@ -66,5 +68,13 @@ class Mdl_rekap_evaluasi extends CI_Model {
 		return $query->result_array();
 
 	}
-
+	public function tambahdata($paket)
+		{
+			$this->db->insert('tb_evaluasi', $paket);
+			return $this->db->affected_rows();
+		}	
+	public function revisi_updateRekapEval($id_evaluasi,$hasil_evaluasi){
+		$sql="UPDATE tb_evaluasi SET hasil_evaluasi = ? WHERE id_evaluasi = ?";
+		$query=$this->db->query($sql, array($hasil_evaluasi,$id_evaluasi));
+	}
 }

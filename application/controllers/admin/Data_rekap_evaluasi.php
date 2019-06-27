@@ -26,10 +26,47 @@ class Data_rekap_evaluasi extends CI_Controller {
 			// $paket['array']=$this->mdl_rekap_evaluasi->ambildata();
 			redirect('admin/Data_rekap_evaluasi/');
 		}else{			
+			$this->session->set_userdata('ses_revisiProker',$proker);
 			$paket['array']=$this->mdl_rekap_evaluasi->ambildata();			
 			$paket['array_eval']=$this->mdl_rekap_evaluasi->revisi_ambildataRekap($proker);
 			$this->load->view('admin/data_rekap_evaluasi_tampil',$paket);
 		}
+	}
+	public function tampilEval($sie)
+	{
+			$evaluasi_cek=$this->db->query("SELECT * FROM tb_evaluasi WHERE id_sie=$sie");
+
+			if ($evaluasi_cek->num_rows()>0) {
+				$paket['status']=1;
+			}else{
+				$paket['status']=0;
+			}
+			$paket['revisi_idSie']=$sie;
+			$paket['array_eval']=$this->mdl_rekap_evaluasi->revisi_ambildataRekapEval($sie);
+			$this->load->view('admin/data_rekap_evaluasi_tampilEval',$paket);
+	}
+	public function updateEvaluasi($sie){
+
+		$evaluasi_cek=$this->db->query("SELECT * FROM tb_evaluasi WHERE id_sie=$sie");
+
+		if ($evaluasi_cek->num_rows()>0) {
+			$id_evaluasi=$this->input->post('id_evaluasi');		
+			$hasil_evaluasi=$this->input->post('hasil_evaluasi');		
+			$evaluasi_cek=$this->db->query("SELECT * FROM tb_evaluasi WHERE id_evaluasi=$id_evaluasi");
+
+			$this->mdl_rekap_evaluasi->revisi_updateRekapEval($id_evaluasi,$hasil_evaluasi);
+			redirect('admin/Data_rekap_evaluasi/tampilEval/'.$sie);
+		}else{
+			$send['id_proker']=$this->session->userdata('ses_revisiProker');
+			$send['id_sie']=$sie;
+			$send['id_ukm']=$this->session->userdata('ses_ukm');
+			$send['id_periode']=$this->session->userdata('ses_periode');
+			$send['hasil_evaluasi']=$this->input->post('hasil_evaluasi');
+
+			$this->mdl_rekap_evaluasi->tambahdata($send);
+			redirect('admin/Data_rekap_evaluasi/tampilEval/'.$sie);
+		}
+
 	}
 
 	public function tambahData(){
