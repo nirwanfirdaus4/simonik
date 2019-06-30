@@ -14,9 +14,20 @@ class Mdl_data_ukm extends CI_Model {
 				$query=$this->db->query("SELECT * FROM tb_ukm");
 				return $query->result_array();
 		}
+	public function ambildata_prokerUkm()
+		{
+				$ukm=$this->session->userdata('ses_ukm');
+				$query=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm=$ukm");
+				return $query->result_array();
+		}
 	public function ambildata_kategori()
 		{
 				$query=$this->db->query("SELECT * FROM kategori_lapor");
+				return $query->result_array();
+		}
+	public function ambildata_lpj($id_ukm)
+		{
+				$query=$this->db->query("SELECT * FROM tb_daftar_proker where id_ukm =$id_ukm");
 				return $query->result_array();
 		}
 
@@ -35,6 +46,17 @@ class Mdl_data_ukm extends CI_Model {
 		{
 			$this->db->insert('tb_ukm', $paket);
 			return $this->db->affected_rows();
+		}
+	public function upload_lpj($paket)
+		{
+			// if ($akses==0) {
+				$this->db->insert('tb_lpj', $paket);
+			// return $this->db->affected_rows();
+			// }else{
+			// 	// $sql="UPDATE tb_lpj SET file = ? WHERE id_proker = ?";
+			// 	// $query=$this->db->query($sql, array( $send['file'], $akses));				
+			// 	echo $akses;
+			// }
 		}
 	public function tambahdata_kategori($paket)
 		{
@@ -77,6 +99,14 @@ class Mdl_data_ukm extends CI_Model {
 	public function modelupdate($send){
 		$sql="UPDATE tb_ukm SET nama_ukm = ? WHERE id_ukm = ?";
 		$query=$this->db->query($sql, array( $send['nama_ukm'], $send['id_ukm']));
+	}
+	public function validasi_lpj($proker){
+		$sql="UPDATE tb_lpj SET status_file = ? WHERE id_proker = ?";
+		$query=$this->db->query($sql, array( "Tervalidasi", $proker));
+	}
+	public function tolak_lpj($proker,$isi){
+		$sql="UPDATE tb_lpj SET status_file = ?, file = ?, revisi = ? WHERE id_proker = ?";
+		$query=$this->db->query($sql, array( "Revisi","", $isi, $proker));
 	}
 	public function modelupdate_kategori($send){
 		$sql="UPDATE kategori_lapor SET nama_kategori = ?, nilai = ? WHERE id_kategori = ?";

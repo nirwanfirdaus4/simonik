@@ -48,6 +48,18 @@
                       } ?> 
                     </ul>
                   </li>
+                  <li><a href="#exampledropdownDropdown7" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Data LPJ </a>
+                    <ul id="exampledropdownDropdown7" class="collapse list-unstyled ">
+                      <?php
+                      $query=$this->db->query("SELECT * FROM tb_ukm");;
+                      foreach($query->result() as $row_ukm)  { 
+                        $ukm_id=$row_ukm->id_ukm;
+                        ?>                    
+                        <li><a href="<?php echo base_url('superadmin/Data_lpj/lpj/'.$ukm_id) ?>"><?php echo $row_ukm->nama_ukm; ?></a></li>
+                        <?php
+                      } ?> 
+                    </ul>
+                  </li>
                   <li style=" visibility: hidden;"><a href="<?php echo base_url('superadmin/Data_periode/') ?>"> end </a></li>
                 </nav>
 
@@ -88,6 +100,8 @@
                     <li><a href="<?php echo base_url('admin/Data_proker/validasi') ?>"> <i class="icon-grid"></i>Validasi Jobdesk </a></li> 
                     <li><a href="<?php echo base_url('admin/Data_rekap_evaluasi/') ?>"> <i class="fa fa-wpforms"></i>Rekap Data Evaluasi </a></li>
                     <li><a href="<?php echo base_url('admin/Data_sie/') ?>"> <i class="fa fa-wpforms"></i>Data Sie </a></li>
+                    <li><a href="<?php echo base_url('admin/Data_lpj/') ?>"> <i class="fa fa-wpforms"></i>Data LPJ </a></li>
+                    <li><a href="<?php echo base_url('admin/Welcome') ?>"></a></li>
             </nav>               
           <?php  }elseif ($this->session->userdata('ses_id_type_user') == 3) { ?>
             <nav id="sidebar">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2019 at 07:49 AM
+-- Generation Time: Jul 01, 2019 at 12:05 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -131,6 +131,13 @@ CREATE TABLE `tb_evaluasi` (
   `id_sie` int(5) NOT NULL,
   `hasil_evaluasi` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_evaluasi`
+--
+
+INSERT INTO `tb_evaluasi` (`id_evaluasi`, `id_ukm`, `id_periode`, `id_proker`, `id_sie`, `hasil_evaluasi`) VALUES
+(4, 37, 2, 9, 218, '<p>cssssssasdadxa</p>');
 
 -- --------------------------------------------------------
 
@@ -267,6 +274,30 @@ INSERT INTO `tb_jobdesk` (`id_jobdesk`, `id_ukm`, `id_proker`, `id_sie`, `nama_j
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_lpj`
+--
+
+CREATE TABLE `tb_lpj` (
+  `id_lpj` int(5) NOT NULL,
+  `id_proker` int(5) NOT NULL,
+  `id_ukm` int(5) NOT NULL,
+  `id_periode` int(5) NOT NULL,
+  `file` varchar(100) NOT NULL,
+  `status_file` varchar(50) NOT NULL,
+  `revisi` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_lpj`
+--
+
+INSERT INTO `tb_lpj` (`id_lpj`, `id_proker`, `id_ukm`, `id_periode`, `file`, `status_file`, `revisi`) VALUES
+(9, 9, 37, 2, 'Document_LPJ1561895549.pdf', 'Tervalidasi', ''),
+(10, 12, 37, 2, 'Document_LPJ1561932157.pdf', 'Menunggu validasi', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_notifikasi`
 --
 
@@ -303,7 +334,11 @@ INSERT INTO `tb_notifikasi` (`id_notifikasi`, `tipe_notifikasi`, `id_jobdesk`, `
 (231, 'website', 40, 9, 220, 'Membuat Anggaran Dana yang Dibutuhkan', 146, 'http://localhost/simonik/anggota/Proker/index_detail/40/9/220', '0', '2019-06-23 16:47:37'),
 (232, 'website', 41, 9, 220, 'Membuat List Perlengkapan', 146, 'http://localhost/simonik/anggota/Proker/index_detail/41/9/220', '0', '2019-06-23 16:47:37'),
 (233, 'website', 42, 9, 220, 'Membuat Juklak Juknis', 146, 'http://localhost/simonik/anggota/Proker/index_detail/42/9/220', '0', '2019-06-24 00:25:20'),
-(234, 'website', 45, 9, 221, 'Mengkoordinir pengeluaran tiap sie (disertai nota)', 156, 'http://localhost/simonik/anggota/Proker/index_detail/45/9/221', '0', '2019-06-24 00:25:20');
+(234, 'website', 45, 9, 221, 'Mengkoordinir pengeluaran tiap sie (disertai nota)', 156, 'http://localhost/simonik/anggota/Proker/index_detail/45/9/221', '0', '2019-06-24 00:25:20'),
+(235, 'website', 42, 9, 220, 'Membuat Juklak Juknis', 146, 'http://localhost/simonik/anggota/Proker/index_detail/42/9/220', '0', '2019-06-25 06:48:21'),
+(236, 'website', 45, 9, 221, 'Mengkoordinir pengeluaran tiap sie (disertai nota)', 156, 'http://localhost/simonik/anggota/Proker/index_detail/45/9/221', '0', '2019-06-25 06:48:21'),
+(237, 'website', 33, 9, 218, 'Mengontrol Anggota', 145, 'http://localhost/simonik/anggota/Proker/index_detail/33/9/218', '0', '2019-06-30 06:51:17'),
+(238, 'website', 48, 9, 222, 'Meminta list perlengkapan tiap-tiap sie', 151, 'http://localhost/simonik/anggota/Proker/index_detail/48/9/222', '0', '2019-06-30 06:51:17');
 
 -- --------------------------------------------------------
 
@@ -728,6 +763,12 @@ ALTER TABLE `tb_jobdesk`
   ADD PRIMARY KEY (`id_jobdesk`);
 
 --
+-- Indexes for table `tb_lpj`
+--
+ALTER TABLE `tb_lpj`
+  ADD PRIMARY KEY (`id_lpj`);
+
+--
 -- Indexes for table `tb_notifikasi`
 --
 ALTER TABLE `tb_notifikasi`
@@ -802,7 +843,7 @@ ALTER TABLE `tb_daftar_proker`
 -- AUTO_INCREMENT for table `tb_evaluasi`
 --
 ALTER TABLE `tb_evaluasi`
-  MODIFY `id_evaluasi` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_evaluasi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_file_backup`
@@ -817,10 +858,16 @@ ALTER TABLE `tb_jobdesk`
   MODIFY `id_jobdesk` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
+-- AUTO_INCREMENT for table `tb_lpj`
+--
+ALTER TABLE `tb_lpj`
+  MODIFY `id_lpj` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `tb_notifikasi`
 --
 ALTER TABLE `tb_notifikasi`
-  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
+  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `tb_panitia_proker`
