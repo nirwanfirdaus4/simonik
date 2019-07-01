@@ -51,8 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               $revisi="";
               $status_file="";
               $word="Ajukan LPJ";
-              $class="btn btn_dewe2";
-              $class2="btn btn-warning";
+              $class="btn btn_dewe7";
+              $class2="btn btn_dewe2";
               $class3="btn btn-success";
               ?>
               <!-- MODAL -->
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if ($status_file=="Revisi") {
                   echo "Revisi";
                 }else{
-                  echo $file; 
+                  echo ($file != '' ? "<a class='f_color3' target='blank' href='" . base_url('upload/berkas_laporan/' . $file) . "'>".$file. "</a>" : "Belum ada laporan"); 
                 }
              }
 
@@ -130,8 +130,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
               </div>
             </div>
-
-           <td><button title="" type="button" class="<?php echo $class3; ?>" data-toggle="modal" data-target="#myModalView<?php echo $modal ?>"><i class="fa fa-eye"></i></button></td>
+            <?php
+              if ($revisi!="") { ?>
+                 <td><button title="" type="button" class="<?php echo $class3; ?>" data-toggle="modal" data-target="#myModalView<?php echo $modal ?>"><i class="fa fa-eye"></i></button></td>
+              <?php }else{ ?>
+                 <td><button disabled="disabled" title="" type="button" class="<?php echo $class3; ?>" data-toggle="modal" data-target="#myModalView<?php echo $modal ?>"><i class="fa fa-eye"></i></button></td>
+              <?php }
+            ?>
 
            <td style="color: #111">
             <?php

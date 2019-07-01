@@ -7,6 +7,25 @@
 	background-color: #2980B9;
 	color: #ffff;
 }
+.f_color{
+	color: #2ecc71 !important;
+}
+.f_color2{
+	color: #e74c3c !important;
+}
+.f_color3{
+	color: #9b59b6 !important;
+}
+
+.btn_dewe7{
+	background-color: #3498DB;
+	color: #ffff;
+}
+.btn_dewe7:hover{
+	background-color: #2980B9;
+	color: #ffff;
+}
+
 .btn_dewe2{
 	background-color: #f39c12;
 	color: #ffff;

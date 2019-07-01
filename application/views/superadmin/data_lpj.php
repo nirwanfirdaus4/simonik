@@ -109,10 +109,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   }
 
                   if ($lpj!="") { ?>
-                    <p><?php echo $lpj; ?></p>
+                    <p><?php
+                        echo ($lpj != '' ? "<a target='blank' class='f_color3' href='" . base_url('upload/berkas_laporan/' . $lpj) . "'>".$lpj. "</a>" : "Belum ada laporan");
+                      ?>
+                    </p>
 
                     <?php if ($status_file!="Tervalidasi") { ?>
-                      <label><a href="" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"> Validasi</a> | <a href="" data-toggle="modal" data-target="#myModalT<?php echo $modal ?>">Revisi</a></label>
+                      <label><a class="f_color" href="" data-toggle="modal" data-target="#myModal<?php echo $modal ?>"> Validasi</a> | <a class="f_color2" href="" data-toggle="modal" data-target="#myModalT<?php echo $modal ?>">Revisi</a></label>
                     <?php }else{
 
                           }
@@ -125,11 +128,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <?php
 
                   if ($status_file=="Tervalidasi") { ?>
-                    <a href="<?php echo base_url('superadmin/Data_lpj/reminder/' . $key['id_proker']) ?>" title=""><button type="button" class="btn btn-success"><i class="fa fa-check"></i> Tervalidasi</button></a>
+                    <button type="button" class="btn btn-success"><i class="fa fa-check"></i> Tervalidasi</button>
                   <?php }elseif ($status_file=="Menunggu validasi") { ?>
-                    <a" href="<?php echo base_url('superadmin/Data_lpj/reminder/' . $key['id_proker']) ?>" title=""><button type="button" class="btn btn-warning"><i class="fa fa-envelope"></i> Menunggu validasi</button></a>
+                    <button type="button" class="btn btn_dewe2">Menunggu validasi</button>
                   <?php }else{ ?>
-                   <a href="<?php echo base_url('superadmin/Data_lpj/reminder/' . $key['id_proker']) ?>" title="Send email"><button type="button" class="btn btn-success"><i class="fa fa-envelope"></i> Kirim pengingat</button></a>                   
+                   <a href="<?php echo base_url('superadmin/Data_lpj/reminder/' . $key['id_proker']) ?>" title="Send email"><button type="button" class="btn btn_dewe7"><i class="fa fa-envelope"></i> Kirim pengingat</button></a>                   
                  <?php }
 
                  ?>
